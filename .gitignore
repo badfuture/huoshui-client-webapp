@@ -1,9 +1,5 @@
 node_modules
-app/styles/semantic/tasks
-app/styles/semantic/dist/themes/default/assets
-!app/styles/semantic/dist/semantic.min.css
-!app/styles/semantic/dist/semantic.min.js
 babel_cache
-dist
+./dist
 *.log
 .DS_Store
