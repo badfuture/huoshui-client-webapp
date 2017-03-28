@@ -1,5 +1,5 @@
 node_modules
 babel_cache
-./dist
+logs
 *.log
 .DS_Store
