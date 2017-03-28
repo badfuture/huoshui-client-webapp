@@ -1,7 +1,5 @@
 import React, {PropTypes} from 'react'
 import {Container, Grid, Divider, Segment, Button, Card} from 'semantic-ui-react'
-import ModalBasic from './ModalBasic'
-import ModalSize from './ModalSize'
 import CardExample from './CardExample'
 import CardFeed from './CardFeed'
 
@@ -10,7 +8,6 @@ class PageHome extends React.Component {
   render(){
     return (
       <div>
-
         <Container>
           <CardExample/>
         </Container>

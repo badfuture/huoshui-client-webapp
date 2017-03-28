@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { Sidebar, Segment, Button, Menu, Image, Icon, Header } from 'semantic-ui-react'
+import { Sidebar, Segment, Button, Menu, Image, Icon, Header, Divider } from 'semantic-ui-react'
+import {Link} from 'react-router-dom'
 
 class SidebarLeft extends Component {
 
@@ -10,7 +11,7 @@ class SidebarLeft extends Component {
           <Sidebar
             as={Menu}
             animation='overlay' direction='left'
-            width='wide'
+            width='thin'
             visible={this.props.leftSidebarVisible}
             icon='labeled'
             vertical>
@@ -22,17 +23,17 @@ class SidebarLeft extends Component {
                       style={{margin: '0px'}}/>
               </Button>
             </Menu.Item>
-            <Menu.Item name='list'>
-              <Icon name='list' />
-              我的课列
-            </Menu.Item>
-            <Menu.Item name='write'>
+            <Menu.Item name='my-review'>
               <Icon name='write' />
-              我的课评
+              <Link to="/my-review">我的课评</Link>
+            </Menu.Item>
+            <Menu.Item name='my-kelist'>
+              <Icon name='list' />
+              <Link to="/my-kelist">我的课列</Link>
             </Menu.Item>
             <Menu.Item name='address book outline'>
               <Icon name='address book outline' />
-              我的老师
+              <Link to="/my-teacher">我的老师</Link>
             </Menu.Item>
             <Menu.Item name='comments'>
               <Icon name='comments' />
@@ -40,7 +41,11 @@ class SidebarLeft extends Component {
             </Menu.Item>
             <Menu.Item name='setting'>
               <Icon name='setting' />
-              我的设置
+              <Link to="/my-setting">我的设置</Link>
+            </Menu.Item>
+            <Menu.Item name='About Us'>
+              <Icon name='qrcode' />
+              关于我们
             </Menu.Item>
           </Sidebar>
           <Sidebar.Pusher>
