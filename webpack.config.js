@@ -1,69 +1,89 @@
-const path = require('path');
-const webpack = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const CopyWebpackPlugin= require('copy-webpack-plugin');
+const path = require('path')
+const webpack = require('webpack')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 
-const src_dir = path.resolve(__dirname, './app');
-const dist_dir = path.resolve(__dirname, './dist');
-const semantic_dir = path.resolve(src_dir, './styles/semantic/dist/');
-const image_dir = path.resolve(src_dir, './images/');
-const dist_image_dir = path.resolve(dist_dir, './images/');
-const vendor_dir = path.resolve(dist_dir, './vendor/');
+const srcDir = path.resolve(__dirname, './app')
+const distDir = path.resolve(__dirname, './dist')
+const semanticDir = path.resolve(srcDir, './styles/semantic/dist/')
+const semanticTheme = path.resolve(semanticDir, './themes')
+const semanticCSS = path.resolve(semanticDir, './semantic.min.css')
+const imageDir = path.resolve(srcDir, './images/')
+const distImgDir = path.resolve(distDir, './images/')
+const vendorDir = path.resolve(distDir, './vendor/')
 
 const config = {
   entry: [
-    './app/index.js'
+    './app/index.jsx',
   ],
   output: {
-    filename: "huoshui.js",
-    path: dist_dir
+    filename: 'huoshui.js',
+    path: distDir,
   },
   devServer: {
-    contentBase: path.join(__dirname, "dist"),
+    contentBase: path.join(__dirname, 'dist'),
     compress: true,
     hot: true,
     inline: true,
     historyApiFallback: true,
-    port: 8080
+    port: 8080,
   },
   devtool: 'cheap-module-eval-source-map',
+  resolve: {
+    extensions: ['*', '.js', '.jsx'],
+  },
   module: {
     rules: [
       {
         test: /\.(js|jsx)$/,
-        include: src_dir,
-        use: ['react-hot-loader', 'babel-loader']
+        include: srcDir,
+        enforce: 'pre',
+        use: {
+          loader: 'eslint-loader',
+          options: { emitWarning: true },
+        },
       },
       {
-        test: /\.css$/,
-        include: src_dir,
+        test: /\.(js|jsx)$/,
+        include: srcDir,
+        use: ['react-hot-loader', 'babel-loader'],
+      },
+      {
+        test: /\.(css|scss)$/,
+        include: srcDir,
         use: ExtractTextPlugin.extract({
-          fallback: {
-            loader: 'style-loader'
-          },
-          use: {
+          use: [{
             loader: 'css-loader',
-            options: { modules: false }
-          }
-        })
-      }
-    ]
+            options: { modules: true },
+          },
+          {
+            loader: 'sass-loader',
+          }],
+          fallback: {
+            loader: 'style-loader',
+          },
+        }),
+      },
+    ],
   },
   plugins: [
-    //new webpack.optimize.UglifyJsPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new CopyWebpackPlugin([
-        {from: semantic_dir, to: vendor_dir, force: true},
-        {from: image_dir, to: dist_image_dir, force: true}
+        { from: semanticTheme, to: vendorDir, force: true },
+        { from: semanticCSS, to: vendorDir, force: true },
+        { from: imageDir, to: distImgDir, force: true },
     ]),
-    new ExtractTextPlugin("styles.css"),
+    new ExtractTextPlugin({
+      filename: 'style.css',
+      disable: process.env.NODE_ENV === 'development',
+    }),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'app/index.html'),
       filename: 'index.html',
-      inject: 'body'
-    })
-  ]
-};
+      inject: 'body',
+    }),
+  ],
+}
 
-module.exports = config;
+module.exports = config
