@@ -83,6 +83,11 @@ const config = {
       filename: 'index.html',
       inject: 'body',
     }),
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: JSON.stringify('production'),
+      },
+    }),
     new webpack.optimize.UglifyJsPlugin({
       compressor: {
         warnings: false,
