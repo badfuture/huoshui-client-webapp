@@ -1,19 +1,21 @@
 // a simple static file server
-const express = require('express');
-const path = require('path');
-const app = express();
+const express = require('express')
+const path = require('path')
+const compression = require('compression')
 
-app.set('port', 10084);
+const app = express()
+app.use(compression())
+app.set('port', 10084)
 
 // serve static assets
-app.use(express.static(path.join(__dirname, 'dist')));
+app.use(express.static(path.join(__dirname, 'dist')))
 
 // Handles all routes to avoid found error
-app.get('*', function (request, response){
-    response.sendFile(path.resolve(__dirname, 'dist', 'index.html'))
+app.get('*', (request, response) => {
+  response.sendFile(path.resolve(__dirname, 'dist', 'index.html'))
 })
 
-var server = app.listen(app.get('port'), function() {
-  var port = server.address().port;
-  console.log('huoshui webapp started at ' + port);
-});
+const server = app.listen(app.get('port'), () => {
+  const port = server.address().port
+  console.log(`huoshui webapp started at ${port}`)
+})

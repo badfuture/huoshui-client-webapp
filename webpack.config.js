@@ -29,7 +29,7 @@ const config = {
     historyApiFallback: true,
     port: 8080,
   },
-  devtool: 'cheap-module-eval-source-map',
+  devtool: 'source-map',
   resolve: {
     extensions: ['*', '.js', '.jsx'],
   },
@@ -82,6 +82,11 @@ const config = {
       template: path.resolve(__dirname, 'app/index.html'),
       filename: 'index.html',
       inject: 'body',
+    }),
+    new webpack.optimize.UglifyJsPlugin({
+      compressor: {
+        warnings: false,
+      },
     }),
   ],
 }

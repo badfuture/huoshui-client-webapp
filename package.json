@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "dev": "webpack-dev-server",
-    "prod": "webpack",
-    "build": "webpack"
+    "build": "webpack",
+    "deploy:dev": "pm2 deploy pm2.config.js dev",
+    "deploy:prod": "pm2 deploy pm2.config.js prod"
   },
   "repository": {
     "type": "git",
@@ -45,6 +46,7 @@
   "dependencies": {
     "axios": "^0.15.3",
     "express": "^4.15.2",
+    "compression": "^1.6.2",
     "lodash": "^4.17.4",
     "react": "^15.4.2",
     "react-css-modules": "^4.1.0",
