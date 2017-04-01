@@ -1,0 +1,26 @@
+{
+  "name": "huoshui-client-webapp",
+  "version": "2.0.0",
+  "description": "huoshui 2.0 web client",
+  "main": "index.js",
+  "scripts": {
+    "deploy:dev:setup": "pm2 deploy pm2.config.js dev setup",
+    "deploy:dev": "pm2 deploy pm2.config.js dev",
+    "deploy:prod:setup": "pm2 deploy pm2.config.js prod setup",
+    "deploy:prod": "pm2 deploy pm2.config.js prod"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/badfuture/huoshui-client-webapp.git"
+  },
+  "author": "Ze Cheng",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/badfuture/huoshui-client-webapp/issues"
+  },
+  "homepage": "https://github.com/badfuture/huoshui-client-webapp#readme",
+  "dependencies": {
+    "express": "^4.15.2",
+    "compression": "^1.6.2"
+  }
+}
