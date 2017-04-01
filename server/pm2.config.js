@@ -37,7 +37,7 @@ module.exports = {
       ref: 'origin/master',
       repo: 'https://github.com/badfuture/huoshui-client-webapp.git',
       path: '/home/ubuntu/huoshui_client_webapp',
-      'post-deploy': 'npm install && pm2 startOrRestart pm2.config.js --env dev',
+      'post-deploy': 'cd server && npm install && pm2 startOrRestart pm2.config.js --env dev',
       env: {
         NODE_ENV: 'development',
       },
@@ -48,7 +48,7 @@ module.exports = {
       ref: 'origin/master',
       repo: 'https://github.com/badfuture/huoshui-client-webapp.git',
       path: '/root/huoshui_client_webapp',
-      'post-deploy': 'npm install && pm2 startOrRestart pm2.config.js --env prod',
+      'post-deploy': 'cd server && npm install && pm2 startOrRestart pm2.config.js --env prod',
       env: {
         NODE_ENV: 'production',
       },
