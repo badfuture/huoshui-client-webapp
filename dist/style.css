@@ -74,6 +74,10 @@ footer {
 footer p {
   line-height: 1.2em;
   margin: 0 0 1em 0; }
+._3HMvpPbeh88pz83-M9IOAh {
+  width: 100%; }
+  ._3HMvpPbeh88pz83-M9IOAh > div:first-of-type {
+    width: 100%; }
 .uxiKrHYSQynilDopG4NS- {
   margin: 0 auto;
   max-width: 800px;
@@ -88,5 +92,11 @@ footer p {
 .uxiKrHYSQynilDopG4NS- h2 {
   font-size: 2em;
   font-weight: bold; }
+.Ndb75DIxPnWtkqW9sfFL7 {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15) !important;
+  transition: box-shadow 0.2s ease-in-out !important; }
+
+.Ndb75DIxPnWtkqW9sfFL7:hover {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3) !important; }
 
 /*# sourceMappingURL=style.css.map*/

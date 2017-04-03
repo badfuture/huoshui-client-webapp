@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react'
-import { Menu, Input, Button, Icon, Popup, Image } from 'semantic-ui-react'
+import { Menu, Button, Icon, Popup, Image } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
+import SearchExample from '../search/SearchExample'
 
 const propTypes = {
   onToggleLeftSidebar: PropTypes.func.isRequired,
@@ -38,10 +39,10 @@ const MenuHeader = props => (
       <Link to="/categories">逛逛</Link>
     </Menu.Item>
     <Menu.Item name="swiss knife">
-      <Link to="/swiss">瑞士刀</Link>
+      <a target="_blank" rel="noopener noreferrer" href="http://wangzhe.cloud/swjtu">瑞士刀</a>
     </Menu.Item>
-    <Menu.Item>
-      <Input size="large" className="icon" icon="search" iconPosition="left" placeholder=" 搜索 ..." />
+    <Menu.Item name="search" id="header-search" style={{ width: '35%' }}>
+      <SearchExample />
     </Menu.Item>
 
     <Menu.Menu position="right">

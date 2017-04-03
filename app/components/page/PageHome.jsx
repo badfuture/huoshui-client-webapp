@@ -4,8 +4,10 @@ import CardExample from '../card/CardExample'
 import CardFeed from '../card/CardFeed'
 import StatSite from '../stat/StatSite'
 
+
 const PageHome = () => (
   <div>
+
     <Container>
       <StatSite />
     </Container>
