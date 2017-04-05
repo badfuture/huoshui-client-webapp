@@ -48,6 +48,7 @@ export default class SearchExampleStandard extends Component {
         results={results}
         value={value}
         className={styles.searchInput}
+        placeholder="教师姓名，课程或任何关联词"
         fluid
       />
     )

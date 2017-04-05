@@ -10,7 +10,7 @@ const extra = (
 
 const CardUserProfile = () => (
   <Card
-    image="../../images/sample3.jpg"
+    image="../../images/sample/sample3.jpg"
     header="Manny"
     meta="Super"
     description="Elliot is a sound engineer living in Nashville who enjoys playing guitar and hanging with his cat."

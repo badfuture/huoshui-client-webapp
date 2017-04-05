@@ -7,7 +7,6 @@ import StatSite from '../stat/StatSite'
 
 const PageHome = () => (
   <div>
-
     <Container>
       <StatSite />
     </Container>

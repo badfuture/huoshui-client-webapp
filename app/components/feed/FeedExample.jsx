@@ -1,7 +1,7 @@
 import React from 'react'
 import { Feed, Icon } from 'semantic-ui-react'
 
-const imgSrc = '../../images/sample1.png'
+const imgSrc = '../../images/sample/sample1.png'
 
 const FeedExample = () => (
   <Feed>
