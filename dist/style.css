@@ -78,6 +78,13 @@ footer p {
   width: 100%; }
   ._3HMvpPbeh88pz83-M9IOAh > div:first-of-type {
     width: 100%; }
+    ._3HMvpPbeh88pz83-M9IOAh > div:first-of-type > input {
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+      transition: box-shadow 0.2s ease-in-out; }
+    ._3HMvpPbeh88pz83-M9IOAh > div:first-of-type > input:hover {
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); }
+    ._3HMvpPbeh88pz83-M9IOAh > div:first-of-type > input:focus {
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); }
 .uxiKrHYSQynilDopG4NS- {
   margin: 0 auto;
   max-width: 800px;
@@ -99,4 +106,4 @@ footer p {
 .Ndb75DIxPnWtkqW9sfFL7:hover {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3) !important; }
 
-/*# sourceMappingURL=style.css.map*/
+/*# sourceMappingURL=main.huoshui.map*/
