@@ -1,9 +1,10 @@
 import React from 'react'
 import { Container } from 'semantic-ui-react'
+import CommentExample from '../components/comment/CommentExample'
 
 const MyReplyContainer = () => (
   <Container>
-    MyReplyContainer
+    <CommentExample />
   </Container>
 )
 

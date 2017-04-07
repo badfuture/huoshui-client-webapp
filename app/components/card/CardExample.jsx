@@ -22,7 +22,7 @@ const items = [
   },
   {
     header: 'Project Report - fdfdf',
-    description: 'fdffssfsfsfsfsffsfsfsfsfsfsffsfsf',
+    description: 'Capitalise on low hanging fruit to identify a ballpark',
     meta: 'ROI: 27%',
     raised: false,
   },

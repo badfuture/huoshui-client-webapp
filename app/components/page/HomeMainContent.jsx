@@ -1,22 +1,11 @@
 import React from 'react'
-import { Container, Grid, Divider, Segment, Button, Card } from 'semantic-ui-react'
+import { Container, Grid, Divider, Segment, Button, Card, Header } from 'semantic-ui-react'
 import CardExample from '../card/CardExample'
 import CardFeed from '../card/CardFeed'
-import StatSite from '../stat/StatSite'
 
-
-const PageHome = () => (
+const HomeMainContent = () => (
   <div>
-    <Container>
-      <StatSite />
-    </Container>
-    <Divider hidden />
-
-    <Container>
-      <CardExample />
-    </Container>
-    <Divider hidden />
-
+    <Header as="h3" dividing>推荐课程</Header>
     <Container>
       <Card.Group itemsPerRow={3} stackable>
         <CardFeed />
@@ -26,7 +15,42 @@ const PageHome = () => (
     </Container>
     <Divider hidden />
 
+    <Header as="h3" dividing>热门课程</Header>
+    <Container>
+      <Card.Group itemsPerRow={3} stackable>
+        <CardFeed />
+        <CardFeed />
+        <CardFeed />
+      </Card.Group>
+    </Container>
     <Divider hidden />
+
+    <Header as="h3" dividing>精选课单</Header>
+    <Container>
+      <CardExample />
+    </Container>
+    <Divider hidden />
+
+    <Header as="h3" dividing>最新评论</Header>
+    <Container>
+      <Card.Group itemsPerRow={3} stackable>
+        <CardFeed />
+        <CardFeed />
+        <CardFeed />
+      </Card.Group>
+    </Container>
+    <Divider hidden />
+
+    <Header as="h3" dividing>热门评论</Header>
+    <Container>
+      <Card.Group itemsPerRow={3} stackable>
+        <CardFeed />
+        <CardFeed />
+        <CardFeed />
+      </Card.Group>
+    </Container>
+
+    <Header as="h3" dividing>其它</Header>
     <Container>
       <Grid stackable>
         <Grid.Row>
@@ -48,6 +72,7 @@ const PageHome = () => (
       </Grid>
     </Container>
     <Divider hidden />
+
     <Container textAlign="center">
       <Button secondary>Start Battle</Button>
       <Button secondary>Repick Courses</Button>
@@ -55,4 +80,4 @@ const PageHome = () => (
   </div>
 )
 
-export default PageHome
+export default HomeMainContent
