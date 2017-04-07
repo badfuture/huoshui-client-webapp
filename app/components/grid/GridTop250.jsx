@@ -10,19 +10,19 @@ const GridTop250 = () => (
       <Grid.Row>
         <Grid.Column>
           <Segment padded>
-            <Label attached="bottom"><a>大学计算机基础</a></Label>
+            <Label attached="bottom" as="a">大学计算机基础</Label>
             <Image src={srcImage} />
           </Segment>
         </Grid.Column>
         <Grid.Column>
           <Segment padded>
-            <Label attached="bottom"><a>大学计算机基础</a></Label>
+            <Label attached="bottom" as="a">大学计算机基础</Label>
             <Image src={srcImage} />
           </Segment>
         </Grid.Column>
         <Grid.Column>
           <Segment padded>
-            <Label attached="bottom"><a>大学计算机基础</a></Label>
+            <Label attached="bottom" as="a">大学计算机基础</Label>
             <Image src={srcImage} />
           </Segment>
         </Grid.Column>
@@ -30,19 +30,19 @@ const GridTop250 = () => (
       <Grid.Row>
         <Grid.Column>
           <Segment padded>
-            <Label attached="bottom"><a>热气球飞行学</a></Label>
+            <Label attached="bottom" as="a">热气球飞行学</Label>
             <Image src={srcImage2} />
           </Segment>
         </Grid.Column>
         <Grid.Column>
           <Segment padded>
-            <Label attached="bottom"><a>热气球飞行学</a></Label>
+            <Label attached="bottom" as="a">热气球飞行学</Label>
             <Image src={srcImage2} />
           </Segment>
         </Grid.Column>
         <Grid.Column>
           <Segment padded>
-            <Label attached="bottom"><a>热气球飞行学</a></Label>
+            <Label attached="bottom" as="a">热气球飞行学</Label>
             <Image src={srcImage2} />
           </Segment>
         </Grid.Column>
