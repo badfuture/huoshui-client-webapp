@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.2.9 - Header
+ * # Semantic UI 2.2.10 - Header
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -613,7 +613,7 @@ a.ui.inverted.grey.header:hover {
 
 .ui.dividing.header {
   padding-bottom: 0.21428571rem;
-  border-bottom: 1px solid rgba(34, 36, 38, 0.15);
+  border-bottom: 2px solid rgba(33, 133, 208, 0.41);
 }
 .ui.dividing.header .sub.header {
   padding-bottom: 0.21428571rem;

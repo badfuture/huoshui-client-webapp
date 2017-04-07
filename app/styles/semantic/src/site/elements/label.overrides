@@ -1,3 +1,14 @@
 /*******************************
          Site Overrides
 *******************************/
+
+.ui[class*="top attached"].label,
+.ui.attached.label {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ui.label {
+  font-size: 0.8rem;
+}

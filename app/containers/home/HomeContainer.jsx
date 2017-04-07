@@ -5,7 +5,7 @@ import HomeSideContainer from './HomeSideContainer'
 
 const HomeContainer = () => (
   <Container>
-    <Grid stackable padded>
+    <Grid stackable>
       <Grid.Row>
         <Grid.Column width={11} style={{ paddingRight: '1.5rem' }}>
           <HomeMainContainer />

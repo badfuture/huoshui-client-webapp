@@ -1,3 +1,17 @@
 /*******************************
          Site Overrides
 *******************************/
+.ui.grid > .row > .column {
+  position: relative;
+  display: inline-block;
+
+  width: @oneWide;
+  padding-left: (@gutterWidth / 3);
+  padding-right: (@gutterWidth / 3);
+  vertical-align: top;
+}
+
+.ui.grid > * {
+  padding-left: (@gutterWidth / 3);
+  padding-right: (@gutterWidth / 3);
+}

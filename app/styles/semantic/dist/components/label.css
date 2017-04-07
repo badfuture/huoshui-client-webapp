@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.2.9 - Label
+ * # Semantic UI 2.2.10 - Label
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -377,7 +377,7 @@ a.ui.label {
   margin: 0em;
   top: 0em;
   left: 0em;
-  padding: 0.75em 1em;
+  padding: 0.75em 0.5em;
   border-radius: 0.21428571rem 0.21428571rem 0em 0em;
 }
 .ui[class*="bottom attached"].label {
@@ -1305,3 +1305,12 @@ a.ui.basic.label:hover {
          Site Overrides
 *******************************/
 
+.ui[class*="top attached"].label,
+.ui.attached.label {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.ui.label {
+  font-size: 0.8rem;
+}

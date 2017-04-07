@@ -1,3 +1,6 @@
 /*******************************
     User Variable Overrides
 *******************************/
+
+@dividedBorderWidth: 2px;
+@dividedBorder: @dividedBorderWidth solid rgba(33, 133, 208, 0.41);
