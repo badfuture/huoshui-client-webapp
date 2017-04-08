@@ -33202,6 +33202,12 @@ html.ios {
   -webkit-transform: inherit;
   transform: inherit;
 }
+
+.pushable:not(body) > .ui.sidebar,
+.pushable:not(body) > .fixed,
+.pushable:not(body) > .pusher:after {
+  position: fixed;
+}
 /*!
  * # Semantic UI 2.2.10 - Sticky
  * http://github.com/semantic-org/semantic-ui/
