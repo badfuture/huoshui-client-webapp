@@ -3,3 +3,4 @@ babel_cache
 logs
 *.log
 .DS_Store
+app/styles/semantic/dist/components

@@ -7,10 +7,10 @@ const HomeContainer = () => (
   <Container>
     <Grid stackable>
       <Grid.Row>
-        <Grid.Column width={11} style={{ paddingRight: '1.5rem' }}>
+        <Grid.Column width={11} style={{ paddingRight: '3.5rem' }}>
           <HomeMainContainer />
         </Grid.Column>
-        <Grid.Column width={5} style={{ paddingLeft: '1.5rem' }}>
+        <Grid.Column width={5} style={{ paddingLeft: '1.0rem' }}>
           <HomeSideContainer />
         </Grid.Column>
       </Grid.Row>
