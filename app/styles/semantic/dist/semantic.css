@@ -30097,6 +30097,49 @@ select.ui.dropdown {
 /*******************************
          Site Overrides
 *******************************/
+
+/* Small */
+
+.ui.small.modal > .header:not(.ui) {
+  font-size: 1.3em;
+}
+
+/* Small Modal Width */
+
+@media only screen and (max-width: 767px) {
+  .ui.small.modal {
+    width: 95%;
+    margin: 0em 0em 0em -47.5%;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .ui.small.modal {
+    width: 70.4%;
+    margin: 0em 0em 0em -35.2%;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .ui.small.modal {
+    width: 200px;
+    margin: 0em 0em 0em -100px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .ui.small.modal {
+    width: 350px;
+    margin: 0em 0em 0em -150px;
+  }
+}
+
+@media only screen and (min-width: 1920px) {
+  .ui.small.modal {
+    width: 400px;
+    margin: 0em 0em 0em -200px;
+  }
+}
 /*!
  * # Semantic UI 2.2.10 - Nag
  * http://github.com/semantic-org/semantic-ui/
