@@ -48,7 +48,7 @@ class AppLayout extends React.Component {
               onOpenModalLogin={this.handleOpenModalLogin}
             />
           </header>
-          <div className="app-content">
+          <div className={styles.appContent}>
             <ModalLogin
               loginModalVisible={this.state.loginModalVisible}
               onCloseModalLogin={this.handleCloseModalLogin}

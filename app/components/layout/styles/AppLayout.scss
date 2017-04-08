@@ -13,10 +13,19 @@ html {
   font: caption;
 }
 
-header {
-  padding-bottom: 3em;
-}
-
 .appContainer {
   height: 100%;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  box-shadow: rgba(212, 212, 212, 0.58) 0px 2px 1px;
+}
+
+.appContent {
+  margin-top: 8em;
 }

@@ -60,11 +60,19 @@ html {
   color: #030303;
   font: caption; }
 
-header {
-  padding-bottom: 3em; }
-
 .hx0tyLep6W2gGiK_5ASUn {
   height: 100%; }
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  box-shadow: rgba(212, 212, 212, 0.58) 0px 2px 1px; }
+
+._2MzOWLrtPTWN9MaaFSMkbW {
+  margin-top: 8em; }
 footer {
   margin-top: 4em;
   padding: 2em;

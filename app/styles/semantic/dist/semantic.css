@@ -33197,6 +33197,11 @@ html.ios {
 /*******************************
          Site Overrides
 *******************************/
+
+.pushable:not(body) {
+  -webkit-transform: inherit;
+  transform: inherit;
+}
 /*!
  * # Semantic UI 2.2.10 - Sticky
  * http://github.com/semantic-org/semantic-ui/
