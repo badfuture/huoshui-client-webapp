@@ -1,5 +1,4 @@
 import React, { PropTypes } from 'react'
-import { Container } from 'semantic-ui-react'
 import styles from './styles/AppLayout.scss'
 import AppFooter from './AppFooter'
 import MenuHeader from '../menu/MenuHeader'
@@ -53,9 +52,9 @@ class AppLayout extends React.Component {
               loginModalVisible={this.state.loginModalVisible}
               onCloseModalLogin={this.handleCloseModalLogin}
             />
-            <Container>
+            <div>
               {this.props.children}
-            </Container>
+            </div>
           </div>
           <AppFooter />
         </MenuSidebar>

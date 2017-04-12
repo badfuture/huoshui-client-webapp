@@ -3,9 +3,11 @@ import { Container } from 'semantic-ui-react'
 import GridKelist from '../components/grid/GridKelist'
 
 const KelistContainer = () => (
-  <Container>
-    <GridKelist />
-  </Container>
+  <div className="container-main-grey">
+    <Container>
+      <GridKelist />
+    </Container>
+  </div>
 )
 
 export default KelistContainer

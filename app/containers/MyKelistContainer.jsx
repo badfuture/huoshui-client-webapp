@@ -3,9 +3,11 @@ import { Container } from 'semantic-ui-react'
 import CardKelist from '../components/card/CardKelist'
 
 const MyKelistContainer = () => (
-  <Container>
-    <CardKelist />
-  </Container>
+  <div className="container-main-grey">
+    <Container>
+      <CardKelist />
+    </Container>
+  </div>
 )
 
 export default MyKelistContainer

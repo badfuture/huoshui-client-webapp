@@ -6,54 +6,56 @@ import ListNewReview from '../components/list/ListNewReview'
 import ListPopularReview from '../components/list/ListPopularReview'
 
 const ReviewContainer = () => (
-  <Container>
+  <div className="container-main-grey">
     <Container>
-      <Grid stackable>
+      <Container>
+        <Grid stackable>
+          <Grid.Row>
+            <Grid.Column width={8}>
+              <Segment inverted color="blue">
+                最新评价
+              </Segment>
+              <ListNewReview />
+            </Grid.Column>
+            <Grid.Column width={8}>
+              <Segment inverted color="violet">
+                热门评价
+              </Segment>
+              <ListPopularReview />
+            </Grid.Column>
+          </Grid.Row>
+        </Grid>
+      </Container>
+
+      <Divider hidden />
+
+      <Grid columns={4} padded="vertically" divided stackable>
         <Grid.Row>
-          <Grid.Column width={8}>
-            <Segment inverted color="blue">
-              最新评价
-            </Segment>
-            <ListNewReview />
+          <Grid.Column width={4}>
+            <Container style={{ width: '100%', height: '200px' }}>
+              <ChartPieLabel />
+            </Container>
           </Grid.Column>
-          <Grid.Column width={8}>
-            <Segment inverted color="violet">
-              热门评价
-            </Segment>
-            <ListPopularReview />
+          <Grid.Column width={4}>
+            <Container style={{ width: '100%', height: '200px' }}>
+              <ChartPieGap />
+            </Container>
+          </Grid.Column>
+          <Grid.Column width={4}>
+            <Container style={{ width: '100%', height: '200px' }}>
+              <ChartPieLabel />
+            </Container>
+          </Grid.Column>
+          <Grid.Column width={4}>
+            <Container style={{ width: '100%', height: '200px' }}>
+              <ChartPieGap />
+            </Container>
           </Grid.Column>
         </Grid.Row>
       </Grid>
+
     </Container>
-
-    <Divider hidden />
-
-    <Grid columns={4} padded="vertically" divided stackable>
-      <Grid.Row>
-        <Grid.Column width={4}>
-          <Container style={{ width: '100%', height: '200px' }}>
-            <ChartPieLabel />
-          </Container>
-        </Grid.Column>
-        <Grid.Column width={4}>
-          <Container style={{ width: '100%', height: '200px' }}>
-            <ChartPieGap />
-          </Container>
-        </Grid.Column>
-        <Grid.Column width={4}>
-          <Container style={{ width: '100%', height: '200px' }}>
-            <ChartPieLabel />
-          </Container>
-        </Grid.Column>
-        <Grid.Column width={4}>
-          <Container style={{ width: '100%', height: '200px' }}>
-            <ChartPieGap />
-          </Container>
-        </Grid.Column>
-      </Grid.Row>
-    </Grid>
-
-  </Container>
+  </div>
 )
 
 export default ReviewContainer

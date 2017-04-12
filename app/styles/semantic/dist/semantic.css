@@ -663,6 +663,18 @@ input::selection {
 /*******************************
          Site Overrides
 *******************************/
+
+.container-main-grey {
+  padding-top: 8em;
+  padding-bottom: 8em;
+  background-color: #f3f5f7;
+}
+
+.container-main {
+  padding-top: 8em;
+  padding-bottom: 8em;
+  background-color: white;
+}
 /*!
  * # Semantic UI 2.2.10 - Button
  * http://github.com/semantic-org/semantic-ui/

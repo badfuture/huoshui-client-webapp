@@ -3,9 +3,11 @@ import { Container } from 'semantic-ui-react'
 import GridDept from '../components/grid/GridDept'
 
 const CategoriesContainer = () => (
-  <Container>
-    <GridDept />
-  </Container>
+  <div className="container-main-grey">
+    <Container>
+      <GridDept />
+    </Container>
+  </div>
 )
 
 export default CategoriesContainer

@@ -2,9 +2,11 @@ import React from 'react'
 import { Container } from 'semantic-ui-react'
 
 const NotFoundContainer = () => (
-  <Container>
-    NotFoundContainer
-  </Container>
+  <div className="container-main-grey">
+    <Container>
+      NotFoundContainer
+    </Container>
+  </div>
 )
 
 export default NotFoundContainer

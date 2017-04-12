@@ -3,9 +3,11 @@ import { Container } from 'semantic-ui-react'
 import CommentExample from '../components/comment/CommentExample'
 
 const MyReplyContainer = () => (
-  <Container>
-    <CommentExample />
-  </Container>
+  <div className="container-main-grey">
+    <Container>
+      <CommentExample />
+    </Container>
+  </div>
 )
 
 export default MyReplyContainer
