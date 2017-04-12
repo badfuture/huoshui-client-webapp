@@ -1,3 +1,15 @@
 /*******************************
     User Variable Overrides
 *******************************/
+
+.ui.cards a.card:hover,
+.ui.link.cards .card:hover,
+a.ui.card:hover,
+.ui.link.card:hover {
+  cursor: pointer;
+  z-index: @linkHoverZIndex;
+  background: @linkHoverBackground;
+  border: @linkHoverBorder;
+  box-shadow: @linkHoverBoxShadow;
+  transform: inherit;
+}

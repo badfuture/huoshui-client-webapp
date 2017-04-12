@@ -1,21 +1,38 @@
-import React from 'react'
-import { Card, Icon } from 'semantic-ui-react'
+import React, { PropTypes } from 'react'
+import { Card, Image } from 'semantic-ui-react'
+import styles from './styles/CardDept.scss'
 
-const extra = (
-  <a>
-    <Icon name="user" />
-    16 Friends
-  </a>
+const propTypes = {
+  image: PropTypes.string.isRequired,
+  header: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+}
+
+const printFoo = () => {
+
+}
+
+const CardDept = props => (
+  <Card className={styles.cardRaise} onClick={printFoo}>
+    <div style={{ width: '100%', overflow: 'hidden', paddingBottom: '56.25%', position: 'relative' }}>
+      <Image src={props.image} style={{ width: '100%', height: '100%', position: 'absolute' }} />
+    </div>
+    <Card.Content>
+      <Card.Header>
+        {props.header}
+      </Card.Header>
+      <Card.Meta>
+        <span>
+          西南交通大学
+        </span>
+      </Card.Meta>
+      <Card.Description>
+        {props.description}
+      </Card.Description>
+    </Card.Content>
+  </Card>
 )
 
-const CardDept = () => (
-  <Card
-    image="/images/dept/full/rocket.jpg"
-    header="武装部"
-    meta="西南交通大学"
-    description="只教军训和把妹."
-    extra={extra}
-  />
-)
+CardDept.propTypes = propTypes
 
 export default CardDept

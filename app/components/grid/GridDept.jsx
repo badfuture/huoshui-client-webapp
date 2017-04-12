@@ -1,24 +1,20 @@
 import React from 'react'
-import { Container, Divider, Card } from 'semantic-ui-react'
+import { Container, Card } from 'semantic-ui-react'
 import CardDept from '../card/CardDept'
+import rankDept from '../../data/dept.json'
 
+const items = rankDept
 
-const GirdDept = () => (
+const GridRanking = () => (
   <Container>
     <Card.Group itemsPerRow={4} stackable>
-      <CardDept />
-      <CardDept />
-      <CardDept />
-      <CardDept />
-    </Card.Group>
-    <Divider hidden />
-    <Card.Group itemsPerRow={4} stackable>
-      <CardDept />
-      <CardDept />
-      <CardDept />
-      <CardDept />
+      {items.map(
+        item => <CardDept
+          {...item}
+        />,
+      )}
     </Card.Group>
   </Container>
 )
 
-export default GirdDept
+export default GridRanking

@@ -4,6 +4,7 @@ import { Button, Modal, Form, Input, Icon, Container, Divider } from 'semantic-u
 const iconQQ = <Icon name="qq" />
 const iconWeibo = <Icon name="weibo" />
 
+
 const ModalLogin = props => (
   <div>
     <Modal

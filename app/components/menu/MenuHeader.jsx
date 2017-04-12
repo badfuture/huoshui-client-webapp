@@ -32,11 +32,11 @@ const MenuHeader = props => (
     <Menu.Item name="ranking">
       <Link to="/ranking">榜单</Link>
     </Menu.Item>
-    <Menu.Item name="kelist">
-      <Link to="/kelist">课列</Link>
-    </Menu.Item>
     <Menu.Item name="categories">
       <Link to="/categories">逛逛</Link>
+    </Menu.Item>
+    <Menu.Item name="kelist">
+      <Link to="/kelist">课列</Link>
     </Menu.Item>
     <Menu.Item name="swiss knife">
       <a target="_blank" rel="noopener noreferrer" href="http://wangzhe.cloud/swjtu">瑞士刀</a>
@@ -55,7 +55,7 @@ const MenuHeader = props => (
         />
       </Menu.Item>
       <Menu.Item name="login" onClick={props.onOpenModalLogin}>
-        登录
+        <span>登录</span>
       </Menu.Item>
       <Menu.Item name="signup">
         <Link to="/signup">注册</Link>

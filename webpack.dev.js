@@ -34,6 +34,7 @@ module.exports = function (env) {
       compress: true,
       hot: true,
       inline: true,
+      stats: 'errors-only',
       historyApiFallback: true,
       port: 8080,
     },
