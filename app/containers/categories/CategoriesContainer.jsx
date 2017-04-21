@@ -1,13 +1,13 @@
 import React from 'react'
 import { Container } from 'semantic-ui-react'
-import GridKelist from '../components/grid/GridKelist'
+import GridDept from '../../components/grid/GridDept'
 
-const KelistContainer = () => (
+const CategoriesContainer = () => (
   <div className="container-main-grey">
     <Container>
-      <GridKelist />
+      <GridDept />
     </Container>
   </div>
 )
 
-export default KelistContainer
+export default CategoriesContainer

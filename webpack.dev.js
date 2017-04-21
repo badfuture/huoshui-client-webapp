@@ -25,6 +25,7 @@ module.exports = function (env) {
       path: distDir,
       filename: '[name].bundle.js',
       sourceMapFilename: '[name].map',
+      publicPath: '/',
     },
     resolve: {
       extensions: ['*', '.js', '.jsx'],

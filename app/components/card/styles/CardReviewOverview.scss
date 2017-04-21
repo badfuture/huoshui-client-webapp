@@ -1,0 +1,47 @@
+.cardRaise {
+  box-shadow: 0 4px 8px 0 rgba(7,17,27,.1) !important;
+  transition: box-shadow 0.2s ease-in-out !important;
+}
+
+.cardRaise:hover {
+  box-shadow: 0 8px 16px 0 rgba(7,17,27,.2) !important;
+}
+
+.header {
+  font-size: 0.9em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.subheader span{
+  font-size: 0.8em;
+  color: #93999f;
+}
+
+.description {
+  margin: 0.5em 0em;
+}
+
+.description p {
+  color: #93999f;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5; /* number of lines to show */
+  line-height: 1.5em;        /* fallback */
+  max-height: 7.5em;       /* fallback */
+  height: 7.5em;       /* fallback */
+}
+
+.bottom {
+  color: #93999f;
+  float: right;
+  font-size: 0.8em;
+}
+
+
+//#93999f
+//#rgba(33,133,208,.41)
+//margin: 8px 0;

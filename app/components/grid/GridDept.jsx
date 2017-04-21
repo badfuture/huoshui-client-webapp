@@ -5,7 +5,7 @@ import rankDept from '../../data/dept.json'
 
 const items = rankDept
 
-const GridRanking = () => (
+const GridRank = () => (
   <Container>
     <Card.Group itemsPerRow={4} stackable>
       {items.map(
@@ -17,4 +17,4 @@ const GridRanking = () => (
   </Container>
 )
 
-export default GridRanking
+export default GridRank

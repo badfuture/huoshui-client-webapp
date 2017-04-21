@@ -1,21 +1,30 @@
-import React from 'react'
-import { Card, Icon } from 'semantic-ui-react'
+import React, { PropTypes } from 'react'
+import { Card, Image } from 'semantic-ui-react'
+import styles from './styles/CardKelist.scss'
 
-const extra = (
-  <a>
-    <Icon name="user" />
-    16 Friends
-  </a>
+const propTypes = {
+  image: PropTypes.string.isRequired,
+  header: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+}
+
+
+const CardKelist = props => (
+  <Card className={styles.cardRaise}>
+    <div style={{ width: '100%', overflow: 'hidden', paddingBottom: '56.25%', position: 'relative' }}>
+      <Image src={props.image} style={{ width: '100%', height: '100%', position: 'absolute' }} />
+    </div>
+    <Card.Content>
+      <Card.Header>
+        {props.header}
+      </Card.Header>
+      <Card.Description>
+        {props.description}
+      </Card.Description>
+    </Card.Content>
+  </Card>
 )
 
-const CardKelist = () => (
-  <Card
-    image="/images/dept/full/electrical.jpg"
-    header="活水课程250"
-    meta="西南交通大学"
-    description="综合排名前250的课程"
-    extra={extra}
-  />
-)
+CardKelist.propTypes = propTypes
 
 export default CardKelist

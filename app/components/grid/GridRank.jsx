@@ -1,15 +1,16 @@
 import React from 'react'
 import { Container, Card } from 'semantic-ui-react'
-import CardRanking from '../card/CardRanking'
+import CardRank from '../card/CardRank'
 import rankMeta from '../../data/rank.json'
 
 const items = rankMeta
 
-const GridRanking = () => (
+const GridRank = () => (
   <Container>
     <Card.Group itemsPerRow={4} stackable>
       {items.map(
-        item => <CardRanking
+        item => <CardRank
+          key={item.id}
           {...item}
         />,
       )}
@@ -17,4 +18,4 @@ const GridRanking = () => (
   </Container>
 )
 
-export default GridRanking
+export default GridRank

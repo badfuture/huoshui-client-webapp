@@ -12,3 +12,7 @@
   padding-bottom: 8em;
   background-color: white;
 }
+
+.no-shadow {
+  box-shadow: 'none'
+}

@@ -3,7 +3,7 @@ import { Image as ImageComponent, Item } from 'semantic-ui-react'
 
 const paragraph = <ImageComponent src="/assets/images/wireframe/short-paragraph.png" />
 
-const ListRanking = () => (
+const ListRank = () => (
   <Item.Group link>
     <Item>
       <Item.Image size="tiny" src="/assets/images/avatar/large/stevie.jpg" />
@@ -34,4 +34,4 @@ const ListRanking = () => (
   </Item.Group>
 )
 
-export default ListRanking
+export default ListRank

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Header, Image, Table } from 'semantic-ui-react'
 
-const TableRanking = () => (
+const TableRank = () => (
   <Table basic="very" celled collapsing>
     <Table.Header>
       <Table.Row>
@@ -71,4 +71,4 @@ const TableRanking = () => (
   </Table>
   )
 
-export default TableRanking
+export default TableRank

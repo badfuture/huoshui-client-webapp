@@ -91,7 +91,7 @@ footer p {
     ._3HMvpPbeh88pz83-M9IOAh > div:first-of-type > input:focus {
       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); }
 .uxiKrHYSQynilDopG4NS- {
-  margin: 0 auto;
+  margin: 10em auto;
   max-width: 800px;
   padding: 2em;
   text-align: center;
@@ -104,17 +104,66 @@ footer p {
 .uxiKrHYSQynilDopG4NS- h2 {
   font-size: 2em;
   font-weight: bold; }
-.Ndb75DIxPnWtkqW9sfFL7 {
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15) !important;
+._2eTJboJZvcEUKXA9DpLraJ {
+  box-shadow: 0 4px 8px 0 rgba(7, 17, 27, 0.1) !important;
   transition: box-shadow 0.2s ease-in-out !important; }
 
-.Ndb75DIxPnWtkqW9sfFL7:hover {
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3) !important; }
+._2eTJboJZvcEUKXA9DpLraJ:hover {
+  box-shadow: 0 8px 16px 0 rgba(7, 17, 27, 0.2) !important; }
+
+._1j2S7P0kSnV10FpEdYrb3X {
+  font-size: 0.9em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; }
+
+._2lGtQMhQ6QhwfKaIFOPaVW span {
+  font-size: 0.8em;
+  color: #93999f; }
+
+.fTi-7IOLdzGNnER4P91UI {
+  margin: 0.5em 0em; }
+
+.fTi-7IOLdzGNnER4P91UI p {
+  color: #93999f;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5;
+  /* number of lines to show */
+  line-height: 1.5em;
+  /* fallback */
+  max-height: 7.5em;
+  /* fallback */
+  height: 7.5em;
+  /* fallback */ }
+
+._20TuTl4XYdbmpNqey7hrOl {
+  color: #93999f;
+  float: right;
+  font-size: 0.8em; }
+._1Y0o6BdWmdK6WFB2hWuw1b {
+  max-width: none !important;
+  background-color: white;
+  padding: 2em; }
+._2jTxfLtjKWug1fOnzVaUBv {
+  box-shadow: 0 4px 8px 0 rgba(7, 17, 27, 0.1) !important;
+  transition: box-shadow 0.2s ease-in-out !important; }
+
+._2jTxfLtjKWug1fOnzVaUBv:hover {
+  box-shadow: 0 8px 16px 0 rgba(7, 17, 27, 0.2) !important; }
+._1GixdIug4BM8CSLU9LjWAJ {
+  box-shadow: 0 4px 8px 0 rgba(7, 17, 27, 0.1) !important;
+  transition: box-shadow 0.2s ease-in-out !important; }
+
+._1GixdIug4BM8CSLU9LjWAJ:hover {
+  box-shadow: 0 8px 16px 0 rgba(7, 17, 27, 0.2) !important; }
 .hpODodrJ6CasA5tBmH-7G {
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15) !important;
+  box-shadow: 0 4px 8px 0 rgba(7, 17, 27, 0.1) !important;
   transition: box-shadow 0.2s ease-in-out !important; }
 
 .hpODodrJ6CasA5tBmH-7G:hover {
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3) !important; }
+  box-shadow: 0 8px 16px 0 rgba(7, 17, 27, 0.2) !important; }
 
 /*# sourceMappingURL=main.huoshui.map*/

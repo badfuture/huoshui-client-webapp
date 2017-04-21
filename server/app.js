@@ -10,9 +10,13 @@ app.set('port', 10084)
 // serve static assets
 app.use(express.static(path.join(__dirname, '../dist')))
 
-// Handles all routes to avoid found error
-app.get('*', (request, response) => {
-  response.sendFile(path.resolve(__dirname, '../dist', 'index.html'))
+// Handles all routes to avoid not found error
+app.get('/*', (req, res) => {
+  res.sendFile(path.resolve(__dirname, '../dist', 'index.html'))
+})
+
+app.get('*', (req, res) => {
+  res.sendFile(path.resolve(__dirname, '../dist', 'index.html'))
 })
 
 const server = app.listen(app.get('port'), () => {

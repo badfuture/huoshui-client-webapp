@@ -1,7 +1,7 @@
 import React from 'react'
 import { Grid, Container } from 'semantic-ui-react'
-import CardUserProfile from '../components/card/CardUserProfile'
-import FeedExample from '../components/feed/FeedExample'
+import CardUserProfile from '../../components/card/CardUserProfile'
+import FeedExample from '../../components/feed/FeedExample'
 
 
 const MyProfileContainer = () => (

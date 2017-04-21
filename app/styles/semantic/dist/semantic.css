@@ -675,6 +675,10 @@ input::selection {
   padding-bottom: 8em;
   background-color: white;
 }
+
+.no-shadow {
+  box-shadow: 'none';
+}
 /*!
  * # Semantic UI 2.2.10 - Button
  * http://github.com/semantic-org/semantic-ui/

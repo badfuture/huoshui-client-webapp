@@ -1,11 +1,12 @@
 import React from 'react'
 import { Button, Comment, Form, Header } from 'semantic-ui-react'
+import styles from './styles/CommentExample.scss'
 
 const srcImage = '/images/sample/sample2.png'
 
 const CommentExample = () => (
-  <Comment.Group>
-    <Header as="h3" dividing>Comments</Header>
+  <Comment.Group className={styles.commentContainer}>
+    <Header as="h4" dividing>回应</Header>
 
     <Comment>
       <Comment.Avatar src={srcImage} />

@@ -1,12 +1,13 @@
 import React from 'react'
 import { Container } from 'semantic-ui-react'
+import PageFeedback from '../../components/page/PageFeedback'
 
-const SettingContainer = () => (
+const AboutContainer = () => (
   <div className="container-main-grey">
     <Container>
-      SettingContainer
+      <PageFeedback />
     </Container>
   </div>
 )
 
-export default SettingContainer
+export default AboutContainer

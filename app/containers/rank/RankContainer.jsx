@@ -1,13 +1,13 @@
 import React from 'react'
 import { Container } from 'semantic-ui-react'
-import GridRanking from '../components/grid/GridRanking'
+import GridRank from '../../components/grid/GridRank'
 
-const RankingContainer = () => (
+const RankContainer = () => (
   <div className="container-main-grey">
     <Container>
-      <GridRanking />
+      <GridRank />
     </Container>
   </div>
 )
 
-export default RankingContainer
+export default RankContainer
