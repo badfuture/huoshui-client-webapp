@@ -1,15 +1,13 @@
-import Axios from 'axios'
+import axios from 'axios'
 import {
   FETCH_REVIEWS_ATTEMPT, FETCH_REVIEWS_SUCCESS, FETCH_REVIEWS_ERROR,
   FETCH_REVIEW_ATTEMPT, FETCH_REVIEW_BY_ID_SUCCESS,
 } from '../constants/ReviewActionTypes'
 import { URL_REVIEW } from '../constants/ApiEndpoints'
 
-
 /**
  * fetech all reviews
  */
-
 export const fetchReviewsAttempt = status => ({
   type: FETCH_REVIEWS_ATTEMPT,
   status,
@@ -29,7 +27,7 @@ export const fetchReviews = () =>
   (dispatch) => {
     dispatch(fetchReviewsAttempt(true))
     return (
-      Axios.get(`${URL_REVIEW}?populate=all`)
+      axios.get(`${URL_REVIEW}?populate=all&limit=15`)
        .then((resp) => {
          dispatch(fetchReviewsAttempt(false))
          dispatch(fetchReviewsSuccess(resp))
@@ -55,7 +53,7 @@ export const fetchReviewByIdSuccess = resp => ({
   resp,
 })
 export const fetchReviewById = reviewId =>
-  dispatch => Axios.get(`${URL_REVIEW}/${reviewId}?populate=[Course,Author,Prof]`)
+  dispatch => axios.get(`${URL_REVIEW}/${reviewId}?populate=[Course,Author,Prof]`)
    .then((resp) => {
      dispatch(fetchReviewByIdSuccess(resp))
    })

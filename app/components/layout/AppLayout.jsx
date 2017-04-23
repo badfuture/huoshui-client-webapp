@@ -1,68 +1,37 @@
-import React, { PropTypes } from 'react'
+import React, { PropTypes, Component } from 'react'
 import styles from './styles/AppLayout.scss'
 import AppFooter from './AppFooter'
-import MenuHeader from '../menu/MenuHeader'
-import MenuSidebar from '../menu/MenuSidebar'
-import ModalLogin from '../modal/ModalLogin'
+import MenuSidebarContainer from '../../containers/menu/MenuSidebarContainer'
+import MenuHeaderContainer from '../../containers/menu/MenuHeaderContainer'
+import ModalLoginContainer from '../../containers/modal/ModalLoginContainer'
 
 const propTypes = {
   children: PropTypes.node.isRequired,
 }
 
-class AppLayout extends React.Component {
-
-  constructor(props) {
-    super(props)
-
-    this.handleToggleLeftSidebar = this.handleToggleLeftSidebar.bind(this)
-    this.handleOpenModalLogin = this.handleOpenModalLogin.bind(this)
-    this.handleCloseModalLogin = this.handleCloseModalLogin.bind(this)
-  }
-
-  state = {
-    leftSidebarVisible: false,
-    loginModalVisible: false,
-  }
-
-  handleToggleLeftSidebar = () => this.setState({
-    leftSidebarVisible: !this.state.leftSidebarVisible,
-  })
-  handleOpenModalLogin = () => this.setState({
-    loginModalVisible: true,
-  })
-  handleCloseModalLogin = () => this.setState({
-    loginModalVisible: false,
-  })
-
+class AppLayout extends Component {
+  componentDidMount() {}
   render() {
     return (
       <div className={styles.appContainer}>
-        <MenuSidebar
-          onToggleLeftSidebar={this.handleToggleLeftSidebar}
-          leftSidebarVisible={this.state.leftSidebarVisible}
-        >
+        <MenuSidebarContainer>
           <header className={styles.header}>
-            <MenuHeader
-              onToggleLeftSidebar={this.handleToggleLeftSidebar}
-              onOpenModalLogin={this.handleOpenModalLogin}
-            />
+            <MenuHeaderContainer />
           </header>
           <div className={styles.appContent}>
-            <ModalLogin
-              loginModalVisible={this.state.loginModalVisible}
-              onCloseModalLogin={this.handleCloseModalLogin}
-            />
+            <ModalLoginContainer />
             <div>
               {this.props.children}
             </div>
           </div>
           <AppFooter />
-        </MenuSidebar>
+        </MenuSidebarContainer>
       </div>
     )
   }
 }
 
+// set propTypes
 AppLayout.propTypes = propTypes
 
 export default AppLayout

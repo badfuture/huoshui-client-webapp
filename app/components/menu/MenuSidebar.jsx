@@ -2,19 +2,25 @@ import React, { PropTypes } from 'react'
 import { Sidebar, Segment, Button, Menu, Icon } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 
+const propTypes = {
+  menuSidebarVisible: PropTypes.bool.isRequired,
+  onToggleMenuSidebar: PropTypes.func.isRequired,
+  children: PropTypes.node.isRequired,
+}
+
 const MenuSidebar = props => (
   <Sidebar.Pushable as={Segment}>
     <Sidebar
       as={Menu}
       animation="overlay" direction="left"
       width="thin"
-      visible={props.leftSidebarVisible}
+      visible={props.menuSidebarVisible}
       icon="labeled"
       vertical
     >
       <Menu.Item name="home">
         <Button
-          onClick={props.onToggleLeftSidebar}
+          onClick={props.onToggleMenuSidebar}
           style={{ backgroundColor: 'transparent', color: 'black' }}
         >
           <Icon
@@ -55,10 +61,6 @@ const MenuSidebar = props => (
   </Sidebar.Pushable>
 )
 
-MenuSidebar.propTypes = {
-  leftSidebarVisible: PropTypes.bool.isRequired,
-  onToggleLeftSidebar: PropTypes.func.isRequired,
-  children: PropTypes.node.isRequired,
-}
+MenuSidebar.propTypes = propTypes
 
 export default MenuSidebar

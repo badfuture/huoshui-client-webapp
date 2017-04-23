@@ -1,8 +1,10 @@
 import React from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-import { Provider } from 'react-redux'
-import moment from 'moment'
 import 'moment/locale/zh-cn'
+import { Provider } from 'react-redux'
+import axios from 'axios'
+import moment from 'moment'
+import { DOMAIN } from '../constants/ApiEndpoints'
 import configStore from './AppStore'
 import AppLayout from '../components/layout/AppLayout'
 import PageNotFound from '../components/page/PageNotFound'
@@ -18,6 +20,11 @@ import MyKelistContainer from '../containers/kelist/MyKelistContainer'
 import MyProfContainer from '../containers/prof/MyProfContainer'
 import MyReplyContainer from '../containers/reply/MyReplyContainer'
 import MyProfileContainer from '../containers/profile/MyProfileContainer'
+
+
+// set global config for Http requests
+axios.defaults.baseURL = DOMAIN
+axios.defaults.headers.post['Content-Type'] = 'application/json'
 
 // set global locale for time
 moment().locale('zh-cn')

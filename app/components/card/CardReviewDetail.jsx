@@ -25,7 +25,7 @@ const CardReviewOverview = props => (
       </Card.Header>
       <Card.Meta>
         <span>
-          {props.review.Author.username} &nbsp; {calcScore()}分
+          {props.review.Author.username} &nbsp; {calcScore(props.review)}分
           <span style={{ float: 'right' }}>{moment(props.review.createdAt).fromNow()}</span>
         </span>
       </Card.Meta>

@@ -1,13 +1,12 @@
 import React, { PropTypes } from 'react'
-import { Menu, Button, Icon, Popup, Image } from 'semantic-ui-react'
+import { Menu, Button, Icon, Popup, Image, Dropdown } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 import SearchExample from '../search/SearchExample'
 
 const propTypes = {
-  onToggleLeftSidebar: PropTypes.func.isRequired,
-  onOpenModalLogin: PropTypes.func.isRequired,
+  toggleMenuSidebar: PropTypes.func.isRequired,
+  authStatus: PropTypes.object.isRequired,
 }
-
 
 const contentDownload = (
   <div>
@@ -15,11 +14,44 @@ const contentDownload = (
   </div>
 )
 
+const loginItem = props => (
+  <Menu.Item name="login" onClick={props.openLoginModal}>
+    <span>登录</span>
+  </Menu.Item>
+)
+loginItem.propTypes = {
+  openLoginModal: PropTypes.func.isRequired,
+}
+
+const signupItem = (
+  <Menu.Item name="signup">
+    <Link to="/signup">注册</Link>
+  </Menu.Item>
+)
+
+const accountItem = props => (
+  <Menu.Item name="account">
+    <Dropdown text={`${props.authStatus.user.username}的账号`}>
+      <Dropdown.Menu style={{ marginTop: '0.6em' }}>
+        <Dropdown.Item text="退出账号" onClick={props.logoutUser} />
+      </Dropdown.Menu>
+    </Dropdown>
+  </Menu.Item>
+)
+accountItem.propTypes = {
+  authStatus: PropTypes.shape({
+    user: PropTypes.object,
+  }).isRequired,
+  logoutUser: PropTypes.func.isRequired,
+}
+
 const MenuHeader = props => (
   <Menu size="large" attached="top" borderless fluid style={{ margin: '0px' }}>
-
     <Menu.Item name="sidebar">
-      <Button onClick={props.onToggleLeftSidebar} style={{ backgroundColor: 'transparent' }}>
+      <Button
+        onClick={props.toggleMenuSidebar}
+        style={{ backgroundColor: 'transparent' }}
+      >
         <Icon name="content" size="large" />
       </Button>
     </Menu.Item>
@@ -54,12 +86,9 @@ const MenuHeader = props => (
           position="bottom center"
         />
       </Menu.Item>
-      <Menu.Item name="login" onClick={props.onOpenModalLogin}>
-        <span>登录</span>
-      </Menu.Item>
-      <Menu.Item name="signup">
-        <Link to="/signup">注册</Link>
-      </Menu.Item>
+      { !props.authStatus.isAuthenticated && loginItem(props) }
+      { !props.authStatus.isAuthenticated && signupItem }
+      { props.authStatus.isAuthenticated && accountItem(props) }
     </Menu.Menu>
   </Menu>
 )

@@ -9,7 +9,7 @@ const tagCourseItems = tagData
   tag.category === 'course',
 )
 .map(tag =>
-  <List.Item style={{ marginLeft: '0px', marginRight: '13px' }}>
+  <List.Item key={tag.name} style={{ marginLeft: '0px', marginRight: '13px' }}>
     <List.Content style={{ backgroundColor: '#f5f5f5', padding: '3px 11px' }}>
       {tag.name}
     </List.Content>
@@ -20,7 +20,7 @@ const tagProfItems = tagData
   tag.category === 'prof',
 )
 .map(tag =>
-  <List.Item style={{ marginLeft: '0px', marginRight: '13px' }}>
+  <List.Item key={tag.name} style={{ marginLeft: '0px', marginRight: '13px' }}>
     <List.Content style={{ backgroundColor: '#f5f5f5', padding: '3px 11px' }}>
       {tag.name}
     </List.Content>
