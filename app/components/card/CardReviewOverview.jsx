@@ -8,15 +8,9 @@ import styles from './styles/CardReviewOverview.scss'
 const propTypes = {
   id: PropTypes.number.isRequired,
   text: PropTypes.string.isRequired,
-  Course: PropTypes.shape({
-    name: PropTypes.string.isRequired,
-  }).isRequired,
-  Prof: PropTypes.shape({
-    name: PropTypes.string.isRequired,
-  }).isRequired,
-  Author: PropTypes.shape({
-    username: PropTypes.string.isRequired,
-  }).isRequired,
+  Course: PropTypes.object.isRequired,
+  Prof: PropTypes.object.isRequired,
+  Author: PropTypes.object.isRequired,
   createdAt: PropTypes.string.isRequired,
 }
 

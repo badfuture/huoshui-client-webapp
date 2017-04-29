@@ -1,16 +1,46 @@
 import axios from 'axios'
 import {
   FETCH_REVIEWS_ATTEMPT, FETCH_REVIEWS_SUCCESS, FETCH_REVIEWS_ERROR,
-  FETCH_REVIEW_ATTEMPT, FETCH_REVIEW_BY_ID_SUCCESS,
+  FETCH_REVIEW_BY_ID_ATTEMPT, FETCH_REVIEW_BY_ID_SUCCESS,
+  FIRST_PAGE, NEXT_PAGE, PREV_PAGE, SWITCH_VIEW,
 } from '../constants/ReviewActionTypes'
+import {
+  NEW_REVIEW, HOT_REVIEW,
+} from '../constants/StateEnum'
 import { URL_REVIEW } from '../constants/ApiEndpoints'
+
+
+/**
+ * get API URL
+ */
+const getAPIParams = ({ currentView, limit, skip = 0 }) => {
+  const res = {
+    params: {
+      populate: 'all',
+      paginate: true,
+      sort: 'createdAt DESC',
+      limit,
+      skip,
+    },
+  }
+
+  const params = res.params
+  if (currentView === NEW_REVIEW) {
+    params.sort = 'createdAt DESC'
+  } else if (currentView === HOT_REVIEW) {
+    params.sort = 'upVote DESC'
+  } else {
+    params.sort = 'createdAt DESC'
+  }
+
+  return res
+}
 
 /**
  * fetech all reviews
  */
-export const fetchReviewsAttempt = status => ({
+export const fetchReviewsAttempt = () => ({
   type: FETCH_REVIEWS_ATTEMPT,
-  status,
 })
 
 export const fetchReviewsSuccess = resp => ({
@@ -23,29 +53,116 @@ export const fetchReviewsError = err => ({
   error: err,
 })
 
-export const fetchReviews = () =>
-  (dispatch) => {
-    dispatch(fetchReviewsAttempt(true))
-    return (
-      axios.get(`${URL_REVIEW}?populate=all&limit=15`)
-       .then((resp) => {
-         dispatch(fetchReviewsAttempt(false))
-         dispatch(fetchReviewsSuccess(resp))
-       })
-       .catch((err) => {
-         dispatch(fetchReviewsAttempt(false))
-         dispatch(fetchReviewsError(err))
-         throw (err)
-       })
-    )
+/**
+* pagination for multiple reviews
+* {{api_url}}/reviews?paginate=true&limit=3&skip=3
+*/
+export const switchView = view => ({
+  type: SWITCH_VIEW,
+  view,
+})
+
+export const firtPage = () => ({
+  type: FIRST_PAGE,
+})
+
+export const nextPage = () => ({
+  type: NEXT_PAGE,
+})
+
+export const prevPage = () => ({
+  type: PREV_PAGE,
+})
+
+export const initializePage = () =>
+(dispatch, getState) => {
+  const { currentView, pageSize } = getState().reviews
+
+  dispatch(fetchReviewsAttempt(true))
+  return (
+    axios
+      .get(URL_REVIEW, getAPIParams({
+        currentView,
+        limit: pageSize,
+      }))
+      .then((resp) => {
+        dispatch(fetchReviewsSuccess(resp))
+        dispatch(firtPage())
+      })
+      .catch((err) => {
+        dispatch(fetchReviewsError(err))
+        throw (err)
+      })
+  )
+}
+
+
+export const goNextPage = () =>
+(dispatch, getState) => {
+  const { currentView, pageSize, newCurrPage, hotCurrPage, totalPage } = getState().reviews
+  const currPage = (currentView === NEW_REVIEW) ? newCurrPage : hotCurrPage
+
+  // return if reach end of data
+  if (totalPage !== 0 && currPage === totalPage) {
+    return false
   }
 
+  const skip = pageSize * currPage
+  dispatch(fetchReviewsAttempt(true))
+  return (
+    axios
+      .get(URL_REVIEW, getAPIParams({
+        currentView,
+        limit: pageSize,
+        skip,
+      }))
+      .then((resp) => {
+        dispatch(fetchReviewsSuccess(resp))
+        dispatch(nextPage())
+      })
+      .catch((err) => {
+        dispatch(fetchReviewsError(err))
+        throw (err)
+      })
+  )
+}
+
+export const goPrevPage = () =>
+(dispatch, getState) => {
+  const { currentView, pageSize, newCurrPage, hotCurrPage } = getState().reviews
+  const currPage = (currentView === NEW_REVIEW) ? newCurrPage : hotCurrPage
+
+  // return if on first page
+  if (currPage <= 1) {
+    return false
+  }
+
+  const skip = pageSize * (currPage - 2)
+
+  dispatch(fetchReviewsAttempt(true))
+  return (
+    axios
+      .get(URL_REVIEW, getAPIParams({
+        currentView,
+        limit: pageSize,
+        skip,
+      }))
+      .then((resp) => {
+        dispatch(fetchReviewsSuccess(resp))
+        dispatch(prevPage())
+      })
+      .catch((err) => {
+        dispatch(fetchReviewsError(err))
+        throw (err)
+      })
+  )
+}
+
 /**
- * fetech details of a review
+ * fetech details of a single review
  */
-export const fetchReviewAttempt = status => ({
-  type: FETCH_REVIEW_ATTEMPT,
-  status,
+export const fetchReviewByIdAttempt = () => ({
+  type: FETCH_REVIEW_BY_ID_ATTEMPT,
 })
 
 export const fetchReviewByIdSuccess = resp => ({
@@ -53,7 +170,8 @@ export const fetchReviewByIdSuccess = resp => ({
   resp,
 })
 export const fetchReviewById = reviewId =>
-  dispatch => axios.get(`${URL_REVIEW}/${reviewId}?populate=[Course,Author,Prof]`)
+  dispatch =>
+  axios.get(`${URL_REVIEW}/${reviewId}?populate=[Course,Author,Prof]`)
    .then((resp) => {
      dispatch(fetchReviewByIdSuccess(resp))
    })

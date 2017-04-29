@@ -14,12 +14,17 @@ const DetailsGrid = props => (
     <Grid stackable>
       <Grid.Row>
         <Grid.Column width={11} style={{ paddingRight: '3.5rem' }}>
-          <CardReviewDetail {...props} />
+          <CardReviewDetail
+            review={props.review}
+            author={props.review.Author}
+            course={props.review.Course}
+            prof={props.review.Prof}
+          />
           <Divider hidden />
           <CommentExample />
         </Grid.Column>
         <Grid.Column width={5} style={{ paddingLeft: '1.0rem' }}>
-          <CardProfDetail {...props} />
+          <CardProfDetail {...props.review.Prof} />
         </Grid.Column>
       </Grid.Row>
     </Grid>

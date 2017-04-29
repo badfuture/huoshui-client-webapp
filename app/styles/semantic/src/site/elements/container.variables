@@ -2,4 +2,4 @@
     User Variable Overrides
 *******************************/
 
-@largeMonitorMinimumGutter: (@emSize  * 5.1);
+@largeMonitorMinimumGutter: (@emSize  * 4.1);

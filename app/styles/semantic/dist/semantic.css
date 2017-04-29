@@ -4720,21 +4720,21 @@ input::selection {
 
 @media only screen and (min-width: 1200px) {
   .ui.container {
-    width: 1040.2px;
+    width: 1068.2px;
     margin-left: auto !important;
     margin-right: auto !important;
   }
 
   .ui.grid.container {
-    width: calc( 1040.2px  +  2rem ) !important;
+    width: calc( 1068.2px  +  2rem ) !important;
   }
 
   .ui.relaxed.grid.container {
-    width: calc( 1040.2px  +  3rem ) !important;
+    width: calc( 1068.2px  +  3rem ) !important;
   }
 
   .ui.very.relaxed.grid.container {
-    width: calc( 1040.2px  +  5rem ) !important;
+    width: calc( 1068.2px  +  5rem ) !important;
   }
 }
 
