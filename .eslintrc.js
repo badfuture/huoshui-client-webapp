@@ -13,6 +13,8 @@ module.exports = {
   ],
   "rules": {
     semi: ['error', 'never'],
-    quotes: ['error', 'single', { 'avoidEscape': true, 'allowTemplateLiterals': true }]
+    quotes: ['error', 'single', { 'avoidEscape': true, 'allowTemplateLiterals': true }],
+    "react/prop-types": 0,
+    "no-console": 0
   }
 };
