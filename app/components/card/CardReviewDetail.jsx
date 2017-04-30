@@ -6,7 +6,7 @@ const calcScore = ({ expressive, kind, professional }) => {
   const avg = (expressive + kind + professional) / 3
   const score = +avg.toFixed(2)
   return (
-    score
+    score || ''
   )
 }
 

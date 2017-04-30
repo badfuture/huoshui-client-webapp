@@ -1,37 +1,14 @@
 import React from 'react'
-import { Image as ImageComponent, Item } from 'semantic-ui-react'
+import { List } from 'semantic-ui-react'
+import ListItemCourse from './ListItemCourse'
 
-const paragraph = <ImageComponent src="/assets/images/wireframe/short-paragraph.png" />
 
-const ListRank = () => (
-  <Item.Group link>
-    <Item>
-      <Item.Image size="tiny" src="/assets/images/avatar/large/stevie.jpg" />
-
-      <Item.Content>
-        <Item.Header>Stevie Feliciano</Item.Header>
-        <Item.Description>{paragraph}</Item.Description>
-      </Item.Content>
-    </Item>
-
-    <Item>
-      <Item.Image size="tiny" src="/assets/images/avatar/large/veronika.jpg" />
-
-      <Item.Content>
-        <Item.Header>Veronika Ossi</Item.Header>
-        <Item.Description>{paragraph}</Item.Description>
-      </Item.Content>
-    </Item>
-
-    <Item>
-      <Item.Image size="tiny" src="/assets/images/avatar/large/jenny.jpg" />
-
-      <Item.Content>
-        <Item.Header>Jenny Hess</Item.Header>
-        <Item.Description>{paragraph}</Item.Description>
-      </Item.Content>
-    </Item>
-  </Item.Group>
+const ListRanking = props => (
+  <List verticalAlign="middle">
+    {props.data.map(item => (
+      <ListItemCourse {...item} />
+    ))}
+  </List>
 )
 
-export default ListRank
+export default ListRanking

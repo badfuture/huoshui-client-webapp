@@ -5,13 +5,14 @@ import rankMeta from '../../data/rank.json'
 
 const items = rankMeta
 
-const GridRank = () => (
+const GridRank = props => (
   <Container>
     <Card.Group itemsPerRow={4} stackable>
       {items.map(
         item => <CardRank
           key={item.id}
           {...item}
+          {...props}
         />,
       )}
     </Card.Group>

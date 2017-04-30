@@ -10,18 +10,19 @@ const RatingBasic = props => (
     starCount={props.maxStars}
     editing={!props.isReadOnly}
     renderStarIcon={() => <span><Icon name="star" /></span>}
-    renderStarIconHalf={() => <span><Icon name="star half empty" /></span>}
+    renderStarIconHalf={() => <span><Icon name="star half" /></span>}
     starColor="#ffac2d"
-    emptyStarColor="rgba(255, 221, 139, 0.63)"
+    emptyStarColor="rgba(255, 221, 139, 0.43)"
   />
 )
 
 RatingBasic.propTypes = {
-  value: PropTypes.number.isRequired,
+  value: PropTypes.number,
   maxStars: PropTypes.number,
   isReadOnly: PropTypes.bool,
 }
 RatingBasic.defaultProps = {
+  value: 0,
   isReadOnly: true,
   maxStars: 5,
 }

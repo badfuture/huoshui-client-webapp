@@ -12,6 +12,7 @@ import HomeContainer from '../containers/home/HomeContainer'
 import ReviewContainer from '../containers/review/ReviewContainer'
 import ReviewDetailsContainer from '../containers/review/ReviewDetailsContainer'
 import RankContainer from '../containers/rank/RankContainer'
+import RankDetailsContainer from '../containers/rank/RankDetailsContainer'
 import KelistContainer from '../containers/kelist/KelistContainer'
 import CategoriesContainer from '../containers/categories/CategoriesContainer'
 import FeedbackContainer from '../containers/feedback/FeedbackContainer'
@@ -20,7 +21,6 @@ import MyKelistContainer from '../containers/kelist/MyKelistContainer'
 import MyProfContainer from '../containers/prof/MyProfContainer'
 import MyReplyContainer from '../containers/reply/MyReplyContainer'
 import MyProfileContainer from '../containers/profile/MyProfileContainer'
-
 
 // set global config for Http requests
 axios.defaults.baseURL = DOMAIN
@@ -41,7 +41,8 @@ const AppRoutes = () => (
           <Route path="/home" component={HomeContainer} />
           <Route exact path="/reviews" component={ReviewContainer} />
           <Route path="/reviews/:id" component={ReviewDetailsContainer} />
-          <Route path="/rankings" component={RankContainer} />
+          <Route exact path="/rankings" component={RankContainer} />
+          <Route path="/rankings/:id" component={RankDetailsContainer} />
           <Route path="/kelists" component={KelistContainer} />
           <Route path="/categories" component={CategoriesContainer} />
           <Route path="/my-review" component={MyReviewContainer} />

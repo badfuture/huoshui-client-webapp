@@ -4,6 +4,7 @@ import { reviewsReducer, reviewReducer } from './reviewReducers'
 import kelistReducers from './kelistReducers'
 import modalReducers from './modalReducers'
 import menuReducers from './menuReducers'
+import rankDetailListReducer from './rankDetailListReducer'
 
 export default combineReducers({
   auth: authReducers,
@@ -12,4 +13,5 @@ export default combineReducers({
   review: reviewReducer,
   modals: modalReducers,
   menu: menuReducers,
+  rankDetailList: rankDetailListReducer,
 })

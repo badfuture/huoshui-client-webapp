@@ -1,13 +1,29 @@
-import React from 'react'
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import { Container } from 'semantic-ui-react'
 import GridRank from '../../components/grid/GridRank'
 
-const RankContainer = () => (
-  <div className="container-main-grey">
-    <Container>
-      <GridRank />
-    </Container>
-  </div>
-)
+class RankContainer extends Component {
+  componentDidMount() {
+    console.log(this.props)
+  }
+  render() {
+    return (
+      <div className="container-main-grey">
+        <Container>
+          <GridRank {...this.props} />
+        </Container>
+      </div>
+    )
+  }
+}
 
-export default RankContainer
+const mapStateToProps = state => ({
+    // state mappings here
+})
+
+const mapActionToProps = action => ({
+    // actions mappings here
+})
+
+export default connect(mapStateToProps, mapActionToProps)(RankContainer)
