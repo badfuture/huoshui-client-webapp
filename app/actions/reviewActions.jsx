@@ -76,7 +76,15 @@ export const prevPage = () => ({
 
 export const initializePage = () =>
 (dispatch, getState) => {
-  const { currentView, pageSize } = getState().reviews
+  const state = getState().reviews
+  const { currentView, pageSize, newCurrPage, hotCUrrPage } = state
+  let pageNum = 1
+  if (currentView === NEW_REVIEW) {
+    pageNum = newCurrPage
+  } else {
+    pageNum = hotCUrrPage
+  }
+  const skip = pageSize * (pageNum - 1)
 
   dispatch(fetchReviewsAttempt(true))
   return (
@@ -84,10 +92,10 @@ export const initializePage = () =>
       .get(URL_REVIEW, getAPIParams({
         currentView,
         limit: pageSize,
+        skip,
       }))
       .then((resp) => {
         dispatch(fetchReviewsSuccess(resp))
-        dispatch(firtPage())
       })
       .catch((err) => {
         dispatch(fetchReviewsError(err))

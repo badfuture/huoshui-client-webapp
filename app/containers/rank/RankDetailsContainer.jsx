@@ -5,6 +5,7 @@ import * as rankActions from '../../actions/rankActions'
 import ListRanking from '../../components/list/ListRanking'
 import rankMeta from '../../data/rank.json'
 import deptMeta from '../../data/dept.json'
+import Spinner from '../../components/spinner/Spinner'
 
 class RankDetailsContainer extends Component {
   componentDidMount() {
@@ -28,7 +29,14 @@ class RankDetailsContainer extends Component {
           <Grid stackable>
             <Grid.Row>
               <Grid.Column width={11} style={{ paddingRight: '3.5rem' }}>
-                <ListRanking {...this.props} />
+                {!this.props.isFetching &&
+                  <ListRanking {...this.props} />
+                }
+                {this.props.isFetching &&
+                  <div style={{ marginTop: '5em' }} >
+                    <Spinner />
+                  </div>
+                }
               </Grid.Column>
               <Grid.Column width={5} style={{ paddingLeft: '1.0rem' }}>
                 <Header as="h3" style={{ fontWeight: 400 }}>
@@ -77,7 +85,7 @@ const mapStateToProps = state => ({
   currentView: state.rankDetailList.currentView,
   meta: state.rankDetailList.meta,
   data: state.rankDetailList.data,
-  isFetching: state.isFetching,
+  isFetching: state.rankDetailList.isFetching,
 })
 
 // maps actions to props

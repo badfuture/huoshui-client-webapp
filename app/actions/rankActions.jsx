@@ -1,7 +1,6 @@
 import axios from 'axios'
 import {
-  FETCH_RANK_LIST_ATTEMPT, FETCH_RANK_LIST_SUCCESS, FETCH_RANK_LIST_ERROR,
-  FIRST_PAGE, SWITCH_VIEW,
+  FETCH_RANK_LIST_ATTEMPT, FETCH_RANK_LIST_SUCCESS, FETCH_RANK_LIST_ERROR, SWITCH_VIEW,
 } from '../constants/RankActionTypes'
 import { URL_COURSE } from '../constants/ApiEndpoints'
 
@@ -55,11 +54,6 @@ export const switchView = (view, meta) => ({
   meta,
 })
 
-export const firtPage = () => ({
-  type: FIRST_PAGE,
-})
-
-
 export const initializeRankList = () =>
 (dispatch, getState) => {
   const { currentView } = getState().reviews
@@ -72,7 +66,6 @@ export const initializeRankList = () =>
       }))
       .then((resp) => {
         dispatch(fetchRankListSuccess(resp))
-        dispatch(firtPage())
       })
       .catch((err) => {
         dispatch(fetchRankListError(err))

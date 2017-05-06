@@ -14,9 +14,9 @@ export const reviewsReducer = (state = {
   data: [],
   itemCount: 0,
   pageSize: 10,
-  totalPage: 0,
-  newCurrPage: 0,
-  hotCurrPage: 0,
+  totalPage: 1,
+  newCurrPage: 1,
+  hotCurrPage: 1,
 }, action) => {
   switch (action.type) {
     case FETCH_REVIEWS_ATTEMPT:
