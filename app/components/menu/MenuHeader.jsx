@@ -23,9 +23,9 @@ loginItem.propTypes = {
   openLoginModal: PropTypes.func.isRequired,
 }
 
-const signupItem = (
-  <Menu.Item name="signup">
-    <Link to="/signup">注册</Link>
+const signupItem = props => (
+  <Menu.Item name="signup" onClick={props.openSignupModal}>
+    <span>注册</span>
   </Menu.Item>
 )
 
@@ -89,7 +89,7 @@ const MenuHeader = props => (
         />
       </Menu.Item>
       { !props.authStatus.isAuthenticated && loginItem(props) }
-      { !props.authStatus.isAuthenticated && signupItem }
+      { !props.authStatus.isAuthenticated && signupItem(props) }
       { props.authStatus.isAuthenticated && accountItem(props) }
     </Menu.Menu>
   </Menu>

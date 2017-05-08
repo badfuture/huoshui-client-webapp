@@ -4,6 +4,7 @@ import AppFooter from './AppFooter'
 import MenuSidebarContainer from '../../containers/menu/MenuSidebarContainer'
 import MenuHeaderContainer from '../../containers/menu/MenuHeaderContainer'
 import ModalLoginContainer from '../../containers/modal/ModalLoginContainer'
+import ModalSignupContainer from '../../containers/modal/ModalSignupContainer'
 
 const propTypes = {
   children: PropTypes.node.isRequired,
@@ -20,6 +21,7 @@ class AppLayout extends Component {
           </header>
           <div className={styles.appContent}>
             <ModalLoginContainer />
+            <ModalSignupContainer />
             <div>
               {this.props.children}
             </div>

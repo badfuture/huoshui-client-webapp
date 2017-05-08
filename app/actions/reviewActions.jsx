@@ -77,12 +77,12 @@ export const prevPage = () => ({
 export const initializePage = () =>
 (dispatch, getState) => {
   const state = getState().reviews
-  const { currentView, pageSize, newCurrPage, hotCUrrPage } = state
+  const { currentView, pageSize, newCurrPage, hotCurrPage } = state
   let pageNum = 1
   if (currentView === NEW_REVIEW) {
     pageNum = newCurrPage
   } else {
-    pageNum = hotCUrrPage
+    pageNum = hotCurrPage
   }
   const skip = pageSize * (pageNum - 1)
 

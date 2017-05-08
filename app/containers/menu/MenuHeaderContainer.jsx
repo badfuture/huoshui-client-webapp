@@ -7,6 +7,7 @@ import MenuHeader from '../../components/menu/MenuHeader'
 
 const propTypes = {
   openLoginModal: PropTypes.func.isRequired,
+  openSignupModal: PropTypes.func.isRequired,
   toggleMenuSidebar: PropTypes.func.isRequired,
   authStatus: PropTypes.object.isRequired,
   logoutUser: PropTypes.func.isRequired,
@@ -18,6 +19,7 @@ class MenuHeaderContainer extends Component {
     return (
       <MenuHeader
         openLoginModal={this.props.openLoginModal}
+        openSignupModal={this.props.openSignupModal}
         toggleMenuSidebar={this.props.toggleMenuSidebar}
         logoutUser={this.props.logoutUser}
         authStatus={this.props.authStatus}
@@ -36,6 +38,8 @@ const mapStateToProps = state => ({
 const mapActionToProps = dispatch => ({
   logoutUser: () => dispatch(authActions.logoutUser()),
   openLoginModal: () => dispatch(modalActions.openLoginModal()),
+  openSignupModal: () => dispatch(modalActions.openSignupModal()),
+  closeLoginModal: () => dispatch(modalActions.closeLoginModal()),
   toggleMenuSidebar: () => dispatch(menuActions.toggleMenuSidebar()),
 })
 

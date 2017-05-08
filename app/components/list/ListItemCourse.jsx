@@ -29,7 +29,7 @@ const listItemCourse = props => (
             </Header>
           </Grid.Row>
           <Grid.Row verticalAlign="middle">
-            <Grid.Column width={11} style={{ paddingLeft: '0' }}>
+            <Grid.Column width={10} style={{ paddingLeft: '0' }}>
               <div>
                 <span style={{ marginRight: '0.5em' }}>
                   <Rating value={props.Stat.scoreOverall} />
@@ -42,7 +42,7 @@ const listItemCourse = props => (
                 </span>
               </div>
             </Grid.Column>
-            <Grid.Column width={5}>
+            <Grid.Column width={6}>
               {props.Tags.map((tag, index) => {
                 if (index < 2) { return <span>{`${tag.name}, `}</span> }
                 if (index === 2) { return <span>{`${tag.name}`}</span> }
