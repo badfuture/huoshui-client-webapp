@@ -38,10 +38,14 @@ const MenuSidebar = props => (
         <Icon name="address book outline" />
         <Link to="/my-prof">我的老师</Link>
       </Menu.Item>
-      <Menu.Item name="my-kelist">
-        <Icon name="list" />
-        <Link to="/my-kelist">我的课列</Link>
-      </Menu.Item>
+      {
+        /*
+        <Menu.Item name="my-kelist">
+          <Icon name="list" />
+          <Link to="/my-kelist">我的课列</Link>
+        </Menu.Item>
+         */
+      }
       <Menu.Item name="my-reply">
         <Icon name="commenting outline" />
         <Link to="/my-reply">我的回复</Link>

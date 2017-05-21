@@ -2,7 +2,7 @@ import React from 'react'
 import { Container } from 'semantic-ui-react'
 import PageFeedback from '../../components/page/PageFeedback'
 
-const AboutContainer = () => (
+const FeedbackContainer = () => (
   <div className="container-main-grey">
     <Container>
       <PageFeedback />
@@ -10,4 +10,4 @@ const AboutContainer = () => (
   </div>
 )
 
-export default AboutContainer
+export default FeedbackContainer

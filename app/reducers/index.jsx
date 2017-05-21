@@ -5,6 +5,8 @@ import kelistReducers from './kelistReducers'
 import modalReducers from './modalReducers'
 import menuReducers from './menuReducers'
 import rankDetailListReducer from './rankDetailListReducer'
+import feedbackReducer from './feedbackReducers'
+
 
 export default combineReducers({
   auth: authReducers,
@@ -14,4 +16,5 @@ export default combineReducers({
   modals: modalReducers,
   menu: menuReducers,
   rankDetailList: rankDetailListReducer,
+  feedback: feedbackReducer,
 })

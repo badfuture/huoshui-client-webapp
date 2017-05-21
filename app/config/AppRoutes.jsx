@@ -2,7 +2,7 @@ import React from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import 'moment/locale/zh-cn'
 import { Provider } from 'react-redux'
-import { persistStore } from 'redux-persist'
+// import { persistStore } from 'redux-persist'
 import axios from 'axios'
 import moment from 'moment'
 import { DOMAIN } from '../constants/ApiEndpoints'
@@ -22,10 +22,6 @@ import MyKelistContainer from '../containers/kelist/MyKelistContainer'
 import MyProfContainer from '../containers/prof/MyProfContainer'
 import MyReplyContainer from '../containers/reply/MyReplyContainer'
 import MyProfileContainer from '../containers/profile/MyProfileContainer'
-
-import {
-  NEW_REVIEW,
-} from '../constants/StateEnum'
 
 
 // set global config for Http requests

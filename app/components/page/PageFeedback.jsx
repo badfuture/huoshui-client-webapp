@@ -1,6 +1,6 @@
 import React from 'react'
 import { Card, Grid } from 'semantic-ui-react'
-import FormFeedback from '../form/FormFeedback'
+import FeedbackFormContainer from '../../containers/feedback/FeedbackFormContainer'
 
 const imgSrc = '/images/barcode.jpg'
 const PageFeedback = () => (
@@ -10,7 +10,7 @@ const PageFeedback = () => (
         <Card raised image={imgSrc} />
       </Grid.Column>
       <Grid.Column width={11}>
-        <FormFeedback />
+        <FeedbackFormContainer />
       </Grid.Column>
     </Grid.Row>
   </Grid>

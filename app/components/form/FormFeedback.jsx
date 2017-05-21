@@ -1,16 +1,68 @@
-import React from 'react'
-import { Button, Form, Input, TextArea } from 'semantic-ui-react'
+import React, { Component } from 'react'
+import { Button, Form, Input, TextArea, Message } from 'semantic-ui-react'
 
-const FormFeedback = () => (
-  <Form>
-    <Form.Group widths="equal">
-      <Form.Field control={Input} label="称呼（选填）" placeholder="昵称即可" />
+class FormFeedback extends Component {
+  state = {
+    name: '',
+    contact: '',
+    content: '',
+  }
 
-    </Form.Group>
-    <Form.Field control={Input} label="联系（选填）" placeholder="邮箱，手机，QQ，微信" />
-    <Form.Field control={TextArea} label="反馈（必填）" placeholder="有问必答，绝对保密" />
-    <Form.Field control={Button}>发送</Form.Field>
-  </Form>
-)
+  handleChange = (e, { name, value }) => this.setState({ [name]: value })
+  handleSubmit = (e) => {
+    e.preventDefault()
+    const { name, contact, content } = this.state
+    this.props.submitFeedback({
+      name,
+      contact,
+      content,
+    })
+  }
+
+  render() {
+    const { name, contact, content } = this.state
+    return (
+      <Form
+        success={this.props.sendSuccess}
+        loading={this.props.isFetching}
+        onSubmit={this.handleSubmit}
+        style={{ padding: '1em' }}
+      >
+        <Form.Field
+          control={Input}
+          name="name"
+          label="称呼（选填）"
+          value={name}
+          placeholder="昵称即可"
+          onChange={this.handleChange}
+        />
+        <Form.Field
+          control={Input}
+          name="contact"
+          label="联系（选填）"
+          value={contact}
+          placeholder="邮箱，手机，QQ，微信"
+          onChange={this.handleChange}
+        />
+        <Form.Field
+          control={TextArea}
+          name="content"
+          label="反馈（必填）"
+          value={content}
+          placeholder="有问必答，绝对保密"
+          onChange={this.handleChange}
+        />
+        <Message
+          success
+          color="blue"
+          header="发送成功"
+          content="反馈已收到，谢谢你的参与！"
+        />
+        <Form.Field control={Button} primary>发送</Form.Field>
+      </Form>
+    )
+  }
+
+}
 
 export default FormFeedback
