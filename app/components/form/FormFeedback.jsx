@@ -6,17 +6,22 @@ class FormFeedback extends Component {
     name: '',
     contact: '',
     content: '',
+    msgVisible: false,
   }
 
   handleChange = (e, { name, value }) => this.setState({ [name]: value })
   handleSubmit = (e) => {
     e.preventDefault()
     const { name, contact, content } = this.state
+    this.setState({ msgVisible: true })
     this.props.submitFeedback({
       name,
       contact,
       content,
     })
+  }
+  handleDismissMsg = () => {
+    this.setState({ msgVisible: false })
   }
 
   render() {
@@ -54,6 +59,8 @@ class FormFeedback extends Component {
         />
         <Message
           success
+          hidden={!this.state.msgVisible}
+          onDismiss={this.handleDismissMsg}
           color="blue"
           header="发送成功"
           content="反馈已收到，谢谢你的参与！"

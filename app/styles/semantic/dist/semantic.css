@@ -32862,7 +32862,7 @@ html.ios {
 
 .ui.thin.left.sidebar,
 .ui.thin.right.sidebar {
-  width: 150px;
+  width: 110px;
 }
 
 .ui[class*="very thin"].left.sidebar,
@@ -32889,8 +32889,8 @@ html.ios {
 
 .ui.visible.thin.left.sidebar ~ .fixed,
 .ui.visible.thin.left.sidebar ~ .pusher {
-  -webkit-transform: translate3d(150px, 0, 0);
-  transform: translate3d(150px, 0, 0);
+  -webkit-transform: translate3d(110px, 0, 0);
+  transform: translate3d(110px, 0, 0);
 }
 
 .ui.visible[class*="very thin"].left.sidebar ~ .fixed,
@@ -32915,8 +32915,8 @@ html.ios {
 
 .ui.visible.thin.right.sidebar ~ .fixed,
 .ui.visible.thin.right.sidebar ~ .pusher {
-  -webkit-transform: translate3d(-150px, 0, 0);
-  transform: translate3d(-150px, 0, 0);
+  -webkit-transform: translate3d(-110px, 0, 0);
+  transform: translate3d(-110px, 0, 0);
 }
 
 .ui.visible[class*="very thin"].right.sidebar ~ .fixed,
