@@ -25,7 +25,7 @@ import MyKelistContainer from '../containers/kelist/MyKelistContainer'
 import MyProfContainer from '../containers/prof/MyProfContainer'
 import MyReplyContainer from '../containers/reply/MyReplyContainer'
 import MyProfileContainer from '../containers/profile/MyProfileContainer'
-
+import ScrollToTop from '../config/AppScrollToTop'
 import Pace from '../components/progress/pace'
 
 // set global config for Http requests
@@ -45,29 +45,31 @@ const store = configStore()
 
 const AppRoutes = () => (
   <Provider store={store}>
-    <Router>
-      <AppLayout>
-        <Switch>
-          <Route path="/" exact component={HomeContainer} />
-          <Route path="/home" component={HomeContainer} />
-          <Route path="/profs/:id" component={ProfDetailContainer} />
-          <Route path="/courses/:id" component={CourseDetailContainer} />
-          <Route exact path="/reviews" component={ReviewContainer} />
-          <Route path="/reviews/:id" component={ReviewDetailsContainer} />
-          <Route exact path="/new_review" component={AddReviewContainer} />
-          <Route exact path="/rankings" component={RankContainer} />
-          <Route path="/rankings/:id" component={RankDetailsContainer} />
-          <Route path="/kelists" component={KelistContainer} />
-          <Route path="/categories" component={CategoriesContainer} />
-          <Route path="/my-review" component={MyReviewContainer} />
-          <Route path="/my-kelist" component={MyKelistContainer} />
-          <Route path="/my-prof" component={MyProfContainer} />
-          <Route path="/my-reply" component={MyReplyContainer} />
-          <Route path="/my-profile" component={MyProfileContainer} />
-          <Route path="/feedback" component={FeedbackContainer} />
-          <Route component={PageNotFound} />
-        </Switch>
-      </AppLayout>
+    <Router onUpdate={() => window.scrollTo(0, 0)}>
+      <ScrollToTop>
+        <AppLayout>
+          <Switch>
+            <Route path="/" exact component={HomeContainer} />
+            <Route path="/home" component={HomeContainer} />
+            <Route path="/profs/:id" component={ProfDetailContainer} />
+            <Route path="/courses/:id" component={CourseDetailContainer} />
+            <Route exact path="/reviews" component={ReviewContainer} />
+            <Route path="/reviews/:id" component={ReviewDetailsContainer} />
+            <Route exact path="/new_review" component={AddReviewContainer} />
+            <Route exact path="/rankings" component={RankContainer} />
+            <Route path="/rankings/:id" component={RankDetailsContainer} />
+            <Route path="/kelists" component={KelistContainer} />
+            <Route path="/categories" component={CategoriesContainer} />
+            <Route path="/my-review" component={MyReviewContainer} />
+            <Route path="/my-kelist" component={MyKelistContainer} />
+            <Route path="/my-prof" component={MyProfContainer} />
+            <Route path="/my-reply" component={MyReplyContainer} />
+            <Route path="/my-profile" component={MyProfileContainer} />
+            <Route path="/feedback" component={FeedbackContainer} />
+            <Route component={PageNotFound} />
+          </Switch>
+        </AppLayout>
+      </ScrollToTop>
     </Router>
   </Provider>
 )
