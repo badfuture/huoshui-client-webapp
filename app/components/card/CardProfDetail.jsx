@@ -11,7 +11,6 @@ const propTypes = {
   education: PropTypes.string,
   research: PropTypes.string,
   scoreOverall: PropTypes.number,
-  onClickHandler: PropTypes.func,
 }
 
 const defaultProps = {
@@ -22,11 +21,10 @@ const defaultProps = {
   education: '',
   research: '',
   scoreOverall: null,
-  onClickHandler: () => {},
 }
 
 const CardProfDetail = props => (
-  <Card fluid style={{ boxShadow: 'none' }} onClick={props.onClickHandler}>
+  <Card fluid style={{ boxShadow: 'none' }} onClick={() => { props.history.push(`/profs/${props.id}`) }}>
     <Card.Content>
       <Image floated="left" size="mini" src="/images/sample/sample6.png" />
       <Card.Header>

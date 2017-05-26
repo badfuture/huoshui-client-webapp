@@ -24,7 +24,7 @@ const DetailsGrid = props => (
           <CommentExample />
         </Grid.Column>
         <Grid.Column width={5} style={{ paddingLeft: '1.0rem' }}>
-          <CardProfDetail {...props.review.Prof} />
+          <CardProfDetail {...props.review.Prof} history={props.history} />
         </Grid.Column>
       </Grid.Row>
     </Grid>

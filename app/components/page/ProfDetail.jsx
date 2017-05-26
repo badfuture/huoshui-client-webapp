@@ -5,16 +5,40 @@ import CardProfOverview from '../../components/card/CardProfOverview'
 import MenuProfDetail from '../../components/menu/MenuProfDetail'
 import ChartPieLabel from '../../components/chart/ChartPieLabel'
 import ChartPieGap from '../../components/chart/ChartPieGap'
+import RatingBasic from '../../components/rating/RatingBasic'
 // import ChartLine from '../../components/chart/ChartLine'
+
 import {
   INFO, STAT, EDUCATION, RESEARCH, COURSE,
 } from '../../constants/MenuProfStates'
 
+const CourseList = props => (
+  <Item.Group divided>
+    {props.courses.map(course => (
+      <Item
+        key={course.id}
+        onClick={() => { props.history.push(`/courses/${course.id}`) }}
+        style={{ padding: '5px 0px' }}
+      >
+        <Item.Content>
+          <Item.Meta>
+            <span>{course.name}</span>
+          </Item.Meta>
+          <Item.Extra>
+            <div style={{ marginTop: '0em' }}>
+              <RatingBasic value={course.scoreOverall} />
+            </div>
+          </Item.Extra>
+        </Item.Content>
+      </Item>
+    ))}
+  </Item.Group>
+)
 
 const ReviewList = props => (
   <Item.Group divided>
     {props.reviews.map(review => (
-      <Item>
+      <Item key={review.id} onClick={() => { props.history.push(`/reviews/${review.id}`) }}>
         <Item.Content>
           <Item.Meta>
             <span>{review.text}</span>
@@ -90,17 +114,22 @@ const DetailGrid = props => (
           }
           {
             (props.currentView === COURSE) && <Segment>
-              暂无相关课程信息~
+              {(props.prof.Courses && props.prof.Courses[0]) ?
+                <CourseList courses={props.prof.Courses} history={props.history} /> :
+                <div>
+                  <br />暂无相关课程信息~
+                </div>
+              }
             </Segment>
           }
           <Divider
             horizontal
-            style={{ margin: '1.5em 0em' }}
+            style={{ margin: '1.0em 0em' }}
           />
           <Segment>
             相关评论：<br />
             {(props.prof.Reviews && props.prof.Reviews[0]) ?
-              <ReviewList reviews={props.prof.Reviews} /> :
+              <ReviewList reviews={props.prof.Reviews} history={props.history} /> :
               <div>
                 <br />暂无相关评论~
               </div>
