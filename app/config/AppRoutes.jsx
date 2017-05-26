@@ -10,8 +10,11 @@ import configStore from './AppStore'
 import AppLayout from '../components/layout/AppLayout'
 import PageNotFound from '../components/page/PageNotFound'
 import HomeContainer from '../containers/home/HomeContainer'
+import ProfDetailContainer from '../containers/prof/ProfDetailContainer'
+import CourseDetailContainer from '../containers/course/CourseDetailContainer'
 import ReviewContainer from '../containers/review/ReviewContainer'
 import ReviewDetailsContainer from '../containers/review/ReviewDetailsContainer'
+import AddReviewContainer from '../containers/review/AddReviewContainer'
 import RankContainer from '../containers/rank/RankContainer'
 import RankDetailsContainer from '../containers/rank/RankDetailsContainer'
 import KelistContainer from '../containers/kelist/KelistContainer'
@@ -23,10 +26,14 @@ import MyProfContainer from '../containers/prof/MyProfContainer'
 import MyReplyContainer from '../containers/reply/MyReplyContainer'
 import MyProfileContainer from '../containers/profile/MyProfileContainer'
 
+import Pace from '../components/progress/pace'
 
 // set global config for Http requests
 axios.defaults.baseURL = DOMAIN
 axios.defaults.headers.post['Content-Type'] = 'application/json'
+
+// set top progress bar
+Pace.start()
 
 // set global locale for time
 moment().locale('zh-cn')
@@ -43,8 +50,11 @@ const AppRoutes = () => (
         <Switch>
           <Route path="/" exact component={HomeContainer} />
           <Route path="/home" component={HomeContainer} />
+          <Route path="/profs/:id" component={ProfDetailContainer} />
+          <Route path="/courses/:id" component={CourseDetailContainer} />
           <Route exact path="/reviews" component={ReviewContainer} />
           <Route path="/reviews/:id" component={ReviewDetailsContainer} />
+          <Route exact path="/new_review" component={AddReviewContainer} />
           <Route exact path="/rankings" component={RankContainer} />
           <Route path="/rankings/:id" component={RankDetailsContainer} />
           <Route path="/kelists" component={KelistContainer} />

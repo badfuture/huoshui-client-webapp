@@ -16,3 +16,8 @@ export const LATEST_PREV_PAGE = 'LATEST_PREV_PAGE'
 export const FIRST_PAGE = 'FIRST_PAGE'
 export const NEXT_PAGE = 'NEXT_PAGE'
 export const PREV_PAGE = 'PREV_PAGE'
+
+// add review
+export const SUBMIT_ATTEMPT = 'review/SUBMIT_ATTEMPT'
+export const SUBMIT_SUCCESS = 'review/SUBMIT_SUCCESS'
+export const SUBMIT_ERROR = 'review/SUBMIT_ERROR'
