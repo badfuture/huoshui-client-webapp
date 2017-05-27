@@ -6,7 +6,6 @@ html {
   box-sizing: border-box; }
 
 * {
-  user-select: none;
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
   -webkit-tap-highlight-color: transparent; }
 
@@ -90,6 +89,14 @@ footer p {
       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); }
     ._3HMvpPbeh88pz83-M9IOAh > div:first-of-type > input:focus {
       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); }
+._2POOXQYX6q-AVshsU0lKzm {
+  position: fixed;
+  bottom: 175px;
+  margin-top: -140px;
+  right: 0;
+  z-index: 999;
+  background-color: #fff;
+  box-shadow: 0 4px 12px 0 rgba(7, 17, 27, 0.1); }
 .uxiKrHYSQynilDopG4NS- {
   margin: 10em auto;
   max-width: 800px;

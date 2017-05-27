@@ -1,0 +1,10 @@
+.menuFloat {
+  position: fixed;
+  // padding: 0 16px;
+  bottom: 175px;
+  margin-top: -140px;
+  right: 0;
+  z-index: 999;
+  background-color: #fff;
+  box-shadow: 0 4px 12px 0 rgba(7,17,27,.1);
+}

@@ -46,10 +46,14 @@ const MenuSidebar = props => (
         </Menu.Item>
          */
       }
-      <Menu.Item name="my-reply">
-        <Icon name="commenting outline" />
-        <Link to="/my-reply">我的回复</Link>
-      </Menu.Item>
+      {
+        /*
+        <Menu.Item name="my-reply">
+          <Icon name="commenting outline" />
+          <Link to="/my-reply">我的回复</Link>
+        </Menu.Item>
+         */
+      }
       <Menu.Item name="my-profile">
         <Icon name="user outline" />
         <Link to="/my-profile">我的档案</Link>
