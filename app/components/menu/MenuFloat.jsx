@@ -26,8 +26,8 @@ const MenuFloat = props => (
         trigger={<Icon name="tablet" color="grey" />}
         on="hover"
         content={contentDownload}
-        offset={5}
-        position="left bottom"
+        offset={7}
+        position="left center"
       />
     </Menu.Item>
 
