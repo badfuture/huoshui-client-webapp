@@ -4,6 +4,7 @@ import {
 
 export default (state = {
   isFetching: false,
+  data: {},
 }, action) => {
   switch (action.type) {
     case FETCH_ATTEMPT:
@@ -13,6 +14,7 @@ export default (state = {
     case FETCH_SUCCESS:
       return Object.assign({}, state, {
         isFetching: false,
+        data: action.resp.data,
       })
     case FETCH_ERROR:
       return Object.assign({}, state, {

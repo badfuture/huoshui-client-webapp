@@ -3,10 +3,9 @@ import { Grid, Container, Segment, Item, Label, Divider } from 'semantic-ui-reac
 import Spinner from '../../components/spinner/Spinner'
 import CardProfOverview from '../../components/card/CardProfOverview'
 import MenuProfDetail from '../../components/menu/MenuProfDetail'
-import ChartPieLabel from '../../components/chart/ChartPieLabel'
 import ChartPieGap from '../../components/chart/ChartPieGap'
+import ChartBar from '../../components/chart/ChartBar'
 import RatingBasic from '../../components/rating/RatingBasic'
-// import ChartLine from '../../components/chart/ChartLine'
 
 import {
   INFO, STAT, EDUCATION, RESEARCH, COURSE,
@@ -84,17 +83,15 @@ const DetailGrid = props => (
           }
           {
             (props.currentView === STAT) && <Segment>
-              <Grid stackable>
+              <Grid stackable divided>
                 <Grid.Row>
                   <Grid.Column width={8}>
-                    <Container style={{ width: '90%', height: '250px', textAlign: 'center' }}>
-                      数据1
-                      <ChartPieLabel />
+                    <Container style={{ width: '75%', height: '225px', textAlign: 'center' }}>
+                      <ChartBar />
                     </Container>
                   </Grid.Column>
                   <Grid.Column width={8}>
-                    <Container style={{ width: '90%', height: '250px', textAlign: 'center' }}>
-                      数据2
+                    <Container style={{ width: '75%', height: '225px', textAlign: 'center' }}>
                       <ChartPieGap />
                     </Container>
                   </Grid.Column>

@@ -17,6 +17,12 @@ export const fetchSuccess = resp => ({
   type: FETCH_SUCCESS,
   resp,
 })
+
+export const fetchError = resp => ({
+  type: FETCH_ERROR,
+  resp,
+})
+
 export const fetchCourseById = courseId =>
   (dispatch) => {
     dispatch(fetchAttempt())
@@ -25,7 +31,7 @@ export const fetchCourseById = courseId =>
       dispatch(fetchSuccess(res))
     })
     .catch((err) => {
-      dispatch(FETCH_ERROR(err))
+      dispatch(fetchError(err))
       throw (err)
     })
   }

@@ -19,6 +19,17 @@ const scrollTop = () => {
 const MenuFloat = props => (
   <Menu compact icon="labeled" vertical className={styles.menuFloat}>
     <Menu.Item
+      name="create new review"
+      style={{ minWidth: '3em' }}
+      onClick={() => {
+        const url = '/new-review'
+        const win = window.open(url, '_blank')
+        win.focus()
+      }}
+    >
+      <Icon name="edit" color="grey" />
+    </Menu.Item>
+    <Menu.Item
       name="download mobile client"
       style={{ minWidth: '3em' }}
     >

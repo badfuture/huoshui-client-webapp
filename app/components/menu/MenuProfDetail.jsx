@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Menu, Button } from 'semantic-ui-react'
+import { Menu } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 import * as profActions from '../../actions/profActions'
 import {
@@ -14,7 +14,7 @@ class MenuProfDetail extends Component {
 
   render() {
     return (
-      <Menu borderless size="large">
+      <Menu borderless size="large" stackable>
         <Menu.Item
           name={INFO}
           active={this.props.currentView === INFO}

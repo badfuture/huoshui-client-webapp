@@ -22,8 +22,8 @@ class CourseDetailContainer extends Component {
 
 // map redux states to prop
 const mapStateToProps = state => ({
-  review: state.review.data,
-  isFetching: state.review.isFetching,
+  course: state.course.data,
+  isFetching: state.course.isFetching,
 })
 
 // map redux actions to prop

@@ -55,7 +55,7 @@ const AppRoutes = () => (
             <Route path="/courses/:id" component={CourseDetailContainer} />
             <Route exact path="/reviews" component={ReviewContainer} />
             <Route path="/reviews/:id" component={ReviewDetailsContainer} />
-            <Route exact path="/new_review" component={AddReviewContainer} />
+            <Route exact path="/new-review" component={AddReviewContainer} />
             <Route exact path="/rankings" component={RankContainer} />
             <Route path="/rankings/:id" component={RankDetailsContainer} />
             <Route path="/kelists" component={KelistContainer} />
