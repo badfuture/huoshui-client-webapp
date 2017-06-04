@@ -1,0 +1,9 @@
+.searchInput {
+  width: 100%;
+  > div:first-of-type {
+    width: 100%;
+    > input {
+      border-radius: 0.2em;
+    }
+  }
+}

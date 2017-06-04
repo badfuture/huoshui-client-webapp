@@ -22,9 +22,7 @@ const MenuFloat = props => (
       name="create new review"
       style={{ minWidth: '3em' }}
       onClick={() => {
-        const url = '/new-review'
-        const win = window.open(url, '_blank')
-        win.focus()
+        props.openAddReviewModal()
       }}
     >
       <Icon name="edit" color="grey" />
