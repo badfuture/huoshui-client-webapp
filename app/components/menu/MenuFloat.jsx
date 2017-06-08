@@ -1,12 +1,6 @@
 import React from 'react'
-import { Menu, Icon, Popup, Image } from 'semantic-ui-react'
+import { Menu, Icon, Popup } from 'semantic-ui-react'
 import styles from './styles/MenuFloat.scss'
-
-const contentDownload = (
-  <div>
-    <Image src="../../images/barcode.jpg" size="small" />
-  </div>
-)
 
 let timeOut
 const scrollTop = () => {
@@ -25,7 +19,13 @@ const MenuFloat = props => (
         props.openAddReviewModal()
       }}
     >
-      <Icon name="edit" color="grey" />
+      <Popup
+        trigger={<Icon name="edit" color="grey" />}
+        on="hover"
+        content={'新的点评'}
+        offset={7}
+        position="left center"
+      />
     </Menu.Item>
     <Menu.Item
       name="download mobile client"
@@ -34,7 +34,7 @@ const MenuFloat = props => (
       <Popup
         trigger={<Icon name="tablet" color="grey" />}
         on="hover"
-        content={contentDownload}
+        content={'下载客户端'}
         offset={7}
         position="left center"
       />
@@ -49,7 +49,13 @@ const MenuFloat = props => (
         win.focus()
       }}
     >
-      <Icon name="question circle outline" color="grey" />
+      <Popup
+        trigger={<Icon name="question circle outline" color="grey" />}
+        on="hover"
+        content={'问题反馈'}
+        offset={7}
+        position="left center"
+      />
     </Menu.Item>
 
     <Menu.Item

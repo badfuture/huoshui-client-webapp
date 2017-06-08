@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import { Grid, Button, Header, Icon, Modal, Input, Label, TextArea, Form, Rating, Dropdown, Divider, Checkbox } from 'semantic-ui-react'
-import SearchReviewTarget from '../../components/search/SearchReviewTarget'
+import { Grid, Button, Header, Icon, Modal, TextArea, Form, Rating, Dropdown, Divider, Checkbox } from 'semantic-ui-react'
+import SearchCourseContainer from '../../containers/search/SearchCourseContainer'
 
 const options = [
   { key: '不水', text: '不水', value: '不水' },
@@ -99,6 +99,15 @@ class ModalAddReview extends Component {
     optionalFieldsVisible: false,
   }
 
+  enableOptionalFields() {
+    this.setState({ optionalFieldsVisible: true })
+    window.scrollTo(0, document.body.scrollHeight)
+  }
+
+  disableOptionalFields() {
+    this.setState({ optionalFieldsVisible: false })
+  }
+
   render() {
     const { optionalFieldsVisible } = this.state
     return (
@@ -106,13 +115,13 @@ class ModalAddReview extends Component {
         closeIcon="close"
         onClose={this.props.onClose}
         open={this.props.visible}
-        size="middle"
+        size="large"
         closeOnDimmerClick={false}
       >
         <Header icon={<Icon color="blue" name="theme" />} content="你说了算" />
         <Modal.Content>
           <Header as="h4">评价对象</Header>
-          <SearchReviewTarget />
+          <SearchCourseContainer />
           <Header as="h4">总体评价</Header>
           专业：<Rating maxRating={5} defaultRating={3} icon="star" size="huge" /><br />
           表达：<Rating maxRating={5} defaultRating={3} icon="star" size="huge" /><br />
@@ -164,15 +173,6 @@ class ModalAddReview extends Component {
         </Modal.Actions>
       </Modal>
     )
-  }
-
-  enableOptionalFields() {
-    this.setState({ optionalFieldsVisible: true })
-    window.scrollTo(0, document.body.scrollHeight)
-  }
-
-  disableOptionalFields() {
-    this.setState({ optionalFieldsVisible: false })
   }
 }
 

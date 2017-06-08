@@ -10,3 +10,4 @@ export const URL_PROF = `/profs`
 export const URL_COURSE = `/courses`
 
 export const URL_FEEDBACK = `/feedback`
+export const URL_SEARCH = `/search`

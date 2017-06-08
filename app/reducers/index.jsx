@@ -9,6 +9,7 @@ import rankDetailListReducer from './rankDetailListReducer'
 import feedbackReducer from './feedbackReducers'
 import courseReducer from './courseReducer'
 import profReducer from './profReducer'
+import searchCourseReducer from './searchCourseReducer'
 
 export default combineReducers({
   auth: authReducers,
@@ -22,4 +23,5 @@ export default combineReducers({
   menu: menuReducers,
   rankDetailList: rankDetailListReducer,
   feedback: feedbackReducer,
+  searchCourse: searchCourseReducer,
 })
