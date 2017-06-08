@@ -14,7 +14,7 @@ export default class SearchCourse extends Component {
 
   handleSearchChange = (e, value) => {
     this.setState({ value })
-    this.props.handleSearchChange(e, value)
+    if (!this.state.isComposing) { this.props.handleSearchChange(e, value) }
   }
 
   handleComposition = (e) => {
