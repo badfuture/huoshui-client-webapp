@@ -1,0 +1,6 @@
+export const SET_DISPLAY_VALUE = 'search_global/SET_DISPLAY_VALUE'
+export const SELECT_OPTION = 'search_global/SELECT_OPTION'
+export const RESET_COMPONENT = 'search_global/RESET_COMPONENT'
+export const FETCH_OPTIONS_ATTEMPT = 'search_global/FETCH_OPTIONS_ATTEMPT'
+export const FETCH_OPTIONS_SUCCESS = 'search_global/FETCH_OPTIONS_SUCCESS'
+export const FETCH_OPTIONS_ERROR = 'search_global/FETCH_OPTIONS_ERROR'

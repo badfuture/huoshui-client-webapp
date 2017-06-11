@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react'
 import { Menu, Button, Icon, Popup, Image, Dropdown } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
-import SearchCourseContainer from '../../containers/search/SearchCourseContainer'
+import SearchGlobalContainer from '../../containers/search/SearchGlobalContainer'
 
 
 const propTypes = {
@@ -77,7 +77,7 @@ const MenuHeader = props => (
       <a target="_blank" rel="noopener noreferrer" href="http://wangzhe.cloud/swjtu">瑞士刀</a>
     </Menu.Item>
     <Menu.Item name="search" id="header-search" style={{ width: '35%' }}>
-      <SearchCourseContainer />
+      <SearchGlobalContainer />
     </Menu.Item>
 
     <Menu.Menu position="right">

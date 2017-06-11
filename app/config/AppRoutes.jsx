@@ -45,7 +45,7 @@ const store = configStore()
 
 const AppRoutes = () => (
   <Provider store={store}>
-    <Router onUpdate={() => window.scrollTo(0, 0)}>
+    <Router onUpdate={() => window.scrollTo(0, 0)} >
       <ScrollToTop>
         <AppLayout>
           <Switch>

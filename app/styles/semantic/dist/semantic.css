@@ -32354,7 +32354,7 @@ a.ui.nag {
 
 .ui.category.search > .results .category .result {
   background: #FFFFFF;
-  margin-left: 100px;
+  margin-left: 70px;
   border-left: 1px solid rgba(34, 36, 38, 0.15);
   border-bottom: 1px solid rgba(34, 36, 38, 0.1);
   -webkit-transition: background 0.1s ease, border-color 0.1s ease;
@@ -32369,7 +32369,7 @@ a.ui.nag {
 /* Category Result Name */
 
 .ui.category.search > .results .category > .name {
-  width: 100px;
+  width: 70px;
   background: transparent;
   font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   font-size: 1em;

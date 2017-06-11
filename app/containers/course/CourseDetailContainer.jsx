@@ -9,6 +9,12 @@ class CourseDetailContainer extends Component {
     this.props.fetchCourseById(this.props.match.params.id)
   }
 
+  componentDidUpdate(prevProps) {
+    const oldId = prevProps.match.params.id
+    const newId = this.props.match.params.id
+    if (newId !== oldId) { this.props.fetchCourseById(this.props.match.params.id) }
+  }
+
   render() {
     return (
       <div className="container-main-grey">

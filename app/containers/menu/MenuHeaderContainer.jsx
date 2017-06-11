@@ -23,6 +23,7 @@ class MenuHeaderContainer extends Component {
         toggleMenuSidebar={this.props.toggleMenuSidebar}
         logoutUser={this.props.logoutUser}
         authStatus={this.props.authStatus}
+        {...this.props}
       />
     )
   }
