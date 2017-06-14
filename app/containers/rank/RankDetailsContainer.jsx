@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Container, Header, Icon, Divider, Grid } from 'semantic-ui-react'
 import * as rankActions from '../../actions/rankActions'
-import ListRanking from '../../components/list/ListRanking'
+import ListCourse from '../../components/list/ListCourse'
 import rankMeta from '../../data/rank.json'
 import deptMeta from '../../data/dept.json'
 import Spinner from '../../components/spinner/Spinner'
@@ -30,7 +30,7 @@ class RankDetailsContainer extends Component {
             <Grid.Row>
               <Grid.Column width={11} style={{ paddingRight: '3.5rem' }}>
                 {!this.props.isFetching &&
-                  <ListRanking {...this.props} />
+                  <ListCourse {...this.props} />
                 }
                 {this.props.isFetching &&
                   <div style={{ marginTop: '5em' }} >

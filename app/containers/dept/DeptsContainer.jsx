@@ -2,12 +2,12 @@ import React from 'react'
 import { Container } from 'semantic-ui-react'
 import GridDept from '../../components/grid/GridDept'
 
-const CategoriesContainer = () => (
+const DeptsContainer = props => (
   <div className="container-main-grey">
     <Container>
-      <GridDept />
+      <GridDept {...props} />
     </Container>
   </div>
 )
 
-export default CategoriesContainer
+export default DeptsContainer

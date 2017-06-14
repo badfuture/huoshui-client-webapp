@@ -8,12 +8,8 @@ const propTypes = {
   description: PropTypes.string.isRequired,
 }
 
-const printFoo = () => {
-
-}
-
 const CardDept = props => (
-  <Card className={styles.cardRaise} onClick={printFoo}>
+  <Card className={styles.cardRaise} onClick={() => { props.history.push(`/depts/${props.header}`) }}>
     <div style={{ width: '100%', overflow: 'hidden', paddingBottom: '56.25%', position: 'relative' }}>
       <Image src={props.image} style={{ width: '100%', height: '100%', position: 'absolute' }} />
     </div>

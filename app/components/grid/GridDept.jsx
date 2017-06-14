@@ -5,16 +5,18 @@ import rankDept from '../../data/dept.json'
 
 const items = rankDept
 
-const GridRank = () => (
+const GridDept = props => (
   <Container>
     <Card.Group itemsPerRow={4} stackable>
       {items.map(
         item => <CardDept
+          key={item.header}
           {...item}
+          {...props}
         />,
       )}
     </Card.Group>
   </Container>
 )
 
-export default GridRank
+export default GridDept

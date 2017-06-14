@@ -3,12 +3,12 @@ import { List } from 'semantic-ui-react'
 import ListItemCourse from './ListItemCourse'
 
 
-const ListRanking = props => (
+const ListCourse = props => (
   <List verticalAlign="middle">
     {props.data.map(item => (
-      <ListItemCourse {...item} />
+      <ListItemCourse {...item} {...props} />
     ))}
   </List>
 )
 
-export default ListRanking
+export default ListCourse

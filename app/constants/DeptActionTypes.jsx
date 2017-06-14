@@ -1,0 +1,5 @@
+export const FETCH_LIST_ATTEMPT = 'dept/FETCH_LIST_ATTEMPT'
+export const FETCH_LIST_SUCCESS = 'dept/FETCH_LIST_SUCCESS'
+export const FETCH_LIST_ERROR = 'dept/FETCH_LIST_ERROR'
+export const ALL_FETCHED = 'dept/ALL_FETCHED'
+export const RESET = 'dept/RESET'

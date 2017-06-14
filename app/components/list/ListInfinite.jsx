@@ -1,39 +1,38 @@
 import React from 'react'
-import { List } from 'react-virtualized'
+import InfiniteScroll from 'react-infinite-scroller'
+import { List } from 'semantic-ui-react'
+import ListItemCourse from './ListItemCourse'
+import Spinner from '../../components/spinner/Spinner'
 
-// List data as an array of strings
-const list = [
-  'Brian Vaughn',
-  // And so on...
-]
+class ListInfinite extends React.Component {
+  loadMore = () => {
+    if (!this.props.isFetching) {
+      this.props.loadMore({
+        skip: this.props.itemList.length,
+        dept: this.props.match.params.id,
+      })
+    }
+  }
 
-for (let i = 0; i < 1000; i++) {
-  list.push(`me_${i}`)
+  render() {
+    return (
+      <List verticalAlign="middle">
+        <InfiniteScroll
+          pageStart={0}
+          loadMore={this.loadMore}
+          hasMore={this.props.hasMore}
+          loader={
+            <div style={{ marginTop: '3em' }} >
+              <Spinner />
+            </div>
+          }
+        >
+          {this.props.itemList.map(
+              item => <ListItemCourse key={item.id} {...item} {...this.props} />)}
+        </InfiniteScroll>
+      </List>
+    )
+  }
 }
-
-const rowRenderer = ({
-  key,         // Unique key within array of rows
-  index,       // Index of row within collection
-  isScrolling, // The List is currently being scrolled
-  isVisible,   // This row is visible within the List (eg it is not an overscanned row)
-  style,        // Style object to be applied to row (to position it)
-}) => (
-  <div
-    key={key}
-    style={style}
-  >
-    {list[index]}
-  </div>
-)
-
-const ListInfinite = () => (
-  <List
-    width={500}
-    height={600}
-    rowCount={list.length}
-    rowHeight={20}
-    rowRenderer={rowRenderer}
-  />
-)
 
 export default ListInfinite

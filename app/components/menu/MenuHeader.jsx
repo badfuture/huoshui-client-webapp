@@ -70,8 +70,8 @@ const MenuHeader = props => (
       <Link to="/kelists">课列</Link>
     </Menu.Item>
     */}
-    <Menu.Item name="categories">
-      <Link to="/categories">逛逛</Link>
+    <Menu.Item name="depts">
+      <Link to="/depts">逛逛</Link>
     </Menu.Item>
     <Menu.Item name="swiss knife">
       <a target="_blank" rel="noopener noreferrer" href="http://wangzhe.cloud/swjtu">瑞士刀</a>

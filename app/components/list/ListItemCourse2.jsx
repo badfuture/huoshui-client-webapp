@@ -2,11 +2,8 @@ import React from 'react'
 import { List, Header, Grid } from 'semantic-ui-react'
 import Rating from '../rating/RatingBasic'
 
-const listItemCourse = props => (
+const listItemCourse2 = props => (
   <List.Item
-    onClick={() => {
-      props.history.push(`/courses/${props.id}`)
-    }}
     style={{
       height: 'auto',
       borderBottom: '1px dashed #e1e1e1',
@@ -20,37 +17,30 @@ const listItemCourse = props => (
           <Grid.Row style={{ paddingBottom: '0' }}>
             <Header as="h3" style={{ fontWeight: 400 }}>
               <Header.Content>
-                {props.name}
+                name
               </Header.Content>
             </Header><br />
           </Grid.Row>
           <Grid.Row style={{ paddingBottom: '0', paddingTop: '0.2em' }}>
             <Header as="h4" style={{ fontWeight: 400 }}>
               <Header.Content>
-                {props.Prof.name} / {props.Depts[0].shortname}
+                profname / deptname
               </Header.Content>
             </Header>
           </Grid.Row>
           <Grid.Row verticalAlign="middle">
-            <Grid.Column width={10} style={{ paddingLeft: '0' }}>
+            <Grid.Column width={16} style={{ paddingLeft: '0' }}>
               <div>
                 <span style={{ marginRight: '0.5em' }}>
-                  <Rating value={props.Stat.scoreOverall} />
+                  <Rating value={3} />
                 </span>
                 <span style={{ marginRight: '0.5em' }}>
-                  {props.Stat.scoreOverall.toFixed(1)}
+                4
                 </span>
                 <span>
-                  ({props.Stat.countReview}人评价)
+                  (3人评价)
                 </span>
               </div>
-            </Grid.Column>
-            <Grid.Column width={6}>
-              {props.Tags.map((tag, index) => {
-                if (index < 2) { return <span>{`${tag.name}, `}</span> }
-                if (index === 2) { return <span>{`${tag.name}`}</span> }
-                return true
-              })}
             </Grid.Column>
           </Grid.Row>
         </Grid>
@@ -60,4 +50,4 @@ const listItemCourse = props => (
   </List.Item>
 )
 
-export default listItemCourse
+export default listItemCourse2

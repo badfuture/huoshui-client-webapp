@@ -6,6 +6,7 @@ import kelistReducers from './kelistReducers'
 import modalReducers from './modalReducers'
 import menuReducers from './menuReducers'
 import rankDetailListReducer from './rankDetailListReducer'
+import deptDetailListReducer from './deptDetailListReducer'
 import feedbackReducer from './feedbackReducers'
 import courseReducer from './courseReducer'
 import profReducer from './profReducer'
@@ -24,6 +25,7 @@ export default combineReducers({
   modals: modalReducers,
   menu: menuReducers,
   rankDetailList: rankDetailListReducer,
+  deptDetailList: deptDetailListReducer,
   feedback: feedbackReducer,
   searchCourse: searchCourseReducer,
   searchGlobal: searchGlobalReducer,
