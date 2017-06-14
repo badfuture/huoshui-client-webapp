@@ -8,26 +8,16 @@ import { URL_COURSE } from '../constants/ApiEndpoints'
 /**
  * get API URL
  */
-const getAPIParams = ({ currentView, limit = 25, skip = 0 }) => {
+const getAPIParams = ({ limit = 50, skip = 0 }) => {
   const res = {
     params: {
-      populate: '[Prof,School,Depts,Stat,Tags]',
+      populate: '[Prof,School,Depts,Stat]',
       paginate: true,
       sort: 'scoreOverall DESC',
       limit,
       skip,
     },
   }
-  console.log(currentView)
-  /*
-  const params = res.params
-  if (currentView === NEW_REVIEW) {
-    params.sort = 'createdAt DESC'
-  } else if (currentView === HOT_REVIEW) {
-    params.sort = 'upVote DESC'
-  } else {
-    params.sort = 'createdAt DESC'
-  }*/
   return res
 }
 

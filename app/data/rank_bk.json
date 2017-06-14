@@ -1,49 +1,49 @@
 [
   {
     "id": "course-overall",
-    "image": "/images/pattern/pattern_1.jpg",
+    "image": "/images/rank/full/good_course.jpeg",
     "header": "课程综合榜",
     "description": "按分数和好评率排"
   },
   {
     "id": "prof-overall",
-    "image": "/images/pattern/pattern_2.jpg",
+    "image": "/images/rank/full/good_prof.jpeg",
     "header": "老师综合榜",
     "description": "按分数和好评率排"
   },
   {
     "id": "hot",
-    "image": "/images/pattern/pattern_3.jpg",
+    "image": "/images/rank/full/hot.jpeg",
     "header": "热度榜",
     "description": "按参与评价人数排"
   },
   {
     "id": "reputation",
-    "image": "/images/pattern/pattern_4.jpg",
+    "image": "/images/rank/full/reputation.jpeg",
     "header": "口碑榜",
     "description": "按标签正面数量排"
   },
   {
     "id": "birdy",
-    "image": "/images/pattern/pattern_5.jpg",
+    "image": "/images/rank/full/birdy.jpeg",
     "header": "水课榜",
     "description": "按水课相关标签数量和数据"
   },
   {
     "id": "exam",
-    "image": "/images/pattern/pattern_6.jpg",
+    "image": "/images/rank/full/exam.jpeg",
     "header": "考试榜",
     "description": "按考试难度排"
   },
   {
     "id": "homework",
-    "image": "/images/pattern/pattern_7.jpg",
+    "image": "/images/rank/full/homework.jpeg",
     "header": "作业榜",
     "description": "按作业多少排"
   },
   {
     "id": "bad",
-    "image": "/images/pattern/pattern_8.jpg",
+    "image": "/images/rank/full/bad_review.jpeg",
     "header": "差评榜",
     "description": "那些不想上第二次的课"
   }
