@@ -45,13 +45,6 @@ const listItemCourse = props => (
                 </span>
               </div>
             </Grid.Column>
-            <Grid.Column width={6}>
-              {props.Tags.map((tag, index) => {
-                if (index < 2) { return <span>{`${tag.name}, `}</span> }
-                if (index === 2) { return <span>{`${tag.name}`}</span> }
-                return true
-              })}
-            </Grid.Column>
           </Grid.Row>
         </Grid>
       </div>

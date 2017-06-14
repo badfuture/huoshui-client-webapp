@@ -8,13 +8,13 @@ import { URL_COURSE } from '../constants/ApiEndpoints'
 /**
  * get API URL
  */
-const getAPIParams = ({ limit = 10, skip = 0, dept = '' }) => {
+const getAPIParams = ({ skip = 0, dept = '' }) => {
   const res = {
     params: {
-      populate: '[Prof,School,Depts,Stat,Tags]',
+      populate: '[Prof,School,Depts,Stat]',
       '$Depts.shortname$': '数学',
       sort: 'id ASC',
-      limit,
+      limit: 50,
       skip,
     },
   }
