@@ -8,11 +8,19 @@ const propTypes = {
   description: PropTypes.string.isRequired,
 }
 
-
+/*
+#header {
+    background: url(../img/bg.jpg) 0 0 no-repeat fixed;
+    height: 100%;
+    overflow: hidden;
+    color: #FFFFFF
+ }
+ */
 const CardRank = props => (
   <Card
     className={styles.cardRaise}
     onClick={() => { props.history.push(`/rankings/${props.id}`) }}
+    style={{ display: 'block' }}
   >
     <div
       style={{
@@ -20,12 +28,22 @@ const CardRank = props => (
         overflow: 'hidden',
         paddingBottom: '56.25%',
         position: 'relative',
-        backgroundColor: 'rgb(12, 184, 251)',
+        backgroundImage: `url(${props.image})`,
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center center',
+        display: 'block',
       }}
     >
-      <Image
-        src={props.image}
-        style={{ width: '100%', height: '100%', position: 'absolute', opacity: '0.6' }}
+      <div
+        style={{
+          background: 'rgba(14, 144, 206, 0.5)',
+          overflow: 'hidden',
+          position: 'absolute',
+          height: '100%',
+          width: '100%',
+          zIndex: 2,
+        }}
       />
     </div>
     <Card.Content>
