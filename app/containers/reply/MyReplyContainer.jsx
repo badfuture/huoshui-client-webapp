@@ -1,11 +1,11 @@
 import React from 'react'
 import { Container } from 'semantic-ui-react'
-import CommentExample from '../../components/comment/CommentExample'
+import CommentList from '../../components/comment/CommentList'
 
 const MyReplyContainer = () => (
   <div className="container-main-grey">
     <Container>
-      <CommentExample />
+      <CommentList />
     </Container>
   </div>
 )

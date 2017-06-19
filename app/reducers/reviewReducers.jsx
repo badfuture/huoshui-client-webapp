@@ -82,7 +82,7 @@ export const reviewReducer = (state = {
   switch (action.type) {
     case FETCH_REVIEW_BY_ID_ATTEMPT:
       return Object.assign({}, state, {
-        isFetching: false,
+        isFetching: true,
       })
     case FETCH_REVIEW_BY_ID_SUCCESS:
       return Object.assign({}, state, {

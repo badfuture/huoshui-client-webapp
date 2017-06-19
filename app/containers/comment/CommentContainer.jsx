@@ -1,80 +1,34 @@
-import React from 'react'
-import { Button, Comment, Form, Header } from 'semantic-ui-react'
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { Container } from 'semantic-ui-react'
+import CommentList from '../../components/comment/CommentList'
+import * as commentActions from '../../actions/commentActions'
 
-const srcImage = '/images/sample/sample2.png'
 
-const CommentExample = () => (
-  <Comment.Group >
-    <Header as="h4" dividing>回应</Header>
+class CommentContainer extends Component {
+  componentDidMount() {
 
-    <Comment>
-      <Comment.Avatar src={srcImage} />
-      <Comment.Content>
-        <Comment.Author as="a">Matt</Comment.Author>
-        <Comment.Metadata>
-          <div>Today at 5:42PM</div>
-        </Comment.Metadata>
-        <Comment.Text>How artistic!</Comment.Text>
-        <Comment.Actions>
-          <Comment.Action>Reply</Comment.Action>
-        </Comment.Actions>
-      </Comment.Content>
-    </Comment>
+  }
 
-    <Comment>
-      <Comment.Avatar src={srcImage} />
-      <Comment.Content>
-        <Comment.Author as="a">Elliot Fu</Comment.Author>
-        <Comment.Metadata>
-          <div>Yesterday at 12:30AM</div>
-        </Comment.Metadata>
-        <Comment.Text>
-          <p>This has been very useful for my research. Thanks as well!</p>
-        </Comment.Text>
-        <Comment.Actions>
-          <Comment.Action>Reply</Comment.Action>
-        </Comment.Actions>
-      </Comment.Content>
-      <Comment.Group>
-        <Comment>
-          <Comment.Avatar src={srcImage} />
-          <Comment.Content>
-            <Comment.Author as="a">Jenny Hess</Comment.Author>
-            <Comment.Metadata>
-              <div>Just now</div>
-            </Comment.Metadata>
-            <Comment.Text>
-              Elliot you are always so right :)
-            </Comment.Text>
-            <Comment.Actions>
-              <Comment.Action>Reply</Comment.Action>
-            </Comment.Actions>
-          </Comment.Content>
-        </Comment>
-      </Comment.Group>
-    </Comment>
+  componentDidUpdate(prevProps) {
 
-    <Comment>
-      <Comment.Avatar src={srcImage} />
-      <Comment.Content>
-        <Comment.Author as="a">Joe Henderson</Comment.Author>
-        <Comment.Metadata>
-          <div>5 days ago</div>
-        </Comment.Metadata>
-        <Comment.Text>
-          Dude, this is awesome. Thanks so much
-        </Comment.Text>
-        <Comment.Actions>
-          <Comment.Action>Reply</Comment.Action>
-        </Comment.Actions>
-      </Comment.Content>
-    </Comment>
+  }
 
-    <Form reply onSubmit={e => e.preventDefault()}>
-      <Form.TextArea />
-      <Button content="Add Reply" labelPosition="left" icon="edit" primary />
-    </Form>
-  </Comment.Group>
-)
+  render() {
+    return (
+      <CommentList comments={this.props.comments} {...this.props} />
+    )
+  }
+}
 
-export default CommentExample
+// map redux states to prop
+const mapStateToProps = state => ({
+
+})
+
+// map redux actions to prop
+const mapActionToProps = dispatch => ({
+  submitComment: comment => dispatch(commentActions.submitComment(comment)),
+})
+
+export default connect(mapStateToProps, mapActionToProps)(CommentContainer)

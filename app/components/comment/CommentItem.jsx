@@ -1,0 +1,75 @@
+import React, { Component } from 'react'
+import { Comment } from 'semantic-ui-react'
+import moment from 'moment'
+import SubCommentItem from './SubCommentItem'
+import FormComment from '../form/FormComment'
+
+const srcImage = '/images/sample/sample2.png'
+
+class CommentItem extends Component {
+  constructor() {
+    super()
+    this.state = {
+      isReplyFormVisible: false,
+    }
+  }
+
+  componentDidMount() {
+
+  }
+
+  handleReplyFormCancel() {
+    this.setState({ isReplyFormVisible: false })
+  }
+
+  render() {
+    const { isReplyFormVisible } = this.state
+    return (
+      <Comment>
+        <Comment.Avatar src={srcImage} />
+        <Comment.Content>
+          <Comment.Author as="a">{this.props.Author.username}</Comment.Author>
+          <Comment.Metadata>
+            <div>{moment(this.props.datePosted).fromNow()}</div>
+          </Comment.Metadata>
+          <Comment.Text>
+            <p>{this.props.text}</p>
+          </Comment.Text>
+          <Comment.Actions>
+            <Comment.Action
+              onClick={() => {
+                this.setState({ isReplyFormVisible: !this.state.isReplyFormVisible })
+              }}
+            >
+              回应
+            </Comment.Action>
+          </Comment.Actions>
+          { isReplyFormVisible &&
+            <FormComment
+              onCancel={this.handleReplyFormCancel.bind(this)}
+              commentable={this.props.commentable}
+              commentableId={this.props.commentableId}
+              parentCommentId={this.props.id}
+              onSubmit={this.props.onSubmit}
+            />
+          }
+        </Comment.Content>
+        {
+            this.props.Subcomments &&
+            this.props.Subcomments.map(
+              subcomment =>
+                <SubCommentItem
+                  key={subcomment.id}
+                  commentable={this.props.commentable}
+                  commentableId={this.props.commentableId}
+                  onSubmit={this.props.onSubmit}
+                  {...subcomment}
+                />,
+            )
+        }
+      </Comment>
+    )
+  }
+}
+
+export default CommentItem

@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react'
-import { Card, Image } from 'semantic-ui-react'
+import { Card } from 'semantic-ui-react'
 import styles from './styles/CardRank.scss'
 
 const propTypes = {
@@ -8,14 +8,6 @@ const propTypes = {
   description: PropTypes.string.isRequired,
 }
 
-/*
-#header {
-    background: url(../img/bg.jpg) 0 0 no-repeat fixed;
-    height: 100%;
-    overflow: hidden;
-    color: #FFFFFF
- }
- */
 const CardRank = props => (
   <Card
     className={styles.cardRaise}
@@ -35,6 +27,8 @@ const CardRank = props => (
         display: 'block',
       }}
     >
+      {
+      /*
       <div
         style={{
           background: 'rgba(14, 144, 206, 0.5)',
@@ -44,8 +38,10 @@ const CardRank = props => (
           width: '100%',
           zIndex: 2,
         }}
-      />
+      />    */
+         }
     </div>
+
     <Card.Content>
       <Card.Header>
         {props.header}

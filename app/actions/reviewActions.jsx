@@ -1,7 +1,7 @@
 import axios from 'axios'
 import {
   FETCH_REVIEWS_ATTEMPT, FETCH_REVIEWS_SUCCESS, FETCH_REVIEWS_ERROR,
-  FETCH_REVIEW_BY_ID_ATTEMPT, FETCH_REVIEW_BY_ID_SUCCESS,
+  FETCH_REVIEW_BY_ID_ATTEMPT, FETCH_REVIEW_BY_ID_SUCCESS, FETCH_REVIEW_BY_ID_ERROR,
   FIRST_PAGE, NEXT_PAGE, PREV_PAGE, SWITCH_VIEW,
 } from '../constants/ReviewActionTypes'
 import {
@@ -177,12 +177,21 @@ export const fetchReviewByIdSuccess = resp => ({
   type: FETCH_REVIEW_BY_ID_SUCCESS,
   resp,
 })
+export const fetchReviewByIdError = resp => ({
+  type: FETCH_REVIEW_BY_ID_ERROR,
+  resp,
+})
 export const fetchReviewById = reviewId =>
-  dispatch =>
-  axios.get(`${URL_REVIEW}/${reviewId}?populate=[Course,Author,Prof]`)
-   .then((resp) => {
-     dispatch(fetchReviewByIdSuccess(resp))
-   })
-   .catch((error) => {
-     throw (error)
-   })
+  (dispatch) => {
+    dispatch(fetchReviewByIdAttempt())
+    return (
+      axios.get(`${URL_REVIEW}/${reviewId}?populate=[Course,Author,Prof,Comments]`)
+       .then((resp) => {
+         dispatch(fetchReviewByIdSuccess(resp))
+       })
+       .catch((error) => {
+         dispatch(fetchReviewByIdError(error))
+         throw (error)
+       })
+    )
+  }
