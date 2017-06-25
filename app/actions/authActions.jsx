@@ -8,6 +8,7 @@ import {
  } from '../constants/AuthActionTypes'
 
 import { closeLoginModal, closeSignupModal } from './modalActions'
+import getAllParams from '../utils/parseURL'
 
 /** *****************************************************
 * signup
@@ -87,6 +88,31 @@ export const loginUser = creds =>
      dispatch(loginError(err.message))
      return Promise.reject(err)
    })
+  }
+
+export const loginUserGithub = popup =>
+  (dispatch) => {
+    dispatch(requestLogin())
+    const handle = window.setInterval(() => {
+      if (!popup) { window.clearInterval(handle) }
+      let creds = {}
+      try {
+        creds = getAllParams(popup.location)
+      } catch (err) {
+        creds = {}
+      }
+      if (creds.token && creds.user) {
+        localStore.set('token', creds.token)
+        localStore.set('user', creds.user)
+        dispatch(receiveLogin({
+          token: creds.token,
+          user: creds.user,
+        }))
+        dispatch(closeLoginModal())
+        window.clearInterval(handle)
+        popup.close()
+      }
+    }, 100)
   }
 
 // logout

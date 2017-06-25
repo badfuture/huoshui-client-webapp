@@ -1,5 +1,5 @@
 
-const env = 'prod'
+const env = 'local'
 let domain = ''
 if (env === 'prod') {
   domain = 'https://api.huoshui.org'

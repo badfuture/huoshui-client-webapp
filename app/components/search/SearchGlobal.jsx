@@ -53,7 +53,6 @@ export default class SearchGlobal extends Component {
     return (
       <Search
         loading={this.props.isFetching}
-        onResultSelect={this.props.handleOptionSelect}
         onSearchChange={this.handleSearchChange}
         results={this.props.options}
         resultRenderer={this.resultRenderer}

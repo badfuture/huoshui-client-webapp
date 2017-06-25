@@ -24,7 +24,7 @@ class SubCommentItem extends Component {
   render() {
     const { isReplyFormVisible } = this.state
     return (
-      <Comment.Group minimal>
+      <Comment.Group style={{ paddingTop: '0.25em', paddingBottom: '0.5em', marginTop: '0.5em' }}>
         <Comment>
           <Comment.Avatar src={srcImage} />
           <Comment.Content>

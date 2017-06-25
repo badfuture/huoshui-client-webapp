@@ -1,8 +1,11 @@
 import React, { PropTypes, Component } from 'react'
 import { Button, Modal, Form, Input, Icon, Container, Divider, Message } from 'semantic-ui-react'
+import localStore from 'store'
+import openPopup from '../../utils/openPopupWindow'
 
 const iconQQ = <Icon name="qq" />
 const iconWeibo = <Icon name="weibo" />
+const iconGithub = <Icon name="github" />
 
 const propTypes = {
   visible: PropTypes.bool.isRequired,
@@ -25,6 +28,16 @@ class ModalLogin extends Component {
       email,
       password,
     })
+  }
+
+  handleClickGithub = () => {
+    const provider = 'github'
+    const name = provider
+    let URL_GIT = 'http://github.com/login/oauth/authorize'
+    const CLIENT_ID = 'aab07d7d9678decc4c77'
+    URL_GIT = `${URL_GIT}?scope=user:email&client_id=${CLIENT_ID}`
+    const popup = openPopup(provider, URL_GIT, name)
+    this.props.onLoginGithub(popup)
   }
 
   render() {
@@ -64,9 +77,15 @@ class ModalLogin extends Component {
 
             <Divider horizontal>Or</Divider>
 
-            <Container>
+            <Container textAlign="center">
               <Button color="twitter" icon={iconQQ} circular disabled /> &nbsp;
-              <Button color="google plus" icon={iconWeibo} circular disabled />
+              <Button color="google plus" icon={iconWeibo} circular disabled />&nbsp;
+              <Button
+                color="grey"
+                icon={iconGithub}
+                circular
+                onClick={this.handleClickGithub.bind(this)}
+              />
             </Container>
 
           </Modal.Content>

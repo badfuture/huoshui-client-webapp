@@ -1,21 +1,30 @@
 import React from 'react'
 import { Card, Icon } from 'semantic-ui-react'
+import localStore from 'store'
 
 const extra = (
   <a>
-    <Icon name="user" />
-    16 Friends
+    <Icon name="edit" />
+    修改用户信息
   </a>
 )
 
-const CardUserProfile = () => (
-  <Card
-    image="../../images/sample/sample3.jpg"
-    header="Manny"
-    meta="Super"
-    description="Elliot is a sound engineer living in Nashville who enjoys playing guitar and hanging with his cat."
-    extra={extra}
-  />
-)
+const CardUserProfile = () => {
+  const defaultUser = {
+    username: '匿名用户',
+    avatar: '../../images/sample/sample3.jpg',
+    emial: '未知邮箱',
+  }
+
+  const user = localStore.get('user') || defaultUser
+  return (
+    <Card
+      image={user.avatar}
+      header={user.username}
+      meta={user.email}
+      extra={extra}
+    />
+  )
+}
 
 export default CardUserProfile
