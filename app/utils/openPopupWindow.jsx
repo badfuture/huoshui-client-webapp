@@ -12,6 +12,12 @@ function getPopupOffset({ width, height }) {
 
 function getPopupSize(provider) {
   switch (provider) {
+    case 'qq':
+      return { width: 770, height: 408 }
+
+    case 'weibo':
+      return { width: 770, height: 408 }
+
     case 'github':
       return { width: 1020, height: 618 }
 
@@ -27,6 +33,7 @@ function getPopupDimensions(provider) {
   return `width=${width},height=${height},top=${top},left=${left}`
 }
 
-export default function openPopup(provider, url, name) {
-  return window.open(url, name, `${settings},${getPopupDimensions(provider)}`)
+export default function openPopup(provider, url) {
+  const windowName = provider
+  return window.open(url, windowName, `${settings},${getPopupDimensions(provider)}`)
 }

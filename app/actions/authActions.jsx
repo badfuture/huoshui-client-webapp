@@ -90,6 +90,36 @@ export const loginUser = creds =>
    })
   }
 
+export const loginUserQQ = popup =>
+  (dispatch) => {
+    dispatch(requestLogin())
+    const handle = window.setInterval(() => {
+      if (!popup || popup.closed) {
+        window.clearInterval(handle)
+        if (!localStore.get('user')) {
+          dispatch(loginError())
+        }
+      }
+      let creds = {}
+      try {
+        creds = getAllParams(popup.location)
+      } catch (err) {
+        creds = {}
+      }
+      if (creds.token && creds.user) {
+        localStore.set('token', creds.token)
+        localStore.set('user', creds.user)
+        dispatch(receiveLogin({
+          token: creds.token,
+          user: creds.user,
+        }))
+        dispatch(closeLoginModal())
+        window.clearInterval(handle)
+        popup.close()
+      }
+    }, 100)
+  }
+
 export const loginUserGithub = popup =>
   (dispatch) => {
     dispatch(requestLogin())

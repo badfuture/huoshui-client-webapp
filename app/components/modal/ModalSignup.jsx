@@ -37,6 +37,8 @@ class ModalSignup extends Component {
           dimmer="blurring"
           open={this.props.visible}
           onClose={this.props.onClose}
+          closeIcon="close"
+          closeOnDimmerClick={false}
         >
           <Modal.Header>
             加入活水

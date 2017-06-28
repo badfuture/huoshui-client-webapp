@@ -1,11 +1,6 @@
 import React, { PropTypes, Component } from 'react'
 import { Button, Modal, Form, Input, Icon, Container, Divider, Message } from 'semantic-ui-react'
-import localStore from 'store'
 import openPopup from '../../utils/openPopupWindow'
-
-const iconQQ = <Icon name="qq" />
-const iconWeibo = <Icon name="weibo" />
-const iconGithub = <Icon name="github" />
 
 const propTypes = {
   visible: PropTypes.bool.isRequired,
@@ -30,13 +25,25 @@ class ModalLogin extends Component {
     })
   }
 
+  handleClickQQ = () => {
+    const provider = 'qq'
+    const url = 'https://graph.qq.com/oauth2.0/authorize'
+    const scope = 'get_user_info'
+    const clientId = '101410908'
+    const state = encodeURIComponent(btoa(provider + clientId))
+    const redirect = 'http://localhost:1337/auth/qq/callback'
+    const responseType = 'code'
+    const requestUrl = `${url}?scope=${scope}&client_id=${clientId}&state=${state}&redirect_uri=${redirect}&response_type=${responseType}`
+    const popup = openPopup(provider, requestUrl)
+    this.props.onLoginQQ(popup)
+  }
+
   handleClickGithub = () => {
     const provider = 'github'
-    const name = provider
     let URL_GIT = 'http://github.com/login/oauth/authorize'
     const CLIENT_ID = 'aab07d7d9678decc4c77'
     URL_GIT = `${URL_GIT}?scope=user:email&client_id=${CLIENT_ID}`
-    const popup = openPopup(provider, URL_GIT, name)
+    const popup = openPopup(provider, URL_GIT)
     this.props.onLoginGithub(popup)
   }
 
@@ -50,6 +57,8 @@ class ModalLogin extends Component {
           dimmer="blurring"
           open={this.props.visible}
           onClose={this.props.onClose}
+          closeIcon="close"
+          closeOnDimmerClick={false}
         >
           <Modal.Header>
             登录活水
@@ -58,7 +67,7 @@ class ModalLogin extends Component {
             <Container>
               <Form
                 loading={isFetching}
-                warning={(errorMessage !== '') && !isAuthenticated}
+                warning={(errorMessage) && !isAuthenticated}
                 onSubmit={this.handleSubmit}
               >
                 <Form.Field>
@@ -78,11 +87,21 @@ class ModalLogin extends Component {
             <Divider horizontal>Or</Divider>
 
             <Container textAlign="center">
-              <Button color="twitter" icon={iconQQ} circular disabled /> &nbsp;
-              <Button color="google plus" icon={iconWeibo} circular disabled />&nbsp;
+              <Button
+                color="twitter"
+                icon={<Icon name="qq" />}
+                circular
+                onClick={this.handleClickQQ.bind(this)}
+              />&nbsp;
+              <Button
+                color="google plus"
+                icon={<Icon name="weibo" />}
+                circular
+                onClick={this.handleClickGithub.bind(this)}
+              />&nbsp;
               <Button
                 color="grey"
-                icon={iconGithub}
+                icon={<Icon name="github" />}
                 circular
                 onClick={this.handleClickGithub.bind(this)}
               />
