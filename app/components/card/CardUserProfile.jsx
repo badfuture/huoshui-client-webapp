@@ -1,12 +1,18 @@
 import React from 'react'
 import { Card, Icon } from 'semantic-ui-react'
 import localStore from 'store'
+import ModalEditUser from '../../components/modal/ModalEditUser'
 
 const extra = (
-  <a>
-    <Icon name="edit" />
-    修改用户信息
-  </a>
+  <ModalEditUser
+    trigger={
+      <a>
+        <Icon name="edit" />
+        修改用户信息
+      </a>
+    }
+  />
+
 )
 
 const CardUserProfile = () => {
@@ -19,6 +25,7 @@ const CardUserProfile = () => {
   const user = localStore.get('user') || defaultUser
   return (
     <Card
+      style={{ marginRight: 'auto', marginLeft: 'auto' }}
       image={user.avatar}
       header={user.username}
       meta={user.email}

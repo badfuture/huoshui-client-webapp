@@ -3,7 +3,7 @@ import { Card, Icon, Image } from 'semantic-ui-react'
 
 const CardProf = props => (
   <Card centered>
-    <Image src="../../images/sample/sample5.png" />
+    <Image src="../../images/sample/sample5.png" style={{ width: '100%' }} />
     <Card.Content>
       <Card.Header>
         {props.name}&nbsp;
