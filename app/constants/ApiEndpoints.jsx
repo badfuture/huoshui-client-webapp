@@ -1,4 +1,4 @@
-
+// Huoshui API endpoints
 const env = 'prod'
 let domain = ''
 if (env === 'prod') {
@@ -21,3 +21,8 @@ export const URL_COURSE = `/courses`
 export const URL_COMMENT = `/comments`
 export const URL_FEEDBACK = `/feedback`
 export const URL_SEARCH = `/search`
+
+// Qiniuyun Object Store Service
+export const OSS_DOMAIN = 'http://oss.huoshui.org'
+export const OSS_DOMAIN_SITE = `${OSS_DOMAIN}/site`
+export const OSS_DOMAIN_USER = `${OSS_DOMAIN}/user`

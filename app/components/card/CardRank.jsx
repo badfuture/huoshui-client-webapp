@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react'
 import { Card } from 'semantic-ui-react'
 import styles from './styles/CardRank.scss'
+import { OSS_DOMAIN_SITE } from '../../constants/ApiEndpoints'
 
 const propTypes = {
   image: PropTypes.string.isRequired,
@@ -20,7 +21,7 @@ const CardRank = props => (
         overflow: 'hidden',
         paddingBottom: '56.25%',
         position: 'relative',
-        backgroundImage: `url(${props.image})`,
+        backgroundImage: `url(${OSS_DOMAIN_SITE + props.image})`,
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
         backgroundPosition: 'center center',
