@@ -186,7 +186,6 @@ export const uploadAvatarFailure = err => ({
 
 export const uploadAvatar = formData =>
   (dispatch) => {
-    console.log('uploadAvatarRequest')
     dispatch(uploadAvatarRequest())
     return axios.post(
       '/user/avatar',
