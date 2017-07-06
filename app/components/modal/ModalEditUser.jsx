@@ -4,8 +4,9 @@ import { Button, Header, Icon, Modal, Checkbox, Form } from 'semantic-ui-react'
 export default class ModalEditUser extends Component {
 
   render() {
+    const { trigger } = this.props
     return (
-      <Modal trigger={this.props.trigger} closeIcon="close" closeOnDimmerClick={false}>
+      <Modal trigger={trigger} closeIcon="close" closeOnDimmerClick={false} >
         <Header icon="user outline" content="修改用户信息" />
         <Modal.Content>
           <Form>

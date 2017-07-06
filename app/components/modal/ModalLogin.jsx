@@ -67,7 +67,7 @@ class ModalLogin extends Component {
             <Container>
               <Form
                 loading={isFetching}
-                warning={(errorMessage) && !isAuthenticated}
+                warning={(!!errorMessage) && !isAuthenticated}
                 onSubmit={this.handleSubmit}
               >
                 <Form.Field>

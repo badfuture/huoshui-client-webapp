@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import 'moment/locale/zh-cn'
 import { Provider } from 'react-redux'
 // import { persistStore } from 'redux-persist'
+import localStore from 'store'
 import axios from 'axios'
 import moment from 'moment'
 import { DOMAIN } from '../constants/ApiEndpoints'
@@ -32,6 +33,10 @@ import Pace from '../components/progress/pace'
 // set global config for Http requests
 axios.defaults.baseURL = DOMAIN
 axios.defaults.headers.post['Content-Type'] = 'application/json'
+const token = localStore.get('token')
+if (localStore.get('token')) {
+  axios.defaults.headers.common.Authorization = `Bearer ${token}`
+}
 
 // set top progress bar
 Pace.start()

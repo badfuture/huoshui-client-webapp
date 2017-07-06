@@ -5,9 +5,13 @@ import {
   SIGNUP_REQUEST, SIGNUP_SUCCESS, SIGNUP_FAILURE,
   LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAILURE,
   LOGOUT_REQUEST, LOGOUT_SUCCESS,
+  UPLOAD_AVATAR_REQUEST, UPLOAD_AVATAR_SUCCESS, UPLOAD_AVATAR_FAILURE,
  } from '../constants/AuthActionTypes'
 
-import { closeLoginModal, closeSignupModal } from './modalActions'
+import {
+  closeLoginModal, closeSignupModal,
+  closeEditAvatarModal,
+ } from './modalActions'
 import getAllParams from '../utils/parseURL'
 
 /** *****************************************************
@@ -41,8 +45,8 @@ export const signupUser = creds =>
      const data = resp.data
      localStore.set('token', data.token)
      localStore.set('user', data.user)
-     dispatch(SignupSuccess(data))
      dispatch(closeSignupModal())
+     dispatch(SignupSuccess(data))
    })
    .catch((err) => {
      dispatch(SignupError(err.message))
@@ -160,4 +164,39 @@ export const logoutUser = () =>
     localStore.remove('token')
     localStore.remove('user')
     dispatch(receiveLogout())
+  }
+
+/** ****************************************************
+* upload avatar
+*******************************************************/
+
+export const uploadAvatarRequest = () => ({
+  type: UPLOAD_AVATAR_REQUEST,
+})
+
+export const uploadAvatarSuccess = updatedUser => ({
+  type: UPLOAD_AVATAR_SUCCESS,
+  updatedUser,
+})
+
+export const uploadAvatarFailure = err => ({
+  type: UPLOAD_AVATAR_FAILURE,
+  err,
+})
+
+export const uploadAvatar = formData =>
+  (dispatch) => {
+    console.log('uploadAvatarRequest')
+    dispatch(uploadAvatarRequest())
+    return axios.post(
+      '/user/avatar',
+      formData,
+    ).then((updatedUser) => {
+      localStore.set('user', updatedUser.data)
+      dispatch(uploadAvatarSuccess(updatedUser.data))
+      dispatch(closeEditAvatarModal())
+    })
+   .catch((err) => {
+     dispatch(uploadAvatarFailure(err))
+   })
   }

@@ -2,6 +2,7 @@ import {
   OPEN_LOGIN_MODAL, CLOSE_LOGIN_MODAL,
   OPEN_SIGNUP_MODAL, CLOSE_SIGNUP_MODAL,
   OPEN_ADD_REVIEW_MODAL, CLOSE_ADD_REVIEW_MODAL,
+  OPEN_EDIT_AVATAR_MODAL, CLOSE_EDIT_AVATAR_MODAL,
 } from '../constants/ModalActionTypes'
 
 export const openLoginModal = () => ({
@@ -27,4 +28,12 @@ export const openAddReviewModal = () => ({
 
 export const closeAddReviewModal = () => ({
   type: CLOSE_ADD_REVIEW_MODAL,
+})
+
+export const openEditAvatarModal = () => ({
+  type: OPEN_EDIT_AVATAR_MODAL,
+})
+
+export const closeEditAvatarModal = () => ({
+  type: CLOSE_EDIT_AVATAR_MODAL,
 })
