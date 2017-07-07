@@ -6,7 +6,7 @@ import SearchGlobalContainer from '../../containers/search/SearchGlobalContainer
 
 const propTypes = {
   toggleMenuSidebar: PropTypes.func.isRequired,
-  authStatus: PropTypes.object.isRequired,
+  auth: PropTypes.object.isRequired,
 }
 
 const contentDownload = (
@@ -32,7 +32,14 @@ const signupItem = props => (
 
 const accountItem = props => (
   <Menu.Item name="account">
-    <Dropdown text={`${props.authStatus.user.username}的账号`}>
+    { props.auth.user.avatar &&
+      <Image src={props.auth.user.avatar} shape="circular" size="mini" style={{ marginRight: '0.5em' }} />
+    }
+    { !props.auth.user.avatar &&
+      <Image src={'/images/sample/sample3.jpg'} shape="circular" size="mini" style={{ marginRight: '0.5em' }} />
+      // <Icon name="user circle outline" color="grey" size="big" style={{ marginRight: '0.5em' }} />
+    }
+    <Dropdown text={`${props.auth.user.username}的账号`}>
       <Dropdown.Menu style={{ marginTop: '0.6em' }}>
         <Dropdown.Item text="退出账号" onClick={props.logoutUser} />
       </Dropdown.Menu>
@@ -40,7 +47,7 @@ const accountItem = props => (
   </Menu.Item>
 )
 accountItem.propTypes = {
-  authStatus: PropTypes.shape({
+  auth: PropTypes.shape({
     user: PropTypes.object,
   }).isRequired,
   logoutUser: PropTypes.func.isRequired,
@@ -89,9 +96,9 @@ const MenuHeader = props => (
           position="bottom center"
         />
       </Menu.Item>
-      { !props.authStatus.isAuthenticated && loginItem(props) }
-      { !props.authStatus.isAuthenticated && signupItem(props) }
-      { props.authStatus.isAuthenticated && accountItem(props) }
+      { !props.auth.isAuthenticated && loginItem(props) }
+      { !props.auth.isAuthenticated && signupItem(props) }
+      { props.auth.isAuthenticated && accountItem(props) }
     </Menu.Menu>
   </Menu>
 )

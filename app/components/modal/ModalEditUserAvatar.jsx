@@ -25,7 +25,7 @@ export default class ModalEditUserAvatar extends Component {
   constructor() {
     super()
     this.state = {
-      avatarSrc: '/images/dept/full/art.jpeg',
+      avatarSrc: '/images/sample/sample3.jpg',
       croppedFile: null,
     }
   }

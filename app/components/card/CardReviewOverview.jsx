@@ -22,36 +22,39 @@ const calcScore = ({ expressive, kind, professional }) => {
   )
 }
 
-const CardReviewOverview = props => (
-  <Route
-    render={({ history }) => (
-      <Card
-        className={styles.cardRaise}
-        onClick={() => { history.push(`/reviews/${props.id}`) }}
-      >
-        <Card.Content>
-          <Image floated="left" size="mini" src="/images/sample/sample2.png" />
-          <Card.Header>
-            <Header as="h4">
-              <div className={styles.header}>
-                <span>{props.Prof.name}</span> 的 <span>{props.Course.name}</span>
-              </div>
-            </Header>
-          </Card.Header>
-          <Card.Meta className={styles.subheader}>
-            <span>{props.Author.username} &nbsp; {moment(props.createdAt).fromNow()}</span>
-          </Card.Meta>
-          <Card.Description className={styles.description}>
-            <p>{props.text}</p>
-          </Card.Description>
-          <div className={styles.bottom}>
-            <Rating value={calcScore(props)} />
-          </div>
-        </Card.Content>
-      </Card>
-    )}
-  />
-)
+const CardReviewOverview = (props) => {
+  const defaultAvatar = '/images/sample/sample3.jpg'
+  return (
+    <Route
+      render={({ history }) => (
+        <Card
+          className={styles.cardRaise}
+          onClick={() => { history.push(`/reviews/${props.id}`) }}
+        >
+          <Card.Content>
+            <Image floated="left" size="mini" src={props.Author.avatar || defaultAvatar} />
+            <Card.Header>
+              <Header as="h4">
+                <div className={styles.header}>
+                  <span>{props.Prof.name}</span> 的 <span>{props.Course.name}</span>
+                </div>
+              </Header>
+            </Card.Header>
+            <Card.Meta className={styles.subheader}>
+              <span>{props.Author.username} &nbsp; {moment(props.createdAt).fromNow()}</span>
+            </Card.Meta>
+            <Card.Description className={styles.description}>
+              <p>{props.text}</p>
+            </Card.Description>
+            <div className={styles.bottom}>
+              <Rating value={calcScore(props)} />
+            </div>
+          </Card.Content>
+        </Card>
+      )}
+    />
+  )
+}
 
 
 // set propTypes

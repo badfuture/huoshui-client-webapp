@@ -9,7 +9,7 @@ const propTypes = {
   openLoginModal: PropTypes.func.isRequired,
   openSignupModal: PropTypes.func.isRequired,
   toggleMenuSidebar: PropTypes.func.isRequired,
-  authStatus: PropTypes.object.isRequired,
+  auth: PropTypes.object.isRequired,
   logoutUser: PropTypes.func.isRequired,
 }
 
@@ -22,7 +22,7 @@ class MenuHeaderContainer extends Component {
         openSignupModal={this.props.openSignupModal}
         toggleMenuSidebar={this.props.toggleMenuSidebar}
         logoutUser={this.props.logoutUser}
-        authStatus={this.props.authStatus}
+        auth={this.props.auth}
         {...this.props}
       />
     )
@@ -32,7 +32,7 @@ class MenuHeaderContainer extends Component {
 // maps state from store to props
 const mapStateToProps = state => ({
   modals: state.modals,
-  authStatus: state.auth,
+  auth: state.auth,
 })
 
 // maps actions to props
