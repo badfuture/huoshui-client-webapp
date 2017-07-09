@@ -16,7 +16,7 @@ function getPopupSize(provider) {
       return { width: 770, height: 408 }
 
     case 'weibo':
-      return { width: 770, height: 408 }
+      return { width: 770, height: 350 }
 
     case 'github':
       return { width: 1020, height: 618 }

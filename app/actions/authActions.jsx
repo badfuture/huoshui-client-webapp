@@ -161,16 +161,26 @@ export const loginUserQQ = popup =>
     }, 100)
   }
 
-export const loginUserGithub = popup =>
+export const loginUserWeibo = popup =>
   (dispatch) => {
     dispatch(requestLogin())
     const handle = window.setInterval(() => {
-      if (!popup) { window.clearInterval(handle) }
+      if (!popup || popup.closed) {
+        window.clearInterval(handle)
+        if (!localStore.get('user')) {
+          dispatch(loginError())
+        }
+      }
       let creds = {}
       try {
         creds = getAllParams(popup.location)
       } catch (err) {
         creds = {}
+      }
+      if (creds.error) {
+        window.clearInterval(handle)
+        popup.close()
+        dispatch(loginError())
       }
       if (creds.token && creds.user) {
         localStore.set('token', creds.token)

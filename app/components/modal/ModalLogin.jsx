@@ -1,6 +1,7 @@
 import React, { PropTypes, Component } from 'react'
 import { Button, Modal, Form, Input, Icon, Container, Divider, Message } from 'semantic-ui-react'
 import openPopup from '../../utils/openPopupWindow'
+import { DOMAIN } from '../../constants/ApiEndpoints'
 
 const propTypes = {
   visible: PropTypes.bool.isRequired,
@@ -31,7 +32,7 @@ class ModalLogin extends Component {
     const scope = 'get_user_info'
     const clientId = '101410908'
     const state = encodeURIComponent(btoa(provider + clientId))
-    const redirect = 'http://localhost:1337/auth/qq/callback'
+    const redirect = `${DOMAIN}/auth/qq/callback`
     const responseType = 'code'
     const requestUrl = `${url}?scope=${scope}&client_id=${clientId}&state=${state}&redirect_uri=${redirect}&response_type=${responseType}`
     const popup = openPopup(provider, requestUrl)
@@ -43,20 +44,11 @@ class ModalLogin extends Component {
     const url = 'https://api.weibo.com/oauth2/authorize'
     const scope = 'email'
     const clientId = '3486860384'
-    const redirect = 'http://127.0.0.1:1337/auth/weibo/callback'
+    const redirect = `${DOMAIN}/auth/weibo/callback`
     const responseType = 'code'
     const requestUrl = `${url}?scope=${scope}&client_id=${clientId}&redirect_uri=${redirect}&response_type=${responseType}`
     const popup = openPopup(provider, requestUrl)
-    this.props.onLoginQQ(popup)
-  }
-
-  handleClickGithub = () => {
-    const provider = 'github'
-    let URL_GIT = 'http://github.com/login/oauth/authorize'
-    const CLIENT_ID = 'aab07d7d9678decc4c77'
-    URL_GIT = `${URL_GIT}?scope=user:email&client_id=${CLIENT_ID}`
-    const popup = openPopup(provider, URL_GIT)
-    this.props.onLoginGithub(popup)
+    this.props.onLoginWeibo(popup)
   }
 
   render() {
@@ -111,12 +103,6 @@ class ModalLogin extends Component {
                 circular
                 onClick={this.handleClickWeibo.bind(this)}
               />&nbsp;
-              <Button
-                color="grey"
-                icon={<Icon name="github" />}
-                circular
-                onClick={this.handleClickGithub.bind(this)}
-              />
             </Container>
 
           </Modal.Content>

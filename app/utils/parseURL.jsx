@@ -1,4 +1,12 @@
 
+const isJson = (str) => {
+  try {
+    JSON.parse(str)
+  } catch (e) {
+    return false
+  }
+  return true
+}
 
 export default function getAllParams(location) {
   const obj = {}
@@ -8,7 +16,12 @@ export default function getAllParams(location) {
     const pair = vars[i].split('=')
     const paramName = decodeURIComponent(pair[0])
     const paramValue = decodeURIComponent(pair[1])
-    obj[paramName] = JSON.parse(paramValue)
+
+    if (isJson(paramValue)) {
+      obj[paramName] = JSON.parse(paramValue)
+    } else {
+      obj[paramName] = paramValue
+    }
   }
   return obj
 }
