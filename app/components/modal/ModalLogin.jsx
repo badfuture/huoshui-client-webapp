@@ -38,6 +38,18 @@ class ModalLogin extends Component {
     this.props.onLoginQQ(popup)
   }
 
+  handleClickWeibo = () => {
+    const provider = 'weibo'
+    const url = 'https://api.weibo.com/oauth2/authorize'
+    const scope = 'email'
+    const clientId = '3486860384'
+    const redirect = 'http://127.0.0.1:1337/auth/weibo/callback'
+    const responseType = 'code'
+    const requestUrl = `${url}?scope=${scope}&client_id=${clientId}&redirect_uri=${redirect}&response_type=${responseType}`
+    const popup = openPopup(provider, requestUrl)
+    this.props.onLoginQQ(popup)
+  }
+
   handleClickGithub = () => {
     const provider = 'github'
     let URL_GIT = 'http://github.com/login/oauth/authorize'
@@ -97,7 +109,7 @@ class ModalLogin extends Component {
                 color="google plus"
                 icon={<Icon name="weibo" />}
                 circular
-                onClick={this.handleClickGithub.bind(this)}
+                onClick={this.handleClickWeibo.bind(this)}
               />&nbsp;
               <Button
                 color="grey"

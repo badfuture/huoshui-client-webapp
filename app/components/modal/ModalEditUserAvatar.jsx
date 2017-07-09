@@ -47,7 +47,6 @@ export default class ModalEditUserAvatar extends Component {
     const file = dataURItoBlob(dataURL)
     const formData = new FormData()
     formData.append('avatar', file, 'avatar')
-    console.log('uploadAvatar')
     this.props.uploadAvatar(formData)
   }
 

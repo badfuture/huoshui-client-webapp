@@ -14,6 +14,7 @@ export const DOMAIN = domain
 export const URL_LOGIN = `/auth/login`
 export const URL_SIGNUP = `/auth/signup`
 
+export const URL_USER = `/users`
 export const URL_REVIEW = `/reviews`
 export const URL_PROF = `/profs`
 export const URL_COURSE = `/courses`

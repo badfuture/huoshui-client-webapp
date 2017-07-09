@@ -1,11 +1,12 @@
 import axios from 'axios'
 import localStore from 'store'
-import { URL_LOGIN, URL_SIGNUP } from '../constants/ApiEndpoints'
+import { URL_LOGIN, URL_SIGNUP, URL_USER } from '../constants/ApiEndpoints'
 import {
   SIGNUP_REQUEST, SIGNUP_SUCCESS, SIGNUP_FAILURE,
   LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAILURE,
   LOGOUT_REQUEST, LOGOUT_SUCCESS,
   UPLOAD_AVATAR_REQUEST, UPLOAD_AVATAR_SUCCESS, UPLOAD_AVATAR_FAILURE,
+  GET_USER_REQUEST, GET_USER_SUCCESS, GET_USER_FAILURE,
  } from '../constants/AuthActionTypes'
 
 import {
@@ -13,6 +14,42 @@ import {
   closeEditAvatarModal,
  } from './modalActions'
 import getAllParams from '../utils/parseURL'
+
+/** *****************************************************
+* get user info
+*******************************************************/
+export const getUserRequest = () => ({
+  type: GET_USER_REQUEST,
+})
+
+export const getUserSuccess = user => ({
+  type: GET_USER_SUCCESS,
+  user,
+})
+
+export const getUserFailure = err => ({
+  type: GET_USER_FAILURE,
+  err,
+})
+
+export const getLatestUserInfo = () =>
+  (dispatch) => {
+    const token = localStore.get('token')
+    const user = localStore.get('user')
+    if (!token || !user) {
+      return false
+    }
+    dispatch(getUserRequest())
+    return axios.get(`${URL_USER}/${user.id}`)
+   .then((resp) => {
+     const data = resp.data
+     localStore.set('user', data)
+     dispatch(getUserSuccess(data))
+   })
+   .catch((err) => {
+     dispatch(getUserFailure(err))
+   })
+  }
 
 /** *****************************************************
 * signup

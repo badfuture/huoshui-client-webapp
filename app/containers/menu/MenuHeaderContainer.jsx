@@ -14,7 +14,9 @@ const propTypes = {
 }
 
 class MenuHeaderContainer extends Component {
-  componentDidMount() {}
+  componentDidMount() {
+    this.props.getLatestUserInfo()
+  }
   render() {
     return (
       <MenuHeader
@@ -42,6 +44,7 @@ const mapActionToProps = dispatch => ({
   openSignupModal: () => dispatch(modalActions.openSignupModal()),
   closeLoginModal: () => dispatch(modalActions.closeLoginModal()),
   toggleMenuSidebar: () => dispatch(menuActions.toggleMenuSidebar()),
+  getLatestUserInfo: () => dispatch(authActions.getLatestUserInfo()),
 })
 
 // set propTypes

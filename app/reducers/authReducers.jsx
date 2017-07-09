@@ -5,6 +5,7 @@ import {
   LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAILURE,
   LOGOUT_REQUEST, LOGOUT_SUCCESS,
   UPLOAD_AVATAR_REQUEST, UPLOAD_AVATAR_SUCCESS, UPLOAD_AVATAR_FAILURE,
+  GET_USER_REQUEST, GET_USER_SUCCESS, GET_USER_FAILURE,
  } from '../constants/AuthActionTypes'
 
 export default (state = {
@@ -14,8 +15,22 @@ export default (state = {
   user: localStore.get('user') || null,
   errorMessage: '',
   isAvatarUploading: false,
+  isUserLoading: false,
 }, action) => {
   switch (action.type) {
+    case GET_USER_REQUEST:
+      return Object.assign({}, state, {
+        isUserLoading: true,
+      })
+    case GET_USER_SUCCESS:
+      return Object.assign({}, state, {
+        isUserLoading: false,
+        user: action.user,
+      })
+    case GET_USER_FAILURE:
+      return Object.assign({}, state, {
+        isUserLoading: false,
+      })
     case SIGNUP_REQUEST:
       return Object.assign({}, state, {
         isFetching: true,
