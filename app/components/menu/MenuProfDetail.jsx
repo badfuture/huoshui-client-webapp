@@ -16,19 +16,19 @@ class MenuProfDetail extends Component {
     return (
       <Menu borderless size="large" stackable>
         <Menu.Item
-          name={INFO}
-          active={this.props.currentView === INFO}
-          onClick={this.handleItemClick}
-        >
-          基本资料
-        </Menu.Item>
-
-        <Menu.Item
           name={STAT}
           active={this.props.currentView === STAT}
           onClick={this.handleItemClick}
         >
           综合评价
+        </Menu.Item>
+
+        <Menu.Item
+          name={INFO}
+          active={this.props.currentView === INFO}
+          onClick={this.handleItemClick}
+        >
+          基本资料
         </Menu.Item>
 
         <Menu.Item

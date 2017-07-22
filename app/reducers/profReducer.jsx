@@ -2,12 +2,12 @@ import {
   SWITCH_VIEW, FETCH_ATTEMPT, FETCH_SUCCESS, FETCH_ERROR,
 } from '../constants/ProfActionTypes'
 import {
-  INFO,
+  STAT,
 } from '../constants/MenuProfStates'
 
 export default (state = {
   isFetching: false,
-  currentView: INFO,
+  currentView: STAT,
   data: {},
 }, action) => {
   switch (action.type) {

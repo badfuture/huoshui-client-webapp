@@ -18,7 +18,11 @@ const SegmentRatingCharts = props => (
         </Grid.Column>
         <Grid.Column width={8}>
           <div style={{ textAlign: 'center' }}>
-            综合评分（{props.Stat.scoreOverall.toFixed(1)}分）
+            综合评分（{
+              (props.Stat.countReview !== 0) ?
+              props.Stat.scoreOverall.toFixed(1) :
+              '0.0'
+            }分）
           </div>
           <Container style={{ width: '100%', height: '200px', padding: '10px 10px 0px 10px', textAlign: 'center' }}>
             <ChartBar {...props.Stat} />

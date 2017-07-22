@@ -3,7 +3,6 @@ import { Menu, Button, Icon, Popup, Image, Dropdown } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 import SearchGlobalContainer from '../../containers/search/SearchGlobalContainer'
 
-
 const propTypes = {
   toggleMenuSidebar: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
@@ -39,8 +38,11 @@ const accountItem = props => (
       <Image src={'/images/sample/sample3.jpg'} shape="circular" size="mini" style={{ marginRight: '0.5em' }} />
     }
     { (props.auth.user.username) &&
-      <Dropdown text={`${props.auth.user.username}的账号`}>
+      <Dropdown
+        text={`${props.auth.user.username}的账号`}
+      >
         <Dropdown.Menu style={{ marginTop: '0.6em' }}>
+          <Dropdown.Item text="我的档案" as={Link} to="my-profile" />
           <Dropdown.Item text="退出账号" onClick={props.logoutUser} />
         </Dropdown.Menu>
       </Dropdown>

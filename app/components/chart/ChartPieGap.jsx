@@ -29,7 +29,11 @@ const ChartPieGap = (props) => {
           color: 'rgb(75, 172, 255)',
         }}
       >
-        {((props.countGoodReview / props.countReview) * 100).toFixed(0)}%
+        {
+          (props.countReview !== 0)
+          ? `${((props.countGoodReview / props.countReview) * 100).toFixed(0)}%`
+          : '暂无评价'
+        }
       </div>
       <ResponsiveContainer>
         <PieChart

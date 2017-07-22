@@ -6,6 +6,7 @@ import MenuProfDetail from '../../components/menu/MenuProfDetail'
 import ChartPieGap from '../../components/chart/ChartPieGap'
 import ChartBar from '../../components/chart/ChartBar'
 import RatingBasic from '../../components/rating/RatingBasic'
+import SegmentRatingCharts from '../../components/segment/SegmentRatingCharts'
 
 import {
   INFO, STAT, EDUCATION, RESEARCH, COURSE,
@@ -82,22 +83,7 @@ const DetailGrid = props => (
             </Segment>
           }
           {
-            (props.currentView === STAT) && <Segment>
-              <Grid stackable divided>
-                <Grid.Row>
-                  <Grid.Column width={8}>
-                    <Container style={{ width: '75%', height: '225px', textAlign: 'center' }}>
-                      <ChartBar />
-                    </Container>
-                  </Grid.Column>
-                  <Grid.Column width={8}>
-                    <Container style={{ width: '75%', height: '225px', textAlign: 'center' }}>
-                      <ChartPieGap />
-                    </Container>
-                  </Grid.Column>
-                </Grid.Row>
-              </Grid>
-            </Segment>
+            (props.currentView === STAT) && <SegmentRatingCharts {...props.prof} />
           }
           {
             (props.currentView === EDUCATION) && <Segment>

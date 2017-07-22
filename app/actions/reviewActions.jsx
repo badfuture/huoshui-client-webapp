@@ -16,7 +16,7 @@ import { URL_REVIEW } from '../constants/ApiEndpoints'
 const getAPIParams = ({ currentView, limit, skip = 0 }) => {
   const res = {
     params: {
-      populate: 'all',
+      populate: 'Author,Prof,Course',
       paginate: true,
       sort: 'createdAt DESC',
       limit,
