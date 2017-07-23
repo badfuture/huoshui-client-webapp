@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react'
 import { Card, Header, Image, Divider } from 'semantic-ui-react'
+import { Link } from 'react-router-dom'
 import Rating from '../rating/RatingBasic'
 import styles from './styles/CardProfDetail.scss'
 
@@ -29,7 +30,7 @@ const CardProfDetail = props => (
       <Image floated="left" size="mini" src="/images/sample/sample6.png" />
       <Card.Header>
         <Header as="h4">
-          老师：{props.name}
+          <Link to={`/profs/${props.id}`}>老师：{props.name}</Link>
         </Header>
       </Card.Header>
       <Card.Meta>

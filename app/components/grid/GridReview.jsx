@@ -10,10 +10,12 @@ const GridReview = props => (
   <Container>
     <Card.Group itemsPerRow={5} stackable>
       {props.items.map(
-        item => <CardReviewOverview
-          key={item.id}
-          {...item}
-        />,
+        item =>
+          <CardReviewOverview
+            history={props.history}
+            key={item.id}
+            {...item}
+          />,
       )}
     </Card.Group>
   </Container>

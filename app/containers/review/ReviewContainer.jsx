@@ -28,7 +28,10 @@ class ReviewContainer extends Component {
             </div>
           }
           {!this.props.reviews.isFetching &&
-            <GridReview items={this.props.reviews.data} />
+            <GridReview
+              items={this.props.reviews.data}
+              history={this.props.history}
+            />
           }
           <Divider hidden />
         </Container>

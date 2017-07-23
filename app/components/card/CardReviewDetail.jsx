@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { Card, Header, Image } from 'semantic-ui-react'
 import moment from 'moment'
 
@@ -16,7 +17,7 @@ const CardReviewDetail = props => (
       <Image floated="left" size="mini" src="/images/sample/sample2.png" />
       <Card.Header>
         <Header as="h4">
-          {props.prof.name} 的 {props.course.name}
+          <Link to={`/profs/${props.prof.id}`}>{props.prof.name}</Link> 的 <Link to={`/courses/${props.course.id}`}>{props.course.name}</Link>
         </Header>
       </Card.Header>
       <Card.Meta>
