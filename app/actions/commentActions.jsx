@@ -5,6 +5,7 @@ import {
 } from '../constants/FeedbackActionTypes'
 
 import { fetchReviewById } from '../actions/reviewActions'
+import { openPromptSignupModal } from '../actions/modalActions'
 
 export const requestSubmit = () => ({
   type: SUBMIT_REQUEST,
@@ -24,6 +25,11 @@ export const submitComment = (comment) => {
   return (dispatch, getState) => {
     const { isAuthenticated, user } = getState().auth
     const authorId = (user && isAuthenticated) ? user.id : null
+    if (!authorId) {
+      dispatch(submitFailure())
+      dispatch(openPromptSignupModal())
+    }
+
     dispatch(requestSubmit())
     return axios.post(`${URL_COMMENT}`, {
       commentable,

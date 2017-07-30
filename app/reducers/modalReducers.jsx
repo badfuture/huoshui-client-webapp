@@ -3,6 +3,7 @@ import {
   OPEN_SIGNUP_MODAL, CLOSE_SIGNUP_MODAL,
   OPEN_ADD_REVIEW_MODAL, CLOSE_ADD_REVIEW_MODAL,
   OPEN_EDIT_AVATAR_MODAL, CLOSE_EDIT_AVATAR_MODAL,
+  OPEN_PROMPT_SIGNUP_MODAL, CLOSE_PROMPT_SIGNUP_MODAL,
 } from '../constants/ModalActionTypes'
 
 export default (state = {
@@ -10,8 +11,17 @@ export default (state = {
   signupModalVisible: false,
   addReviewModalVisible: false,
   editAvatarModalVisible: false,
+  promptSignupModalVisible: false,
 }, action) => {
   switch (action.type) {
+    case OPEN_PROMPT_SIGNUP_MODAL:
+      return Object.assign({}, state, {
+        promptSignupModalVisible: true,
+      })
+    case CLOSE_PROMPT_SIGNUP_MODAL:
+      return Object.assign({}, state, {
+        promptSignupModalVisible: false,
+      })
     case OPEN_LOGIN_MODAL:
       return Object.assign({}, state, {
         loginModalVisible: true,

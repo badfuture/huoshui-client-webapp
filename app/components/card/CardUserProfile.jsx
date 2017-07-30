@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Card, Icon, Image } from 'semantic-ui-react'
+import localStore from 'store'
 import * as authActions from '../../actions/authActions'
 import * as modalActions from '../../actions/modalActions'
 import ModalEditUser from '../../components/modal/ModalEditUser'
@@ -40,16 +41,18 @@ class CardUserProfile extends Component {
           </Card.Meta>
           <Card.Description />
         </Card.Content>
-        <Card.Content extra>
-          <ModalEditUser
-            trigger={
-              <a>
-                <Icon name="edit" />
-                修改用户信息
-              </a>
-            }
-          />
-        </Card.Content>
+        {this.props.isAuthenticated &&
+          <Card.Content extra>
+            <ModalEditUser
+              trigger={
+                <a>
+                  <Icon name="edit" />
+                  修改用户信息
+                </a>
+              }
+            />
+          </Card.Content>
+        }
       </Card>
     )
   }
@@ -57,6 +60,7 @@ class CardUserProfile extends Component {
 
 // map redux states to prop
 const mapStateToProps = state => ({
+  isAuthenticated: state.auth.isAuthenticated,
   user: state.auth.user,
   isAvatarUploading: state.auth.isAvatarUploading,
   editAvatarModalVisible: state.modals.editAvatarModalVisible,
@@ -65,7 +69,13 @@ const mapStateToProps = state => ({
 // map redux actions to prop
 const mapActionToProps = dispatch => ({
   uploadAvatar: formData => dispatch(authActions.uploadAvatar(formData)),
-  openEditAvatarModal: () => dispatch(modalActions.openEditAvatarModal()),
+  openEditAvatarModal: () => {
+    if (localStore.get('token')) {
+      dispatch(modalActions.openEditAvatarModal())
+    } else {
+      dispatch(modalActions.openPromptSignupModal())
+    }
+  },
   closeEditAvatarModal: () => dispatch(modalActions.closeEditAvatarModal()),
 })
 

@@ -4,6 +4,7 @@ import AppFooter from './AppFooter'
 import MenuSidebarContainer from '../../containers/menu/MenuSidebarContainer'
 import MenuHeaderContainer from '../../containers/menu/MenuHeaderContainer'
 import MenuFloatContainer from '../../containers/menu/MenuFloatContainer'
+import ModalPromptSignupContainer from '../../containers/modal/ModalPromptSignupContainer'
 import ModalLoginContainer from '../../containers/modal/ModalLoginContainer'
 import ModalSignupContainer from '../../containers/modal/ModalSignupContainer'
 import ModalAddReviewContainer from '../../containers/modal/ModalAddReviewContainer'
@@ -23,6 +24,7 @@ class AppLayout extends Component {
             <MenuHeaderContainer />
           </header>
           <div className={styles.appContent}>
+            <ModalPromptSignupContainer />
             <ModalLoginContainer />
             <ModalSignupContainer />
             <ModalAddReviewContainer />
