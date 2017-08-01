@@ -10,6 +10,7 @@ import deptDetailListReducer from './deptDetailListReducer'
 import feedbackReducer from './feedbackReducers'
 import courseReducer from './courseReducer'
 import profReducer from './profReducer'
+import statReducer from './statReducer'
 import searchCourseReducer from './searchCourseReducer'
 import searchGlobalReducer from './searchGlobalReducer'
 
@@ -22,6 +23,7 @@ export default combineReducers({
   addReview: addReviewReducer,
   course: courseReducer,
   prof: profReducer,
+  stat: statReducer,
   modals: modalReducers,
   menu: menuReducers,
   rankDetailList: rankDetailListReducer,

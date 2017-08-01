@@ -1,16 +1,26 @@
 import React from 'react'
 import { Statistic, Segment } from 'semantic-ui-react'
 
-const items = [
-  { label: '课程', value: '4,767' },
-  { label: '老师', value: '2,236' },
-  { label: '学生', value: '1,200' },
-  { label: '点评', value: '1,495' },
-]
-
-const StatSite = () => (
+const StatSite = props => (
   <Segment inverted style={{ backgroundColor: '#F5F7F8' }}>
-    <Statistic.Group items={items} size="mini" color="blue" widths="four" />
+    <Statistic.Group size="mini" color="blue" widths="four">
+      <Statistic>
+        <Statistic.Value>课程</Statistic.Value>
+        <Statistic.Label>{props.count && props.count.course}</Statistic.Label>
+      </Statistic>
+      <Statistic>
+        <Statistic.Value>老师</Statistic.Value>
+        <Statistic.Label>{props.count && props.count.prof}</Statistic.Label>
+      </Statistic>
+      <Statistic>
+        <Statistic.Value>学生</Statistic.Value>
+        <Statistic.Label>{props.count && props.count.user}</Statistic.Label>
+      </Statistic>
+      <Statistic>
+        <Statistic.Value>点评</Statistic.Value>
+        <Statistic.Label>{props.count && props.count.review}</Statistic.Label>
+      </Statistic>
+    </Statistic.Group>
   </Segment>
 )
 
