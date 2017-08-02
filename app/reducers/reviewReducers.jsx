@@ -1,5 +1,7 @@
 import {
   FETCH_REVIEWS_ATTEMPT, FETCH_REVIEWS_SUCCESS, FETCH_REVIEWS_ERROR,
+  FETCH_HOT_REVIEWS_ATTEMPT, FETCH_HOT_REVIEWS_SUCCESS, FETCH_HOT_REVIEWS_ERROR,
+  FETCH_NEW_REVIEWS_ATTEMPT, FETCH_NEW_REVIEWS_SUCCESS, FETCH_NEW_REVIEWS_ERROR,
   FETCH_REVIEW_BY_ID_ATTEMPT, FETCH_REVIEW_BY_ID_SUCCESS, FETCH_REVIEW_BY_ID_ERROR,
   FIRST_PAGE, NEXT_PAGE, PREV_PAGE, SWITCH_VIEW,
 } from '../constants/ReviewActionTypes'
@@ -65,6 +67,54 @@ export const reviewsReducer = (state = {
       }
       return Object.assign({}, state, res)
     }
+    default:
+      return state
+  }
+}
+
+// handling hot reviews
+export const hotReviewsReducer = (state = {
+  isFetching: false,
+  data: [],
+}, action) => {
+  switch (action.type) {
+    case FETCH_HOT_REVIEWS_ATTEMPT:
+      return Object.assign({}, state, {
+        isFetching: true,
+      })
+    case FETCH_HOT_REVIEWS_SUCCESS:
+      return Object.assign({}, state, {
+        isFetching: false,
+        data: action.resp.data,
+      })
+    case FETCH_HOT_REVIEWS_ERROR:
+      return Object.assign({}, state, {
+        isFetching: false,
+      })
+    default:
+      return state
+  }
+}
+
+// handling new reviews
+export const newReviewsReducer = (state = {
+  isFetching: false,
+  data: [],
+}, action) => {
+  switch (action.type) {
+    case FETCH_NEW_REVIEWS_ATTEMPT:
+      return Object.assign({}, state, {
+        isFetching: true,
+      })
+    case FETCH_NEW_REVIEWS_SUCCESS:
+      return Object.assign({}, state, {
+        isFetching: false,
+        data: action.resp.data,
+      })
+    case FETCH_NEW_REVIEWS_ERROR:
+      return Object.assign({}, state, {
+        isFetching: false,
+      })
     default:
       return state
   }

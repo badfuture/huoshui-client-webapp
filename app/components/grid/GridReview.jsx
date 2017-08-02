@@ -4,11 +4,12 @@ import CardReviewOverview from '../card/CardReviewOverview'
 
 const propTypes = {
   items: PropTypes.array.isRequired,
+  itemsPerRow: PropTypes.number.isRequired,
 }
 
 const GridReview = props => (
   <Container>
-    <Card.Group itemsPerRow={5} stackable>
+    <Card.Group itemsPerRow={props.itemsPerRow} stackable>
       {props.items.map(
         item =>
           <CardReviewOverview

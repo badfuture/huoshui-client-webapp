@@ -29,6 +29,7 @@ class ReviewContainer extends Component {
           }
           {!this.props.reviews.isFetching &&
             <GridReview
+              itemsPerRow={5}
               items={this.props.reviews.data}
               history={this.props.history}
             />

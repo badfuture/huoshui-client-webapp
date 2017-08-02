@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux'
 import authReducers from './authReducers'
-import { reviewsReducer, reviewReducer } from './reviewReducers'
+import { reviewsReducer, hotReviewsReducer, newReviewsReducer, reviewReducer } from './reviewReducers'
 import addReviewReducer from './addReviewReducer'
 import kelistReducers from './kelistReducers'
 import modalReducers from './modalReducers'
@@ -19,6 +19,8 @@ export default combineReducers({
   auth: authReducers,
   kelists: kelistReducers,
   reviews: reviewsReducer,
+  hotReviews: hotReviewsReducer,
+  newReviews: newReviewsReducer,
   review: reviewReducer,
   addReview: addReviewReducer,
   course: courseReducer,

@@ -1,6 +1,8 @@
 import axios from 'axios'
 import {
   FETCH_REVIEWS_ATTEMPT, FETCH_REVIEWS_SUCCESS, FETCH_REVIEWS_ERROR,
+  FETCH_HOT_REVIEWS_ATTEMPT, FETCH_HOT_REVIEWS_SUCCESS, FETCH_HOT_REVIEWS_ERROR,
+  FETCH_NEW_REVIEWS_ATTEMPT, FETCH_NEW_REVIEWS_SUCCESS, FETCH_NEW_REVIEWS_ERROR,
   FETCH_REVIEW_BY_ID_ATTEMPT, FETCH_REVIEW_BY_ID_SUCCESS, FETCH_REVIEW_BY_ID_ERROR,
   FIRST_PAGE, NEXT_PAGE, PREV_PAGE, SWITCH_VIEW,
 } from '../constants/ReviewActionTypes'
@@ -13,12 +15,12 @@ import { URL_REVIEW } from '../constants/ApiEndpoints'
 /**
  * get API URL
  */
-const getAPIParams = ({ currentView, limit, skip = 0 }) => {
+const getAPIParams = ({ currentView, limit, skip = 0, paginate = true, sort = 'createdAt DESC' }) => {
   const res = {
     params: {
       populate: 'Author,Prof,Course',
-      paginate: true,
-      sort: 'createdAt DESC',
+      paginate,
+      sort,
       limit,
       skip,
     },
@@ -29,8 +31,6 @@ const getAPIParams = ({ currentView, limit, skip = 0 }) => {
     params.sort = 'createdAt DESC'
   } else if (currentView === HOT_REVIEW) {
     params.sort = 'upVote DESC'
-  } else {
-    params.sort = 'createdAt DESC'
   }
 
   return res
@@ -195,3 +195,76 @@ export const fetchReviewById = reviewId =>
        })
     )
   }
+
+
+// Get hot reviews
+export const fetchHotReviewsAttempt = () => ({
+  type: FETCH_HOT_REVIEWS_ATTEMPT,
+})
+
+export const fetchHotReviewsSuccess = resp => ({
+  type: FETCH_HOT_REVIEWS_SUCCESS,
+  resp,
+})
+
+export const fetchHotReviewsError = err => ({
+  type: FETCH_HOT_REVIEWS_ERROR,
+  error: err,
+})
+
+export const fetchHotReviews = () =>
+(dispatch) => {
+  dispatch(fetchHotReviewsAttempt())
+  return (
+    axios
+      .get(URL_REVIEW, getAPIParams({
+        populate: 'Author,Prof,Course',
+        sort: 'upVote DESC',
+        paginate: false,
+        limit: 6,
+        skip: 0,
+      }))
+      .then((resp) => {
+        dispatch(fetchHotReviewsSuccess(resp))
+      })
+      .catch((err) => {
+        dispatch(fetchHotReviewsError(err))
+      })
+  )
+}
+
+// Get new reviews
+export const fetchNewReviewsAttempt = () => ({
+  type: FETCH_NEW_REVIEWS_ATTEMPT,
+})
+
+export const fetchNewReviewsSuccess = resp => ({
+  type: FETCH_NEW_REVIEWS_SUCCESS,
+  resp,
+})
+
+export const fetchNewReviewsError = err => ({
+  type: FETCH_NEW_REVIEWS_ERROR,
+  error: err,
+})
+
+export const fetchNewReviews = () =>
+(dispatch) => {
+  dispatch(fetchNewReviewsAttempt())
+  return (
+    axios
+      .get(URL_REVIEW, getAPIParams({
+        populate: 'Author,Prof,Course',
+        sort: 'createdAt DESC',
+        paginate: false,
+        limit: 6,
+        skip: 0,
+      }))
+      .then((resp) => {
+        dispatch(fetchNewReviewsSuccess(resp))
+      })
+      .catch((err) => {
+        dispatch(fetchNewReviewsError(err))
+      })
+  )
+}

@@ -3,8 +3,6 @@ import { Grid, Container, Segment, Item, Label, Divider } from 'semantic-ui-reac
 import Spinner from '../../components/spinner/Spinner'
 import CardProfOverview from '../../components/card/CardProfOverview'
 import MenuProfDetail from '../../components/menu/MenuProfDetail'
-import ChartPieGap from '../../components/chart/ChartPieGap'
-import ChartBar from '../../components/chart/ChartBar'
 import RatingBasic from '../../components/rating/RatingBasic'
 import SegmentRatingCharts from '../../components/segment/SegmentRatingCharts'
 
