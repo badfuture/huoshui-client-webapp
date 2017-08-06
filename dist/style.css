@@ -112,6 +112,45 @@ footer p {
 .uxiKrHYSQynilDopG4NS- h2 {
   font-size: 2em;
   font-weight: bold; }
+._2en7VXVmhKsoTQBfHGHHHg {
+  box-shadow: 0 4px 8px 0 rgba(7, 17, 27, 0.1) !important;
+  transition: box-shadow 0.2s ease-in-out !important; }
+
+._2en7VXVmhKsoTQBfHGHHHg:hover {
+  box-shadow: 0 8px 16px 0 rgba(7, 17, 27, 0.2) !important; }
+
+._3AZjYqCoVJSdGoB9rBvmyo {
+  font-size: 0.9em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; }
+
+.-r6-gbKiKLe3651iYjQtf span {
+  font-size: 0.8em;
+  color: #93999f; }
+
+._2Bvv-wgReWO27UwHp3cs39 {
+  margin: 0.5em 0em; }
+
+._2Bvv-wgReWO27UwHp3cs39 p {
+  color: #93999f;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5;
+  /* number of lines to show */
+  line-height: 1.5em;
+  /* fallback */
+  max-height: 7.5em;
+  /* fallback */
+  height: 7.5em;
+  /* fallback */ }
+
+._2ill6Hgbwisx0tbWNk1wIH {
+  color: #93999f;
+  float: right;
+  font-size: 0.8em; }
 ._2eTJboJZvcEUKXA9DpLraJ {
   box-shadow: 0 4px 8px 0 rgba(7, 17, 27, 0.1) !important;
   transition: box-shadow 0.2s ease-in-out !important; }

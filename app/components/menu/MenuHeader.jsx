@@ -66,8 +66,23 @@ const MenuHeader = props => (
         <Icon name="content" size="large" />
       </Button>
     </Menu.Item>
-    <Menu.Item name="home">
-      <Link to="/home">活水</Link>
+    <Menu.Item
+      name="home"
+      as={Link} to="/home"
+      // style={{ padding: '0.25em' }}
+    >
+      <span
+        style={{
+          fontSize: '1.65em',
+          fontWeight: 'bold',
+          color: '#2185d0',
+        }}
+      >
+        活水
+      </span>
+      {
+        // <img src="/images/test_logo2.png" style={{ width: '5.25em' }} />
+      }
     </Menu.Item>
     <Menu.Item name="reviews">
       <Link to="/reviews">评课</Link>

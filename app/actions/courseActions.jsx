@@ -5,6 +5,7 @@
 import axios from 'axios'
 import {
   FETCH_ATTEMPT, FETCH_SUCCESS, FETCH_ERROR,
+  FETCH_HOT_COURSES_ATTEMPT, FETCH_HOT_COURSES_SUCCESS, FETCH_HOT_COURSES_ERROR,
 } from '../constants/CourseActionTypes'
 import { URL_COURSE } from '../constants/ApiEndpoints'
 
@@ -33,5 +34,38 @@ export const fetchCourseById = courseId =>
     .catch((err) => {
       dispatch(fetchError(err))
       throw (err)
+    })
+  }
+
+export const fetchHotCoursesAttempt = () => ({
+  type: FETCH_HOT_COURSES_ATTEMPT,
+})
+
+export const fetchHotCoursesSuccess = resp => ({
+  type: FETCH_HOT_COURSES_SUCCESS,
+  resp,
+})
+
+export const fetchHotCoursesError = resp => ({
+  type: FETCH_HOT_COURSES_ERROR,
+  resp,
+})
+
+export const fetchHotCourses = () =>
+  (dispatch) => {
+    dispatch(fetchHotCoursesAttempt())
+    return axios.get(URL_COURSE, {
+      params: {
+        populate: 'all',
+        sort: 'reviewCount DESC',
+        limit: 10,
+        skip: 0,
+      },
+    })
+    .then((res) => {
+      dispatch(fetchHotCoursesSuccess(res))
+    })
+    .catch((err) => {
+      dispatch(fetchHotCoursesError(err))
     })
   }
