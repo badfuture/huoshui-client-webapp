@@ -1,7 +1,7 @@
 {
   "name": "huoshui-client-webapp",
-  "version": "2.0.0",
-  "description": "huoshui 2.0 web client",
+  "version": "1.0.0",
+  "description": "huoshui web client",
   "main": "index.js",
   "scripts": {
     "dev": "webpack-dev-server",

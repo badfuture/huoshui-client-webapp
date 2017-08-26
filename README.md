@@ -28,26 +28,19 @@ npm run dev
 ```
 
 ## 部署
-在staging server和local环境安装PM2
+在staging server和production server安装Docker
 ```
-npm install pm2 -g
-```
-
-local生成SSH key，并将public key加入要部署到的服务器
-```
-ssh-keygen -t rsa
-ssh-copy-id -i path/to/my/key user@staging_hostname
+[docker installtion guide](https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/)
 ```
 
-进行部署配置
+部署 (只部署活水webapp)
 ```
-cd server
-npm run deploy:dev:setup
+docker run -d -p 10084:10084 huoshui/huoshui-webapp:1.0
 ```
 
-部署
+部署 (部署webapp和后端)
 ```
-npm run deploy:dev
+参考[huoshui-backend-api](https://github.com/badfuture/huoshui-backend-api)
 ```
 
 ## 维护人员
