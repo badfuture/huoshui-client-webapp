@@ -1,14 +1,8 @@
 {
   "name": "huoshui-client-webapp",
-  "version": "2.0.0",
-  "description": "huoshui 2.0 web client",
+  "version": "1.0.0",
+  "description": "huoshui web client",
   "main": "index.js",
-  "scripts": {
-    "deploy:dev:setup": "pm2 deploy pm2.config.js dev setup",
-    "deploy:dev": "pm2 deploy pm2.config.js dev",
-    "deploy:prod:setup": "pm2 deploy pm2.config.js prod setup",
-    "deploy:prod": "pm2 deploy pm2.config.js prod"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/badfuture/huoshui-client-webapp.git"
