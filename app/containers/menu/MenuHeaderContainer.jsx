@@ -16,6 +16,7 @@ const propTypes = {
 class MenuHeaderContainer extends Component {
   componentDidMount() {
     this.props.getLatestUserInfo()
+    console.log(this.props)
   }
   render() {
     return (
@@ -23,9 +24,11 @@ class MenuHeaderContainer extends Component {
         openLoginModal={this.props.openLoginModal}
         openSignupModal={this.props.openSignupModal}
         toggleMenuSidebar={this.props.toggleMenuSidebar}
-        logoutUser={this.props.logoutUser}
+        logoutUser={() => {
+          this.props.history.push('/')
+          this.props.logoutUser()
+        }}
         auth={this.props.auth}
-        {...this.props}
       />
     )
   }

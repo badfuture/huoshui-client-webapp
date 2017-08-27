@@ -1,13 +1,7 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
 import { Card, Image } from 'semantic-ui-react'
 import styles from './styles/CardDept.scss'
 import { OSS_DOMAIN_SITE } from '../../constants/ApiEndpoints'
-
-const propTypes = {
-  image: PropTypes.string.isRequired,
-  header: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
-}
 
 const CardDept = props => (
   <Card className={styles.cardRaise} onClick={() => { props.history.push(`/depts/${props.header}`) }}>
@@ -29,7 +23,5 @@ const CardDept = props => (
     </Card.Content>
   </Card>
 )
-
-CardDept.propTypes = propTypes
 
 export default CardDept

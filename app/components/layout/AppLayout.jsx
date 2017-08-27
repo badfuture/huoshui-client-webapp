@@ -1,4 +1,5 @@
-import React, { PropTypes, Component } from 'react'
+import React, { Component } from 'react'
+import { Route } from 'react-router-dom'
 import styles from './styles/AppLayout.scss'
 import AppFooter from './AppFooter'
 import MenuSidebarContainer from '../../containers/menu/MenuSidebarContainer'
@@ -9,9 +10,19 @@ import ModalLoginContainer from '../../containers/modal/ModalLoginContainer'
 import ModalSignupContainer from '../../containers/modal/ModalSignupContainer'
 import ModalAddReviewContainer from '../../containers/modal/ModalAddReviewContainer'
 
-const propTypes = {
-  children: PropTypes.node.isRequired,
-}
+const MainContent = props => (
+  <MenuSidebarContainer>
+    <header className={styles.header}>
+      <MenuHeaderContainer {...props} />
+    </header>
+    <div className={styles.appContent}>
+      <div>
+        {props.children}
+      </div>
+    </div>
+    <AppFooter />
+  </MenuSidebarContainer>
+)
 
 class AppLayout extends Component {
   componentDidMount() {}
@@ -19,27 +30,14 @@ class AppLayout extends Component {
     return (
       <div className={styles.appContainer}>
         <MenuFloatContainer className={styles.menuFloat} />
-        <MenuSidebarContainer>
-          <header className={styles.header}>
-            <MenuHeaderContainer />
-          </header>
-          <div className={styles.appContent}>
-            <ModalPromptSignupContainer />
-            <ModalLoginContainer />
-            <ModalSignupContainer />
-            <ModalAddReviewContainer />
-            <div>
-              {this.props.children}
-            </div>
-          </div>
-          <AppFooter />
-        </MenuSidebarContainer>
+        <Route render={props => <MainContent {...props} {...this.props} />} />
+        <ModalPromptSignupContainer />
+        <ModalLoginContainer />
+        <ModalSignupContainer />
+        <ModalAddReviewContainer />
       </div>
     )
   }
 }
-
-// set propTypes
-AppLayout.propTypes = propTypes
 
 export default AppLayout
