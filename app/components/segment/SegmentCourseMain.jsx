@@ -91,7 +91,7 @@ const ExamText = (props) => {
 }
 
 const SegmentCourseMain = props => (
-  <Segment>
+  <Segment attached>
     <Header as="h4">
       课程：{props.name}
     </Header>

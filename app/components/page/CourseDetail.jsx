@@ -1,5 +1,5 @@
 import React from 'react'
-import { Grid, Segment } from 'semantic-ui-react'
+import { Grid, Segment, Button, Icon } from 'semantic-ui-react'
 import Spinner from '../../components/spinner/Spinner'
 import SegmentCourseMain from '../../components/segment/SegmentCourseMain'
 import SegmentProfOverview from '../../components/segment/SegmentProfOverview'
@@ -12,6 +12,11 @@ const DetailGrid = props => (
       <Grid.Row>
         <Grid.Column width={11} style={{ paddingRight: '3.5rem' }}>
           <SegmentCourseMain {...props.course} />
+          <Button.Group attached="bottom" basic labeled>
+            <Button icon="plus" content="收藏 (3)" />
+            <Button icon={<Icon color="red" name="like" />} content="喜欢 (2)" />
+            <Button icon="pencil" content="点评" />
+          </Button.Group>
           <SegmentRatingCharts {...props.course} />
           <Segment>
             相关评论：<br />
