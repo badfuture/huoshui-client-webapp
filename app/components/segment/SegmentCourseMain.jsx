@@ -100,21 +100,21 @@ const SegmentCourseMain = props => (
       <Table.Body>
         <Table.Row>
           <Table.Cell>
-            <Icon name="calendar outline" size="big" color="grey" />
+            <Icon name="calendar check" size="big" color="blue" />
             &nbsp;点名：<AttendText {...props.Stat} />
           </Table.Cell>
           <Table.Cell>
-            <Icon name="sticky note outline" size="big" color="grey" />
+            <Icon name="file text outline" size="big" color="blue" />
             &nbsp;作业：<HomeworkText {...props.Stat} />
           </Table.Cell>
         </Table.Row>
         <Table.Row>
           <Table.Cell style={{ borderTop: '0px' }}>
-            <Icon name="bar chart" size="big" color="grey" />
+            <Icon name="bar chart" size="big" color="blue" />
             &nbsp;考试：<ExamText {...props.Stat} />
           </Table.Cell>
           <Table.Cell style={{ borderTop: '0px' }}>
-            <Icon name="bath" size="big" color="grey" />
+            <Icon name="bath" size="big" color="blue" />
             &nbsp;水分：<BirdText {...props.Stat} />
           </Table.Cell>
         </Table.Row>

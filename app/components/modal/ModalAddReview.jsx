@@ -47,21 +47,21 @@ const OptionalFields = () => (
     <Grid stackable>
       <Grid.Row>
         <Grid.Column width={8} style={{ paddingRight: '3.5rem' }}>
-          <Button.Group color="grey">
+          <Button.Group color="blue">
             <Button >水课鉴定</Button>
             <Dropdown options={optionsBird} floating button className="icon" />
           </Button.Group><br /><br />
-          <Button.Group color="grey">
+          <Button.Group color="blue">
             <Button >点名频率</Button>
             <Dropdown options={optionsAttend} floating button className="icon" />
           </Button.Group><br /><br />
         </Grid.Column>
         <Grid.Column width={8} style={{ paddingLeft: '1.0rem' }}>
-          <Button.Group color="grey">
+          <Button.Group color="blue">
             <Button >作业多少</Button>
             <Dropdown options={optionsHomework} floating button className="icon" />
           </Button.Group><br /><br />
-          <Button.Group color="grey">
+          <Button.Group color="blue">
             <Button >考试难度</Button>
             <Dropdown options={optionsExam} floating button className="icon" />
           </Button.Group><br /><br />
@@ -115,7 +115,7 @@ class ModalAddReview extends Component {
         closeIcon="close"
         onClose={this.props.onClose}
         open={this.props.visible}
-        size="large"
+        size="tiny"
         closeOnDimmerClick={false}
       >
         <Header icon={<Icon color="blue" name="theme" />} content="你说了算" />
@@ -128,7 +128,12 @@ class ModalAddReview extends Component {
           友善：<Rating maxRating={5} defaultRating={3} icon="star" size="huge" /><br />
           <Header as="h4">短评</Header>
           <Form>
-            <TextArea autoHeight={false} placeholder="你对课程和老师的看法：" />
+            <TextArea
+              maxLength="600"
+              rows={7}
+              autoHeight
+              placeholder="你对课程和老师的看法："
+            />
           </Form>
           {!optionalFieldsVisible &&
             <Divider horizontal section >
@@ -189,10 +194,8 @@ Specification
 总体评价
   three core stats
 短评
-  150 words max
-    change this limit
+  600 words max
     TODO: allow formatting
-    TODO: douban long review
 Tags
   max three tags
 课程体验

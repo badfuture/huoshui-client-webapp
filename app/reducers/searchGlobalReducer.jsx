@@ -50,6 +50,7 @@ export default (state = {
           })),
         }
       }
+      console.log('options', options)
 
       return Object.assign({}, state, {
         isFetching: false,

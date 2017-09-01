@@ -13,9 +13,9 @@ export default class SearchGlobal extends Component {
     this.props.resetComponent()
   }
 
-  handleSearchChange = (e, value) => {
-    this.setState({ value })
-    if (!this.state.isComposing) { this.props.handleSearchChange(e, value) }
+  handleSearchChange = (e, data) => {
+    this.setState({ value: data.value })
+    if (!this.state.isComposing) { this.props.handleSearchChange(e, data.value) }
   }
 
   handleComposition = (e) => {

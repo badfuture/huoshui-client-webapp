@@ -24,6 +24,14 @@ class MenuProfDetail extends Component {
         </Menu.Item>
 
         <Menu.Item
+          name={COURSE}
+          active={this.props.currentView === COURSE}
+          onClick={this.handleItemClick}
+        >
+          相关课程
+        </Menu.Item>
+
+        <Menu.Item
           name={INFO}
           active={this.props.currentView === INFO}
           onClick={this.handleItemClick}
@@ -44,13 +52,6 @@ class MenuProfDetail extends Component {
           onClick={this.handleItemClick}
         >
           科研方向
-        </Menu.Item>
-        <Menu.Item
-          name={COURSE}
-          active={this.props.currentView === COURSE}
-          onClick={this.handleItemClick}
-        >
-          相关课程
         </Menu.Item>
       </Menu>
     )

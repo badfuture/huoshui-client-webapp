@@ -8,7 +8,7 @@ class ModalPromptSignup extends Component {
       <div>
         <Modal
           basic
-          size="small"
+          size="mini"
           open={this.props.visible}
           onClose={this.props.onClose}
         >

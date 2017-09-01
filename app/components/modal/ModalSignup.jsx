@@ -33,7 +33,7 @@ class ModalSignup extends Component {
     return (
       <div>
         <Modal
-          size="small"
+          size="mini"
           dimmer="blurring"
           open={this.props.visible}
           onClose={this.props.onClose}
