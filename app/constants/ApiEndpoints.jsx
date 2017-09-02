@@ -3,8 +3,6 @@ const env = 'prod'
 let domain = ''
 if (env === 'prod') {
   domain = 'https://api.huoshui.org'
-} else if (env === 'dev') {
-  domain = 'https://api.huoshui.tk'
 } else if (env === 'local') {
   domain = 'http://localhost:1337'
 }

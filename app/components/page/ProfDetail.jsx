@@ -4,6 +4,7 @@ import Spinner from '../../components/spinner/Spinner'
 import CardProfOverview from '../../components/card/CardProfOverview'
 import MenuProfDetail from '../../components/menu/MenuProfDetail'
 import RatingBasic from '../../components/rating/RatingBasic'
+import ListReview from '../../components/list/ListReview'
 import SegmentRatingCharts from '../../components/segment/SegmentRatingCharts'
 
 import {
@@ -26,28 +27,6 @@ const CourseList = props => (
             <div style={{ marginTop: '0em' }}>
               <RatingBasic value={course.scoreOverall} />
             </div>
-          </Item.Extra>
-        </Item.Content>
-      </Item>
-    ))}
-  </Item.Group>
-)
-
-const ReviewList = props => (
-  <Item.Group divided>
-    {props.reviews.map(review => (
-      <Item key={review.id} onClick={() => { props.history.push(`/reviews/${review.id}`) }}>
-        <Item.Content>
-          <Item.Meta>
-            <span>{review.text}</span>
-          </Item.Meta>
-          <Item.Extra>
-            <div style={{ marginTop: '1em' }}>
-              <Label content={`专业：${review.professional}`} style={{ backgroundColor: 'rgba(232, 232, 232, 0)' }} />
-              <Label content={`表达：${review.expressive}`} style={{ backgroundColor: 'rgba(232, 232, 232, 0)' }} />
-              <Label content={`友好：${review.kind}`} style={{ backgroundColor: 'rgba(232, 232, 232, 0)' }} />
-            </div>
-
           </Item.Extra>
         </Item.Content>
       </Item>
@@ -110,7 +89,7 @@ const DetailGrid = props => (
           <Segment>
             相关评论：<br />
             {(props.prof.Reviews && props.prof.Reviews[0]) ?
-              <ReviewList reviews={props.prof.Reviews} history={props.history} /> :
+              <ListReview reviews={props.prof.Reviews} history={props.history} /> :
               <div>
                 <br />暂无相关评论~
               </div>
