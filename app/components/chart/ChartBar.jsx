@@ -1,7 +1,7 @@
 import React from 'react'
 import { BarChart, Bar, XAxis, YAxis, Cell, CartesianGrid, ResponsiveContainer } from 'recharts'
 
-const COLORS = ['rgb(151, 187, 205)', 'rgb(151, 187, 205)', 'rgb(151, 187, 205)']
+const COLORS = ['rgb(33, 133, 208)', 'rgb(33, 133, 208)', 'rgb(33, 133, 208)']
 
 const chartBar = (props) => {
   const data = [
@@ -19,7 +19,7 @@ const chartBar = (props) => {
           <XAxis type="category" dataKey="name" stroke="rgb(151, 187, 205)" />
           <YAxis type="number" domain={[0, 6]} mirror tick interval={0} hide ticks={[0, 1, 2, 3, 4, 5]} />
           <CartesianGrid strokeDasharray="7 7" />
-          <Bar dataKey="value" fill="rgba(151, 187, 205,0.4)" barCategoryGap isAnimationActive={false} label>
+          <Bar dataKey="value" fill="rgba(33, 133, 208,0.4)" barCategoryGap isAnimationActive={false} label>
             {
             data.map((entry, index) => (
               <Cell key={entry.name} stroke={COLORS[index]} strokeWidth={1.2} />

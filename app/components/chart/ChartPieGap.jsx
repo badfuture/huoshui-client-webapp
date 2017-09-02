@@ -1,8 +1,7 @@
 import React from 'react'
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer } from 'recharts'
 
-
-const COLORS = ['#CED3DC', '#4E8098', 'rgba(75, 172, 255, 0.8)']
+const COLORS = ['#CED3DC', 'rgba(33, 133, 208, 0.5)', 'rgba(33, 133, 208, 0.8)']
 
 const ChartPieGap = (props) => {
   const data = [

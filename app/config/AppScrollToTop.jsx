@@ -1,12 +1,8 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
 
-let timeOut
 const scrollTop = () => {
-  if (document.body.scrollTop !== 0 || document.documentElement.scrollTop !== 0) {
-    window.scrollBy(0, -50)
-    timeOut = setTimeout(scrollTop, 15)
-  } else clearTimeout(timeOut)
+  window.scrollTo(0, 0)
 }
 
 class AppScrollToTop extends Component {
