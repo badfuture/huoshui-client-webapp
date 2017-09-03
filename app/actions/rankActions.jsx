@@ -2,18 +2,18 @@ import axios from 'axios'
 import {
   FETCH_RANK_LIST_ATTEMPT, FETCH_RANK_LIST_SUCCESS, FETCH_RANK_LIST_ERROR, SWITCH_VIEW,
 } from '../constants/RankActionTypes'
-import { URL_COURSE } from '../constants/ApiEndpoints'
+import { URL_COURSE, URL_PROF } from '../constants/ApiEndpoints'
 
 
 /**
  * get API URL
  */
-const getAPIParams = ({ limit = 50, skip = 0 }) => {
+const getAPIParams = ({ limit = 50, skip = 0, sort, populate }) => {
   const res = {
     params: {
-      populate: '[Prof,School,Depts,Stat]',
       paginate: true,
-      sort: 'scoreOverall DESC',
+      populate,
+      sort,
       limit,
       skip,
     },
@@ -44,15 +44,20 @@ export const switchView = (view, meta) => ({
   meta,
 })
 
-export const initializeRankList = () =>
+export const initializeRankList = meta =>
 (dispatch, getState) => {
   const { currentView } = getState().reviews
+  const { type, sort } = meta
+  const URL = (type === 'course') ? URL_COURSE : URL_PROF
+  const populate = (type === 'course') ? '[Prof,School,Depts,Stat]' : '[Position,School,Depts, Stat]'
 
   dispatch(fetchRankListAttempt())
   return (
     axios
-      .get(URL_COURSE, getAPIParams({
+      .get(URL, getAPIParams({
         currentView,
+        sort,
+        populate,
       }))
       .then((resp) => {
         dispatch(fetchRankListSuccess(resp))

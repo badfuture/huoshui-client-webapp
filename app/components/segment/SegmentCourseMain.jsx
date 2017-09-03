@@ -11,7 +11,7 @@ field：(0,1], (1,2],(2,3] ,(3,4] ,(4,5]
  */
 
 const BirdText = (props) => {
-  const val = props.birdy
+  const val = props.meanBirdy
   const count = props.countBird
   let text = '未知'
   if (count === 0) {
@@ -31,7 +31,7 @@ const BirdText = (props) => {
 }
 
 const HomeworkText = (props) => {
-  const val = props.lotsHomework
+  const val = props.meanHomework
   const count = props.countHomework
   let text = '未知'
   if (count === 0) {
@@ -51,8 +51,8 @@ const HomeworkText = (props) => {
 }
 
 const AttendText = (props) => {
-  const val = props.lotsHomework
-  const count = props.countHomework
+  const val = props.meanAttend
+  const count = props.countAttend
   let text = '未知'
   if (count === 0) {
     text = '未知'
@@ -71,8 +71,8 @@ const AttendText = (props) => {
 }
 
 const ExamText = (props) => {
-  const val = props.lotsHomework
-  const count = props.countHomework
+  const val = props.meanExam
+  const count = props.countExam
   let text = '未知'
   if (count === 0) {
     text = '未知'

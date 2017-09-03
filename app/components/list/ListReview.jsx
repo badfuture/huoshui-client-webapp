@@ -19,6 +19,12 @@ const ListReview = props => (
               <Label content={`专业：${review.professional}`} style={{ backgroundColor: 'rgba(232, 232, 232, 0)' }} />
               <Label content={`表达：${review.expressive}`} style={{ backgroundColor: 'rgba(232, 232, 232, 0)' }} />
               <Label content={`友好：${review.kind}`} style={{ backgroundColor: 'rgba(232, 232, 232, 0)' }} />
+              {review.Tags && review.Tags.map(tag => (
+                <Label
+                  as="span" basic
+                  style={{ backgroundColor: 'rgba(77, 157, 217, 0.78)', color: 'white' }}
+                >{tag.name}</Label>
+              ))}
             </div>
 
           </Item.Extra>

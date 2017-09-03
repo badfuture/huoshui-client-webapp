@@ -12,7 +12,7 @@ class RankDetailsContainer extends Component {
     const view = this.props.match.params.id
     const meta = rankMeta.filter(item => item.id === this.props.match.params.id)[0]
     this.props.switchView(view, meta)
-    this.props.initializeRankList()
+    this.props.initializeRankList(meta)
   }
   render() {
     return (
@@ -62,7 +62,7 @@ class RankDetailsContainer extends Component {
                 <p>
                   {`${this.props.meta.header
                    }的排名来自于每一个活水用户的评价。`
-                  + `活水根据每门课上过的人数以及该影片所得的评价等综合数据，`
+                  + `活水根据每门课上过的人数以及该课程或老师所得的评价等综合数据，`
                   + `通过算法分析自动生成即时排名。`}
                 </p>
               </Grid.Column>
@@ -91,6 +91,6 @@ const mapStateToProps = state => ({
 // maps actions to props
 const mapActionToProps = dispatch => ({
   switchView: (view, meta) => dispatch(rankActions.switchView(view, meta)),
-  initializeRankList: () => dispatch(rankActions.initializeRankList()),
+  initializeRankList: meta => dispatch(rankActions.initializeRankList(meta)),
 })
 export default connect(mapStateToProps, mapActionToProps)(RankDetailsContainer)
