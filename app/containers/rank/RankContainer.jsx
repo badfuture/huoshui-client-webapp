@@ -5,7 +5,6 @@ import GridRank from '../../components/grid/GridRank'
 
 class RankContainer extends Component {
   componentDidMount() {
-    console.log(this.props)
   }
   render() {
     return (

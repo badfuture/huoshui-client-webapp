@@ -15,7 +15,7 @@ const HomeMainContent = () => (
     <SegmentHotCourse />
     <Divider hidden />
 
-    <Header as="h3" dividing>精选课单</Header>
+    <Header as="h3" dividing>精选课列</Header>
     <Container>
       <CardExample />
     </Container>

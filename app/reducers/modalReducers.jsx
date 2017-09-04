@@ -52,7 +52,6 @@ export default (state = {
       })
     case CLOSE_EDIT_AVATAR_MODAL:
       {
-        console.log('CLOSE_EDIT_AVATAR_MODAL')
         return Object.assign({}, state, {
           editAvatarModalVisible: false,
         })

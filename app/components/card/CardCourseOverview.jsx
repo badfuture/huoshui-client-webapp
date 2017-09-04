@@ -5,14 +5,12 @@ import styles from './styles/CardCourseOverview.scss'
 
 const CardCourseOverview = (props) => {
   let tags = props.Tags
-  console.log('tags', tags)
   if (tags && tags.length) {
     tags = tags.sort((a, b) => {
       if (a.stat.count < b.stat.count) { return false }
       if (a.stat.count > b.stat.count) { return true }
       return false
     })
-    console.log(tags)
   }
   return (
     <Card

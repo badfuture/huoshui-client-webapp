@@ -35,7 +35,6 @@ export const handleOptionSelect = (e, option) => ({
 
 export const handleSearchChange = (e, value) =>
   (dispatch) => {
-    console.log('handleSearchChange', value)
     dispatch(setDisplayValue(value))
     if (value.length < 1) return dispatch(resetComponent())
     dispatch(fetchAttempt())

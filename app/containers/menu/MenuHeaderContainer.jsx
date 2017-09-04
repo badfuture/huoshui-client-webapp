@@ -16,7 +16,6 @@ const propTypes = {
 class MenuHeaderContainer extends Component {
   componentDidMount() {
     this.props.getLatestUserInfo()
-    console.log(this.props)
   }
   render() {
     return (
