@@ -1,35 +1,42 @@
 import React from 'react'
-import { Card, Header, Image, Label } from 'semantic-ui-react'
+import { Card, Header, Image } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
-import moment from 'moment'
-import Rating from '../rating/RatingBasic'
 import styles from './styles/CardCourseOverview.scss'
 
-const calcScore = ({ expressive, kind, professional }) => {
-  const avg = (expressive + kind + professional) / 3
-  const score = +avg.toFixed(2)
+const CardCourseOverview = (props) => {
+  let tags = props.Tags
+  console.log('tags', tags)
+  if (tags && tags.length) {
+    tags = tags.sort((a, b) => {
+      if (a.stat.count < b.stat.count) { return false }
+      if (a.stat.count > b.stat.count) { return true }
+      return false
+    })
+    console.log(tags)
+  }
   return (
-    score
+    <Card
+      as={Link}
+      to={`/courses/${props.id}`}
+      link
+    >
+      <Card.Content>
+        <Image floated="left" size="mini" src={props.Depts[0].icon} />
+        <Card.Header>
+          <Header as="h3">
+            <div className={styles.header}>
+              <span><Link to={`/profs/${props.Prof.id}`}>{props.Prof.name}</Link></span>
+            </div>
+          </Header>
+        </Card.Header>
+        <div className={styles.subheader}>
+          <span>{props.name}</span><br />
+          <span>
+            {tags[0] && `${tags[0].name}`} {tags[1] && `   \\   ${tags[1].name}`}
+          </span>
+        </div>
+      </Card.Content>
+    </Card>
   )
 }
-
-const CardCourseOverview = props => (
-  <Card link>
-    <Card.Content>
-      <Image floated="left" size="mini" src="../images/dept/icons/Dna.png" />
-      <Card.Header>
-        <Header as="h3">
-          <div className={styles.header}>
-            <span><Link to={`/profs/1`}>陈天星</Link></span>
-          </div>
-        </Header>
-      </Card.Header>
-      <Card.Meta className={styles.subheader}>
-        <span>机械工程制图</span><br />
-        <span>治学严谨／枯燥无味</span>
-      </Card.Meta>
-    </Card.Content>
-  </Card>
-  )
-
 export default CardCourseOverview

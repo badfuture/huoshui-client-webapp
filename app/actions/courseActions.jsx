@@ -57,7 +57,7 @@ export const fetchHotCourses = () =>
     return axios.get(URL_COURSE, {
       params: {
         populate: 'all',
-        sort: 'reviewCount DESC',
+        sort: 'scoreHot DESC',
         limit: 10,
         skip: 0,
       },

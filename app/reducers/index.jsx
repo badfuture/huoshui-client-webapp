@@ -8,7 +8,7 @@ import menuReducers from './menuReducers'
 import rankDetailListReducer from './rankDetailListReducer'
 import deptDetailListReducer from './deptDetailListReducer'
 import feedbackReducer from './feedbackReducers'
-import { courseReducer } from './courseReducer'
+import { courseReducer, hotCoursesReducer } from './courseReducer'
 import profReducer from './profReducer'
 import statReducer from './statReducer'
 import searchCourseReducer from './searchCourseReducer'
@@ -24,6 +24,7 @@ export default combineReducers({
   review: reviewReducer,
   addReview: addReviewReducer,
   course: courseReducer,
+  hotCourses: hotCoursesReducer,
   prof: profReducer,
   stat: statReducer,
   modals: modalReducers,

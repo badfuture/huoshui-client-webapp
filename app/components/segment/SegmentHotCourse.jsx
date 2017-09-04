@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import * as reviewActions from '../../actions/reviewActions'
-import GridReview from '../../components/grid/GridReview'
+import * as courseActions from '../../actions/courseActions'
+import GridCourse from '../../components/grid/GridCourse'
 import Spinner from '../../components/spinner/Spinner'
 
-class SegmentHotReview extends Component {
+class SegmentHotCourse extends Component {
   componentDidMount() {
-    this.props.fetchHotReviews()
+    this.props.fetchHotCourses()
   }
   render() {
     if (this.props.isFetching) {
@@ -15,8 +15,8 @@ class SegmentHotReview extends Component {
       </div>)
     }
     return (
-      <GridReview
-        items={this.props.reviews.data.slice(0, 3)}
+      <GridCourse
+        items={this.props.courses.data.slice(0, 6)}
         itemsPerRow={3}
         history={this.props.history}
       />
@@ -26,13 +26,13 @@ class SegmentHotReview extends Component {
 
 // maps state from store to props
 const mapStateToProps = state => ({
-  reviews: state.hotReviews,
-  isFetching: state.hotReviews.isFetching,
+  courses: state.hotCourses,
+  isFetching: state.hotCourses.isFetching,
 })
 
 // maps actions to props
 const mapActionToProps = dispatch => ({
-  fetchHotReviews: () => dispatch(reviewActions.fetchHotReviews()),
+  fetchHotCourses: () => dispatch(courseActions.fetchHotCourses()),
 })
 
-export default connect(mapStateToProps, mapActionToProps)(SegmentHotReview)
+export default connect(mapStateToProps, mapActionToProps)(SegmentHotCourse)

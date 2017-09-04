@@ -14,9 +14,12 @@
   text-overflow: ellipsis;
 }
 
-.subheader span{
+.subheader {
   font-size: 0.8em;
   color: #93999f;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .description {

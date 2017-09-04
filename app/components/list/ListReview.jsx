@@ -9,7 +9,7 @@ const ListReview = props => (
         <Item.Image size="mini" src={review.Author.avatar} />
         <Item.Content>
           <Item.Meta as="div" style={{ marginTop: '0em', marginBottom: '0.45em' }}>
-            {review.Author.username}&nbsp; {moment(props.createdAt).fromNow()}
+            {review.Author.username}&nbsp; {moment(review.createdAt).fromNow()}
           </Item.Meta>
           <Item.Description style={{ margin: '0px' }}>
             <span>{review.text}</span>
