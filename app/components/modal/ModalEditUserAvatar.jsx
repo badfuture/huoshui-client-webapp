@@ -25,7 +25,7 @@ export default class ModalEditUserAvatar extends Component {
   constructor() {
     super()
     this.state = {
-      avatarSrc: '/images/sample/sample3.jpg',
+      avatarSrc: '/images/avatar/male.png',
       croppedFile: null,
     }
   }
@@ -52,6 +52,12 @@ export default class ModalEditUserAvatar extends Component {
 
   render() {
     const { trigger, isVisible, onClose } = this.props
+    setTimeout(() => {
+      this.setState({
+        avatarSrc: this.props.user.avatar,
+      })
+    }, 10)
+
     return (
       <Modal
         trigger={trigger} closeIcon="close" closeOnDimmerClick={false} open={isVisible} onClose={onClose}
@@ -65,7 +71,7 @@ export default class ModalEditUserAvatar extends Component {
                   <Cropper
                     ref="cropper"
                     src={this.state.avatarSrc}
-                    style={{ height: 'auto', width: '100%' }}
+                    style={{ height: 400, width: '100%' }}
                     aspectRatio={5 / 5}
                     preview=".avatar-preview"
                     guides

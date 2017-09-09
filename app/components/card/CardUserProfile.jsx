@@ -22,6 +22,7 @@ class CardUserProfile extends Component {
     return (
       <Card style={{ marginRight: 'auto', marginLeft: 'auto' }}>
         <ModalEditUserAvatar
+          user={this.props.user}
           isAvatarUploading={this.props.isAvatarUploading}
           uploadAvatar={this.props.uploadAvatar}
           isVisible={this.props.editAvatarModalVisible}

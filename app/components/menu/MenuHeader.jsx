@@ -99,7 +99,7 @@ const MenuHeader = props => (
       <Link to="/depts">逛逛</Link>
     </Menu.Item>
     <Menu.Item name="swiss knife">
-      <a target="_blank" rel="noopener noreferrer" href="http://swjtu.huoshui.org/swjtu">瑞士刀</a>
+      <a target="_blank" rel="noopener noreferrer" href="http://swjtu.huoshui.org">瑞士刀</a>
     </Menu.Item>
     <Menu.Item name="search" id="header-search" style={{ width: '35%' }}>
       <SearchGlobalContainer />
