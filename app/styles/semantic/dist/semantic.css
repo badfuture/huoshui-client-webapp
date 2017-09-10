@@ -760,14 +760,14 @@ body .ui.inverted::-webkit-scrollbar-thumb:hover {
 *******************************/
 
 .container-main-grey {
-  padding-top: 8em;
+  padding-top: 7.5em;
   padding-bottom: 8em;
   background-color: #f3f5f7;
   min-height: 750px;
 }
 
 .container-main {
-  padding-top: 8em;
+  padding-top: 7.5em;
   padding-bottom: 8em;
   background-color: white;
 }
@@ -30425,6 +30425,13 @@ select.ui.dropdown {
 /*******************************
         User Overrides
 *******************************/
+
+.ui.dropdown > .text {
+  margin-right: 0.5em;
+  display: inline-block;
+  -webkit-transition: none;
+  transition: none;
+}
 /*!
  * # Semantic UI 2.2.13 - Video
  * http://github.com/semantic-org/semantic-ui/

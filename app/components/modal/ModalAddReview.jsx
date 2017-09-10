@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Grid, Button, Header, Icon, Modal, TextArea, Form, Rating, Dropdown, Divider, Checkbox } from 'semantic-ui-react'
+import { Grid, Button, Header, Icon, Modal, TextArea, Form, Rating, Dropdown, Divider } from 'semantic-ui-react'
 import SearchCourseContainer from '../../containers/search/SearchCourseContainer'
 
 const options = [
@@ -7,36 +7,53 @@ const options = [
   { key: '较水', text: '较水', value: '较水' },
   { key: '正常', text: '正常', value: '正常' },
 ]
+
+/*
+水课：未知-毫无水分-较少水分-普通水平-水分较大-水到不行
+点名：未知-不点-很少-适量-经常-必点
+作业：未知-没有-很少-适量-较多-巨多
+考试：未知-轻松-较易-中等-较难-艰难
+*/
 const optionsBird = [
-  { key: '不水', text: '不水', value: '不水' },
-  { key: '较水', text: '较水', value: '较水' },
-  { key: '正常', text: '正常', value: '正常' },
-  { key: '较高', text: '较高', value: '较高' },
-  { key: '超级水', text: '超级水', value: '超级水' },
+  { key: '未知', text: '未知', value: '0' },
+  { key: '毫无水分', text: '毫无水分', value: '1' },
+  { key: '较少水分', text: '较少水分', value: '2' },
+  { key: '普通水平', text: '普通水平', value: '3' },
+  { key: '水分较大', text: '水分较大', value: '4' },
+  { key: '水到不行', text: '水到不行', value: '5' },
 ]
 
 const optionsAttend = [
-  { key: '不点', text: '不点', value: '不点' },
-  { key: '偶尔', text: '偶尔', value: '偶尔' },
-  { key: '正常', text: '正常', value: '正常' },
-  { key: '频繁', text: '频繁', value: '频繁' },
-  { key: '点名狂', text: '点名狂', value: '点名狂' },
+  { key: '未知', text: '未知', value: '0' },
+  { key: '不点', text: '不点', value: '1' },
+  { key: '很少', text: '很少', value: '2' },
+  { key: '适量', text: '适量', value: '3' },
+  { key: '经常', text: '经常', value: '4' },
+  { key: '必点', text: '必点', value: '5' },
 ]
 
 const optionsHomework = [
-  { key: '没有', text: '没有', value: '没有' },
-  { key: '较少', text: '较少', value: '较少' },
-  { key: '正常', text: '正常', value: '正常' },
-  { key: '较多', text: '较多', value: '较多' },
-  { key: '堆成山', text: '堆成山', value: '堆成山' },
+  { key: '未知', text: '未知', value: '0' },
+  { key: '没有', text: '没有', value: '1' },
+  { key: '很少', text: '很少', value: '2' },
+  { key: '适量', text: '适量', value: '3' },
+  { key: '较多', text: '较多', value: '4' },
+  { key: '巨多', text: '巨多', value: '5' },
 ]
 
 const optionsExam = [
-  { key: '没有', text: '没有', value: '没有' },
-  { key: '容易', text: '容易', value: '容易' },
-  { key: '正常', text: '正常', value: '正常' },
-  { key: '较难', text: '较难', value: '较难' },
-  { key: '费劲', text: '费劲', value: '费劲' },
+  { key: '未知', text: '未知', value: '0' },
+  { key: '轻松', text: '轻松', value: '1' },
+  { key: '较易', text: '较易', value: '2' },
+  { key: '中等', text: '中等', value: '3' },
+  { key: '较难', text: '较难', value: '4' },
+  { key: '艰难', text: '艰难', value: '5' },
+]
+
+const optionsExamExtra = [
+  { key: '未知', text: '未知', value: '0' },
+  { key: '是', text: '是', value: '1' },
+  { key: '否', text: '否', value: '2' },
 ]
 
 const OptionalFields = () => (
@@ -49,21 +66,21 @@ const OptionalFields = () => (
         <Grid.Column width={8} style={{ paddingRight: '3.5rem' }}>
           <Button.Group color="blue">
             <Button >水课鉴定</Button>
-            <Dropdown options={optionsBird} floating button className="icon" />
+            <Dropdown options={optionsBird} defaultValue={'0'} floating button className="icon" />
           </Button.Group><br /><br />
           <Button.Group color="blue">
             <Button >点名频率</Button>
-            <Dropdown options={optionsAttend} floating button className="icon" />
+            <Dropdown options={optionsAttend} defaultValue={'0'} floating button className="icon" />
           </Button.Group><br /><br />
         </Grid.Column>
         <Grid.Column width={8} style={{ paddingLeft: '1.0rem' }}>
           <Button.Group color="blue">
             <Button >作业多少</Button>
-            <Dropdown options={optionsHomework} floating button className="icon" />
+            <Dropdown options={optionsHomework} defaultValue={'0'} floating button className="icon" />
           </Button.Group><br /><br />
           <Button.Group color="blue">
             <Button >考试难度</Button>
-            <Dropdown options={optionsExam} floating button className="icon" />
+            <Dropdown options={optionsExam} defaultValue={'0'} floating button className="icon" />
           </Button.Group><br /><br />
         </Grid.Column>
       </Grid.Row>
@@ -73,12 +90,24 @@ const OptionalFields = () => (
     <Grid stackable>
       <Grid.Row>
         <Grid.Column width={8} style={{ paddingRight: '3.5rem' }}>
-          <Checkbox toggle label="划重点" /><br /><br />
-          <Checkbox toggle label="开卷" /><br /><br />
+          <Button.Group color="blue">
+            <Button >开卷</Button>
+            <Dropdown options={optionsExamExtra} defaultValue={'0'} floating button className="icon" />
+          </Button.Group><br /><br />
+          <Button.Group color="blue">
+            <Button >划重点</Button>
+            <Dropdown options={optionsExamExtra} defaultValue={'0'} floating button className="icon" />
+          </Button.Group><br /><br />
         </Grid.Column>
         <Grid.Column width={8} style={{ paddingLeft: '1.0rem' }}>
-          <Checkbox toggle label="原题" /><br /><br />
-          <Checkbox toggle label="给分松" /><br /><br />
+          <Button.Group color="blue">
+            <Button >原题多</Button>
+            <Dropdown options={optionsExamExtra} defaultValue={'0'} floating button className="icon" />
+          </Button.Group><br /><br />
+          <Button.Group color="blue">
+            <Button >给分松</Button>
+            <Dropdown options={optionsExamExtra} defaultValue={'0'} floating button className="icon" />
+          </Button.Group><br /><br />
         </Grid.Column>
       </Grid.Row>
     </Grid>
