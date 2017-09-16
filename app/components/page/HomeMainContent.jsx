@@ -12,7 +12,7 @@ const HomeMainContent = () => (
         最新评论
         <Link
           to="/reviews"
-          style={{ float: 'right', fontSize: '0.1em', color: 'rgba(33, 133, 208, 0.8)' }}
+          style={{ float: 'right', fontSize: '0.8em', color: 'rgba(33, 133, 208, 0.8)' }}
         >
           更多»
         </Link>
@@ -24,7 +24,7 @@ const HomeMainContent = () => (
       最受关注的课程
       <Link
         to="/rankings/hot"
-        style={{ float: 'right', fontSize: '0.1em', color: 'rgba(33, 133, 208, 0.8)' }}
+        style={{ float: 'right', fontSize: '0.8em', color: 'rgba(33, 133, 208, 0.8)' }}
       >
         更多»
       </Link>
@@ -36,7 +36,7 @@ const HomeMainContent = () => (
       精选课列
       <Link
         to="/rankings/hot"
-        style={{ float: 'right', fontSize: '0.1em', color: 'rgba(33, 133, 208, 0.8)' }}
+        style={{ float: 'right', fontSize: '0.8em', color: 'rgba(33, 133, 208, 0.8)' }}
       >
         更多»
       </Link>
@@ -51,7 +51,7 @@ const HomeMainContent = () => (
         最热评论
         <Link
           to="/reviews"
-          style={{ float: 'right', fontSize: '0.1em', color: 'rgba(33, 133, 208, 0.8)' }}
+          style={{ float: 'right', fontSize: '0.8em', color: 'rgba(33, 133, 208, 0.8)' }}
         >
           更多»
         </Link>
