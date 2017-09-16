@@ -8,14 +8,8 @@ const propTypes = {
   auth: PropTypes.object.isRequired,
 }
 
-const contentDownload = (
-  <div>
-    <Image src="../../images/barcode.jpg" size="small" />
-  </div>
-)
-
 const loginItem = props => (
-  <Menu.Item name="login" onClick={props.openLoginModal}>
+  <Menu.Item name="login" onClick={props.openLoginModal} style={{ marginRight: '1em' }}>
     <span>登录</span>
   </Menu.Item>
 )
@@ -24,13 +18,13 @@ loginItem.propTypes = {
 }
 
 const signupItem = props => (
-  <Menu.Item name="signup" onClick={props.openSignupModal}>
+  <Menu.Item name="signup" onClick={props.openSignupModal} style={{ marginRight: '1em' }}>
     <span>注册</span>
   </Menu.Item>
 )
 
 const accountItem = props => (
-  <Menu.Item name="account">
+  <Menu.Item name="account" style={{ marginRight: '1em' }}>
     { (props.auth.user && props.auth.user.avatar) &&
       <Image src={props.auth.user.avatar} shape="circular" size="mini" style={{ marginRight: '0.5em' }} />
     }
@@ -108,14 +102,6 @@ const MenuHeader = props => (
     </Menu.Item>
 
     <Menu.Menu position="right">
-      <Menu.Item name="download clients">
-        <Popup
-          trigger={<p>下载客户端</p>}
-          on="hover"
-          content={contentDownload}
-          position="bottom center"
-        />
-      </Menu.Item>
       { !props.auth.isAuthenticated && loginItem(props) }
       { !props.auth.isAuthenticated && signupItem(props) }
       { props.auth.isAuthenticated && accountItem(props) }

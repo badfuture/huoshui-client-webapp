@@ -1,3 +1,4 @@
+
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { Card, Header, Image } from 'semantic-ui-react'
@@ -14,7 +15,7 @@ const calcScore = ({ expressive, kind, professional }) => {
 const CardReviewDetail = props => (
   <Card fluid raised style={{ boxShadow: 'none', padding: '1em' }}>
     <Card.Content>
-      <Image floated="left" size="mini" src="/images/sample/sample2.png" />
+      <Image floated="left" size="mini" src={props.author.avatar} />
       <Card.Header>
         <Header as="h4">
           <Link to={`/profs/${props.prof.id}`}>{props.prof.name}</Link> 的 <Link to={`/courses/${props.course.id}`}>{props.course.name}</Link>

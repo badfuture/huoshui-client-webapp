@@ -1,5 +1,5 @@
 // Huoshui API endpoints
-const env = 'prod'
+const env = 'dev'
 let domain = ''
 if (env === 'prod') {
   domain = 'https://api.huoshui.org'
