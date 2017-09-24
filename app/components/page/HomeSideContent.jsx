@@ -14,10 +14,13 @@ const HomeSideContent = () => (
 
     <Header as="h3" dividing>客户端</Header>
     <Item.Group relaxed>
-      <Item style={{ backgroundColor: 'whitesmoke' }}>
-        <Item.Image size="tiny" src="/images/logo/whale.png" style={{ padding: '0.5em 0em 0.5em 1.0em' }} />
+      <Item style={{ backgroundColor: 'whitesmoke', padding: '0.25em' }}>
+        <Item.Image
+          size="tiny" src="/images/logo/logo_mobile.png"
+          style={{ padding: '0em 0em 0em 1.0em', width: '70px' }}
+        />
         <Item.Content verticalAlign="middle">
-          <Item.Header>
+          <Item.Header style={{ fontSize: '1.1em' }}>
             活水移动客户端
           </Item.Header>
           <Item.Meta>

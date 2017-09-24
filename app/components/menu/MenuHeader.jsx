@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react'
-import { Menu, Button, Icon, Popup, Image, Dropdown } from 'semantic-ui-react'
+import { Menu, Button, Icon, Image, Dropdown } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 import SearchGlobalContainer from '../../containers/search/SearchGlobalContainer'
 
@@ -93,6 +93,9 @@ const MenuHeader = props => (
     */}
     <Menu.Item name="depts">
       <Link to="/depts">逛逛</Link>
+    </Menu.Item>
+    <Menu.Item name="kelist">
+      <Link to="/kelists">课列</Link>
     </Menu.Item>
     <Menu.Item name="swiss knife">
       <a target="_blank" rel="noopener noreferrer" href="http://swjtu.huoshui.org">瑞士刀</a>

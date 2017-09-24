@@ -33,7 +33,7 @@ const tagDeptItems = deptData
     as={Link}
     to={`/depts/${dept.header}`}
     key={dept.name}
-    style={{ marginLeft: '0px', marginRight: '13px', color: 'black' }}
+    style={{ marginLeft: '0px', marginRight: '13px', marginBottom: '5px', color: 'black' }}
   >
     <List.Content style={{ backgroundColor: '#f5f5f5', padding: '3px 11px' }}>
       {dept.header}
