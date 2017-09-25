@@ -1,5 +1,5 @@
 import React from 'react'
-import { Grid, Container, Segment, Item, Label, Divider } from 'semantic-ui-react'
+import { Grid, Container, Segment, Item, Divider } from 'semantic-ui-react'
 import Spinner from '../../components/spinner/Spinner'
 import CardProfOverview from '../../components/card/CardProfOverview'
 import MenuProfDetail from '../../components/menu/MenuProfDetail'
@@ -42,6 +42,7 @@ const DetailGrid = props => (
           <Container style={{ textAlign: 'center' }}>
             <CardProfOverview
               {...props.prof}
+              followProf={props.followProf}
             />
           </Container>
         </Grid.Column>

@@ -21,6 +21,7 @@ const ListReview = props => (
               <Label content={`友好：${review.kind}`} style={{ backgroundColor: 'rgba(232, 232, 232, 0)' }} />
               {review.Tags && review.Tags.map(tag => (
                 <Label
+                  key={tag.id}
                   as="span" basic
                   style={{ backgroundColor: 'rgba(77, 157, 217, 0.78)', color: 'white' }}
                 >{tag.name}</Label>

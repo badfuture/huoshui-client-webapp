@@ -15,9 +15,9 @@ import {
  } from './modalActions'
 import getAllParams from '../utils/parseURL'
 
-/** *****************************************************
-* get user info
-*******************************************************/
+/**
+ * Get latest user info
+ */
 export const getUserRequest = () => ({
   type: GET_USER_REQUEST,
 })
@@ -40,7 +40,7 @@ export const getLatestUserInfo = () =>
       return false
     }
     dispatch(getUserRequest())
-    return axios.get(`${URL_USER}/${user.id}`)
+    return axios.get(`${URL_USER}/${user.id}?populate=all`)
    .then((resp) => {
      const data = resp.data
      localStore.set('user', data)
@@ -51,9 +51,9 @@ export const getLatestUserInfo = () =>
    })
   }
 
-/** *****************************************************
-* signup
-*******************************************************/
+/**
+ * Signup
+ */
 export const requestSignup = creds => ({
   type: SIGNUP_REQUEST,
   creds,
@@ -92,9 +92,8 @@ export const signupUser = creds =>
   }
 
 /**
- * *****************************************************
-* login
-*******************************************************/
+ * Login
+ */
 export const requestLogin = creds => ({
   type: LOGIN_REQUEST,
   creds,
@@ -213,9 +212,9 @@ export const logoutUser = () =>
     dispatch(receiveLogout())
   }
 
-/** ****************************************************
-* upload avatar
-*******************************************************/
+/**
+ * Upload Avatar
+ */
 
 export const uploadAvatarRequest = () => ({
   type: UPLOAD_AVATAR_REQUEST,

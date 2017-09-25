@@ -36,6 +36,7 @@ const mapStateToProps = state => ({
 // map redux actions to prop
 const mapActionToProps = dispatch => ({
   fetchProfById: ProfId => dispatch(ProfActions.fetchProfById(ProfId)),
+  followProf: profId => dispatch(ProfActions.followProf(profId)),
 })
 
 export default connect(mapStateToProps, mapActionToProps)(ProfDetailContainer)

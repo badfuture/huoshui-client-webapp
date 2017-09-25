@@ -1,47 +1,78 @@
-import React from 'react'
-import { Card, Icon, Image } from 'semantic-ui-react'
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { Card, Icon, Image, Button } from 'semantic-ui-react'
+import * as ProfActions from '../../actions/profActions'
 
-const CardProf = (props) => {
-  const imgSrc = '/images/avatar/whale.png'
-  /*
-  let imgSrc = ''
-  if (props.gender === '男') {
-    imgSrc = '/images/avatar/male.png'
-  } else if (props.gender === '女') {
-    imgSrc = '/images/avatar/female.jpg'
-  } else {
-    imgSrc = '/images/avatar/whale.png'
+const followButton = props => (
+  <Button
+    onClick={() => {
+      props.followProf(props.id)
+    }}
+    basic content="加关注" size="tiny"
+    color="blue"
+  />
+)
+
+const unfollowButton = props => (
+  <Button
+    onClick={() => {
+      props.unfollowProf(props.id)
+    }}
+    content="已关注" size="tiny"
+    color="blue"
+  />
+)
+
+class CardProfOverview extends Component {
+  handleFollowProf() {
+    this.props.followProf(this.props.id)
   }
-  */
-  return (
-    <Card centered>
-      <Image src={imgSrc} style={{ width: '100%' }} />
 
-      <Card.Content>
-        <Card.Header>
-          {props.name}&nbsp;
-          {props.gender === '男' && <Icon name="man" color="blue" />}
-          {props.gender === '女' && <Icon name="woman" color="pink" />}
-        </Card.Header>
-        <Card.Meta>
-          <span>
-            {
-              (props.Depts && props.Depts[0]) ? <span> {props.Depts[0].shortname},&nbsp; </span> : ''
-            }{(props.School) && props.School.name}
-          </span>
-        </Card.Meta>
-        <Card.Description>
-          {props.motto}
-        </Card.Description>
-      </Card.Content>
-      <Card.Content extra>
-        <a>
-          <Icon name="user" />
-          0 人关注
-        </a>
-      </Card.Content>
-    </Card>
-  )
+  render() {
+    const imgSrc = '/images/avatar/whale.png'
+    const props = this.props
+    return (
+      <Card centered>
+        <Image src={imgSrc} style={{ width: '100%' }} />
+
+        <Card.Content>
+          <Card.Header>
+            {props.name}&nbsp;
+            {props.gender === '男' && <Icon name="man" color="blue" />}
+            {props.gender === '女' && <Icon name="woman" color="pink" />}
+          </Card.Header>
+          <Card.Meta>
+            <div>
+              {
+                (props.Depts && props.Depts[0]) ? <span> {props.Depts[0].shortname},&nbsp; </span> : ''
+              }{(props.School) && props.School.name}
+            </div>
+            <div style={{ marginTop: '0.3em' }} >
+              <Icon name="user" /> {props.followerCount} 人关注
+            </div>
+          </Card.Meta>
+          <Card.Description>
+            {props.motto}
+          </Card.Description>
+        </Card.Content>
+        <Card.Content extra>
+          {!props.isProfFollowed && followButton(props)}
+          {props.isProfFollowed && unfollowButton(props)}
+        </Card.Content>
+      </Card>
+    )
+  }
 }
+// map redux states to prop
+const mapStateToProps = state => ({
+  isProfFollowed: state.prof.isProfFollowed,
+  followerCount: state.prof.followerCount,
+})
 
-export default CardProf
+// map redux actions to prop
+const mapActionToProps = dispatch => ({
+  followProf: profId => dispatch(ProfActions.followProf(profId)),
+  unfollowProf: profId => dispatch(ProfActions.unfollowProf(profId)),
+})
+
+export default connect(mapStateToProps, mapActionToProps)(CardProfOverview)
