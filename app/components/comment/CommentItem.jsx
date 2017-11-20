@@ -12,6 +12,7 @@ class CommentItem extends Component {
     this.state = {
       isReplyFormVisible: false,
     }
+    this.handleReplyFormCancel = this.handleReplyFormCancel.bind(this)
   }
 
   componentDidMount() {
@@ -46,7 +47,7 @@ class CommentItem extends Component {
           </Comment.Actions>
           { isReplyFormVisible &&
             <FormComment
-              onCancel={this.handleReplyFormCancel.bind(this)}
+              onCancel={this.handleReplyFormCancel}
               commentable={this.props.commentable}
               commentableId={this.props.commentableId}
               parentCommentId={this.props.id}

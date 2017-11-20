@@ -28,6 +28,8 @@ export default class ModalEditUserAvatar extends Component {
       avatarSrc: '/images/avatar/male.png',
       croppedFile: null,
     }
+    this.onDrop = this.onDrop.bind(this)
+    this.onSubmit = this.onSubmit.bind(this)
   }
 
   onDrop(files) {
@@ -42,7 +44,7 @@ export default class ModalEditUserAvatar extends Component {
   }
 
   onSubmit() {
-    const canvas = this.refs.cropper.getCroppedCanvas()
+    const canvas = this.cropper.getCroppedCanvas()
     const dataURL = canvas.toDataURL('image/jpeg', 1.0)
     const file = dataURItoBlob(dataURL)
     const formData = new FormData()
@@ -69,7 +71,7 @@ export default class ModalEditUserAvatar extends Component {
               <Grid.Row>
                 <Grid.Column width={11}>
                   <Cropper
-                    ref="cropper"
+                    ref={(c) => { this.cropper = c }}
                     src={this.state.avatarSrc}
                     style={{ height: 400, width: '100%' }}
                     aspectRatio={5 / 5}
@@ -91,7 +93,7 @@ export default class ModalEditUserAvatar extends Component {
                       borderStyle: 'dashed',
                       borderRadius: '5px',
                     }}
-                    onDrop={this.onDrop.bind(this)}
+                    onDrop={this.onDrop}
                   >
                     <Grid verticalAlign="middle" style={{ height: '100%', marginTop: '0em' }}>
                       <Grid.Row>
@@ -111,7 +113,7 @@ export default class ModalEditUserAvatar extends Component {
         <Modal.Actions>
           <Button
             color="blue"
-            onClick={this.onSubmit.bind(this)}
+            onClick={this.onSubmit}
           >
             <Icon name="checkmark" /> 保存
           </Button>

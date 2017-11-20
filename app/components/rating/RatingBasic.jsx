@@ -1,4 +1,4 @@
-/* eslint no-unused-vars: "error"*/
+/* eslint no-unused-vars: "error" */
 import React, { PropTypes } from 'react'
 import { Icon } from 'semantic-ui-react'
 import Rating from 'react-star-rating-component'

@@ -65,7 +65,7 @@ const MenuHeader = props => (
       as={Link} to="/home"
       // style={{ padding: '0.25em' }}
     >
-      <img src="/images/logo/logo.png" style={{ width: '3.25em' }} />
+      <img src="/images/logo/logo.png" alt="huoshui logo" style={{ width: '3.25em' }} />
       <span
         style={{
           fontSize: '1.65em',

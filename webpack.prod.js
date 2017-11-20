@@ -25,7 +25,7 @@ module.exports = function (env) {
       path: distDir,
       filename: '[name].huoshui.js',
       sourceMapFilename: '[name].huoshui.map',
-      publicPath: '/',
+      publicPath: './',
     },
     resolve: {
       extensions: ['*', '.js', '.jsx'],
