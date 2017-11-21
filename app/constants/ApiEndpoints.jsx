@@ -1,9 +1,9 @@
 // Huoshui API endpoints
-const env = 'dev'
+const env = process.env.NODE_ENV
 let domain = ''
-if (env === 'prod') {
+if (env === 'prod' || env === 'production') {
   domain = 'https://api.huoshui.org'
-} else if (env === 'dev') {
+} else if (env === 'dev' || env === 'development') {
   domain = 'http://localhost:1337'
 }
 

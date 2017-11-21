@@ -26,8 +26,15 @@ export default (state = {
       })
     case FETCH_SUCCESS: {
       const profId = action.resp.data.id
-      const likedProfs = localStore.get('user').LikedProfs.map(prof => (prof.id))
 
+      // determine if the prof is followed by the currently logged in user
+      let isProfFollowed = false
+      if (localStore.get('user') && localStore.get('user').LikedProfs) {
+        const likedProfs = localStore.get('user').LikedProfs.map(prof => (prof.id))
+        isProfFollowed = likedProfs.indexOf(profId) > -1
+      }
+
+      // determine how many users follow the prof
       let followerCount = 0
       if (action.resp.data && action.resp.data.LikedUsers) {
         followerCount = action.resp.data.LikedUsers.length
@@ -36,7 +43,7 @@ export default (state = {
       return Object.assign({}, state, {
         isFetching: false,
         data: action.resp.data,
-        isProfFollowed: likedProfs.indexOf(profId) > -1,
+        isProfFollowed,
         followerCount,
       })
     }

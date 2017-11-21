@@ -13,6 +13,8 @@ class ModalSignupContainer extends Component {
         visible={this.props.modals.signupModalVisible}
         onClose={this.props.closeSignupModal}
         onSignup={this.props.signupUser}
+        onLoginQQ={this.props.loginUserQQ}
+        onLoginWeibo={this.props.loginUserWeibo}
         authStatus={this.props.authStatus}
       />
     )
@@ -29,6 +31,8 @@ const mapStateToProps = state => ({
 const mapActionToProps = dispatch => ({
   closeSignupModal: () => dispatch(modalActions.closeSignupModal()),
   signupUser: creds => dispatch(authActions.signupUser(creds)),
+  loginUserQQ: popup => dispatch(authActions.loginUserQQ(popup)),
+  loginUserWeibo: popup => dispatch(authActions.loginUserWeibo(popup)),
 })
 
 

@@ -29,7 +29,7 @@ const ChartPieGap = (props) => {
         }}
       >
         {
-          (props.countReview !== 0)
+          (props.countReview)
           ? `${((props.countGoodReview / props.countReview) * 100).toFixed(0)}%`
           : '暂无评价'
         }
