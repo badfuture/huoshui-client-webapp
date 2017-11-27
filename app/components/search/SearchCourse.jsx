@@ -4,12 +4,20 @@ import styles from './styles/SearchCourse.scss'
 
 export default class SearchCourse extends Component {
   state: {
-    isComposing: false
+    isComposing: false,
+    value: ''
   }
 
   componentWillMount() {
-    this.setState({ value: '' })
+    this.reset()
+  }
+
+  reset() {
     this.props.resetComponent()
+    this.setState({
+      isComposing: false,
+      value: '',
+    })
   }
 
   handleSearchChange = (e, data) => {

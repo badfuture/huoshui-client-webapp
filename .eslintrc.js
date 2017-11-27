@@ -15,6 +15,7 @@ module.exports = {
     semi: ['error', 'never'],
     quotes: ['error', 'single', { 'avoidEscape': true, 'allowTemplateLiterals': true }],
     "react/prop-types": 0,
+    "react/no-multi-comp": 0,
     "react/prefer-stateless-function": 0,
     "react/jsx-no-bind": 0,
     "no-console": 0,
