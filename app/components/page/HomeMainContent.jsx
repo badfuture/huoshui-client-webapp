@@ -32,20 +32,23 @@ const HomeMainContent = () => (
     <SegmentHotCourse />
     <Divider hidden />
 
-    <Header as="h3" dividing>
-      精选课列
-      <Link
-        to="/rankings/hot"
-        style={{ float: 'right', fontSize: '0.8em', color: 'rgba(33, 133, 208, 0.8)' }}
-      >
-        更多»
-      </Link>
-    </Header>
-
-    <Container>
-      <CardExample />
-    </Container>
-    <Divider hidden />
+    {
+      /*
+      <Header as="h3" dividing>
+        精选课列
+        <Link
+          to="/rankings/hot"
+          style={{ float: 'right', fontSize: '0.8em', color: 'rgba(33, 133, 208, 0.8)' }}
+        >
+          更多»
+        </Link>
+      </Header>
+      <Container>
+        <CardExample />
+      </Container>
+      <Divider hidden />
+      */
+    }
 
     <Header as="h3" dividing>
         最热评论

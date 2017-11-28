@@ -777,6 +777,12 @@ body .ui.inverted::-webkit-scrollbar-thumb:hover {
   box-shadow: 'none';
 }
 
+a.item.menu-item-plain:hover {
+  cursor: pointer;
+  background: rgba(0, 0, 0, 0) !important;
+  color: rgba(0, 0, 0, 0) !important;
+}
+
 /*******************************
          Pace.js
 *******************************/

@@ -14,9 +14,26 @@ const propTypes = {
 }
 
 class MenuHeaderContainer extends Component {
+
+  constructor() {
+    super()
+    this.state = {
+      isLogoVisible: true,
+      effect: 'tada',
+    }
+  }
+
   componentDidMount() {
     this.props.getLatestUserInfo()
   }
+
+  shakeLogo() {
+    const effectArr = ['tada', 'flash', 'shake', 'pulse', 'tada']
+    const randomEffect = effectArr[Math.floor(Math.random() * effectArr.length)]
+    this.setState({ effect: randomEffect })
+    this.setState({ isLogoVisible: !this.state.isLogoVisible })
+  }
+
   render() {
     return (
       <MenuHeader
@@ -28,6 +45,8 @@ class MenuHeaderContainer extends Component {
           this.props.logoutUser()
         }}
         auth={this.props.auth}
+        onLogoClick={this.shakeLogo.bind(this)}
+        {...this.state}
       />
     )
   }

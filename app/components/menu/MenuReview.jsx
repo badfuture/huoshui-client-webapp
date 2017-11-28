@@ -25,7 +25,7 @@ class MenuReview extends Component {
 
   render() {
     return (
-      <Menu borderless>
+      <Menu borderless >
         <Menu.Item
           name={NEW_REVIEW}
           active={this.props.currentView === NEW_REVIEW}

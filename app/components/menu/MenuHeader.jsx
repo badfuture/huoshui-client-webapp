@@ -1,7 +1,8 @@
 import React, { PropTypes } from 'react'
-import { Menu, Button, Icon, Image, Dropdown } from 'semantic-ui-react'
+import { Menu, Button, Icon, Image, Dropdown, Transition } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 import SearchGlobalContainer from '../../containers/search/SearchGlobalContainer'
+import styles from './styles/MenuFloat.scss'
 
 const propTypes = {
   toggleMenuSidebar: PropTypes.func.isRequired,
@@ -51,7 +52,7 @@ accountItem.propTypes = {
 }
 
 const MenuHeader = props => (
-  <Menu size="large" attached="top" borderless fluid style={{ margin: '0px' }}>
+  <Menu size="large" attached="top" borderless fluid style={{ margin: '0px' }} >
     <Menu.Item name="sidebar">
       <Button
         onClick={props.toggleMenuSidebar}
@@ -60,37 +61,34 @@ const MenuHeader = props => (
         <Icon name="content" size="large" />
       </Button>
     </Menu.Item>
-    <Menu.Item
-      name="home"
-      as={Link} to="/home"
-      // style={{ padding: '0.25em' }}
-    >
-      <img src="/images/logo/logo.png" alt="huoshui logo" style={{ width: '3.25em' }} />
-      <span
-        style={{
-          fontSize: '1.65em',
-          fontWeight: 'bold',
-          color: '#2185d0',
-          marginLeft: '0.5em',
-        }}
+
+    <Transition animation={props.effect} duration={2000} visible={props.isLogoVisible} >
+      <Menu.Item
+        name="home"
+        as={Link} to="/home"
+        className="menu-item-plain"
       >
+        <Image src="/images/logo/logo.png" alt="huoshui logo" style={{ width: '3.25em' }} onClick={props.onLogoClick} />
+        <span
+          style={{
+            fontSize: '1.65em',
+            fontWeight: 'bold',
+            color: '#2185d0',
+            marginLeft: '0.5em',
+          }}
+          onClick={props.onLogoClick}
+        >
           活水
         </span>
-      {
-        // <img src="/images/test_logo2.png" style={{ width: '5.25em' }} />
-      }
-    </Menu.Item>
+      </Menu.Item>
+    </Transition>
+
     <Menu.Item name="reviews">
       <Link to="/reviews">评课</Link>
     </Menu.Item>
     <Menu.Item name="Rank">
       <Link to="/rankings">榜单</Link>
     </Menu.Item>
-    {/*
-    <Menu.Item name="kelist">
-      <Link to="/kelists">课列</Link>
-    </Menu.Item>
-    */}
     <Menu.Item name="depts">
       <Link to="/depts">逛逛</Link>
     </Menu.Item>
