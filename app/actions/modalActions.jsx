@@ -22,7 +22,6 @@ export const closeSignupModal = () => ({
   type: CLOSE_SIGNUP_MODAL,
 })
 
-
 export const openAddReviewModal = () => ({
   type: OPEN_ADD_REVIEW_MODAL,
 })

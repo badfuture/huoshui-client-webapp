@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import localStore from 'store'
 import MenuFloat from '../../components/menu/MenuFloat'
 import * as modalActions from '../../actions/modalActions'
 
@@ -19,7 +20,14 @@ const mapStateToProps = state => ({
 })
 
 const mapActionToProps = dispatch => ({
-  openAddReviewModal: () => dispatch(modalActions.openAddReviewModal()),
+
+  openAddReviewModal: () => {
+    if (localStore.get('user')) {
+      dispatch(modalActions.openAddReviewModal())
+    } else {
+      dispatch(modalActions.openPromptSignupModal())
+    }
+  },
 })
 
 export default connect(mapStateToProps, mapActionToProps)(MenuFloatContainer)

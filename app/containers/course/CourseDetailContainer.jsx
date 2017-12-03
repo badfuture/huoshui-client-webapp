@@ -1,7 +1,10 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Container } from 'semantic-ui-react'
+import localStore from 'store'
 import * as courseActions from '../../actions/courseActions'
+import * as modalActions from '../../actions/modalActions'
+import * as searchCourseActions from '../../actions/searchCourseActions'
 import CourseDetail from '../../components/page/CourseDetail'
 
 class CourseDetailContainer extends Component {
@@ -35,6 +38,14 @@ const mapStateToProps = state => ({
 // map redux actions to prop
 const mapActionToProps = dispatch => ({
   fetchCourseById: courseId => dispatch(courseActions.fetchCourseById(courseId)),
+  openAddReviewModal: (courseId) => {
+    if (localStore.get('user')) {
+      dispatch(searchCourseActions.setCourseId(courseId))
+      dispatch(modalActions.openAddReviewModal())
+    } else {
+      dispatch(modalActions.openPromptSignupModal())
+    }
+  },
 })
 
 export default connect(mapStateToProps, mapActionToProps)(CourseDetailContainer)

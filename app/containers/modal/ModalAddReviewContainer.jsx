@@ -20,12 +20,20 @@ class ModalAddReviewContainer extends Component {
 }
 
 // maps state from store to props
-const mapStateToProps = state => ({
-  modals: state.modals,
-  visible: state.modals.addReviewModalVisible,
-  courseId: (state.searchCourse.optionSelected && state.searchCourse.optionSelected.result) ?
-            state.searchCourse.optionSelected.result.courseId : null,
-})
+const mapStateToProps = (state) => {
+  let courseId = null
+  if (state.searchCourse.courseId) {
+    courseId = state.searchCourse.courseId
+  } else if (state.searchCourse.optionSelected && state.searchCourse.optionSelected.result) {
+    courseId = state.searchCourse.optionSelected.result.courseId
+  }
+
+  return {
+    modals: state.modals,
+    visible: state.modals.addReviewModalVisible,
+    courseId,
+  }
+}
 
 // maps actions to props
 const mapActionToProps = dispatch => ({

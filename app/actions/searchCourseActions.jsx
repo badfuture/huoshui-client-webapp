@@ -2,6 +2,7 @@ import axios from 'axios'
 import {
   RESET_COMPONENT, SELECT_OPTION, SET_DISPLAY_VALUE,
   FETCH_OPTIONS_ATTEMPT, FETCH_OPTIONS_SUCCESS, FETCH_OPTIONS_ERROR,
+  SET_COURSE_ID,
 } from '../constants/SearchCourseActionTypes'
 import { URL_SEARCH } from '../constants/ApiEndpoints'
 
@@ -27,6 +28,12 @@ export const setDisplayValue = value => ({
   type: SET_DISPLAY_VALUE,
   value,
 })
+
+export const setCourseId = value => ({
+  type: SET_COURSE_ID,
+  value,
+})
+
 
 export const handleOptionSelect = (e, option) => ({
   type: SELECT_OPTION,

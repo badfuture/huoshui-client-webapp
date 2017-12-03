@@ -12,7 +12,7 @@ class HomeContainer extends Component {
   render() {
     const { contextRef } = this.state
     return (
-      <div className="container-main" ref={this.handleContextRef}>>
+      <div className="container-main" ref={this.handleContextRef}>
         <Container>
           <Grid stackable>
             <Grid.Row>

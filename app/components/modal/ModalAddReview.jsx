@@ -342,10 +342,15 @@ class ModalAddReview extends Component {
       >
         <Header icon={<Icon color="blue" name="theme" />} content="你说了算" />
         <Modal.Content>
-          <Header as="h4">评价对象</Header>
-          <SearchCourseContainer
-            ref={(comp) => { this.SearchCourseContainer = comp }}
-          />
+          { !this.props.courseId &&
+            <div>
+              <Header as="h4">评价对象</Header>
+              <SearchCourseContainer
+                ref={(comp) => { this.SearchCourseContainer = comp }}
+              />
+            </div>
+
+          }
           <Header as="h4">总体评价</Header>
           专业：<Rating
             name="professional"
