@@ -84,7 +84,7 @@ class ModalSignup extends Component {
                 onSubmit={this.handleSubmit}
               >
                 <Form.Field>
-                  <Input icon="user outline" name="username" value={username} iconPosition="left" placeholder="用户名" onChange={this.handleChange} />
+                  <Input icon="user outline" name="username" value={username} iconPosition="left" placeholder="昵称" onChange={this.handleChange} />
                 </Form.Field>
                 <Form.Field>
                   <Input icon="mail outline" name="email" value={email} iconPosition="left" placeholder="邮箱" onChange={this.handleChange} />

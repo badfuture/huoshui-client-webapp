@@ -22,6 +22,7 @@ export const URL_FEEDBACK = `/feedback`
 export const URL_SEARCH = `/search`
 export const URL_STAT = `/stat`
 export const URL_TAG = `/tags`
+export const URL_DEPT = `/depts`
 
 // Qiniuyun Object Store Service
 export const OSS_DOMAIN = 'http://oss.huoshui.org'
