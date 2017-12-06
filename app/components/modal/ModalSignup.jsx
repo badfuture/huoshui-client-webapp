@@ -1,7 +1,7 @@
 import React, { PropTypes, Component } from 'react'
 import { Button, Icon, Divider, Modal, Form, Input, Container, Message } from 'semantic-ui-react'
 import { DOMAIN } from '../../constants/ApiEndpoints'
-import openPopup from '../../utils/openPopupWindow'
+import openPopup from '../../utils/openOauthPopup'
 
 const propTypes = {
   visible: PropTypes.bool.isRequired,

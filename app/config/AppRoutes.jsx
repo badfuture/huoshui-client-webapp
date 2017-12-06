@@ -29,6 +29,8 @@ import MyReplyContainer from '../containers/reply/MyReplyContainer'
 import MyProfileContainer from '../containers/profile/MyProfileContainer'
 import ScrollToTop from '../config/AppScrollToTop'
 import Pace from '../components/progress/pace'
+// import shareToQQ from '../utils/shareToQQ'
+
 
 // set global config for Http requests
 axios.defaults.baseURL = DOMAIN

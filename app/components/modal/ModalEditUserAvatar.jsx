@@ -28,11 +28,10 @@ export default class ModalEditUserAvatar extends Component {
       avatarSrc: '/images/avatar/male.png',
       croppedFile: null,
     }
-    this.onDrop = this.onDrop.bind(this)
     this.onSubmit = this.onSubmit.bind(this)
   }
 
-  onDrop(files) {
+  onDrop = (files) => {
     const selectedFile = files[0]
     const reader = new FileReader()
     reader.onload = (event) => {
@@ -43,7 +42,7 @@ export default class ModalEditUserAvatar extends Component {
     reader.readAsDataURL(selectedFile)
   }
 
-  onSubmit() {
+  onSubmit = () => {
     const canvas = this.cropper.getCroppedCanvas()
     const dataURL = canvas.toDataURL('image/jpeg', 1.0)
     const file = dataURItoBlob(dataURL)
@@ -53,7 +52,7 @@ export default class ModalEditUserAvatar extends Component {
   }
 
   render() {
-    const { trigger, isVisible, onClose } = this.props
+    const { isVisible, onClose } = this.props
     setTimeout(() => {
       this.setState({
         avatarSrc: this.props.user.avatar,
@@ -62,7 +61,10 @@ export default class ModalEditUserAvatar extends Component {
 
     return (
       <Modal
-        trigger={trigger} closeIcon="close" closeOnDimmerClick={false} open={isVisible} onClose={onClose}
+        closeIcon="close"
+        closeOnDimmerClick={false}
+        open={isVisible}
+        onClose={onClose}
       >
         <Header icon="user outline" content="修改我的头像" />
         <Modal.Content>

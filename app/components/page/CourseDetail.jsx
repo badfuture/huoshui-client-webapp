@@ -1,5 +1,6 @@
 import React from 'react'
-import { Grid, Segment, Button, Icon } from 'semantic-ui-react'
+import { Container, Grid, Segment, Button, Icon, Popup, Menu, Header } from 'semantic-ui-react'
+import Qrcode from 'qrcode.react'
 import Spinner from '../../components/spinner/Spinner'
 import SegmentCourseMain from '../../components/segment/SegmentCourseMain'
 import SegmentProfOverview from '../../components/segment/SegmentProfOverview'
@@ -15,6 +16,59 @@ const DetailGrid = props => (
           <Button.Group attached="bottom" basic labeled>
             <Button icon="plus" content="收藏 (3)" />
             <Button icon={<Icon color="red" name="like" />} content="喜欢 (2)" />
+
+            <Popup
+              trigger={
+                <Button
+                  icon="share alternate" content="分享"
+                />
+              }
+              content={
+                <Menu size="tiny" vertical text fluid>
+                  <Menu.Item name="qq" onClick={props.shareToQQ}>
+                    <Button
+                      color="twitter"
+                      icon={<Icon name="qq" />}
+                      circular
+                    />
+                    QQ好友
+                  </Menu.Item>
+                  <Menu.Item name="weibo" onClick={props.shareToWeibo}>
+                    <Button
+                      color="google plus"
+                      icon={<Icon name="weibo" />}
+                      circular
+                    />
+                    新浪微博
+                  </Menu.Item>
+                  <Menu.Item name="wechat" onClick={() => {}}>
+                    <Popup
+                      trigger={
+                        <div>
+                          <Button
+                            color="green"
+                            icon={<Icon name="wechat" />}
+                            circular
+                          />
+                          微信
+                        </div>
+                      }
+                      content={
+                        <div>
+                          <Header size="small">请在微信"发现"里扫码</Header>
+                          <Qrcode value="https://m.huoshui.org/courses/2931" />
+                        </div>
+                      }
+                      on="click"
+                      position="right center"
+                    />
+
+                  </Menu.Item>
+                </Menu>
+              }
+              on="click"
+              position="bottom center"
+            />
             <Button
               icon="pencil" content="点评"
               onClick={() => { props.openAddReviewModal(props.course.id) }}

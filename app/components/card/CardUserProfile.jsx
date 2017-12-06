@@ -10,14 +10,14 @@ import ModalEditUserAvatar from '../../components/modal/ModalEditUserAvatar'
 const defaultUser = {
   username: '匿名用户',
   avatar: '/images/sample/sample3.jpg',
-  emial: '未知邮箱',
+  email: '未知邮箱',
 }
 
 class CardUserProfile extends Component {
 
   render() {
     const user = this.props.user || defaultUser
-    const avatar = user.avatar ? user.avatar : defaultUser.avatar
+    const avatar = user.avatar
 
     return (
       <Card style={{ marginRight: 'auto', marginLeft: 'auto' }}>

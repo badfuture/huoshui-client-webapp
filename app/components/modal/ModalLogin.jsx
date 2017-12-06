@@ -1,6 +1,6 @@
 import React, { PropTypes, Component } from 'react'
 import { Button, Modal, Form, Input, Icon, Container, Divider, Message } from 'semantic-ui-react'
-import openPopup from '../../utils/openPopupWindow'
+import openPopup from '../../utils/openOauthPopup'
 import { DOMAIN } from '../../constants/ApiEndpoints'
 
 const propTypes = {
