@@ -12,6 +12,7 @@ class ModalAddReviewContainer extends Component {
       <ModalAddReview
         onClose={this.props.closeAddReviewModal}
         visible={this.props.visible}
+        searchVisible={this.props.searchVisible}
         courseId={this.props.courseId}
         resetSearchCourse={this.props.resetSearchCourse}
       />
@@ -32,6 +33,7 @@ const mapStateToProps = (state) => {
     modals: state.modals,
     visible: state.modals.addReviewModalVisible,
     courseId,
+    searchVisible: state.searchCourse.visible,
   }
 }
 

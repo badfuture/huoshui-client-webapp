@@ -10,10 +10,10 @@ Specification
 标签
   最多三个标签
 课程体验
-  水分: 不水, 较水，正常, 较高，超级水
-  点名: 不点，偶尔，正常，频繁，点名狂
-  作业: 没有，较少，正常，较多，堆成山
-  考试: 没有，容易，正常，较难，费劲
+  水课：未知-毫无水分-较少水分-普通水平-水分较大-水到不行
+  点名：未知-不点-很少-适量-经常-必点
+  作业：未知-没有-很少-适量-较多-巨多
+  考试：未知-轻松-较易-中等-较难-艰难
 考试体验
   划重点
   开卷
@@ -342,14 +342,13 @@ class ModalAddReview extends Component {
       >
         <Header icon={<Icon color="blue" name="theme" />} content="你说了算" />
         <Modal.Content>
-          { !this.props.courseId &&
+          { this.props.searchVisible &&
             <div>
               <Header as="h4">评价对象</Header>
               <SearchCourseContainer
                 ref={(comp) => { this.SearchCourseContainer = comp }}
               />
             </div>
-
           }
           <Header as="h4">总体评价</Header>
           专业：<Rating

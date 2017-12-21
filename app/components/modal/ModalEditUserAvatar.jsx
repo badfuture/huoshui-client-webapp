@@ -25,7 +25,7 @@ export default class ModalEditUserAvatar extends Component {
   constructor() {
     super()
     this.state = {
-      avatarSrc: '/images/avatar/male.png',
+      avatarSrc: '',
       croppedFile: null,
     }
     this.onSubmit = this.onSubmit.bind(this)
@@ -51,13 +51,16 @@ export default class ModalEditUserAvatar extends Component {
     this.props.uploadAvatar(formData)
   }
 
-  render() {
-    const { isVisible, onClose } = this.props
+  componentDidMount = () => {
     setTimeout(() => {
       this.setState({
         avatarSrc: this.props.user.avatar,
       })
     }, 10)
+  }
+
+  render() {
+    const { isVisible, onClose } = this.props
 
     return (
       <Modal
@@ -89,7 +92,7 @@ export default class ModalEditUserAvatar extends Component {
                   <Dropzone
                     style={{
                       width: '200px',
-                      height: '100px',
+                      height: '115px',
                       borderWidth: '2px',
                       borderColor: 'rgb(102, 102, 102)',
                       borderStyle: 'dashed',
@@ -100,8 +103,12 @@ export default class ModalEditUserAvatar extends Component {
                     <Grid verticalAlign="middle" style={{ height: '100%', marginTop: '0em' }}>
                       <Grid.Row>
                         <Grid.Column>
-                          <Container textAlign="center">
-                            <Icon name="add circle" size="large" />
+                          <Container textAlign="center" style={{ color: 'grey' }}>
+                            <Icon name="add circle" size="large" /><br />
+                            <div style={{ fontSize: '0.25em', marginTop: '0.55em' }}>
+                              支持JPG、PNG<br />
+                              大小不超过5M
+                            </div>
                           </Container>
                         </Grid.Column>
                       </Grid.Row>

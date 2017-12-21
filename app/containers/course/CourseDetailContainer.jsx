@@ -25,7 +25,7 @@ class CourseDetailContainer extends Component {
     const popup = openPopup('qq', socialShare.getQQUrl({
       url: `https://m.huoshui.org/courses/${this.props.course.id}`,
       title: `${this.props.course.Prof.name} 的 ${this.props.course.name}`,
-      summary: `${this.props.course.Reviews[0].text}`,
+      summary: this.props.course.Reviews.length ? `${this.props.course.Reviews[0].text}` : '',
     }))
   }
 
@@ -63,7 +63,7 @@ const mapActionToProps = dispatch => ({
   openAddReviewModal: (courseId) => {
     if (localStore.get('user')) {
       dispatch(searchCourseActions.setCourseId(courseId))
-      dispatch(modalActions.openAddReviewModal())
+      dispatch(modalActions.openAddReviewModal(courseId))
     } else {
       dispatch(modalActions.openPromptSignupModal())
     }

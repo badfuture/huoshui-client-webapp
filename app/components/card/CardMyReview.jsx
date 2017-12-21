@@ -22,7 +22,7 @@ const calcScore = ({ expressive, kind, professional }) => {
   )
 }
 
-const CardReviewOverview = (props) => {
+const CardMyReview = (props) => {
   const defaultAvatar = '/images/sample/sample3.jpg'
   return (
     <Card
@@ -31,10 +31,6 @@ const CardReviewOverview = (props) => {
       to={`/reviews/${props.id}`}
     >
       <Card.Content>
-        <Image
-          style={{ width: '2.3em', height: '2.3em' }}
-          avatar floated="left" size="large" src={props.Author.avatar || defaultAvatar}
-        />
         <Card.Header style={{ marginTop: '0.1em' }}>
           <Header as="h4">
             <div className={styles.header}>
@@ -43,9 +39,6 @@ const CardReviewOverview = (props) => {
             </div>
           </Header>
         </Card.Header>
-        <Card.Meta className={styles.subheader}>
-          <span>{props.Author.username} &nbsp; {moment(props.createdAt).fromNow()}</span>
-        </Card.Meta>
         <Card.Description className={styles.description}>
           <p>{props.text}</p>
         </Card.Description>
@@ -59,6 +52,6 @@ const CardReviewOverview = (props) => {
 
 
 // set propTypes
-CardReviewOverview.propTypes = propTypes
+CardMyReview.propTypes = propTypes
 
-export default CardReviewOverview
+export default CardMyReview

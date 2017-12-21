@@ -5,7 +5,7 @@ import {
 } from '../constants/SearchCourseActionTypes'
 
 import {
-  CLOSE_ADD_REVIEW_MODAL,
+  OPEN_ADD_REVIEW_MODAL, CLOSE_ADD_REVIEW_MODAL,
 } from '../constants/ModalActionTypes'
 
 export default (state = {
@@ -14,9 +14,14 @@ export default (state = {
   valueDisplayed: '',
   valueTempIME: '',
   courseId: null,
+  visible: true,
   options: [],
 }, action) => {
   switch (action.type) {
+    case OPEN_ADD_REVIEW_MODAL:
+      return Object.assign({}, state, {
+        visible: !(action.courseId),
+      })
     case CLOSE_ADD_REVIEW_MODAL:
       return Object.assign({}, state, {
         courseId: null,

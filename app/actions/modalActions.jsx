@@ -22,8 +22,9 @@ export const closeSignupModal = () => ({
   type: CLOSE_SIGNUP_MODAL,
 })
 
-export const openAddReviewModal = () => ({
+export const openAddReviewModal = courseId => ({
   type: OPEN_ADD_REVIEW_MODAL,
+  courseId,
 })
 
 export const closeAddReviewModal = () => ({

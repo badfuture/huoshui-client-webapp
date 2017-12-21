@@ -24,6 +24,11 @@ a.item.menu-item-plain:hover {
     color: rgba(0,0,0,0) !important;
 }
 
+//image upload copper
+.cropper-container.cropper-bg {
+    background: #dedede;
+}
+
 /*******************************
          Pace.js
 *******************************/

@@ -27,10 +27,7 @@ const signupItem = props => (
 const accountItem = props => (
   <Menu.Item name="account" style={{ marginRight: '1em' }}>
     { (props.auth.user && props.auth.user.avatar) &&
-      <Image src={props.auth.user.avatar} shape="circular" size="mini" style={{ marginRight: '0.5em' }} />
-    }
-    { (!props.auth.user || !props.auth.user.avatar) &&
-      <Image src={'/images/sample/sample3.jpg'} shape="circular" size="mini" style={{ marginRight: '0.5em' }} />
+      <Image src={props.auth.user.avatar} circular size="mini" style={{ marginRight: '0.75em' }} />
     }
     { (props.auth.user.username) &&
       <Dropdown

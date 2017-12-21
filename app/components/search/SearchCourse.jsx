@@ -49,6 +49,7 @@ export default class SearchCourse extends Component {
         value={displayValue}
         className={styles.searchInput}
         placeholder="要点评的教师姓名, 课程名"
+        noResultsMessage="啥都没找到 >_<"
         fluid
         onCompositionStart={this.handleComposition}
         onCompositionUpdate={this.handleComposition}

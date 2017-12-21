@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Grid, Container, Sticky } from 'semantic-ui-react'
+import { Grid, Container } from 'semantic-ui-react'
 import HomeMainContainer from './HomeMainContainer'
 import HomeSideContainer from './HomeSideContainer'
 
@@ -20,9 +20,7 @@ class HomeContainer extends Component {
                 <HomeMainContainer />
               </Grid.Column>
               <Grid.Column width={5} style={{ paddingLeft: '1.0rem' }}>
-                <Sticky context={contextRef} offset={100} pushing>
-                  <HomeSideContainer />
-                </Sticky>
+                <HomeSideContainer />
               </Grid.Column>
             </Grid.Row>
           </Grid>

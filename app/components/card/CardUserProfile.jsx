@@ -7,17 +7,10 @@ import * as modalActions from '../../actions/modalActions'
 import ModalEditUser from '../../components/modal/ModalEditUser'
 import ModalEditUserAvatar from '../../components/modal/ModalEditUserAvatar'
 
-const defaultUser = {
-  username: '匿名用户',
-  avatar: '/images/sample/sample3.jpg',
-  email: '未知邮箱',
-}
-
 class CardUserProfile extends Component {
 
   render() {
-    const user = this.props.user || defaultUser
-    const avatar = user.avatar
+    const user = this.props.user
 
     return (
       <Card style={{ marginRight: 'auto', marginLeft: 'auto' }}>
@@ -29,7 +22,7 @@ class CardUserProfile extends Component {
           onClose={this.props.closeEditAvatarModal}
         />
         <Image
-          src={avatar}
+          src={user.avatar}
           label={{ as: 'a', corner: 'left', icon: 'user outline' }}
           onClick={this.props.openEditAvatarModal}
         />
