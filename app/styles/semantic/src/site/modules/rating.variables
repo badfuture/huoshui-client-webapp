@@ -1,3 +1,17 @@
 /*******************************
          Site Overrides
 *******************************/
+/* Star */
+@starInactiveBackground: @inactiveBackground;
+@starInactiveColor: @inactiveColor;
+@starInactiveTextShadow: none;
+
+@starActiveBackground: @activeBackground;
+@starActiveColor: #ffbe00;
+@starActiveShadowColor: #DDC507;
+@starActiveTextShadow: none;
+
+@starSelectedBackground: @selectedBackground;
+@starSelectedColor: #FFCC00;
+@starSelectedShadowColor: #E6A200;
+@starSelectedTextShadow: none;

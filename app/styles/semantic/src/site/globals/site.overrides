@@ -1,6 +1,15 @@
 /*******************************
          Site Overrides
 *******************************/
+//remove blue border from icon
+i.active.icon {
+  outline: none;
+}
+i.active.icon:active {
+  outline: none;
+}
+
+
 .container-main-grey {
   padding-top: 7.5em;
   padding-bottom: 8em;
