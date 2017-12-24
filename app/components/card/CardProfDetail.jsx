@@ -27,9 +27,9 @@ const defaultProps = {
 const CardProfDetail = props => (
   <Card fluid style={{ boxShadow: 'none' }} onClick={() => { props.history.push(`/profs/${props.id}`) }}>
     <Card.Content>
-      <Image floated="left" size="mini" src="/images/sample/sample6.png" />
       <Card.Header>
         <Header as="h4">
+          <Image floated="left" size="mini" circular src="/images/sample/sample6.png" />
           <Link to={`/profs/${props.id}`}>老师：{props.name}</Link>
         </Header>
       </Card.Header>

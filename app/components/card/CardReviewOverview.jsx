@@ -16,10 +16,7 @@ const propTypes = {
 
 const calcScore = ({ expressive, kind, professional }) => {
   const avg = (expressive + kind + professional) / 3
-  const score = +avg.toFixed(1)
-  return (
-    score
-  )
+  return +avg.toFixed(1)
 }
 
 const CardReviewOverview = (props) => {
@@ -52,7 +49,6 @@ const CardReviewOverview = (props) => {
         <div className={styles.bottom}>
           <span>
             <Rating value={calcScore(props)} />
-            {` ${calcScore(props)}分`}
           </span>
 
         </div>

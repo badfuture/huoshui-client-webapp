@@ -6,7 +6,7 @@ const ListReview = props => (
   <Item.Group divided>
     {props.reviews.map(review => (
       <Item key={review.id} onClick={() => { props.history.push(`/reviews/${review.id}`) }}>
-        <Item.Image size="mini" src={review.Author.avatar} />
+        <Item.Image size="mini" avatar src={review.Author.avatar} />
         <Item.Content>
           <Item.Meta as="div" style={{ marginTop: '0em', marginBottom: '0.45em' }}>
             {review.Course ? `评 ${review.Course.name}` : ''}

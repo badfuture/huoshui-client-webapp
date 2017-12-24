@@ -3,7 +3,7 @@ import { Container, Grid, Segment, Button, Icon, Popup, Menu, Header } from 'sem
 import Qrcode from 'qrcode.react'
 import Spinner from '../../components/spinner/Spinner'
 import SegmentCourseMain from '../../components/segment/SegmentCourseMain'
-import SegmentProfOverview from '../../components/segment/SegmentProfOverview'
+import CardProfDetail from '../../components/card/CardProfDetail'
 import SegmentRatingCharts from '../../components/segment/SegmentRatingCharts'
 import ListReview from '../../components/list/ListReview'
 
@@ -87,7 +87,7 @@ const DetailGrid = props => (
           </Segment>
         </Grid.Column>
         <Grid.Column width={5} style={{ paddingLeft: '1.0rem' }}>
-          <SegmentProfOverview {...props.course.Prof} history={props.history} />
+          <CardProfDetail {...props.course.Prof} history={props.history} />
         </Grid.Column>
       </Grid.Row>
     </Grid>

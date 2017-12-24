@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Comment } from 'semantic-ui-react'
+import { Comment, Image } from 'semantic-ui-react'
 import moment from 'moment'
 import SubCommentItem from './SubCommentItem'
 import FormComment from '../form/FormComment'
@@ -27,7 +27,7 @@ class CommentItem extends Component {
     const { isReplyFormVisible } = this.state
     return (
       <Comment>
-        <Comment.Avatar src={srcImage} />
+        <Comment.Avatar as={Image} circular src={srcImage} />
         <Comment.Content>
           <Comment.Author as="a">{this.props.Author.username}</Comment.Author>
           <Comment.Metadata>

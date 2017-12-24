@@ -44,11 +44,10 @@ class MyProfileContainer extends Component {
                   {
                     this.state.activeTab === 'review' &&
                     <GridMyReview
-                      items={this.props.user.Reviews}
+                      items={this.props.user.Reviews || []}
                       itemsPerRow={3}
                     />
                   }
-
                 </Container>
               </Grid.Column>
             </Grid.Row>

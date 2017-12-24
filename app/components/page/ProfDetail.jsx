@@ -25,7 +25,7 @@ const CourseList = props => (
           </Item.Meta>
           <Item.Extra>
             <div style={{ marginTop: '0em' }}>
-              <RatingBasic value={course.scoreOverall} />
+              <RatingBasic value={course.scoreOverall.toFixed(1)} />
             </div>
           </Item.Extra>
         </Item.Content>

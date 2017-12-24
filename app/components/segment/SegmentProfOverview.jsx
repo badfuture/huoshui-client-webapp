@@ -6,9 +6,10 @@ import styles from './styles/SegmentProfOverview.scss'
 const SegmentProfOverview = props => (
   <Card fluid style={{ boxShadow: 'none' }} onClick={() => { props.history.push(`/profs/${props.id}`) }}>
     <Card.Content>
-      <Image floated="left" size="mini" src="/images/sample/sample6.png" />
+
       <Card.Header>
         <Header as="h4">
+          <Image floated="left" size="mini" circular src="/images/sample/sample6.png" />
           老师：{props.name}
         </Header>
       </Card.Header>

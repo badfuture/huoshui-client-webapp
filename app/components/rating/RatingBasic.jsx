@@ -3,12 +3,18 @@ import React, { PropTypes } from 'react'
 import { Icon, Rating } from 'semantic-ui-react'
 
 const RatingBasic = props => (
-  <Rating
-    defaultRating={props.value}
-    maxRating={props.maxStars}
-    icon="star"
-    disabled={props.isReadOnly}
-  />
+  <span>
+    <Rating
+      defaultRating={Math.round(props.value)}
+      maxRating={props.maxStars}
+      icon="star"
+      disabled={props.isReadOnly}
+    />
+    { props.value &&
+      ` ${props.value.toFixed(1)}分`
+    }
+  </span>
+
 )
 
 RatingBasic.propTypes = {

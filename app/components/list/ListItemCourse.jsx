@@ -37,9 +37,6 @@ const listItemCourse = props => (
                 <span style={{ marginRight: '0.5em' }}>
                   <Rating value={props.Stat.scoreOverall} />
                 </span>
-                <span style={{ marginRight: '0.5em' }}>
-                  {props.Stat.scoreOverall.toFixed(1)}
-                </span>
                 <span>
                   ({props.Stat.countReview}人评价)
                 </span>
