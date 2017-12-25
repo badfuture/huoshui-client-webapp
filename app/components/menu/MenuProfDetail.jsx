@@ -9,7 +9,6 @@ import {
 class MenuProfDetail extends Component {
   handleItemClick = (e, { name }) => {
     this.props.switchView(name)
-    this.props.initPage()
   }
 
   render() {

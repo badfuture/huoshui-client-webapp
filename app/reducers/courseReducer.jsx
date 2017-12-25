@@ -26,7 +26,7 @@ export const courseReducer = (state = {
   }
 }
 
-// handling hot reviews
+// handling hot courses
 export const hotCoursesReducer = (state = {
   isFetching: false,
   data: [],

@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Container } from 'semantic-ui-react'
 import localStore from 'store'
+import Axios from 'axios'
+import { URL_USER } from '../../constants/ApiEndpoints'
 import * as courseActions from '../../actions/courseActions'
 import * as modalActions from '../../actions/modalActions'
 import * as searchCourseActions from '../../actions/searchCourseActions'
@@ -19,6 +21,19 @@ class CourseDetailContainer extends Component {
     const oldId = prevProps.match.params.id
     const newId = this.props.match.params.id
     if (newId !== oldId) { this.props.fetchCourseById(this.props.match.params.id) }
+  }
+
+  likeCourse = () => {
+    const user = localStore.get('user')
+    Axios.put(`${URL_USER}/${user.id}/liked_courses`, {
+      courseId: this.props.course.id,
+    })
+    .then((res) => {
+      alert('success')
+    })
+    .catch((err) => {
+      // show error
+    })
   }
 
   shareToQQ = () => {
@@ -44,6 +59,7 @@ class CourseDetailContainer extends Component {
             {...this.props}
             shareToQQ={this.shareToQQ}
             shareToWeibo={this.shareToWeibo}
+            likeCourse={this.likeCourse}
           />
         </Container>
       </div>
@@ -60,7 +76,7 @@ const mapStateToProps = state => ({
 // map redux actions to prop
 const mapActionToProps = dispatch => ({
   fetchCourseById: courseId => dispatch(courseActions.fetchCourseById(courseId)),
-  openAddReviewModal: (courseId) => {
+  openAddReviewModal: courseId => {
     if (localStore.get('user')) {
       dispatch(searchCourseActions.setCourseId(courseId))
       dispatch(modalActions.openAddReviewModal(courseId))

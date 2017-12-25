@@ -15,7 +15,11 @@ const DetailGrid = props => (
           <SegmentCourseMain {...props.course} />
           <Button.Group attached="bottom" basic labeled>
             <Button icon="plus" content="收藏 (3)" />
-            <Button icon={<Icon color="red" name="like" />} content="喜欢 (2)" />
+            <Button
+              icon={<Icon color="red" name="like" />}
+              content="喜欢 (2)"
+              onClick={props.likeCourse}
+            />
 
             <Popup
               trigger={

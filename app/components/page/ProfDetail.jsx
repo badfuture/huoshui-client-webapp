@@ -25,7 +25,7 @@ const CourseList = props => (
           </Item.Meta>
           <Item.Extra>
             <div style={{ marginTop: '0em' }}>
-              <RatingBasic value={course.scoreOverall.toFixed(1)} />
+              <RatingBasic value={course.scoreOverall} />
             </div>
           </Item.Extra>
         </Item.Content>
@@ -42,7 +42,7 @@ const DetailGrid = props => (
           <Container style={{ textAlign: 'center' }}>
             <CardProfOverview
               {...props.prof}
-              followProf={props.followProf}
+              likeProf={props.likeProf}
             />
           </Container>
         </Grid.Column>

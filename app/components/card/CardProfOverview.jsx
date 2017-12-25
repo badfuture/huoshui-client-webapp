@@ -6,7 +6,7 @@ import * as ProfActions from '../../actions/profActions'
 const followButton = props => (
   <Button
     onClick={() => {
-      props.followProf(props.id)
+      props.likeProf(props.id)
     }}
     basic content="加关注" size="tiny"
     color="blue"
@@ -16,7 +16,7 @@ const followButton = props => (
 const unfollowButton = props => (
   <Button
     onClick={() => {
-      props.unfollowProf(props.id)
+      props.unlikeProf(props.id)
     }}
     content="已关注" size="tiny"
     color="blue"
@@ -25,7 +25,7 @@ const unfollowButton = props => (
 
 class CardProfOverview extends Component {
   handleFollowProf() {
-    this.props.followProf(this.props.id)
+    this.props.likeProf(this.props.id)
   }
 
   render() {
@@ -71,8 +71,8 @@ const mapStateToProps = state => ({
 
 // map redux actions to prop
 const mapActionToProps = dispatch => ({
-  followProf: profId => dispatch(ProfActions.followProf(profId)),
-  unfollowProf: profId => dispatch(ProfActions.unfollowProf(profId)),
+  likeProf: profId => dispatch(ProfActions.likeProf(profId)),
+  unlikeProf: profId => dispatch(ProfActions.unlikeProf(profId)),
 })
 
 export default connect(mapStateToProps, mapActionToProps)(CardProfOverview)

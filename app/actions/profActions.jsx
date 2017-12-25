@@ -43,56 +43,56 @@ export const fetchProfById = profId =>
     })
   }
 
-export const followProfAttempt = () => ({
+export const likeProfAttempt = () => ({
   type: FOLLOW_PROF_ATTEMPT,
 })
-export const followProfSuccess = resp => ({
+export const likeProfSuccess = resp => ({
   type: FOLLOW_PROF_SUCCESS,
   resp,
 })
-export const followProfError = resp => ({
+export const likeProfError = resp => ({
   type: FOLLOW_PROF_ERROR,
   resp,
 })
 
-export const followProf = profId =>
+export const likeProf = profId =>
   (dispatch) => {
     const user = localStore.get('user')
-    dispatch(followProfAttempt())
-    return axios.put(`${URL_USER}/${user.id}/liked-profs`, {
+    dispatch(likeProfAttempt())
+    return axios.put(`${URL_USER}/${user.id}/liked_profs`, {
       profId,
     })
     .then((res) => {
-      dispatch(followProfSuccess(res))
+      dispatch(likeProfSuccess(res))
     })
     .catch((err) => {
-      dispatch(followProfError(err))
+      dispatch(likeProfError(err))
     })
   }
 
-export const unfollowProfAttempt = () => ({
+export const unlikeProfAttempt = () => ({
   type: UNFOLLOW_PROF_ATTEMPT,
 })
-export const unfollowProfSuccess = resp => ({
+export const unlikeProfSuccess = resp => ({
   type: UNFOLLOW_PROF_SUCCESS,
   resp,
 })
-export const unfollowProfError = resp => ({
+export const unlikeProfError = resp => ({
   type: UNFOLLOW_PROF_ERROR,
   resp,
 })
 
-export const unfollowProf = profId =>
+export const unlikeProf = profId =>
   (dispatch) => {
     const user = localStore.get('user')
-    dispatch(unfollowProfAttempt())
-    return axios.delete(`${URL_USER}/${user.id}/liked-profs/${profId}`, {
+    dispatch(unlikeProfAttempt())
+    return axios.delete(`${URL_USER}/${user.id}/liked_profs/${profId}`, {
       profId,
     })
     .then((res) => {
-      dispatch(unfollowProfSuccess(res))
+      dispatch(unlikeProfSuccess(res))
     })
     .catch((err) => {
-      dispatch(unfollowProfError(err))
+      dispatch(unlikeProfError(err))
     })
   }

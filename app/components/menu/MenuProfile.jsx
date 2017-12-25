@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import { Menu, Icon, Label } from 'semantic-ui-react'
 
-export default class MenuProf extends Component {
+export default class MenuProfile extends Component {
 
   render() {
     return (
-      <Menu size="huge" color="blue" widths={5} style={{ marginBottom: '1.5em' }}>
+      <Menu size="huge" widths={5} style={{ marginBottom: '1.5em' }}>
         <Menu.Item
           name="review"
           active={this.props.activeTab === 'review'}
