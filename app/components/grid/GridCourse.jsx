@@ -15,6 +15,7 @@ const GridCourse = props => (
           <CardCourseOverview
             history={props.history}
             key={item.id}
+            isTagShown={props.isTagShown}
             {...item}
           />,
       )}

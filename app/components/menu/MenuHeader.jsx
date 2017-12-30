@@ -34,7 +34,7 @@ const accountItem = props => (
         text={`${props.auth.user.username}的账号`}
       >
         <Dropdown.Menu style={{ marginTop: '0.6em' }}>
-          <Dropdown.Item text="我的档案" as={Link} to="my-profile" />
+          <Dropdown.Item text="我的档案" as={Link} to="/my-profile" />
           <Dropdown.Item text="退出账号" onClick={props.logoutUser} />
         </Dropdown.Menu>
       </Dropdown>

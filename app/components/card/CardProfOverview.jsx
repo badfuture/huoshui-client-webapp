@@ -8,7 +8,7 @@ const followButton = props => (
     onClick={() => {
       props.likeProf(props.id)
     }}
-    basic content="加关注" size="tiny"
+    basic content="喜欢" size="tiny"
     color="blue"
   />
 )
@@ -18,7 +18,7 @@ const unfollowButton = props => (
     onClick={() => {
       props.unlikeProf(props.id)
     }}
-    content="已关注" size="tiny"
+    content="已喜欢" size="tiny"
     color="blue"
   />
 )
@@ -48,7 +48,7 @@ class CardProfOverview extends Component {
               }{(props.School) && props.School.name}
             </div>
             <div style={{ marginTop: '0.3em' }} >
-              <Icon name="user" /> {props.followerCount} 人关注
+              <Icon name="user" /> {props.followerCount} 人喜欢
             </div>
           </Card.Meta>
           <Card.Description>

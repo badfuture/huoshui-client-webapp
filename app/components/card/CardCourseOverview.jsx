@@ -7,6 +7,7 @@ const CardCourseOverview = (props) => {
   let tags = props.Tags
   if (tags && tags.length) {
     tags = tags.sort((a, b) => {
+      if (!a.stat || !b.stat) { return false }
       if (a.stat.count < b.stat.count) { return false }
       if (a.stat.count > b.stat.count) { return true }
       return false
@@ -29,9 +30,12 @@ const CardCourseOverview = (props) => {
         </Card.Header>
         <div className={styles.subheader}>
           <span>{props.name}</span><br />
-          <span>
-            {tags[0] && `${tags[0].name}`} {tags[1] && `   \\   ${tags[1].name}`}
-          </span>
+          {
+            (props.Tags && props.isTagShown) &&
+            <span>
+              {tags[0] && `${tags[0].name}`} {tags[1] && `   \\   ${tags[1].name}`}
+            </span>
+          }
         </div>
       </Card.Content>
     </Card>

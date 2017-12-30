@@ -5,9 +5,10 @@
 import axios from 'axios'
 import localStore from 'store'
 import {
-  SWITCH_VIEW, FETCH_ATTEMPT, FETCH_SUCCESS, FETCH_ERROR,
-  FOLLOW_PROF_ATTEMPT, FOLLOW_PROF_SUCCESS, FOLLOW_PROF_ERROR,
-  UNFOLLOW_PROF_ATTEMPT, UNFOLLOW_PROF_SUCCESS, UNFOLLOW_PROF_ERROR,
+  SWITCH_VIEW,
+  FETCH_ATTEMPT, FETCH_SUCCESS, FETCH_ERROR,
+  LIKE_PROF_ATTEMPT, LIKE_PROF_SUCCESS, LIKE_PROF_ERROR,
+  UNLIKE_PROF_ATTEMPT, UNLIKE_PROF_SUCCESS, UNLIKE_PROF_ERROR,
 } from '../constants/ProfActionTypes'
 import { URL_PROF, URL_USER } from '../constants/ApiEndpoints'
 
@@ -44,14 +45,14 @@ export const fetchProfById = profId =>
   }
 
 export const likeProfAttempt = () => ({
-  type: FOLLOW_PROF_ATTEMPT,
+  type: LIKE_PROF_ATTEMPT,
 })
 export const likeProfSuccess = resp => ({
-  type: FOLLOW_PROF_SUCCESS,
+  type: LIKE_PROF_SUCCESS,
   resp,
 })
 export const likeProfError = resp => ({
-  type: FOLLOW_PROF_ERROR,
+  type: LIKE_PROF_ERROR,
   resp,
 })
 
@@ -71,14 +72,14 @@ export const likeProf = profId =>
   }
 
 export const unlikeProfAttempt = () => ({
-  type: UNFOLLOW_PROF_ATTEMPT,
+  type: UNLIKE_PROF_ATTEMPT,
 })
 export const unlikeProfSuccess = resp => ({
-  type: UNFOLLOW_PROF_SUCCESS,
+  type: UNLIKE_PROF_SUCCESS,
   resp,
 })
 export const unlikeProfError = resp => ({
-  type: UNFOLLOW_PROF_ERROR,
+  type: UNLIKE_PROF_ERROR,
   resp,
 })
 

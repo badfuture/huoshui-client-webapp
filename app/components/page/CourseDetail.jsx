@@ -16,9 +16,12 @@ const DetailGrid = props => (
           <Button.Group attached="bottom" basic labeled>
             <Button icon="plus" content="收藏 (3)" />
             <Button
-              icon={<Icon color="red" name="like" />}
-              content="喜欢 (2)"
-              onClick={props.likeCourse}
+              icon={<Icon color={props.isLiked ? 'red' : 'grey'} name="like" />}
+              content={`喜欢 (${props.countLiked})`}
+              onClick={props.isLiked ?
+                () => { props.unlikeCourse(props.course.id) } :
+                () => { props.likeCourse(props.course.id) }
+              }
             />
 
             <Popup

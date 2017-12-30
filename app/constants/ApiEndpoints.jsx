@@ -18,7 +18,7 @@ export const URL_PROF = `/profs`
 export const URL_COURSE = `/courses`
 
 export const URL_COMMENT = `/comments`
-export const URL_FEEDBACK = `/feedback`
+export const URL_FEEDBACK = `/feedbacks`
 export const URL_SEARCH = `/search`
 export const URL_STAT = `/stat`
 export const URL_TAG = `/tags`

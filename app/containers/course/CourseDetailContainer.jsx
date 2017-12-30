@@ -29,7 +29,8 @@ class CourseDetailContainer extends Component {
       courseId: this.props.course.id,
     })
     .then((res) => {
-      alert('success')
+      this.setState({ isLiked: true })
+      this.setState({ countLiked: this.props.countLiked++ })
     })
     .catch((err) => {
       // show error
@@ -59,7 +60,6 @@ class CourseDetailContainer extends Component {
             {...this.props}
             shareToQQ={this.shareToQQ}
             shareToWeibo={this.shareToWeibo}
-            likeCourse={this.likeCourse}
           />
         </Container>
       </div>
@@ -71,12 +71,16 @@ class CourseDetailContainer extends Component {
 const mapStateToProps = state => ({
   course: state.course.data,
   isFetching: state.course.isFetching,
+  isLiked: state.course.isLiked,
+  countLiked: state.course.countLiked,
 })
 
 // map redux actions to prop
 const mapActionToProps = dispatch => ({
   fetchCourseById: courseId => dispatch(courseActions.fetchCourseById(courseId)),
-  openAddReviewModal: courseId => {
+  likeCourse: courseId => dispatch(courseActions.likeCourse(courseId)),
+  unlikeCourse: courseId => dispatch(courseActions.unlikeCourse(courseId)),
+  openAddReviewModal: (courseId) => {
     if (localStore.get('user')) {
       dispatch(searchCourseActions.setCourseId(courseId))
       dispatch(modalActions.openAddReviewModal(courseId))

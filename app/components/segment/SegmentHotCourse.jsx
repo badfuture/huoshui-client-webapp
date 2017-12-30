@@ -19,6 +19,7 @@ class SegmentHotCourse extends Component {
         items={this.props.courses.data.slice(0, 6)}
         itemsPerRow={3}
         history={this.props.history}
+        isTagShown
       />
     )
   }

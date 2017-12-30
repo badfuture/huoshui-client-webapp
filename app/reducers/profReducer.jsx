@@ -1,8 +1,8 @@
 import localStore from 'store'
 import {
   SWITCH_VIEW, FETCH_ATTEMPT, FETCH_SUCCESS, FETCH_ERROR,
-  FOLLOW_PROF_ATTEMPT, FOLLOW_PROF_SUCCESS, FOLLOW_PROF_ERROR,
-  UNFOLLOW_PROF_ATTEMPT, UNFOLLOW_PROF_SUCCESS, UNFOLLOW_PROF_ERROR,
+  LIKE_PROF_ATTEMPT, LIKE_PROF_SUCCESS, LIKE_PROF_ERROR,
+  UNLIKE_PROF_ATTEMPT, UNLIKE_PROF_SUCCESS, UNLIKE_PROF_ERROR,
 } from '../constants/ProfActionTypes'
 import {
   STAT,
@@ -51,29 +51,29 @@ export default (state = {
       return Object.assign({}, state, {
         isFetching: false,
       })
-    case FOLLOW_PROF_ATTEMPT: {
+    case LIKE_PROF_ATTEMPT: {
       return Object.assign({}, state, {
         followerCount: state.followerCount + 1,
         isProfFollowed: true,
       })
     }
-    case FOLLOW_PROF_SUCCESS:
+    case LIKE_PROF_SUCCESS:
       return Object.assign({}, state, {
         isProfFollowed: true,
       })
-    case FOLLOW_PROF_ERROR:
+    case LIKE_PROF_ERROR:
       return Object.assign({}, state, {})
-    case UNFOLLOW_PROF_ATTEMPT: {
+    case UNLIKE_PROF_ATTEMPT: {
       return Object.assign({}, state, {
         followerCount: state.followerCount - 1,
         isProfFollowed: false,
       })
     }
-    case UNFOLLOW_PROF_SUCCESS:
+    case UNLIKE_PROF_SUCCESS:
       return Object.assign({}, state, {
         isProfFollowed: false,
       })
-    case UNFOLLOW_PROF_ERROR:
+    case UNLIKE_PROF_ERROR:
       return Object.assign({}, state, {})
     default:
       return state
