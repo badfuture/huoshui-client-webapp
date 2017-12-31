@@ -79,8 +79,12 @@ export const hotReviewsReducer = (state = {
 }, action) => {
   switch (action.type) {
     case FETCH_HOT_REVIEWS_ATTEMPT:
+      let isFetching = true
+      if (state.data.length) {
+        isFetching = false
+      }
       return Object.assign({}, state, {
-        isFetching: true,
+        isFetching,
       })
     case FETCH_HOT_REVIEWS_SUCCESS:
       return Object.assign({}, state, {
@@ -103,8 +107,12 @@ export const newReviewsReducer = (state = {
 }, action) => {
   switch (action.type) {
     case FETCH_NEW_REVIEWS_ATTEMPT:
+      let isFetching = true
+      if (state.data.length) {
+        isFetching = false
+      }
       return Object.assign({}, state, {
-        isFetching: true,
+        isFetching,
       })
     case FETCH_NEW_REVIEWS_SUCCESS:
       return Object.assign({}, state, {

@@ -38,32 +38,39 @@ const MenuSidebar = props => (
         </Button>
       </Menu.Item>
       <Menu.Item
-        name="my-review" as={Link} to="/my-review"
+        name="my-review" as={Link} to="/my-profile#review"
         onClick={(e) => { checkAuth(e, props) }}
       >
         <Icon name="write" />
         我的课评
       </Menu.Item>
       <Menu.Item
-        name="my-prof" as={Link} to="/my-prof"
-        onClick={(e) => { checkAuth(e, props) }}
-      >
-        <Icon name="address book outline" />
-        我的老师
-      </Menu.Item>
-      <Menu.Item
-        name="my-kelist" as={Link} to="/my-kelist"
+        name="my-kelist" as={Link} to="/my-profile#course"
         onClick={(e) => { checkAuth(e, props) }}
       >
         <Icon name="book" />
         我的课程
       </Menu.Item>
       <Menu.Item
-        name="my-kelist" as={Link} to="/my-kelist"
+        name="my-prof" as={Link} to="/my-profile#prof"
+        onClick={(e) => { checkAuth(e, props) }}
+      >
+        <Icon name="address book outline" />
+        我的老师
+      </Menu.Item>
+      <Menu.Item
+        name="my-kelist" as={Link} to="/my-profile#kelist"
         onClick={(e) => { checkAuth(e, props) }}
       >
         <Icon name="list" />
         我的课列
+      </Menu.Item>
+      <Menu.Item
+        name="my-message" as={Link} to="/my-profile#message"
+        onClick={(e) => { checkAuth(e, props) }}
+      >
+        <Icon name="announcement" />
+        我的消息
       </Menu.Item>
       <Menu.Item
         name="my-profile" as={Link} to="/my-profile"

@@ -69,8 +69,12 @@ export const hotCoursesReducer = (state = {
 }, action) => {
   switch (action.type) {
     case FETCH_HOT_COURSES_ATTEMPT:
+      let isFetching = true
+      if (state.data.length) {
+        isFetching = false
+      }
       return Object.assign({}, state, {
-        isFetching: true,
+        isFetching,
       })
     case FETCH_HOT_COURSES_SUCCESS:
       return Object.assign({}, state, {

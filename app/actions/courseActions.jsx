@@ -116,7 +116,7 @@ export const fetchHotCourses = () =>
     dispatch(fetchHotCoursesAttempt())
     return axios.get(URL_COURSE, {
       params: {
-        populate: 'all',
+        populate: 'Prof,Depts,Tags,Reviews',
         sort: 'scoreHot DESC',
         limit: 10,
         skip: 0,

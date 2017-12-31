@@ -3,11 +3,11 @@ import { Header, Icon, Segment, Table } from 'semantic-ui-react'
 
 /*
 Category Classification
-field：(0,1],(1,2],(2,3],(3,4],(4,5]
-水课：未知-毫无水分-较少水分-普通水平-水分较大-水到不行
-点名：未知-不点-很少-适量-经常-必点
-作业：未知-没有-很少-适量-较多-巨多
-考试：未知-轻松-较易-中等-较难-艰难
+field：[0],(0,1],(1,2],(2,3],(3,4],(4,5]
+meanBirdy: 水课：未知-毫无水分-较少水分-普通水平-水分较大-水到不行
+meanAttend: 点名：未知-不点-很少-适量-经常-必点
+meanHomework: 作业：未知-没有-很少-适量-较多-巨多
+meanExam: 考试：未知-轻松-较易-中等-较难-艰难
  */
 
 const BirdText = (props) => {

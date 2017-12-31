@@ -16,7 +16,7 @@ class SegmentHotCourse extends Component {
     }
     return (
       <GridCourse
-        items={this.props.courses.data.slice(0, 6)}
+        items={this.props.courses.data.slice(0, 9)}
         itemsPerRow={3}
         history={this.props.history}
         isTagShown
