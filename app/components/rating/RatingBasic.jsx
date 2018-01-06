@@ -1,20 +1,15 @@
 /* eslint no-unused-vars: "error" */
 import React, { PropTypes } from 'react'
-import { Icon, Rating } from 'semantic-ui-react'
+import { Icon } from 'semantic-ui-react'
+import Rater from 'react-rater'
 
 const RatingBasic = props => (
   <span>
-    <Rating
-      defaultRating={Math.round(props.value)}
-      maxRating={props.maxStars}
-      icon="star"
-      disabled={props.isReadOnly}
-    />
+    <Rater interactive={false} rating={props.value} total={5} />
     { props.value &&
       ` ${props.value.toFixed(1)}分`
     }
   </span>
-
 )
 
 RatingBasic.propTypes = {

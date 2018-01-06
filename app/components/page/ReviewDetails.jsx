@@ -3,6 +3,7 @@ import { Grid, Divider } from 'semantic-ui-react'
 import CommentContainer from '../../containers/comment/CommentContainer'
 import CardProfDetail from '../../components/card/CardProfDetail'
 import CardReviewDetail from '../../components/card/CardReviewDetail'
+import CardOverallStat from '../../components/card/CardOverallStat'
 import Spinner from '../../components/spinner/Spinner'
 
 const propTypes = {
@@ -19,8 +20,9 @@ const DetailsGrid = props => (
             author={props.review.Author}
             course={props.review.Course}
             prof={props.review.Prof}
+            tags={props.review.Tags}
           />
-          <Divider hidden />
+
           <CommentContainer
             comments={props.review.Comments}
             commentable="review"
@@ -28,7 +30,12 @@ const DetailsGrid = props => (
           />
         </Grid.Column>
         <Grid.Column width={5} style={{ paddingLeft: '1.0rem' }}>
-          <CardProfDetail {...props.review.Prof} history={props.history} />
+
+          <CardOverallStat
+            Stat={props.review}
+          />
+          <Divider hidden />
+
         </Grid.Column>
       </Grid.Row>
     </Grid>

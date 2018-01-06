@@ -8,6 +8,7 @@ import CardUserProfile from '../../components/card/CardUserProfile'
 import MenuProfile from '../../components/menu/MenuProfile'
 import GridMyReview from '../../components/grid/GridMyReview'
 import GridCourse from '../../components/grid/GridCourse'
+import GridMyProf from '../../components/grid/GridMyProf'
 import SegmentEmptyProfile from '../../components/segment/SegmentEmptyProfile'
 
 class MyProfileContainer extends Component {
@@ -26,15 +27,18 @@ class MyProfileContainer extends Component {
 
   componentDidMount() {
     this.props.getLatestUserInfo()
+    console.log('componentDidMount')
     let urlHash = this.props.location.hash.substr(1)
     urlHash = urlHash || 'review'
     this.setState({ activeTab: urlHash })
   }
 
   componentWillReceiveProps(nextProps) {
+    console.log('componentWillReceiveProps')
     const { location } = nextProps
     const nextHash = location.hash.substr(1)
-    this.setState({ activeTab: nextHash })
+    const urlHash = nextHash || 'review'
+    this.setState({ activeTab: urlHash })
   }
 
   render() {
@@ -84,14 +88,21 @@ class MyProfileContainer extends Component {
                     />
                   }
                   {
-                    (this.state.activeTab === 'prof' && this.props.user.Reviews.length == 0) &&
+                    (this.state.activeTab === 'prof' && this.props.user.LikedProfs.length != 0) &&
+                    <GridMyProf
+                      items={this.props.user.LikedProfs}
+                      itemsPerRow={3}
+                    />
+                  }
+                  {
+                    (this.state.activeTab === 'prof' && this.props.user.LikedProfs.length == 0) &&
                     <SegmentEmptyProfile
                       header="我喜欢的老师"
                       subheader="在教授档案里点击过喜欢的老师"
                     />
                   }
                   {
-                    (this.state.activeTab === 'kelist' && this.props.user.Reviews.length == 0) &&
+                    (this.state.activeTab === 'kelist' && this.props.user.LikedProfs.length == 0) &&
                     <SegmentEmptyProfile
                       header="我的课列"
                       subheader="我收藏或创建的课列"

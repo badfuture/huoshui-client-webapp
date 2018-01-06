@@ -1,8 +1,9 @@
 
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Card, Header, Image } from 'semantic-ui-react'
+import { Card, Header, Image, Icon, Label, Divider, Table } from 'semantic-ui-react'
 import moment from 'moment'
+import TableSecondaryStat from '../table/TableSecondaryStat'
 
 const calcScore = ({ expressive, kind, professional }) => {
   const avg = (expressive + kind + professional) / 3
@@ -23,13 +24,43 @@ const CardReviewDetail = props => (
       </Card.Header>
       <Card.Meta>
         <span>
-          <span>{props.author.username} &nbsp; {calcScore(props.review)}分</span>
+          <span>{props.author.username}</span>
           <span style={{ float: 'right' }}>{moment(props.review.createdAt).fromNow()}</span>
         </span>
       </Card.Meta>
       <Card.Description>
         {props.review.text}
+        {(props.tags && props.tags.length != 0) &&
+          <div>
+            <Divider hidden />
+            <div>
+              标签：
+              {props.tags.map(tag => (
+                <Label
+                  key={tag.id}
+                  as="span" basic
+                  style={{ backgroundColor: 'rgba(77, 157, 217, 0.78)', color: 'white' }}
+                >
+                  {tag.name}
+                </Label>
+              ))}
+            </div>
+          </div>
+        }
       </Card.Description>
+    </Card.Content>
+    <Card.Content extra>
+      <TableSecondaryStat
+        rateHomework={props.review.rateHomework}
+        rateAttend={props.review.rateAttend}
+        rateBirdy={props.review.rateBirdy}
+        rateExam={props.review.rateExam}
+        hasExam={props.review.hasExam}
+        examprep={props.review.examprep}
+        openbook={props.review.openbook}
+        oldquestion={props.review.oldquestion}
+        easymark={props.review.easymark}
+      />
     </Card.Content>
   </Card>
 )

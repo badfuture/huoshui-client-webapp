@@ -39,6 +39,36 @@ a.item.menu-item-plain:hover {
 }
 
 /*******************************
+         react-rater.js
+*******************************/
+.react-rater {
+  display: inline-block;
+  line-height: normal; }
+  .react-rater > * {
+    display: inline-block; }
+
+.react-rater-star {
+  cursor: pointer;
+  color: #ccc;
+  position: relative;
+  margin-right: 2px;
+}
+  .react-rater-star.will-be-active {
+    color: #ffdd99; }
+  .react-rater-star.is-active {
+    color: #fc6; }
+  .react-rater-star.is-active-half:before {
+    color: #fc6;
+    content: '\2605';
+    position: absolute;
+    left: 0;
+    width: 50%;
+    overflow: hidden; }
+  .react-rater-star.is-disabled {
+    cursor: default; }
+
+
+/*******************************
          Pace.js
 *******************************/
 .pace {

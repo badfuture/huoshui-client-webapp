@@ -185,7 +185,7 @@ export const fetchReviewById = reviewId =>
   (dispatch) => {
     dispatch(fetchReviewByIdAttempt())
     return (
-      axios.get(`${URL_REVIEW}/${reviewId}?populate=[Course,Author,Prof,Comments]`)
+      axios.get(`${URL_REVIEW}/${reviewId}?populate=[Course,Author,Prof,Comments,Tags]`)
        .then((resp) => {
          dispatch(fetchReviewByIdSuccess(resp))
        })
