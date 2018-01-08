@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import moment from 'moment'
 import Rating from '../rating/RatingBasic'
 import styles from './styles/CardReviewOverview.scss'
+import StatUtil from '../../utils/StatUtil'
 
 const propTypes = {
   id: PropTypes.number.isRequired,
@@ -12,14 +13,6 @@ const propTypes = {
   Prof: PropTypes.object.isRequired,
   Author: PropTypes.object.isRequired,
   createdAt: PropTypes.string.isRequired,
-}
-
-const calcScore = ({ expressive, kind, professional }) => {
-  const avg = (expressive + kind + professional) / 3
-  const score = +avg.toFixed(2)
-  return (
-    score
-  )
 }
 
 const CardMyReview = (props) => {
@@ -43,7 +36,7 @@ const CardMyReview = (props) => {
           <p>{props.text}</p>
         </Card.Description>
         <div className={styles.bottom}>
-          <Rating value={calcScore(props)} />
+          <Rating value={StatUtil.calcScore(props)} />
         </div>
       </Card.Content>
     </Card>

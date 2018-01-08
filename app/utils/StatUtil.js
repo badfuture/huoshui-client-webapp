@@ -12,13 +12,13 @@ module.exports = {
   getBirdText: (val) => {
     let text = '未知'
     if (val > 0 && val <= 1) {
-      text = '毫无水分'
+      text = '毫无'
     } else if (val > 1 && val <= 2) {
-      text = '较少水分'
+      text = '较少'
     } else if (val > 2 && val <= 3) {
-      text = '普通水平'
+      text = '普通'
     } else if (val > 3 && val <= 4) {
-      text = '水分较大'
+      text = '较大'
     } else if (val > 4 && val <= 5) {
       text = '水到不行'
     }
@@ -73,4 +73,9 @@ module.exports = {
     return <span>{text}</span>
   },
 
+  calcScore: ({ expressive, kind, professional }) => {
+    const avg = (expressive + kind + professional) / 3
+    const score = +avg.toFixed(1)
+    return score || ''
+  },
 }

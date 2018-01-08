@@ -90,7 +90,11 @@ const DetailGrid = props => (
           <Segment>
             相关评论：<br />
             {(props.prof.Reviews && props.prof.Reviews[0]) ?
-              <ListReview reviews={props.prof.Reviews} history={props.history} /> :
+              <ListReview
+                reviews={props.prof.Reviews}
+                history={props.history}
+                showReviewTarget
+              /> :
               <div>
                 <br />暂无相关评论~
               </div>

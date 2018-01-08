@@ -5,26 +5,18 @@ import { Card, Header, Image, Icon, Label, Divider, Table } from 'semantic-ui-re
 import moment from 'moment'
 import TableSecondaryStat from '../table/TableSecondaryStat'
 
-const calcScore = ({ expressive, kind, professional }) => {
-  const avg = (expressive + kind + professional) / 3
-  const score = +avg.toFixed(2)
-  return (
-    score || ''
-  )
-}
-
 const CardReviewDetail = props => (
   <Card fluid raised style={{ boxShadow: 'none', padding: '1em' }}>
     <Card.Content>
       <Card.Header>
         <Header as="h4">
           <Image floated="left" size="mini" circular src={props.author.avatar} />
-          <Link to={`/profs/${props.prof.id}`}>{props.prof.name}</Link> 的 <Link to={`/courses/${props.course.id}`}>{props.course.name}</Link>
+          点评 <Link to={`/profs/${props.prof.id}`}>{props.prof.name}</Link> 的 <Link to={`/courses/${props.course.id}`}>{props.course.name}</Link>
         </Header>
       </Card.Header>
       <Card.Meta>
         <span>
-          <span>{props.author.username}</span>
+          <span>{`by ${props.author.username}`}</span>
           <span style={{ float: 'right' }}>{moment(props.review.createdAt).fromNow()}</span>
         </span>
       </Card.Meta>

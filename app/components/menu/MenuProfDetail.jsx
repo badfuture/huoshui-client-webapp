@@ -13,7 +13,7 @@ class MenuProfDetail extends Component {
 
   render() {
     return (
-      <Menu borderless size="large" stackable>
+      <Menu borderless size="large" stackable widths={5}>
         <Menu.Item
           name={STAT}
           active={this.props.currentView === STAT}
