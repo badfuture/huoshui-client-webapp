@@ -20,8 +20,8 @@ class ModalLoginContainer extends Component {
         visible={this.props.modals.loginModalVisible}
         onClose={this.props.closeLoginModal}
         onLogin={this.props.loginUser}
-        onLoginQQ={this.props.loginUserQQ}
-        onLoginWeibo={this.props.loginUserWeibo}
+        onLoginQQ={this.props.loginUserOauth}
+        onLoginWeibo={this.props.loginUserOauth}
         onLoginGithub={this.props.loginUserGithub}
         authStatus={this.props.authStatus}
       />
@@ -39,8 +39,8 @@ const mapStateToProps = state => ({
 const mapActionToProps = dispatch => ({
   closeLoginModal: () => dispatch(modalActions.closeLoginModal()),
   loginUser: creds => dispatch(authActions.loginUser(creds)),
-  loginUserQQ: popup => dispatch(authActions.loginUserQQ(popup)),
-  loginUserWeibo: popup => dispatch(authActions.loginUserWeibo(popup)),
+  loginUserOauth: popup => dispatch(authActions.loginUserOauth(popup)),
+  loginUserOauth: popup => dispatch(authActions.loginUserOauth(popup)),
 })
 
 // set propTypes

@@ -29,9 +29,9 @@ const accountItem = props => (
     { (props.auth.user && props.auth.user.avatar) &&
       <Image src={props.auth.user.avatar} circular size="mini" style={{ marginRight: '0.75em' }} />
     }
-    { (props.auth.user.username) &&
+    { (props.auth.user) &&
       <Dropdown
-        text={`${props.auth.user.username}的账号`}
+        text={`${props.auth.user.username || '无名氏'}的账号`}
       >
         <Dropdown.Menu style={{ marginTop: '0.6em' }}>
           <Dropdown.Item text="我的档案" as={Link} to="/my-profile" />

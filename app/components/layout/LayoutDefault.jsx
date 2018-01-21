@@ -10,34 +10,30 @@ import ModalLoginContainer from '../../containers/modal/ModalLoginContainer'
 import ModalSignupContainer from '../../containers/modal/ModalSignupContainer'
 import ModalAddReviewContainer from '../../containers/modal/ModalAddReviewContainer'
 
-const MainContent = props => (
-  <MenuSidebarContainer>
-    <header className={styles.header}>
-      <MenuHeaderContainer {...props} />
-    </header>
-    <div className={styles.appContent}>
-      <div>
-        {props.children}
-      </div>
-    </div>
-    <AppFooter />
-  </MenuSidebarContainer>
-)
-
-class AppLayout extends Component {
+class LayoutDefault extends Component {
   componentDidMount() {}
   render() {
     return (
       <div className={styles.appContainer}>
         <MenuFloatContainer className={styles.menuFloat} />
-        <Route render={props => <MainContent {...props} {...this.props} />} />
         <ModalPromptSignupContainer />
         <ModalLoginContainer />
         <ModalSignupContainer />
         <ModalAddReviewContainer />
+        <MenuSidebarContainer>
+          <header className={styles.header}>
+            <MenuHeaderContainer {...this.props} />
+          </header>
+          <div className={styles.appContent}>
+            <div>
+              {this.props.children}
+            </div>
+          </div>
+          <AppFooter />
+        </MenuSidebarContainer>
       </div>
     )
   }
 }
 
-export default AppLayout
+export default LayoutDefault

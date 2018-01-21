@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
+import { withRouter } from 'react-router'
 import * as modalActions from '../../actions/modalActions'
 import * as menuActions from '../../actions/menuActions'
 import * as authActions from '../../actions/authActions'
@@ -71,4 +72,4 @@ const mapActionToProps = dispatch => ({
 // set propTypes
 MenuHeaderContainer.propTypes = propTypes
 
-export default connect(mapStateToProps, mapActionToProps)(MenuHeaderContainer)
+export default withRouter(connect(mapStateToProps, mapActionToProps)(MenuHeaderContainer))

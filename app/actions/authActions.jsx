@@ -14,6 +14,7 @@ import {
   closeEditAvatarModal,
  } from './modalActions'
 import getAllParams from '../utils/parseURL'
+import { getCookie, deleteAllCookies } from '../utils/parseCookie'
 
 /**
  * Get latest user info
@@ -130,7 +131,7 @@ export const loginUser = creds =>
    })
   }
 
-export const loginUserQQ = popup =>
+export const loginUserOauth = popup =>
   (dispatch) => {
     dispatch(requestLogin())
     const handle = window.setInterval(() => {
@@ -142,7 +143,11 @@ export const loginUserQQ = popup =>
       }
       let creds = {}
       try {
-        creds = getAllParams(popup.location)
+        const queryParams = getAllParams(popup.location)
+        creds = {
+          token: queryParams.token,
+          user: getCookie('user'),
+        }
       } catch (err) {
         creds = {}
       }
@@ -155,41 +160,7 @@ export const loginUserQQ = popup =>
         }))
         dispatch(closeLoginModal())
         window.clearInterval(handle)
-        popup.close()
-      }
-    }, 100)
-  }
-
-export const loginUserWeibo = popup =>
-  (dispatch) => {
-    dispatch(requestLogin())
-    const handle = window.setInterval(() => {
-      if (!popup || popup.closed) {
-        window.clearInterval(handle)
-        if (!localStore.get('user')) {
-          dispatch(loginError())
-        }
-      }
-      let creds = {}
-      try {
-        creds = getAllParams(popup.location)
-      } catch (err) {
-        creds = {}
-      }
-      if (creds.error) {
-        window.clearInterval(handle)
-        popup.close()
-        dispatch(loginError())
-      }
-      if (creds.token && creds.user) {
-        localStore.set('token', creds.token)
-        localStore.set('user', creds.user)
-        dispatch(receiveLogin({
-          token: creds.token,
-          user: creds.user,
-        }))
-        dispatch(closeLoginModal())
-        window.clearInterval(handle)
+        deleteAllCookies()
         popup.close()
       }
     }, 100)

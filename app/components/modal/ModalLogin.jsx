@@ -70,7 +70,8 @@ class ModalLogin extends Component {
           <Modal.Content>
             <Container>
               <Form
-                loading={isFetching}
+                loading={false}
+                // loading={isFetching} <= disabled, cause this will cause high cpu usage
                 warning={(!!errorMessage) && !isAuthenticated}
                 onSubmit={this.handleSubmit}
               >
