@@ -12,6 +12,7 @@ import ModalAddReviewContainer from '../../containers/modal/ModalAddReviewContai
 
 class LayoutDefault extends Component {
   componentDidMount() {}
+
   render() {
     return (
       <div className={styles.appContainer}>

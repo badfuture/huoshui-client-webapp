@@ -65,7 +65,7 @@ const MenuHeader = props => (
         as={Link} to="/home"
         className="menu-item-plain"
       >
-        <Image src="/images/logo/logo.png" alt="huoshui logo" style={{ width: '3.25em' }} onClick={props.onLogoClick} />
+        <Image src="/images/logo/logo.png" alt="huoshui logo" style={{ width: '3.25em' }} />
         <span
           style={{
             fontSize: '1.65em',
@@ -73,7 +73,6 @@ const MenuHeader = props => (
             color: '#2185d0',
             marginLeft: '0.5em',
           }}
-          onClick={props.onLogoClick}
         >
           活水
         </span>

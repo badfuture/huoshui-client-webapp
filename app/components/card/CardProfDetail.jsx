@@ -30,7 +30,7 @@ const CardProfDetail = props => (
       <Card.Header>
         <Header as="h4">
           <Image floated="left" size="mini" circular src="/images/sample/sample6.png" />
-          <Link to={`/profs/${props.id}`}>老师：{props.name}</Link>
+          <Link to={`/profs/${props.id}`}>{`${props.name} ${props.Position && props.Position.name || ''}`}</Link>
         </Header>
       </Card.Header>
       <Card.Meta>

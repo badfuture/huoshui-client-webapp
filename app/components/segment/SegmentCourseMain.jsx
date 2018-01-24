@@ -10,7 +10,12 @@ import {
 const SegmentCourseMain = props => (
   <Segment attached>
     <Header as="h3">
-      课程：{props.name}
+      <Header.Content>
+        课程：{props.name}
+        <Header.Subheader style={{ marginTop: '0.5em' }}>
+          {props.Depts && props.Depts[0].longname}, {props.School && props.School.name}
+        </Header.Subheader>
+      </Header.Content>
     </Header>
 
     <Table basic="very" columns={2} >
