@@ -9,6 +9,7 @@ import ModalPromptSignupContainer from '../../containers/modal/ModalPromptSignup
 import ModalLoginContainer from '../../containers/modal/ModalLoginContainer'
 import ModalSignupContainer from '../../containers/modal/ModalSignupContainer'
 import ModalAddReviewContainer from '../../containers/modal/ModalAddReviewContainer'
+import NotificationSystem from '../../components/notification/NotificationSystem'
 
 class LayoutDefault extends Component {
   componentDidMount() {}
@@ -16,6 +17,7 @@ class LayoutDefault extends Component {
   render() {
     return (
       <div className={styles.appContainer}>
+        <NotificationSystem />
         <MenuFloatContainer className={styles.menuFloat} />
         <ModalPromptSignupContainer />
         <ModalLoginContainer />

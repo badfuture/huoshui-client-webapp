@@ -13,9 +13,11 @@ import profReducer from './profReducer'
 import statReducer from './statReducer'
 import searchCourseReducer from './searchCourseReducer'
 import searchGlobalReducer from './searchGlobalReducer'
+import { reducer as notifications } from 'react-notification-system-redux'
 
 
 export default combineReducers({
+  notifications,
   auth: authReducers,
   kelists: kelistReducers,
   reviews: reviewsReducer,
