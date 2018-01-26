@@ -162,6 +162,8 @@ const initialState = {
   professional: 3,
   expressive: 3,
   kind: 3,
+  avg: 3.0,
+  classification: '中评',
   text: '',
 
   // optional tags
@@ -231,6 +233,17 @@ class ModalAddReview extends Component {
     })
   }
 
+  getReviewClassification(total) {
+    if (total <= 7) {
+      return '差评'
+    } else if (total >= 11) {
+      return '好评'
+    } else if (total > 7 && total < 11) {
+      return '中评'
+    }
+    return '未知'
+  }
+
   validate() {
     if (!this.props.courseId || !this.state.text) {
       return false
@@ -248,7 +261,19 @@ class ModalAddReview extends Component {
   }
 
 
-  onRate = (e, { name, rating }) => this.setState({ [name]: rating })
+  onRate = (e, { name, rating }) => {
+    this.setState({ [name]: rating })
+
+    // update core stat average
+    const currVal = this.state[name]
+    let avg = this.state.avg
+    avg += (rating - currVal) / 3
+    this.setState({ avg })
+
+    // update core stat classification
+    const classification = this.getReviewClassification(avg * 3)
+    this.setState({ classification })
+  }
 
   onSubmit() {
     if (!this.validate()) {
@@ -350,25 +375,48 @@ class ModalAddReview extends Component {
               />
             </div>
           }
-          <Header as="h4">总体评价</Header>
-          专业：<Rating
-            name="professional"
-            onRate={this.onRate}
-            rating={this.state.professional}
-            maxRating={5} icon="star" size="huge"
-          /><br />
-          表达：<Rating
-            name="expressive"
-            onRate={this.onRate}
-            rating={this.state.expressive}
-            maxRating={5} icon="star" size="huge"
-          /><br />
-          友善：<Rating
-            name="kind"
-            onRate={this.onRate}
-            rating={this.state.kind}
-            maxRating={5} icon="star" size="huge"
-          /><br />
+          <Header as="h4">总体评价 （{this.state.avg.toFixed(1)} / 5.0分 {this.state.classification}）</Header>
+          <Grid divided="vertically" style={{ padding: '0 0.5em' }}>
+            <Grid.Row columns={2}>
+              <Grid.Column width={8}>
+
+                <div style={{ marginBottom: '0.2em' }}>
+                  <span>专业：</span>
+                  <span>
+                    <Rating
+                      name="professional"
+                      onRate={this.onRate}
+                      rating={this.state.professional}
+                      maxRating={5} icon="star" size="huge"
+                    />
+                  </span>
+                </div>
+
+                <div style={{ marginBottom: '0.2em' }}>
+                  <span>表达：</span>
+                  <Rating
+                    name="expressive"
+                    onRate={this.onRate}
+                    rating={this.state.expressive}
+                    maxRating={5} icon="star" size="huge"
+                  />
+                </div>
+
+                <div style={{ marginBottom: '0.2em' }}>
+                  <span>友善：</span>
+                  <Rating
+                    name="kind"
+                    onRate={this.onRate}
+                    rating={this.state.kind}
+                    maxRating={5} icon="star" size="huge"
+                  />
+                </div>
+              </Grid.Column>
+              <Grid.Column textAlign="center" width={8} />
+            </Grid.Row>
+          </Grid>
+
+
           <Header as="h4">短评</Header>
           <Form>
             <TextArea

@@ -6,6 +6,7 @@ import {
   getBirdText,
   getExamText,
 } from '../../utils/StatUtil'
+import PopupExamDetail from '../popup/PopupExamDetail'
 
 const SegmentCourseMain = props => (
   <Segment attached>
@@ -38,15 +39,9 @@ const SegmentCourseMain = props => (
           <Table.Cell style={{ borderTop: '0px' }}>
             <Icon name="bar chart" size="big" color="blue" />
             &nbsp;考试：{props.Stat && getExamText(props.Stat.meanExam)}&nbsp;&nbsp;&nbsp;
-            <Popup
-              trigger={<Label color="blue" basic >详情</Label>}
-              position="bottom center"
-            >
-              <Popup.Header>考试体验</Popup.Header>
-              <Popup.Content>
-                sdd
-              </Popup.Content>
-            </Popup>
+            {(props.Stat && !!props.Stat.meanExam) &&
+              <PopupExamDetail {...props} />
+            }
           </Table.Cell>
         </Table.Row>
       </Table.Body>
