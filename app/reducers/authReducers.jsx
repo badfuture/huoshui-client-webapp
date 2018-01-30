@@ -59,8 +59,12 @@ export default (state = {
         errorMessage: action.message,
       })
     case LOGIN_REQUEST:
+      let isFetching = true
+      if (action.isOauth) {
+        isFetching = false
+      }
       return Object.assign({}, state, {
-        isFetching: true,
+        isFetching,
         isAuthenticated: false,
         token: action.token,
         user: action.user,

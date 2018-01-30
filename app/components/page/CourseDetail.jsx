@@ -102,11 +102,11 @@ const DetailGrid = props => (
 )
 
 
-const ReviewDetail = (props) => {
+const CourseDetail = (props) => {
   if (!props.isFetching) {
     return <DetailGrid {...props} />
   }
   return <Spinner />
 }
 
-export default ReviewDetail
+export default CourseDetail

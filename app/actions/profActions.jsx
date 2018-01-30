@@ -11,6 +11,7 @@ import {
   UNLIKE_PROF_ATTEMPT, UNLIKE_PROF_SUCCESS, UNLIKE_PROF_ERROR,
 } from '../constants/ProfActionTypes'
 import { URL_PROF, URL_USER } from '../constants/ApiEndpoints'
+import * as modalActions from '../actions/modalActions'
 
 export const switchView = view => ({
   type: SWITCH_VIEW,
@@ -59,6 +60,9 @@ export const likeProfError = resp => ({
 export const likeProf = profId =>
   (dispatch) => {
     const user = localStore.get('user')
+    if (!user) {
+      return dispatch(modalActions.openPromptSignupModal())
+    }
     dispatch(likeProfAttempt())
     return axios.put(`${URL_USER}/${user.id}/liked_profs`, {
       profId,

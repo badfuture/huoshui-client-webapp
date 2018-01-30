@@ -92,6 +92,7 @@ class MyProfileContainer extends Component {
                     <GridMyProf
                       items={this.props.user.LikedProfs}
                       itemsPerRow={3}
+                      {...this.props}
                     />
                   }
                   {

@@ -44,7 +44,6 @@ export default class PopupExamDetail extends Component {
                 </Table.Cell>
                 <Table.Cell width={13} >
                   <Progress
-                    percent={countExamPrepYes / (countExamPrepYes + countExamPrepNo) * 100}
                     progress="ratio"
                     value={countExamPrepYes}
                     total={countExamPrepYes + countExamPrepNo}
@@ -61,7 +60,6 @@ export default class PopupExamDetail extends Component {
                 </Table.Cell>
                 <Table.Cell>
                   <Progress
-                    percent={countExamOpenbookYes / (countExamOpenbookYes + countExamOpenbookNo) * 100}
                     progress="ratio"
                     value={countExamOpenbookYes}
                     total={countExamOpenbookYes + countExamOpenbookNo}
@@ -78,7 +76,6 @@ export default class PopupExamDetail extends Component {
                 </Table.Cell>
                 <Table.Cell>
                   <Progress
-                    percent={countExamOldquestionYes / (countExamOldquestionYes + countExamOldquestionNo) * 100}
                     progress="ratio"
                     value={countExamOldquestionYes}
                     total={countExamOldquestionYes + countExamOldquestionNo}
@@ -95,7 +92,6 @@ export default class PopupExamDetail extends Component {
                 </Table.Cell>
                 <Table.Cell>
                   <Progress
-                    percent={countExamEasymarkYes / (countExamEasymarkYes + countExamEasymarkNo) * 100}
                     progress="ratio"
                     value={countExamEasymarkYes}
                     total={countExamEasymarkYes + countExamEasymarkNo}

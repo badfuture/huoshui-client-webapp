@@ -11,6 +11,7 @@ import {
   FETCH_HOT_COURSES_ATTEMPT, FETCH_HOT_COURSES_SUCCESS, FETCH_HOT_COURSES_ERROR,
 } from '../constants/CourseActionTypes'
 import { URL_COURSE, URL_USER } from '../constants/ApiEndpoints'
+import * as modalActions from '../actions/modalActions'
 
 // fetch info for a single course
 export const fetchAttempt = () => ({
@@ -56,6 +57,9 @@ export const likeCourseError = resp => ({
 export const likeCourse = courseId =>
   (dispatch) => {
     const user = localStore.get('user')
+    if (!user) {
+      return dispatch(modalActions.openPromptSignupModal())
+    }
     dispatch(likeCourseAttempt())
     return axios.put(`${URL_USER}/${user.id}/liked_courses`, {
       courseId,

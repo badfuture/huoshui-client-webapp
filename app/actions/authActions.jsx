@@ -95,9 +95,10 @@ export const signupUser = creds =>
 /**
  * Login
  */
-export const requestLogin = creds => ({
+export const requestLogin = (creds, isOauth) => ({
   type: LOGIN_REQUEST,
   creds,
+  isOauth,
 })
 
 export const receiveLogin = ({ token, user }) => ({
@@ -133,7 +134,7 @@ export const loginUser = creds =>
 
 export const loginUserOauth = popup =>
   (dispatch) => {
-    dispatch(requestLogin())
+    dispatch(requestLogin(null, true))
     const handle = window.setInterval(() => {
       if (!popup || popup.closed) {
         window.clearInterval(handle)
