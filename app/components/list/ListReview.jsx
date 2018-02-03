@@ -18,12 +18,12 @@ const classificationLabel = (val) => {
   )
 }
 
-const reviewActions = (props) => {
+const reviewActions = (review) => {
   const colorLiked = UserUtil.isReviewLiked() ? 'blue' : 'grey'
   return (
     <span style={{ float: 'right', padding: '8px' }}>
-      <Icon name="thumbs outline up" size="small" color={colorLiked} />12&nbsp;&nbsp;&nbsp;
-      <Icon name="thumbs outline down" size="small" />4
+      <Icon name="thumbs outline up" size="small" color={colorLiked} />{review.upVote}&nbsp;&nbsp;&nbsp;
+      <Icon name="thumbs outline down" size="small" />{review.downVote}
     </span>
   )
 }
@@ -69,7 +69,7 @@ const ListReview = props => (
                   style={{ backgroundColor: 'rgba(77, 157, 217, 0.78)', color: 'white' }}
                 >{tag.name}</Label>
               ))}
-              {reviewActions()}
+              {reviewActions(review)}
             </div>
 
           </Item.Extra>

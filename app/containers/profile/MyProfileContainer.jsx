@@ -42,6 +42,12 @@ class MyProfileContainer extends Component {
   }
 
   render() {
+    const showReview = this.state.activeTab === 'review' &&
+                        this.props.user && this.props.user.Reviews && !!this.props.user.Reviews.length
+    const showCourse = this.state.activeTab === 'course' &&
+                        this.props.user && this.props.user.LikedCourses && !!this.props.user.LikedCourses.length
+    const showProf = this.state.activeTab === 'prof' &&
+                        this.props.user && this.props.user.LikedProfs && !!this.props.user.LikedProfs.length
     return (
       <div className="container-main-grey">
         <Container>
@@ -59,14 +65,14 @@ class MyProfileContainer extends Component {
                     activeTab={this.state.activeTab}
                   />
                   {
-                    (this.state.activeTab === 'review' && this.props.user.Reviews.length != 0) &&
+                    (showReview) &&
                     <GridMyReview
                       items={this.props.user.Reviews}
                       itemsPerRow={3}
                     />
                   }
                   {
-                    (this.state.activeTab === 'review' && this.props.user.Reviews.length == 0) &&
+                    (!showReview && this.state.activeTab === 'review') &&
                     <SegmentEmptyProfile
                       header="我的课评"
                       subheader="在课程页或右边栏发起的点评"
@@ -74,21 +80,21 @@ class MyProfileContainer extends Component {
                   }
 
                   {
-                    (this.state.activeTab === 'course' && this.props.user.LikedCourses.length != 0) &&
+                    (showCourse) &&
                     <GridCourse
                       items={this.props.user.LikedCourses}
                       itemsPerRow={3}
                     />
                   }
                   {
-                    (this.state.activeTab === 'course' && this.props.user.Reviews.length == 0) &&
+                    (!showCourse && this.state.activeTab === 'course') &&
                     <SegmentEmptyProfile
                       header="我喜欢的课程"
                       subheader="在课程页点击过喜欢的课程"
                     />
                   }
                   {
-                    (this.state.activeTab === 'prof' && this.props.user.LikedProfs.length != 0) &&
+                    (showProf) &&
                     <GridMyProf
                       items={this.props.user.LikedProfs}
                       itemsPerRow={3}
@@ -96,21 +102,21 @@ class MyProfileContainer extends Component {
                     />
                   }
                   {
-                    (this.state.activeTab === 'prof' && this.props.user.LikedProfs.length == 0) &&
+                    (!showProf && this.state.activeTab === 'prof') &&
                     <SegmentEmptyProfile
                       header="我喜欢的老师"
                       subheader="在教授档案里点击过喜欢的老师"
                     />
                   }
                   {
-                    (this.state.activeTab === 'kelist' && this.props.user.LikedProfs.length == 0) &&
+                    (this.state.activeTab === 'kelist') &&
                     <SegmentEmptyProfile
                       header="我的课列"
                       subheader="我收藏或创建的课列"
                     />
                   }
                   {
-                    (this.state.activeTab === 'message' && this.props.user.Reviews.length == 0) &&
+                    (this.state.activeTab === 'message') &&
                     <SegmentEmptyProfile
                       header="我的消息"
                       subheader="我收到评论的课评"

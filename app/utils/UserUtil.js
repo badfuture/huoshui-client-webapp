@@ -7,7 +7,7 @@ module.exports = {
     let isLiked = false
     const user = getUserInfo()
     if (!user) {
-      isLiked = false
+      return false
     }
     const likedReviews = user.LikedReviews
     const matches = likedReviews.filter(review => review.id == reviewId)
