@@ -6,6 +6,7 @@ import { Provider } from 'react-redux'
 import localStore from 'store'
 import axios from 'axios'
 import moment from 'moment'
+import ReactGA from 'react-ga'
 import { DOMAIN } from '../constants/ApiEndpoints'
 import configStore from './AppStore'
 import LayoutDefault from '../components/layout/LayoutDefault'
@@ -41,6 +42,9 @@ if (localStore.get('token')) {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`
 }
 
+// set google analytics
+ReactGA.initialize('UA-75590488-5')
+
 // set top progress bar
 Pace.start()
 
@@ -49,35 +53,42 @@ moment().locale('zh-cn')
 
 // set store singleton for Redux
 const store = configStore()
-// not supporting localstore yet, will be lots of bugs!!
-// persistStore(store)
+
+function Analytics(props) {
+  ReactGA.set({ page: props.location.pathname + props.location.search })
+  ReactGA.pageview(props.location.pathname + props.location.search)
+  return null
+}
 
 const AppRoutes = () => (
   <Provider store={store}>
     <Router >
-      <Switch>
-        <AppRoute exact path="/" layout={LayoutDefault} component={HomeContainer} />
-        <AppRoute exact path="/home" layout={LayoutDefault} component={HomeContainer} />
-        <AppRoute exact path="/profs/:id" layout={LayoutDefault} component={ProfDetailContainer} />
-        <AppRoute exact path="/courses/:id" layout={LayoutDefault} component={CourseDetailContainer} />
-        <AppRoute exact path="/reviews" layout={LayoutDefault} component={ReviewContainer} />
-        <AppRoute exact path="/reviews/:id" layout={LayoutDefault} component={ReviewDetailsContainer} />
-        <AppRoute exact path="/new-review" layout={LayoutDefault} component={AddReviewContainer} />
-        <AppRoute exact path="/rankings" layout={LayoutDefault} component={RankContainer} />
-        <AppRoute exact path="/rankings/:id" layout={LayoutDefault} component={RankDetailsContainer} />
-        <AppRoute exact path="/kelists" layout={LayoutDefault} component={KelistContainer} />
-        <AppRoute exact path="/depts" layout={LayoutDefault} component={DeptsContainer} />
-        <AppRoute exact path="/depts/:id" layout={LayoutDefault} component={DeptDetailContainer} />
-        <AppRoute exact path="/my-review" layout={LayoutDefault} component={MyReviewContainer} />
-        <AppRoute exact path="/my-kelist" layout={LayoutDefault} component={MyKelistContainer} />
-        <AppRoute exact path="/my-prof" layout={LayoutDefault} component={MyProfContainer} />
-        <AppRoute exact path="/my-reply" layout={LayoutDefault} component={MyReplyContainer} />
-        <AppRoute exact path="/my-profile" layout={LayoutDefault} component={MyProfileContainer} />
-        <AppRoute exact path="/feedback" layout={LayoutDefault} component={FeedbackContainer} />
-        <AppRoute exact path="/oauth_error" layout={LayoutBasic} component={PageOauthError} />
-        <AppRoute exact path="/oauth_success" layout={LayoutBasic} component={PageOauthSuccess} />
-        <AppRoute layout={LayoutDefault} component={PageNotFound} />
-      </Switch>
+      <div>
+        <Route path="/" component={Analytics} />
+        <Switch>
+          <AppRoute exact path="/" layout={LayoutDefault} component={HomeContainer} />
+          <AppRoute exact path="/home" layout={LayoutDefault} component={HomeContainer} />
+          <AppRoute exact path="/profs/:id" layout={LayoutDefault} component={ProfDetailContainer} />
+          <AppRoute exact path="/courses/:id" layout={LayoutDefault} component={CourseDetailContainer} />
+          <AppRoute exact path="/reviews" layout={LayoutDefault} component={ReviewContainer} />
+          <AppRoute exact path="/reviews/:id" layout={LayoutDefault} component={ReviewDetailsContainer} />
+          <AppRoute exact path="/new-review" layout={LayoutDefault} component={AddReviewContainer} />
+          <AppRoute exact path="/rankings" layout={LayoutDefault} component={RankContainer} />
+          <AppRoute exact path="/rankings/:id" layout={LayoutDefault} component={RankDetailsContainer} />
+          <AppRoute exact path="/kelists" layout={LayoutDefault} component={KelistContainer} />
+          <AppRoute exact path="/depts" layout={LayoutDefault} component={DeptsContainer} />
+          <AppRoute exact path="/depts/:id" layout={LayoutDefault} component={DeptDetailContainer} />
+          <AppRoute exact path="/my-review" layout={LayoutDefault} component={MyReviewContainer} />
+          <AppRoute exact path="/my-kelist" layout={LayoutDefault} component={MyKelistContainer} />
+          <AppRoute exact path="/my-prof" layout={LayoutDefault} component={MyProfContainer} />
+          <AppRoute exact path="/my-reply" layout={LayoutDefault} component={MyReplyContainer} />
+          <AppRoute exact path="/my-profile" layout={LayoutDefault} component={MyProfileContainer} />
+          <AppRoute exact path="/feedback" layout={LayoutDefault} component={FeedbackContainer} />
+          <AppRoute exact path="/oauth_error" layout={LayoutBasic} component={PageOauthError} />
+          <AppRoute exact path="/oauth_success" layout={LayoutBasic} component={PageOauthSuccess} />
+          <AppRoute layout={LayoutDefault} component={PageNotFound} />
+        </Switch>
+      </div>
     </Router>
   </Provider>
 )

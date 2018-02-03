@@ -62,7 +62,7 @@ const mapStateToProps = state => ({
 
 // map redux actions to prop
 const mapActionToProps = dispatch => ({
-  uploadAvatar: formData => dispatch(authActions.uploadAvatar(formData)),
+  uploadAvatar: dataURL => dispatch(authActions.uploadAvatar(dataURL)),
   openEditAvatarModal: () => {
     if (localStore.get('token')) {
       dispatch(modalActions.openEditAvatarModal())
