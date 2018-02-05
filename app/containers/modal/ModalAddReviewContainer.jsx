@@ -3,6 +3,8 @@ import { connect } from 'react-redux'
 import * as modalActions from '../../actions/modalActions'
 import * as searchCourseActions from '../../actions/searchCourseActions'
 import ModalAddReview from '../../components/modal/ModalAddReview'
+import { success, info, error } from 'react-notification-system-redux'
+import Messages from '../../constants/NotificationMessages'
 
 class ModalAddReviewContainer extends Component {
   componentDidMount() {
@@ -15,6 +17,8 @@ class ModalAddReviewContainer extends Component {
         searchVisible={this.props.searchVisible}
         courseId={this.props.courseId}
         resetSearchCourse={this.props.resetSearchCourse}
+        promptReviewSuccess={this.props.promptReviewSuccess}
+        promptReviewTwice={this.props.promptReviewTwice}
       />
     )
   }
@@ -41,6 +45,8 @@ const mapStateToProps = (state) => {
 const mapActionToProps = dispatch => ({
   closeAddReviewModal: () => dispatch(modalActions.closeAddReviewModal()),
   resetSearchCourse: () => dispatch(searchCourseActions.resetComponent()),
+  promptReviewSuccess: () => dispatch(info(Messages.addReviewSuccess)),
+  promptReviewTwice: () => dispatch(error(Messages.addReviewTwice)),
 })
 
 

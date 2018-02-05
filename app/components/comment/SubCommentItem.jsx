@@ -1,9 +1,6 @@
 import React, { Component } from 'react'
-import { Comment } from 'semantic-ui-react'
+import { Comment, Image } from 'semantic-ui-react'
 import moment from 'moment'
-
-const srcImage = '/images/sample/sample2.png'
-
 
 class SubCommentItem extends Component {
   constructor() {
@@ -26,7 +23,7 @@ class SubCommentItem extends Component {
     return (
       <Comment.Group style={{ paddingTop: '0.25em', paddingBottom: '0.5em', marginTop: '0.5em' }}>
         <Comment>
-          <Comment.Avatar src={srcImage} />
+          <Comment.Avatar as={Image} circular src={this.props.Author.avatarSmall} />
           <Comment.Content>
             <Comment.Author as="a">{this.props.Author.username}</Comment.Author>
             <Comment.Metadata>

@@ -33,6 +33,7 @@ import MyProfContainer from '../containers/prof/MyProfContainer'
 import MyReplyContainer from '../containers/reply/MyReplyContainer'
 import MyProfileContainer from '../containers/profile/MyProfileContainer'
 import Pace from '../components/progress/pace'
+import Term from '../components/page/Terms'
 
 // set global config for Http requests
 axios.defaults.baseURL = DOMAIN
@@ -86,6 +87,7 @@ const AppRoutes = () => (
           <AppRoute exact path="/feedback" layout={LayoutDefault} component={FeedbackContainer} />
           <AppRoute exact path="/oauth_error" layout={LayoutBasic} component={PageOauthError} />
           <AppRoute exact path="/oauth_success" layout={LayoutBasic} component={PageOauthSuccess} />
+          <AppRoute exact path="/terms" layout={LayoutDefault} component={Term} />
           <AppRoute layout={LayoutDefault} component={PageNotFound} />
         </Switch>
       </div>

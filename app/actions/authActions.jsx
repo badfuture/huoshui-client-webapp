@@ -89,10 +89,13 @@ export const SignupError = message => ({
 export const signupUser = creds =>
   (dispatch) => {
     dispatch(requestSignup(creds))
+    const { username, email, firstYear, deptId, password } = creds
     return axios.post(`${URL_SIGNUP}`, {
-      username: `${creds.username}`,
-      email: `${creds.email}`,
-      password: `${creds.password}`,
+      username,
+      email,
+      firstYear,
+      deptId,
+      password,
     })
    .then((resp) => {
      const data = resp.data
@@ -158,12 +161,15 @@ export const loginUserOauth = popup =>
         }
       }
       let creds = {}
+      // console.log('user', getCookie('user'))
       try {
         const queryParams = getAllParams(popup.location)
+      //  console.log('queryParams', queryParams)
         creds = {
           token: queryParams.token,
           user: getCookie('user'),
         }
+      //  console.log('creds', creds)
       } catch (err) {
         creds = {}
       }
@@ -176,7 +182,7 @@ export const loginUserOauth = popup =>
         }))
         dispatch(closeLoginModal())
         window.clearInterval(handle)
-        deleteAllCookies()
+        // deleteAllCookies()
         popup.close()
       }
     }, 100)
@@ -238,7 +244,7 @@ const dataURItoBlob = (dataURI) => {
 export const uploadAvatar = dataURL =>
   (dispatch) => {
     const file = dataURItoBlob(dataURL)
-    if ((file.size - (1024 * 1024 * 1)) > 0) {
+    if ((file.size - (1024 * 1024 * 5)) > 0) {
       dispatch(error(Messages.uploadAvatarError))
       return
     }

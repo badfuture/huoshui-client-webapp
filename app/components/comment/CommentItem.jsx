@@ -4,8 +4,6 @@ import moment from 'moment'
 import SubCommentItem from './SubCommentItem'
 import FormComment from '../form/FormComment'
 
-const srcImage = '/images/sample/sample2.png'
-
 class CommentItem extends Component {
   constructor() {
     super()
@@ -27,7 +25,7 @@ class CommentItem extends Component {
     const { isReplyFormVisible } = this.state
     return (
       <Comment>
-        <Comment.Avatar as={Image} circular src={srcImage} />
+        <Comment.Avatar as={Image} circular src={this.props.Author.avatarSmall} />
         <Comment.Content>
           <Comment.Author as="a">{this.props.Author.username}</Comment.Author>
           <Comment.Metadata>

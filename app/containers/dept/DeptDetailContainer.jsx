@@ -10,7 +10,9 @@ class DeptsDetailContainer extends Component {
   componentDidUpdate(prevProps) {
     const oldId = prevProps.match.params.id
     const newId = this.props.match.params.id
-    if (newId !== oldId) { this.props.reset() }
+    if (newId !== oldId) {
+      this.props.reset()
+    }
   }
   componentWillUnmount() {
     this.props.reset()

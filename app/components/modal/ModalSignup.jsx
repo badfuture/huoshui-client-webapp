@@ -1,7 +1,10 @@
 import React, { PropTypes, Component } from 'react'
-import { Button, Icon, Divider, Modal, Form, Input, Container, Message } from 'semantic-ui-react'
-import { DOMAIN } from '../../constants/ApiEndpoints'
+import { Header, Button, Icon, Divider, Modal, Form, Input, Container, Message } from 'semantic-ui-react'
+import axios from 'axios'
+import { Link } from 'react-router-dom'
+import { DOMAIN, URL_DEPT } from '../../constants/ApiEndpoints'
 import openPopup from '../../utils/openOauthPopup'
+import profileOptions from '../../data/user_profile_options'
 
 const propTypes = {
   visible: PropTypes.bool.isRequired,
@@ -12,10 +15,20 @@ const propTypes = {
 
 class ModalSignup extends Component {
   state = {
+    // basic info
     username: '',
     email: '',
+
+    // education options
+    deptOptions: [],
+    deptChosen: null,
+    isFetchingDepts: false,
+
+    // password
     password: '',
     password2: '',
+
+    // meta
     showWarning: false,
   }
 
@@ -23,7 +36,7 @@ class ModalSignup extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
-    const { username, email, password, password2 } = this.state
+    const { username, email, firstYear, deptChosen: deptId, password, password2 } = this.state
     if (!username || !email || !password || password !== password2) {
       this.setState({ showWarning: true })
     } else {
@@ -31,6 +44,8 @@ class ModalSignup extends Component {
         username,
         email,
         password,
+        firstYear,
+        deptId,
       })
     }
   }
@@ -60,6 +75,30 @@ class ModalSignup extends Component {
     this.props.onLoginWeibo(popup)
   }
 
+  // handle dept dropdown
+  handleDeptChange = (e, { value }) => {
+    this.setState({ deptChosen: value })
+  }
+
+  getDeptOptions = () => {
+    if (this.state.deptOptions.length !== 0) {
+      return
+    }
+    this.setState({ isFetchingDepts: true })
+    axios.get(`${URL_DEPT}`)
+    .then((res) => {
+      const deptOptions = res.data.map(dept => ({
+        key: dept.id,
+        text: `${dept.longname}`,
+        value: dept.id,
+      }))
+      this.setState({
+        deptOptions,
+        isFetchingDepts: false,
+      })
+    })
+  }
+
   render() {
     const { username, email, password, password2, showWarning } = this.state
     const { isFetching, errorMessage, isAuthenticated } = this.props.authStatus
@@ -76,13 +115,17 @@ class ModalSignup extends Component {
           <Modal.Header>
             加入活水
           </Modal.Header>
-          <Modal.Content>
+          <Modal.Content style={{ paddingTop: '0.5em' }}>
             <Container>
               <Form
                 loading={isFetching}
                 warning={(errorMessage !== '' || showWarning) && !isAuthenticated}
                 onSubmit={this.handleSubmit}
               >
+                <Header
+                  size="small" content="基本信息" disabled
+                  style={{ marginTop: '0.5em' }}
+                />
                 <Form.Field>
                   <Input icon="user outline" name="username" value={username} iconPosition="left" placeholder="昵称" onChange={this.handleChange} />
                 </Form.Field>
@@ -95,31 +138,64 @@ class ModalSignup extends Component {
                 <Form.Field>
                   <Input icon="key" name="password2" value={password2} iconPosition="left" placeholder="确认密码" type="password" onChange={this.handleChange} />
                 </Form.Field>
+
+                <Header
+                  size="small" content="教育档案" disabled
+                />
+                <Form.Field>
+                  <Form.Dropdown
+                    placeholder="学院" fluid selection
+                    options={this.state.deptOptions}
+                    onOpen={this.getDeptOptions}
+                    loading={this.state.isFetchingDepts}
+                    onChange={this.handleDeptChange}
+                    value={this.state.deptChosen}
+                  />
+                </Form.Field>
+                <Form.Field>
+                  <Form.Dropdown
+                    fluid selection options={profileOptions.year} placeholder="年级"
+                    name="firstYear"
+                    onChange={this.handleChange}
+                  />
+                </Form.Field>
+
                 <Message
                   warning
                   header="你肯定填错了什么！"
                 />
                 <Button primary fluid type="submit" >注册</Button>
               </Form>
+
+              <Header
+                size="small"
+                disabled
+                style={{ marginTop: '2em' }}
+              >
+                注册即代表你同意<Link to={`/terms`} target="_blank">《活水协议》</Link>
+              </Header>
+              <div
+                style={{
+                  position: 'absolute',
+                  right: '2em',
+                  bottom: '2em',
+                }}
+              >
+                <Button
+                  color="twitter"
+                  icon={<Icon name="qq" />}
+                  circular
+                  onClick={this.handleClickQQ.bind(this)}
+                />&nbsp;
+                <Button
+                  color="google plus"
+                  icon={<Icon name="weibo" />}
+                  circular
+                  onClick={this.handleClickWeibo.bind(this)}
+                />&nbsp;
+              </div>
+
             </Container>
-
-            <Divider horizontal>Or</Divider>
-
-            <Container textAlign="center">
-              <Button
-                color="twitter"
-                icon={<Icon name="qq" />}
-                circular
-                onClick={this.handleClickQQ.bind(this)}
-              />&nbsp;
-              <Button
-                color="google plus"
-                icon={<Icon name="weibo" />}
-                circular
-                onClick={this.handleClickWeibo.bind(this)}
-              />&nbsp;
-            </Container>
-
           </Modal.Content>
         </Modal>
       </div>

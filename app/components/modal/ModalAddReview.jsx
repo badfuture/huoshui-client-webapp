@@ -337,12 +337,24 @@ class ModalAddReview extends Component {
     axios.post(`${URL_REVIEW}`, payload)
     .then((res) => {
       // show success modal
+      this.props.promptReviewSuccess()
+      setTimeout(() => {
+        window.location.reload()
+      }, 3000)
       this.reset()
       this.props.onClose()
     })
     .catch((err) => {
       // submit failed show dialog
-      this.props.onClose()
+      if (err) {
+        this.props.onClose()
+        const errData = err.response.data
+        const errCode = errData.error.code
+        if (errCode == 'ReviewSameCourseTwice') {
+          this.props.onClose()
+          this.props.promptReviewTwice()
+        }
+      }
     })
   }
 

@@ -6,33 +6,39 @@ import MenuProfDetail from '../../components/menu/MenuProfDetail'
 import RatingBasic from '../../components/rating/RatingBasic'
 import ListReview from '../../components/list/ListReview'
 import SegmentRatingCharts from '../../components/segment/SegmentRatingCharts'
+import SegmentNoReview from '../../components/segment/SegmentNoReview'
+import _ from 'lodash'
 
 import {
   INFO, STAT, EDUCATION, RESEARCH, COURSE,
 } from '../../constants/MenuProfStates'
 
-const CourseList = props => (
-  <Item.Group divided>
-    {props.courses.map(course => (
-      <Item
-        key={course.id}
-        onClick={() => { props.history.push(`/courses/${course.id}`) }}
-        style={{ padding: '5px 0px' }}
-      >
-        <Item.Content>
-          <Item.Meta>
-            <span>{course.name}</span>
-          </Item.Meta>
-          <Item.Extra>
-            <div style={{ marginTop: '0em' }}>
-              <RatingBasic value={course.scoreOverall} />
-            </div>
-          </Item.Extra>
-        </Item.Content>
-      </Item>
-    ))}
-  </Item.Group>
-)
+const CourseList = (props) => {
+  const courses = _.orderBy(props.courses, ['scoreOverall'], ['desc'])
+  return (
+    <Item.Group divided>
+      {courses.map(course => (
+        <Item
+          key={course.id}
+          onClick={() => { props.history.push(`/courses/${course.id}`) }}
+          style={{ padding: '5px 0px' }}
+        >
+          <Item.Content>
+            <Item.Meta>
+              <span>{course.name}</span>
+            </Item.Meta>
+            <Item.Extra>
+              <div style={{ marginTop: '0em' }}>
+                <RatingBasic value={course.scoreOverall} />
+              </div>
+            </Item.Extra>
+          </Item.Content>
+        </Item>
+      ))}
+    </Item.Group>
+  )
+}
+
 
 const DetailGrid = props => (
   <div>
@@ -65,12 +71,12 @@ const DetailGrid = props => (
           }
           {
             (props.currentView === EDUCATION) && <Segment>
-              {props.prof.education ? props.prof.education : '暂无教育成果信息～'}
+              {props.prof.education ? props.prof.education : '暂无教育成果信息(⊙﹏⊙)'}
             </Segment>
           }
           {
             (props.currentView === RESEARCH) && <Segment>
-              {props.prof.research ? props.prof.research : '暂无研究方向信息～'}
+              {props.prof.research ? props.prof.research : '暂无研究方向信息(⊙﹏⊙)'}
             </Segment>
           }
           {
@@ -78,7 +84,7 @@ const DetailGrid = props => (
               {(props.prof.Courses && props.prof.Courses[0]) ?
                 <CourseList courses={props.prof.Courses} history={props.history} /> :
                 <div>
-                  <br />暂无相关课程信息~
+                  <br />暂无相关课程信息(⊙﹏⊙)
                 </div>
               }
             </Segment>
@@ -87,19 +93,18 @@ const DetailGrid = props => (
             horizontal
             style={{ margin: '1.0em 0em' }}
           />
-          <Segment>
-            相关评论：<br />
-            {(props.prof.Reviews && props.prof.Reviews[0]) ?
+          {(props.prof.Reviews && props.prof.Reviews[0]) ?
+            <Segment>
+              相关评论：<br />
               <ListReview
                 reviews={props.prof.Reviews}
                 history={props.history}
                 showReviewTarget
-              /> :
-              <div>
-                <br />暂无相关评论~
-              </div>
-            }
-          </Segment>
+              />
+            </Segment>
+            :
+            <SegmentNoReview />
+          }
         </Grid.Column>
       </Grid.Row>
     </Grid>

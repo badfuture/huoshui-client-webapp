@@ -19,5 +19,25 @@ module.exports = {
       callback: () => {},
     },
   },
+  addReviewSuccess: {
+    title: '评价已收到，谢谢你的参与！',
+    message: '改变来源于积累，你的点滴声音大家都在乎',
+    position: 'bc',
+    autoDismiss: 0,
+    action: {
+      label: '知道了',
+      callback: () => {},
+    },
+  },
+  addReviewTwice: {
+    title: '发送评价',
+    message: '一位老师的课只能评一次，你的发言将成为大家的参考，请认真对待噢！',
+    position: 'bc',
+    autoDismiss: 0,
+    action: {
+      label: '确定',
+      callback: () => {},
+    },
+  },
 
 }

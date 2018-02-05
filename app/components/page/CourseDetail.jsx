@@ -6,6 +6,7 @@ import SegmentCourseMain from '../../components/segment/SegmentCourseMain'
 import CardProfDetail from '../../components/card/CardProfDetail'
 import SegmentRatingCharts from '../../components/segment/SegmentRatingCharts'
 import ListReview from '../../components/list/ListReview'
+import SegmentNoReview from '../../components/segment/SegmentNoReview'
 
 const DetailGrid = props => (
   <div>
@@ -82,16 +83,16 @@ const DetailGrid = props => (
             />
           </Button.Group>
           <SegmentRatingCharts {...props.course} />
-          <Segment>
-            相关评论：<br />
-            {(props.course.Reviews && props.course.Reviews[0]) ?
-              <ListReview reviews={props.course.Reviews} history={props.history} /> :
-              <div>
-                <br />暂无相关评论~
-              </div>
-            }
 
-          </Segment>
+
+          {(props.course.Reviews && props.course.Reviews[0]) ?
+            <Segment>
+              相关评论：<br />
+              <ListReview reviews={props.course.Reviews} history={props.history} />
+            </Segment>
+            :
+            <SegmentNoReview />
+          }
         </Grid.Column>
         <Grid.Column width={5} style={{ paddingLeft: '1.0rem' }}>
           <CardProfDetail {...props.course.Prof} history={props.history} />
