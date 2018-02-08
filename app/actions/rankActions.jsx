@@ -48,8 +48,8 @@ export const initializeRankList = meta =>
 (dispatch, getState) => {
   const { currentView } = getState().reviews
   const { type, sort } = meta
-  const URL = (type === 'course') ? URL_COURSE : URL_COURSE
-  const populate = (type === 'course') ? '[Prof,School,Depts,Stat]' : '[Position,School,Depts, Stat]'
+  const URL = (type === 'course') ? URL_COURSE : URL_PROF
+  const populate = (type === 'course') ? '[Prof,School,Depts,Stat]' : '[Position,School,Depts,Stat]'
 
   dispatch(fetchRankListAttempt())
   return (

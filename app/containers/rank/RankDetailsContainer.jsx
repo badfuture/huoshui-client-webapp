@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Container, Header, Icon, Divider, Grid } from 'semantic-ui-react'
+import { Container, Header, Icon, Divider, Grid, Segment } from 'semantic-ui-react'
 import * as rankActions from '../../actions/rankActions'
 import ListCourse from '../../components/list/ListCourse'
+import TableCourseStandard from '../../components/table/TableCourseStandard'
+import TableProfStandard from '../../components/table/TableProfStandard'
 import rankMeta from '../../data/rank.json'
 import deptMeta from '../../data/dept.json'
 import Spinner from '../../components/spinner/Spinner'
@@ -18,7 +20,7 @@ class RankDetailsContainer extends Component {
     return (
       <div className="container-main">
         <Container>
-          <Header as="h2">
+          <Header as="h2" color="blue">
             <Icon name="remove bookmark" />
             <Header.Content>
               {this.props.meta.header}
@@ -29,8 +31,11 @@ class RankDetailsContainer extends Component {
           <Grid stackable>
             <Grid.Row>
               <Grid.Column width={11} style={{ paddingRight: '3.5rem' }}>
-                {!this.props.isFetching &&
-                  <ListCourse {...this.props} />
+                {(!this.props.isFetching && (this.props.meta.type == 'course')) &&
+                  <TableCourseStandard {...this.props} />
+                }
+                {(!this.props.isFetching && (this.props.meta.type == 'prof')) &&
+                  <TableProfStandard {...this.props} />
                 }
                 {this.props.isFetching &&
                   <div style={{ marginTop: '5em' }} >
@@ -39,32 +44,36 @@ class RankDetailsContainer extends Component {
                 }
               </Grid.Column>
               <Grid.Column width={5} style={{ paddingLeft: '1.0rem' }}>
-                <Header as="h3" style={{ fontWeight: 400 }}>
-                  <Header.Content>
-                    {'分类排行 · · · · · ·'}
-                  </Header.Content>
-                </Header>
-                <div>
-                  {deptMeta.map(
-                    dept => (
-                      <span style={{ display: 'inline-block', margin: '5px 10px 5px 0', minWidth: '36px' }}>
-                        {dept.header}
-                      </span>
-                    ),
-                  )}
-                </div>
-                <Divider hidden />
-                <Header as="h3" style={{ fontWeight: 400 }}>
-                  <Header.Content>
-                    {'关于排行 · · · · · ·'}
-                  </Header.Content>
-                </Header>
-                <p>
-                  {`${this.props.meta.header
+                <Segment color="blue" style={{ paddingTop: '1.5em' }} >
+                  <Header as="h3" style={{ fontWeight: 400 }}>
+                    <Header.Content>
+                      {'分类排行 · · · · · ·'}
+                    </Header.Content>
+                  </Header>
+                  <div>
+                    {
+                      deptMeta.map(
+                        dept => (
+                          <span style={{ display: 'inline-block', margin: '5px 10px 5px 0', minWidth: '36px' }}>
+                            {dept.header}
+                          </span>
+                        ),
+                      )
+                    }
+                  </div>
+                  <Divider hidden />
+                  <Header as="h3" style={{ fontWeight: 400 }}>
+                    <Header.Content>
+                      {'关于排行 · · · · · ·'}
+                    </Header.Content>
+                  </Header>
+                  <p>
+                    {`${this.props.meta.header
                    }的排名来自于每一个活水用户的评价。`
                   + `活水根据每门课上过的人数以及该课程或老师所得的评价等综合数据，`
                   + `通过算法分析自动生成即时排名。`}
-                </p>
+                  </p>
+                </Segment>
               </Grid.Column>
             </Grid.Row>
           </Grid>

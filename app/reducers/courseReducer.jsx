@@ -21,7 +21,10 @@ export const courseReducer = (state = {
       const course = action.resp.data
       const countLiked = course.LikedUsers && course.LikedUsers.length
       const thisUser = store.get('user')
-      const isLiked = course.LikedUsers.filter(user => thisUser.id === user.id).length != 0
+      let isLiked = false
+      if (thisUser) {
+        isLiked = course.LikedUsers.filter(user => thisUser.id === user.id).length != 0
+      }
 
       return Object.assign({}, state, {
         isFetching: false,

@@ -7,7 +7,11 @@ const RatingBasic = props => (
   <span>
     <Rater interactive={false} rating={props.value} total={5} />
     { !!props.value &&
-      ` ${props.value.toFixed(1)}分`
+      ` ${props.value.toFixed(1)}`
+    }
+    {
+      !props.hideFen &&
+      `分`
     }
   </span>
 )
