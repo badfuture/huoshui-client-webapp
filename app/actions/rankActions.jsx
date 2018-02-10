@@ -8,16 +8,21 @@ import { URL_COURSE, URL_PROF } from '../constants/ApiEndpoints'
 /**
  * get API URL
  */
-const getAPIParams = ({ limit = 50, skip = 0, sort, populate }) => {
+const getAPIParams = ({ limit = 50, skip = 0, sort, populate, shortname }) => {
   const res = {
     params: {
       paginate: true,
+      reviewedOnly: true,
       populate,
       sort,
       limit,
       skip,
     },
   }
+  if (shortname) {
+    res.params['$Depts.shortname$'] = shortname
+  }
+
   return res
 }
 
@@ -44,7 +49,7 @@ export const switchView = (view, meta) => ({
   meta,
 })
 
-export const initializeRankList = meta =>
+export const initializeRankList = (meta, deptShortname) =>
 (dispatch, getState) => {
   const { currentView } = getState().reviews
   const { type, sort } = meta
@@ -58,6 +63,7 @@ export const initializeRankList = meta =>
         currentView,
         sort,
         populate,
+        shortname: deptShortname,
       }))
       .then((resp) => {
         dispatch(fetchRankListSuccess(resp))

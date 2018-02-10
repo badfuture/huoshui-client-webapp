@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Container, Header, Icon, Divider, Grid, Segment } from 'semantic-ui-react'
+import { Container, Header, Icon, Divider, Grid, Segment, Label } from 'semantic-ui-react'
 import * as rankActions from '../../actions/rankActions'
 import ListCourse from '../../components/list/ListCourse'
 import TableCourseStandard from '../../components/table/TableCourseStandard'
@@ -10,20 +10,48 @@ import deptMeta from '../../data/dept.json'
 import Spinner from '../../components/spinner/Spinner'
 
 class RankDetailsContainer extends Component {
+  state = {
+    deptSelected: null,
+  }
+
   componentDidMount() {
     const view = this.props.match.params.id
     const meta = rankMeta.filter(item => item.id === this.props.match.params.id)[0]
     this.props.switchView(view, meta)
     this.props.initializeRankList(meta)
   }
+
+  loadDeptList = (dept) => {
+    const meta = rankMeta.filter(item => item.id === this.props.match.params.id)[0]
+    const deptShortname = dept.header
+    if (this.state.deptSelected && (this.state.deptSelected.header == deptShortname)) {
+      // toggle off dept filter
+      this.setState({
+        deptSelected: null,
+      })
+      this.props.initializeRankList(meta, null)
+    } else {
+      // filter by dept
+      this.setState({
+        deptSelected: dept,
+      })
+      this.props.initializeRankList(meta, deptShortname)
+    }
+  }
+
   render() {
+    let subheader = ''
+    if (this.state.deptSelected) {
+      subheader = `( ${this.state.deptSelected.header} )`
+    }
+
     return (
       <div className="container-main">
         <Container>
           <Header as="h2" color="blue">
             <Icon name="remove bookmark" />
             <Header.Content>
-              {this.props.meta.header}
+              {this.props.meta.header} {`${subheader}`}
             </Header.Content>
           </Header>
           <Divider hidden />
@@ -53,11 +81,27 @@ class RankDetailsContainer extends Component {
                   <div>
                     {
                       deptMeta.map(
-                        dept => (
-                          <span style={{ display: 'inline-block', margin: '5px 10px 5px 0', minWidth: '36px' }}>
-                            {dept.header}
-                          </span>
-                        ),
+                        (dept) => {
+                          let color = 'grey'
+                          if (this.state.deptSelected && dept.header == this.state.deptSelected.header) {
+                            color = 'blue'
+                          }
+                          return (
+                            <Label
+                              key={dept.header}
+                              basic
+                              color={color}
+                              style={{
+                                display: 'inline-block',
+                                margin: '5px 10px 5px 0',
+                                minWidth: '36px',
+                              }}
+                              onClick={() => { this.loadDeptList(dept) }}
+                            >
+                              {dept.header}
+                            </Label>
+                          )
+                        },
                       )
                     }
                   </div>
@@ -100,6 +144,6 @@ const mapStateToProps = state => ({
 // maps actions to props
 const mapActionToProps = dispatch => ({
   switchView: (view, meta) => dispatch(rankActions.switchView(view, meta)),
-  initializeRankList: meta => dispatch(rankActions.initializeRankList(meta)),
+  initializeRankList: (meta, deptShortname) => dispatch(rankActions.initializeRankList(meta, deptShortname)),
 })
 export default connect(mapStateToProps, mapActionToProps)(RankDetailsContainer)

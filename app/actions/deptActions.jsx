@@ -13,7 +13,7 @@ const getAPIParams = ({ skip = 0, dept = '' }) => {
     params: {
       populate: '[Prof,School,Depts,Stat]',
       '$Depts.shortname$': '数学',
-      sort: 'id ASC',
+      sort: 'scoreHot DESC',
       limit: 50,
       skip,
     },

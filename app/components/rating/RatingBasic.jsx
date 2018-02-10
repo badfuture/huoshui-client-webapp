@@ -10,7 +10,7 @@ const RatingBasic = props => (
       ` ${props.value.toFixed(1)}`
     }
     {
-      !props.hideFen &&
+      (!props.hideFen && !!props.value) &&
       `分`
     }
   </span>

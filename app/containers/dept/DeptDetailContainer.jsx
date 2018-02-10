@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Header, Icon, Divider, Container, Grid } from 'semantic-ui-react'
+import TableDeptInfinite from '../../components/table/TableDeptInfinite'
 import ListInfinite from '../../components/list/ListInfinite'
 import * as deptActions from '../../actions/deptActions'
 import CardDept from '../../components/card/CardDept'
@@ -24,7 +25,7 @@ class DeptsDetailContainer extends Component {
     return (
       <div className="container-main">
         <Container>
-          <Header as="h2" >
+          <Header as="h2" color="blue">
             <Icon name="map signs" />
             <Header.Content>
               逛逛：{deptName}
@@ -35,10 +36,12 @@ class DeptsDetailContainer extends Component {
           <Grid stackable>
             <Grid.Row>
               <Grid.Column width={11} style={{ paddingRight: '3.5rem' }}>
-                <ListInfinite {...this.props} />
+                <TableDeptInfinite {...this.props} />
               </Grid.Column>
               <Grid.Column width={5} style={{ paddingLeft: '1.0rem' }}>
-                <CardDept header={deptName} image={deptImg} />
+                <CardDept
+                  header={deptName} image={deptImg}
+                />
               </Grid.Column>
             </Grid.Row>
           </Grid>

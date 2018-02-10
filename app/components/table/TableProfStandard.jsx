@@ -25,7 +25,7 @@ const RowStandard = (props) => {
       </Table.Cell>
       <Table.Cell
         onClick={() => {
-          props.history.push(`/courses/${props.id}`)
+          props.history.push(`/profs/${props.id}`)
         }}
         singleLine
       >
