@@ -11,7 +11,7 @@ import {
 
 import {
   closeLoginModal, closeSignupModal,
-  closeEditAvatarModal,
+  closeEditAvatarModal, openPromptSignupModal,
  } from './modalActions'
 import getAllParams from '../utils/parseURL'
 import { getCookie, deleteAllCookies } from '../utils/parseCookie'
@@ -264,4 +264,13 @@ export const uploadAvatar = dataURL =>
    .catch((err) => {
      dispatch(uploadAvatarFailure(err))
    })
+  }
+
+export const checkLoggedIn = () =>
+  (dispatch) => {
+    const user = localStore.get('user')
+    if (!user) {
+      dispatch(openPromptSignupModal())
+      return false
+    }
   }

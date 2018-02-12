@@ -4,6 +4,10 @@ import {
   FETCH_HOT_REVIEWS_ATTEMPT, FETCH_HOT_REVIEWS_SUCCESS, FETCH_HOT_REVIEWS_ERROR,
   FETCH_NEW_REVIEWS_ATTEMPT, FETCH_NEW_REVIEWS_SUCCESS, FETCH_NEW_REVIEWS_ERROR,
   FETCH_REVIEW_BY_ID_ATTEMPT, FETCH_REVIEW_BY_ID_SUCCESS, FETCH_REVIEW_BY_ID_ERROR,
+  LIKE_REVIEW_ATTEMPT, LIKE_REVIEW_SUCCESS, LIKE_REVIEW_ERROR,
+  UNLIKE_REVIEW_ATTEMPT, UNLIKE_REVIEW_SUCCESS, UNLIKE_REVIEW_ERROR,
+  DISLIKE_REVIEW_ATTEMPT, DISLIKE_REVIEW_SUCCESS, DISLIKE_REVIEW_ERROR,
+  UNDISLIKE_REVIEW_ATTEMPT, UNDISLIKE_REVIEW_SUCCESS, UNDISLIKE_REVIEW_ERROR,
   FIRST_PAGE, NEXT_PAGE, PREV_PAGE, SWITCH_VIEW,
 } from '../constants/ReviewActionTypes'
 import {
@@ -72,6 +76,21 @@ export const nextPage = () => ({
 
 export const prevPage = () => ({
   type: PREV_PAGE,
+})
+
+// like & dislike review
+
+export const likeReviewAttempt = () => ({
+  type: LIKE_REVIEW_ATTEMPT,
+})
+export const unlikeReviewAttempt = () => ({
+  type: UNLIKE_REVIEW_ATTEMPT,
+})
+export const dislikeReviewAttempt = () => ({
+  type: DISLIKE_REVIEW_ATTEMPT,
+})
+export const undislikeReviewAttempt = () => ({
+  type: UNDISLIKE_REVIEW_ATTEMPT,
 })
 
 export const initializePage = () =>
@@ -195,7 +214,6 @@ export const fetchReviewById = reviewId =>
        })
     )
   }
-
 
 // Get hot reviews
 export const fetchHotReviewsAttempt = () => ({
