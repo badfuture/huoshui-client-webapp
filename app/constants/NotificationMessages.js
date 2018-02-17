@@ -39,5 +39,14 @@ module.exports = {
       callback: () => {},
     },
   },
-
+  addToKelistSuccess: {
+    title: '添加成功',
+    message: '课程成功添加到课列！',
+    position: 'bc',
+    autoDismiss: 0,
+    action: {
+      label: '确定',
+      callback: () => {},
+    },
+  },
 }

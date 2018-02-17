@@ -16,6 +16,7 @@ export const URL_USER = `/users`
 export const URL_REVIEW = `/reviews`
 export const URL_PROF = `/profs`
 export const URL_COURSE = `/courses`
+export const URL_KELIST = `/kelists`
 
 export const URL_COMMENT = `/comments`
 export const URL_FEEDBACK = `/feedbacks`

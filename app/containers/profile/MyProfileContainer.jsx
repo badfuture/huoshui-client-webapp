@@ -27,14 +27,12 @@ class MyProfileContainer extends Component {
 
   componentDidMount() {
     this.props.getLatestUserInfo()
-    console.log('componentDidMount')
     let urlHash = this.props.location.hash.substr(1)
     urlHash = urlHash || 'review'
     this.setState({ activeTab: urlHash })
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log('componentWillReceiveProps')
     const { location } = nextProps
     const nextHash = location.hash.substr(1)
     const urlHash = nextHash || 'review'
