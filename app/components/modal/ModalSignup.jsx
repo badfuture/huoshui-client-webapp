@@ -169,31 +169,35 @@ class ModalSignup extends Component {
 
               <Header
                 size="small"
+                textAlign="center"
                 disabled
                 style={{ marginTop: '2em' }}
               >
                 注册即代表你同意<Link to={`/terms`} target="_blank">《活水协议》</Link>
               </Header>
-              <div
-                style={{
-                  position: 'absolute',
-                  right: '2em',
-                  bottom: '2em',
-                }}
-              >
-                <Button
-                  color="twitter"
-                  icon={<Icon name="qq" />}
-                  circular
-                  onClick={this.handleClickQQ.bind(this)}
-                />&nbsp;
-                <Button
-                  color="google plus"
-                  icon={<Icon name="weibo" />}
-                  circular
-                  onClick={this.handleClickWeibo.bind(this)}
-                />&nbsp;
-              </div>
+              {/*
+                <div
+                  style={{
+                    position: 'absolute',
+                    right: '2em',
+                    bottom: '2em',
+                  }}
+                >
+                  <Button
+                    color="twitter"
+                    icon={<Icon name="qq" />}
+                    circular
+                    onClick={this.handleClickQQ.bind(this)}
+                  />&nbsp;
+                  <Button
+                    color="google plus"
+                    icon={<Icon name="weibo" />}
+                    circular
+                    onClick={this.handleClickWeibo.bind(this)}
+                  />&nbsp;
+                </div>
+              */}
+
 
             </Container>
           </Modal.Content>

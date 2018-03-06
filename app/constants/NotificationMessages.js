@@ -46,7 +46,9 @@ module.exports = {
     autoDismiss: 0,
     action: {
       label: '确定',
-      callback: () => {},
+      callback: () => {
+        window.location.reload()
+      },
     },
   },
 }

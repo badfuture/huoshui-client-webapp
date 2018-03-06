@@ -11,7 +11,7 @@ const CardReviewDetail = props => (
       <Card.Header>
         <Header as="h4">
           <Image floated="left" size="mini" circular src={props.author.avatar} />
-          点评 <Link to={`/profs/${props.prof.id}`}>{props.prof.name}</Link> 的 <Link to={`/courses/${props.course.id}`}>{props.course.name}</Link>
+          评 <Link to={`/profs/${props.prof.id}`}>{props.prof.name}</Link> 的 <Link to={`/courses/${props.course.id}`}>{props.course.name}</Link>
         </Header>
       </Card.Header>
       <Card.Meta>

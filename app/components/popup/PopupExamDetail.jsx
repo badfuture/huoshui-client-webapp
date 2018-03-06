@@ -32,7 +32,19 @@ export default class PopupExamDetail extends Component {
         position="bottom center"
         wide
       >
-        <Popup.Header>考试体验</Popup.Header>
+        <Popup.Header>
+          <span style={{ display: 'inline' }}>
+            考试体验
+            <Header
+              disabled sub size="small"
+              color="grey"
+              style={{ display: 'inline', marginLeft: '1em' }}
+            >
+              {`(赞同人数 / 参与人数)`}
+            </Header>
+          </span>
+        </Popup.Header>
+
         <Popup.Content>
           <Table basic="very" compact="very" collapsing verticalAlign="middle">
             <Table.Body>

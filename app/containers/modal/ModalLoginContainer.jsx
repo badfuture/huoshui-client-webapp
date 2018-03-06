@@ -18,6 +18,7 @@ class ModalLoginContainer extends Component {
     return (
       <ModalLogin
         visible={this.props.modals.loginModalVisible}
+        openSignupModal={this.props.openSignupModal}
         onClose={this.props.closeLoginModal}
         onLogin={this.props.loginUser}
         onLoginQQ={this.props.loginUserOauth}
@@ -38,6 +39,7 @@ const mapStateToProps = state => ({
 // maps actions to props
 const mapActionToProps = dispatch => ({
   closeLoginModal: () => dispatch(modalActions.closeLoginModal()),
+  openSignupModal: () => dispatch(modalActions.openSignupModal()),
   loginUser: creds => dispatch(authActions.loginUser(creds)),
   loginUserOauth: popup => dispatch(authActions.loginUserOauth(popup)),
   loginUserOauth: popup => dispatch(authActions.loginUserOauth(popup)),

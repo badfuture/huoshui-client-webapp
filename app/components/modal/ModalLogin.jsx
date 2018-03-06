@@ -88,23 +88,36 @@ class ModalLogin extends Component {
                 <Button primary fluid type="submit" >登录</Button>
               </Form>
             </Container>
-
-            <Divider horizontal>Or</Divider>
+            <Divider horizontal />
 
             <Container textAlign="center">
-              <Button
-                color="twitter"
-                icon={<Icon name="qq" />}
-                circular
-                onClick={this.handleClickQQ.bind(this)}
-              />&nbsp;
-              <Button
-                color="google plus"
-                icon={<Icon name="weibo" />}
-                circular
-                onClick={this.handleClickWeibo.bind(this)}
-              />&nbsp;
+              没有活水账号？先
+              <span
+                style={{ color: '#2284d1', cursor: 'pointer', fontWeight: 'bold' }}
+                onClick={() => {
+                  this.props.onClose()
+                  this.props.openSignupModal()
+                }}
+              > 注册 </span>吧
             </Container>
+            {/*
+              <Divider horizontal>Or</Divider>
+
+              <Container textAlign="center">
+                <Button
+                  color="twitter"
+                  icon={<Icon name="qq" />}
+                  circular
+                  onClick={this.handleClickQQ.bind(this)}
+                />&nbsp;
+                <Button
+                  color="google plus"
+                  icon={<Icon name="weibo" />}
+                  circular
+                  onClick={this.handleClickWeibo.bind(this)}
+                />&nbsp;
+              </Container>
+            */}
 
           </Modal.Content>
         </Modal>

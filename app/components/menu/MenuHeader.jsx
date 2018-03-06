@@ -10,8 +10,13 @@ const propTypes = {
 }
 
 const loginItem = props => (
-  <Menu.Item name="login" onClick={props.openLoginModal} style={{ marginRight: '1em' }}>
-    <span>登录</span>
+  <Menu.Item name="login" style={{ marginRight: '1em' }}>
+    <span
+      style={{ cursor: 'pointer' }}
+      onClick={props.openLoginModal}
+    >
+      登录
+    </span>
   </Menu.Item>
 )
 loginItem.propTypes = {
@@ -19,8 +24,13 @@ loginItem.propTypes = {
 }
 
 const signupItem = props => (
-  <Menu.Item name="signup" onClick={props.openSignupModal} style={{ marginRight: '1em' }}>
-    <span>注册</span>
+  <Menu.Item name="signup" style={{ marginRight: '1em' }}>
+    <span
+      style={{ cursor: 'pointer' }}
+      onClick={props.openSignupModal}
+    >
+      注册
+    </span>
   </Menu.Item>
 )
 

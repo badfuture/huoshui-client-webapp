@@ -12,6 +12,7 @@ export const DOMAIN = domain
 export const URL_LOGIN = `/auth/login`
 export const URL_SIGNUP = `/auth/signup`
 
+export const URL_SINGLE_USER = `/user`
 export const URL_USER = `/users`
 export const URL_REVIEW = `/reviews`
 export const URL_PROF = `/profs`
@@ -26,6 +27,6 @@ export const URL_TAG = `/tags`
 export const URL_DEPT = `/depts`
 
 // Qiniuyun Object Store Service
-export const OSS_DOMAIN = 'http://oss.huoshui.org'
+export const OSS_DOMAIN = 'http://cdn.huoshui.org'
 export const OSS_DOMAIN_SITE = `${OSS_DOMAIN}/site`
 export const OSS_DOMAIN_USER = `${OSS_DOMAIN}/user`

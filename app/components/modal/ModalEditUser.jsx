@@ -3,15 +3,10 @@ import { connect } from 'react-redux'
 import { Button, Header, Icon, Modal, Checkbox, Form, Input, Label, Dropdown } from 'semantic-ui-react'
 import axios from 'axios'
 import profileOptions from '../../data/user_profile_options'
-import { URL_DEPT } from '../../constants/ApiEndpoints'
+import { URL_DEPT, URL_SINGLE_USER } from '../../constants/ApiEndpoints'
 
 const initialState = {
-  username: '',
-  email: '',
-
   // dept options
-  deptOptions: [],
-  deptChosen: null,
   isFetchingDepts: false,
 
   // meta state
@@ -24,14 +19,24 @@ class ModalEditUser extends Component {
     super(props)
 
     this.state = initialState
-    Object.assign(this.state, {
-      username: this.props.user.username,
-      email: this.props.user.email,
-    })
+  }
+
+  componentDidMount() {
+    this.getDeptOptions()
   }
 
   reset = () => {
     this.setState(initialState)
+  }
+
+  submit = () => {
+    const { username, email, firstYear, deptId, schoolId } = this.state
+    axios.patch(URL_SINGLE_USER, {
+      username, email, firstYear, deptId, schoolId,
+    })
+    .then(() => {
+      window.location.reload()
+    })
   }
 
   onClose = () => {
@@ -40,13 +45,8 @@ class ModalEditUser extends Component {
 
   handleChange = (e, { name, value }) => this.setState({ [name]: value })
 
-  // handle dept dropdown
-  handleDeptChange = (e, { value }) => {
-    this.setState({ deptChosen: value })
-  }
-
   getDeptOptions = () => {
-    if (this.state.deptOptions.length !== 0) {
+    if (this.state.deptOptions && this.state.deptOptions.length !== 0) {
       return
     }
     this.setState({ isFetchingDepts: true })
@@ -66,7 +66,14 @@ class ModalEditUser extends Component {
 
 
   render() {
-    const { username, email, password, password2, showWarning } = this.state
+    const {
+      username = this.props.user.username,
+      email = this.props.user.email,
+      schoolId = this.props.user.school_id,
+      deptId = this.props.user.dept_id,
+      deptOptions = [],
+      firstYear = this.props.user.firstYear,
+    } = this.state
     const { trigger } = this.props
 
     return (
@@ -102,23 +109,29 @@ class ModalEditUser extends Component {
             <Form.Field>
               <Form.Dropdown
                 placeholder="学院" fluid selection
-                options={this.state.deptOptions}
+                options={deptOptions}
                 onOpen={this.getDeptOptions}
                 loading={this.state.isFetchingDepts}
-                onChange={this.handleDeptChange}
-                value={this.state.deptChosen}
+                onChange={this.handleChange}
+                name="deptId"
+                value={deptId}
               />
             </Form.Field>
             <Form.Field>
-              <Form.Dropdown fluid selection options={profileOptions.year} placeholder="年级" />
+              <Form.Dropdown
+                fluid selection options={profileOptions.year} placeholder="年级"
+                name="firstYear"
+                onChange={this.handleChange}
+                value={firstYear}
+              />
             </Form.Field>
           </Form>
         </Modal.Content>
         <Modal.Actions>
           <Button color="grey" onClick={this.reset}>
-            <Icon name="remove" /> 清空
+            <Icon name="remove" /> 重置
           </Button>
-          <Button color="blue">
+          <Button color="blue" onClick={this.submit}>
             <Icon name="checkmark" /> 保存
           </Button>
         </Modal.Actions>

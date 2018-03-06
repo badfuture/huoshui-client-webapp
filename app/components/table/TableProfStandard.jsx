@@ -8,7 +8,7 @@ const RowStandard = (props) => {
     isLeading = true
   }
 
-  let deptIcon = 'http://oss.huoshui.org/site/images/dept/icons/ufo.png'
+  let deptIcon = 'http://cdn.huoshui.org/site/images/dept/icons/ufo.png'
   if (props.Depts[0]) {
     deptIcon = props.Depts[0].icon
   }
