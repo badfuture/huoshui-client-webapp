@@ -95,6 +95,7 @@ class RankDetailsContainer extends Component {
                                 display: 'inline-block',
                                 margin: '5px 10px 5px 0',
                                 minWidth: '36px',
+                                cursor: 'pointer',
                               }}
                               onClick={() => { this.loadDeptList(dept) }}
                             >

@@ -1,0 +1,11 @@
+.description {
+  overflow: hidden;
+  overflow-wrap: 'break-word';
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3; /* number of lines to show */
+  line-height: 1.5em;        /* fallback */
+  max-height: 7.5em;       /* fallback */
+  height: 7.5em;       /* fallback */
+}

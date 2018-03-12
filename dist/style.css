@@ -193,6 +193,20 @@ footer p {
   color: #93999f;
   float: right;
   font-size: 0.8em; }
+._2mnEgmZc9Iv0R5vTv3Lmqc {
+  overflow: hidden;
+  overflow-wrap: 'break-word';
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  /* number of lines to show */
+  line-height: 1.5em;
+  /* fallback */
+  max-height: 7.5em;
+  /* fallback */
+  height: 7.5em;
+  /* fallback */ }
 .A191fp2O1D_j8kUeew4Vz {
   margin: 0.4em !important; }
 ._1_62xUzBrGziI0gq2Qa9G7 {

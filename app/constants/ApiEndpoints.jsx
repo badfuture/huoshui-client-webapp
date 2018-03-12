@@ -16,6 +16,7 @@ export const URL_SINGLE_USER = `/user`
 export const URL_USER = `/users`
 export const URL_REVIEW = `/reviews`
 export const URL_PROF = `/profs`
+export const URL_RANDOM_PROF = `/random_prof?populate=all`
 export const URL_COURSE = `/courses`
 export const URL_KELIST = `/kelists`
 

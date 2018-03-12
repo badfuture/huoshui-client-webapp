@@ -1,6 +1,8 @@
 import React from 'react'
-import { Container, Header, Image, Grid, Item, Transition } from 'semantic-ui-react'
+import { Container, Header, Image, Grid, Item, Transition, Feed, Icon } from 'semantic-ui-react'
 import StatSiteContainer from '../../containers/stat/StatSiteContainer'
+import QuoteProf from '../../components/quote/QuoteProf'
+
 import TagList from '../tag/TagList'
 
 const imgSrcSwjtu = '/images/barcode/wechat_swjtu_tool_set.png'
@@ -9,6 +11,10 @@ const imgSrcFoundation = '/images/barcode/wechat_third_foundation.png'
 const HomeSideContent = props => (
   <Container>
     <StatSiteContainer />
+
+    <Header as="h3" dividing>教师语录</Header>
+    <QuoteProf />
+
     <Header as="h3" dividing>主要院系</Header>
     <TagList />
 
