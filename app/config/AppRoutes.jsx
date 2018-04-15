@@ -24,6 +24,7 @@ import AddReviewContainer from '../containers/review/AddReviewContainer'
 import RankContainer from '../containers/rank/RankContainer'
 import RankDetailsContainer from '../containers/rank/RankDetailsContainer'
 import KelistContainer from '../containers/kelist/KelistContainer'
+import KelistDetailContainer from '../containers/kelist/KelistDetailContainer'
 import DeptsContainer from '../containers/dept/DeptsContainer'
 import DeptDetailContainer from '../containers/dept/DeptDetailContainer'
 import FeedbackContainer from '../containers/feedback/FeedbackContainer'
@@ -77,6 +78,7 @@ const AppRoutes = () => (
           <AppRoute exact path="/rankings" layout={LayoutDefault} component={RankContainer} />
           <AppRoute exact path="/rankings/:id" layout={LayoutDefault} component={RankDetailsContainer} />
           <AppRoute exact path="/kelists" layout={LayoutDefault} component={KelistContainer} />
+          <AppRoute exact path="/kelists/:id" layout={LayoutDefault} component={KelistDetailContainer} />
           <AppRoute exact path="/depts" layout={LayoutDefault} component={DeptsContainer} />
           <AppRoute exact path="/depts/:id" layout={LayoutDefault} component={DeptDetailContainer} />
           <AppRoute exact path="/my-review" layout={LayoutDefault} component={MyReviewContainer} />

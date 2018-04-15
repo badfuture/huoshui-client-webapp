@@ -35,7 +35,7 @@
     "id": "birdy",
     "image": "/images/rank/full/birdy.jpeg",
     "header": "水课榜",
-    "description": "按水课相关标签数量和数据",
+    "description": "按水课相关标签数量和数据排",
     "type": "course",
     "sort": "scoreBirdy DESC"
   },

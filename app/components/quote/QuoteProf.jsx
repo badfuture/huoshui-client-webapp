@@ -20,7 +20,6 @@ class QuoteProf extends Component {
     this.setState({ isFetching: true })
     axios.get(`${URL_RANDOM_PROF}`)
     .then((res) => {
-      console.log('debufr')
       this.setState({
         prof: res.data,
         isFetching: false,
@@ -35,7 +34,7 @@ class QuoteProf extends Component {
       image = prof.avatar
     }
 
-    if (this.state.isFetching) {
+    if (!this.state.prof) {
       return (
         <div style={{ marginTop: '3em' }}>
           <Spinner />
@@ -44,13 +43,13 @@ class QuoteProf extends Component {
     }
     return (
       <div>
-        <Feed>
+        <Feed style={{ marginBottom: '0.75em' }}>
           <Feed.Event>
             <Feed.Label image={image} />
             <Feed.Content style={{ marginLeft: '0.30em' }}>
               <Feed.Summary>
                 <Link
-                  to={`/profs/${1}`}
+                  to={`/profs/${prof.id}`}
                   style={{ color: 'rgba(33, 133, 208, 0.8)' }}
                 >
                   { prof && prof.name}

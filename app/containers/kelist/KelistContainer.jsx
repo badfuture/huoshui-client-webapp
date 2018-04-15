@@ -7,7 +7,7 @@ import deptMeta from '../../data/dept.json'
 
 const items = dataKelist
 
-const KelistContainer = () => (
+const KelistContainer = props => (
   <div className="container-main-grey">
     <Container>
       <Grid stackable>
@@ -17,6 +17,7 @@ const KelistContainer = () => (
               {items.map(
                 item => <CardKelist
                   {...item}
+                  {...props}
                 />,
               )}
             </Card.Group>

@@ -40,9 +40,9 @@ class RankDetailsContainer extends Component {
   }
 
   render() {
-    let subheader = ''
+    let deptText = ''
     if (this.state.deptSelected) {
-      subheader = `( ${this.state.deptSelected.header} )`
+      deptText = `( ${this.state.deptSelected.header} )`
     }
 
     return (
@@ -51,7 +51,10 @@ class RankDetailsContainer extends Component {
           <Header as="h2" color="blue">
             <Icon name="remove bookmark" />
             <Header.Content>
-              {this.props.meta.header} {`${subheader}`}
+              {this.props.meta.header} {`${deptText}`}
+              <Header.Subheader style={{ fontSize: '0.6em' }}>
+                {this.props.meta.description}
+              </Header.Subheader>
             </Header.Content>
           </Header>
           <Divider hidden />

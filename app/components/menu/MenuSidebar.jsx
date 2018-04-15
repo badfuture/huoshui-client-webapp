@@ -16,7 +16,10 @@ const checkAuth = (e, props) => {
 }
 
 const MenuSidebar = props => (
-  <Sidebar.Pushable as={Segment} style={{ boxShadow: 'none', border: 'none' }}>
+  <Sidebar.Pushable
+    as={Segment}
+    style={{ boxShadow: 'none', border: 'none', marginTop: 0 }}
+  >
     <Sidebar
       as={Menu}
       animation="overlay" direction="left"
