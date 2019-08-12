@@ -1,17 +1,11 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import FormFeedback from '../../components/form/FormFeedback'
-import * as feedbackActions from '../../actions/feedbackActions'
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import FormFeedback from "../../components/form/FormFeedback";
+import * as feedbackActions from "../../actions/feedbackActions";
 
 class FeedbackFormContainer extends Component {
-  componentDidMount() {
-
-  }
-
   render() {
-    return (
-      <FormFeedback {...this.props} />
-    )
+    return <FormFeedback {...this.props} />;
   }
 }
 
@@ -19,12 +13,15 @@ class FeedbackFormContainer extends Component {
 const mapStateToProps = state => ({
   feedback: state.feedback,
   isFetching: state.feedback.isFetching,
-  sendSuccess: state.feedback.sendSuccess,
-})
+  sendSuccess: state.feedback.sendSuccess
+});
 
 // map redux actions to prop
 const mapActionToProps = dispatch => ({
-  submitFeedback: feedback => dispatch(feedbackActions.submitFeedback(feedback)),
-})
+  submitFeedback: feedback => dispatch(feedbackActions.submitFeedback(feedback))
+});
 
-export default connect(mapStateToProps, mapActionToProps)(FeedbackFormContainer)
+export default connect(
+  mapStateToProps,
+  mapActionToProps
+)(FeedbackFormContainer);
